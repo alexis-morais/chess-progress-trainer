@@ -1,9 +1,11 @@
-import { Component, useMemo, useState, type ReactNode } from 'react';
+import { Component, lazy, Suspense, useMemo, useState, type ReactNode } from 'react';
 import { ArrowUpRight, BookOpen, ShieldCheck } from 'lucide-react';
 import { openings, type LessonMode, type Opening, type Variation } from './data/openings';
 import { compileLesson } from './trainer/model';
 import { OpeningLibrary } from './components/OpeningLibrary';
 import { Trainer } from './components/Trainer';
+
+const ComputerMode = lazy(() => import('./computer/ComputerMode'));
 
 export class ErrorBoundary extends Component<{ children: ReactNode }, { error: Error | null }> {
   state: { error: Error | null } = { error: null };
@@ -38,7 +40,9 @@ export default function App() {
   const [selected, setSelected] = useState<string | null>(null);
   const [mode, setMode] = useState<LessonMode | null>(null);
   const [session, setSession] = useState(0);
+  const [computer, setComputer] = useState(false);
   function goHome() {
+    setComputer(false);
     setActive(null);
     setExpanded(null);
     setSelected(null);
@@ -46,6 +50,7 @@ export default function App() {
     window.scrollTo(0, 0);
   }
   function variants() {
+    setComputer(false);
     setActive(null);
     window.scrollTo(0, 0);
   }
@@ -71,7 +76,13 @@ export default function App() {
               <BookOpen size={16} />
               Entraînement
             </button>
-            <a href="#comment-ca-marche" onClick={() => setActive(null)}>
+            <a
+              href="#comment-ca-marche"
+              onClick={() => {
+                setActive(null);
+                setComputer(false);
+              }}
+            >
               Comment ça marche <ArrowUpRight size={13} />
             </a>
           </nav>
@@ -81,7 +92,17 @@ export default function App() {
           </span>
         </div>
       </header>
-      {active ? (
+      {computer ? (
+        <Suspense
+          fallback={
+            <main id="main" className="page-width">
+              <p role="status">Chargement du mode Partie libre…</p>
+            </main>
+          }
+        >
+          <ComputerMode onHome={goHome} />
+        </Suspense>
+      ) : active ? (
         <ActiveTrainer
           key={`${active.variation.id}-${active.mode}-${session}`}
           selection={active}
@@ -91,6 +112,10 @@ export default function App() {
         />
       ) : (
         <OpeningLibrary
+          onComputer={() => {
+            setComputer(true);
+            window.scrollTo(0, 0);
+          }}
           openings={openings}
           expanded={expanded}
           selected={selected}

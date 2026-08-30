@@ -2,9 +2,13 @@
 
 **Entraîne-toi aux ouvertures, coup après coup.**
 
-Prototype pédagogique du **Chess Progress Project 2026** : une application web en français pour apprendre **60 variantes d’échecs, chacune en deux niveaux**, soit 120 séquences. Gratuite, sans compte, sans publicité, sans clé API et sans serveur applicatif. Tout fonctionne dans le navigateur, sur ordinateur, tablette et smartphone.
+Prototype pédagogique du **Chess Progress Project 2026** : une application web en français pour apprendre **60 variantes d’échecs, chacune en deux niveaux**, soit 120 séquences, et **jouer des parties complètes contre Stockfish avec un bilan après la partie**. Gratuite, sans compte, sans publicité, sans clé API et sans serveur applicatif. Tout fonctionne dans le navigateur, sur ordinateur, tablette et smartphone.
+
+Dans le **mode Ouvertures**, le principe reste inchangé :
 
 > Les coups de l’adversaire sont prédéfinis par les variantes pédagogiques. Stockfish est utilisé uniquement pour l’évaluation des positions.
+
+Dans le **mode Partie libre**, Stockfish choisit réellement ses coups. Les deux comportements sont séparés dans le code.
 
 Évolution du 30 août 2026 : ajout des deux niveaux, de 44 variantes et du feedback sur l’échiquier, en conservant les 16 lignes historiques et l’intégration locale de Stockfish.
 
@@ -41,11 +45,51 @@ Les noms et positions caractéristiques ont été recoupés avec le [répertoire
 
 Ton camp est toujours en bas. Si tu joues les Noirs, l’ordinateur joue le premier coup blanc après 600 ms. La progression compte uniquement **tes** coups, pas ceux de l’adversaire. Le compteur principal indique les coups complétés ; « Coup 3 / 6 » désigne la prochaine décision attendue. Le dernier mouvement est surligné pour les deux camps.
 
-**Recommencer** et **Rejouer la variante** réinitialisent la position, la progression, les erreurs, les aides, les sélections, les badges, les minuteries et le moteur d’analyse. Le mode choisi est conservé. Rien n’est enregistré : une actualisation revient à l’accueil.
+**Recommencer** et **Rejouer la variante** réinitialisent la position, la progression, les erreurs, les aides, les sélections, les badges, les minuteries et le moteur d’analyse. Le mode choisi est conservé. Les séances d’ouverture ne sont pas enregistrées : une actualisation revient à l’accueil.
+
+## Jouer contre l’ordinateur
+
+Depuis le bloc séparé de l’accueil, cliquer sur **Configurer une partie**, choisir Blancs, Noirs ou Aléatoire, puis l’un des trois niveaux. Le camp choisi est toujours en bas ; Stockfish commence si tu joues les Noirs. Tous les coups légaux sont autorisés, y compris le roque, la prise en passant et les quatre promotions.
+
+La partie se termine par mat, pat, répétition, règle des 50 coups, matériel insuffisant ou abandon confirmé. Les nulles par répétition et 50 coups sont déclarées automatiquement dans ce prototype, sans procédure de réclamation. Il n’y a pas de chronomètre. L’historique affiche les coups en notation française.
+
+Après la partie, **Analyser ma partie** lance le bilan. Il comprend les six catégories de coups, une précision estimée, la courbe d’évaluation interactive, la navigation dans les positions, un commentaire pour chacun de tes coups, le meilleur coup trouvé et une suite de six demi-coups au maximum. **Voir le meilleur coup** ramène le plateau à la position avant ton coup pour tracer une flèche légale.
+
+La dernière partie **terminée**, puis son bilan, sont sauvegardés dans `localStorage` sur cet appareil uniquement. Après une actualisation, ouvrir **Configurer une partie**, puis **Retrouver la partie** ou **Revoir le bilan**. Rien n’est envoyé à un serveur. Le stockage privé/bloqué peut empêcher cette sauvegarde ; un message prévient alors de garder l’onglet ouvert. Une partie encore en cours n’est pas sauvegardée. Supprimer les données du site efface la sauvegarde.
+
+### Niveaux et temps de calcul
+
+| Usage                 | Skill Level | Profondeur maximale | Temps de recherche maximal par position |
+| --------------------- | ----------: | ------------------: | --------------------------------------: |
+| Débutant              |           0 |                   3 |                                  100 ms |
+| Intermédiaire         |           7 |                   8 |                                  350 ms |
+| Expert                |          20 |                  18 |                                1 200 ms |
+| Bilan après la partie |          20 |                  14 |                                  350 ms |
+
+Stockfish s’arrête dès qu’une des limites est atteinte ; le temps réel dépend du navigateur et de l’appareil. Une courte pause visuelle de 250 ms précède les réponses en partie. Le niveau Débutant utilise **Skill Level**, qui permet au moteur de choisir volontairement des coups sous-optimaux. Intermédiaire dispose de plus de calcul ; Expert supprime cette faiblesse volontaire. Aucun Elo n’est annoncé ni garanti : Débutant peut encore être difficile pour un novice. Le comportement de limitation est documenté dans la [FAQ officielle Stockfish](https://official-stockfish.github.io/docs/stockfish-wiki/Stockfish-FAQ.html) et confirmé dans les sources de la version embarquée.
+
+### Méthode du bilan
+
+`chess.js` reconstruit toute la partie. Stockfish analyse **séquentiellement** chaque position distincte dans la chronologie, avant/après les décisions de l’élève et après les réponses adverses pour la courbe. L’historique complet est transmis au moteur pour les répétitions. Les positions terminales sont évaluées exactement par les règles de chess.js. Aucune analyse de bilan n’est lancée pendant la partie.
+
+Pour un score en centipions, la perte est `max(0, évaluation avant − évaluation après)`, depuis le camp du joueur. Le score « avant » correspond au meilleur jeu trouvé par le moteur. Au-delà de ±300 centipions, la fonction `signe(x) × (300 + 200 × ln(1 + (abs(x) − 300) / 200))` atténue les variations dans les positions très déséquilibrées ; en deçà, la valeur reste inchangée.
+
+- **Meilleur coup** : coup identique à celui trouvé dans cette recherche limitée.
+- Sinon, perte ajustée ≤15 : **Excellent** ; ≤60 : **Bon** ; ≤130 : **Imprécision** ; ≤300 : **Erreur** ; au-delà : **Gaffe**.
+- Un nouveau mat forcé contre le joueur est une gaffe, ou une erreur si la position était déjà très perdante. La disparition d’un mat gagnant est pondérée selon l’avantage qui reste. Une position déjà condamnée n’est pas pénalisée à nouveau simplement parce que le mat se rapproche.
+- **Précision estimée** : `100 × exp(−moyenne des pertes ajustées plafonnées à 600 / 160)`, arrondie. Aucun indice n’est donné si le joueur n’a joué aucun coup. C’est une convention pédagogique propre au projet, pas une précision officielle ni un classement.
+
+Les commentaires sont générés **localement par des règles**, à partir du classement, du score et des faits vérifiables : pièce déplacée, développement, case centrale, capture, échec, mat, roque, promotion ou prise en passant. Une perte matérielle n’est mentionnée que si une courte suite légale la montre. Sinon, le texte reste prudent et indique le coup préféré de Stockfish. Il n’y a ni API d’IA, ni texte tactique inventé.
+
+L’analyse courte peut manquer une tactique, modifier une évaluation d’une position à l’autre ou préférer un autre coup à plus grande profondeur. Les commentaires ne remplacent pas un professeur ; les variantes affichées ne sont pas des certitudes. La courbe borne les évaluations extrêmes et identifie les mats avec **M**. Tous ses scores sont du point de vue des Blancs.
+
+Une seule recherche est active par Worker. Quitter l’analyse annule le travail et détruit le Worker ; les anciennes réponses sont ignorées. Une partie de 40 coups complets représente jusqu’à 81 positions, soit environ 28 secondes de budget de recherche, hors chargement et traitement. Le bilan peut prendre davantage de temps sur un téléphone lent.
 
 ## Stockfish
 
-**Stockfish.js 18.0.8 Lite Single-Threaded**, exécuté dans un Web Worker/WASM. Les fichiers officiels `stockfish-18-lite-single.js` et `stockfish-18-lite-single.wasm` sont inclus dans `public/engine/`. Le WASM pèse environ 7,3 Mo et n’est chargé que lors d’un entraînement. Aucun appel à un service d’analyse ou CDN pendant l’utilisation.
+**Stockfish.js 18.0.8 Lite Single-Threaded**, exécuté dans un Web Worker/WASM. Les fichiers officiels `stockfish-18-lite-single.js` et `stockfish-18-lite-single.wasm` sont inclus dans `public/engine/`. Le WASM pèse environ 7,3 Mo et n’est chargé que lors d’un entraînement, d’une partie ou d’un bilan non sauvegardé. Les deux modes réutilisent ces mêmes fichiers ; aucune nouvelle dépendance moteur n’a été ajoutée. Aucun appel à un service d’analyse ou CDN pendant l’utilisation.
+
+**Dans le trainer d’ouvertures** :
 
 - Analyse après chaque position : au maximum profondeur 12 ou 250 ms de recherche, table de hachage 16 Mo.
 - Valeur positive : avantage Blancs ; négative : avantage Noirs. `M3` signifie un mat annoncé en 3 coups pour les Blancs ; `−M3` pour les Noirs.
@@ -54,6 +98,8 @@ Ton camp est toujours en bas. Si tu joues les Noirs, l’ordinateur joue le prem
 - Le message UCI `bestmove` sert seulement de signal de fin d’analyse : son coup n’est jamais lu par le trainer.
 - Si le chargement, WebAssembly ou l’analyse échoue, **Analyse indisponible** apparaît ; l’exercice continue normalement. Recommencer relance le moteur.
 - Aucune exigence SharedArrayBuffer, COOP/COEP ou serveur spécial : compatible avec GitHub Pages.
+
+**Dans la partie libre**, `src/computer/ComputerEngine.ts` interprète `bestmove`, vérifie sa légalité et gère les niveaux et la file de recherches. En cas d’échec, la partie se met en pause et propose **Relancer Stockfish**, sans inventer de coup de remplacement. Le bilan propose de réessayer ou de revenir au résultat. Le module d’ouvertures n’importe pas ce moteur de partie libre.
 
 Voir [les instructions Stockfish](public/engine/README.md) et [les licences et crédits](THIRD_PARTY_NOTICES.md).
 
@@ -68,6 +114,7 @@ src/trainer/model.ts        Validation et transitions de l’exercice
 src/trainer/useTrainer.ts   Temporisation des réponses automatiques
 src/engine/                 Intégration UCI, isolation et gestion des erreurs
 src/components/             Accueil, plateau, évaluation et bilan
+src/computer/               Partie libre, moteur dédié, bilan, graphique et sauvegarde
 src/styles.css             Thème sombre et responsive
 src/test/                  Tests des 120 lignes, des préfixes, du trainer, de l’UI et du moteur
 public/engine/             Moteur, sources correspondantes et réseau NNUE
@@ -141,11 +188,11 @@ Documentation officielle : [déploiement avec GitHub Actions](https://docs.githu
 
 ## Tests et compatibilité
 
-Les **402 tests** rejouent intégralement les **120 lignes**, vérifient les 60 préfixes exacts, les 60 positions de référence et les 16 variantes historiques. Ils contrôlent aussi les coups refusés, les réponses adverses, les deux orientations, la progression par décision, les erreurs, les aides, les réinitialisations des deux modes, les badges temporaires rouge/vert, la fin de séance avec son mode, les interactions clavier, la file d’analyse et les pannes du moteur. Les tests UI utilisent le vrai composant react-chessboard.
+Les **473 tests** incluent les **402 tests historiques**, inchangés : les **120 lignes** légales, les 60 préfixes exacts, les 60 positions de référence, les 16 variantes historiques et tous les comportements du trainer. Les **71 nouveaux tests** vérifient les camps, les difficultés, les coups libres et illégaux, les fins de partie, les promotions, le protocole UCI, les analyses sérialisées et annulées, la classification, les commentaires, le graphique, la navigation et la sauvegarde validée. Les tests UI utilisent le vrai composant react-chessboard ; le processus Worker y est simulé. Le vrai moteur est aussi essayé dans le navigateur de production.
 
 La compilation cible Chrome 107+, Firefox 104+ et Safari 16+. Le moteur amont vise les navigateurs modernes avec WebAssembly (notamment iOS 16+). La version de production est à vérifier sur HTTP(S), à l’URL avec son sous-répertoire. Si un appareil refuse le WASM, l’exercice reste accessible.
 
-Le catalogue utilise des aperçus statiques légers ; seule la séance sélectionnée est compilée avec chess.js. Stockfish ne démarre pas sur l’accueil et ne travaille que sur la position affichée.
+Le catalogue utilise des aperçus statiques légers ; seule la séance sélectionnée est compilée avec chess.js. Le module Partie libre est chargé à la demande. Stockfish ne démarre ni sur l’accueil ni sur l’écran de configuration. Dans les parties et le trainer, il ne calcule que la position courante ; dans le bilan, il parcourt la partie une position à la fois.
 
 Le contrôle navigateur réalisé lors de la livraison et ses limites sont consignés dans `VALIDATION.md`. Une simulation de taille mobile ne remplace pas un test sur un appareil physique.
 

@@ -288,6 +288,74 @@ button img {
   gap: 18px;
   align-items: start;
 }
+.computer-entry {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  border: 1px solid #647356;
+  background: linear-gradient(115deg, #253025, #1b221c);
+  border-radius: 12px;
+  padding: 28px;
+  margin: 0 0 42px;
+}
+.computer-entry-icon {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  background: #c1d59b12;
+  color: #c1d59b;
+  border-radius: 14px;
+  flex-shrink: 0;
+}
+.computer-entry h2 {
+  margin: 8px 0;
+  font-size: 24px;
+  letter-spacing: -0.6px;
+}
+.computer-entry p {
+  font-size: 13px;
+  color: #c6cdbd;
+  line-height: 1.6;
+}
+.computer-entry-details {
+  display: block;
+  font-size: 11px;
+  color: #aab79c;
+  margin-top: 10px;
+}
+.computer-entry .button {
+  margin-left: auto;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+@media (max-width: 900px) {
+  .computer-entry {
+    flex-wrap: wrap;
+  }
+  .computer-entry-icon {
+    display: none;
+  }
+  .computer-entry .button {
+    margin-left: 0;
+  }
+}
+@media (max-width: 520px) {
+  .computer-entry {
+    padding: 22px;
+    gap: 18px;
+    margin-bottom: 28px;
+  }
+  .computer-entry h2 {
+    font-size: 22px;
+  }
+  .computer-entry .button {
+    width: 100%;
+  }
+  .computer-entry-details {
+    line-height: 1.7;
+  }
+}
 .opening-card {
   background: var(--panel);
   border: 1px solid var(--border);

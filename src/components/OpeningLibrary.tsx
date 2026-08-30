@@ -6,6 +6,7 @@ import {
   Flag,
   Lightbulb,
   MousePointer2,
+  Cpu,
 } from 'lucide-react';
 import { OpeningPreview } from './OpeningPreview';
 import { Chess } from 'chess.js';
@@ -14,6 +15,7 @@ import type { Opening, Variation, LessonMode } from '../data/openings';
 import { frenchSan, sideName, lessonModes, learnerMoveCount } from '../data/openings';
 
 type Props = {
+  onComputer: () => void;
   openings: Opening[];
   expanded: string | null;
   selected: string | null;
@@ -25,6 +27,7 @@ type Props = {
 };
 
 export function OpeningLibrary({
+  onComputer,
   openings,
   expanded,
   selected,
@@ -75,6 +78,22 @@ export function OpeningLibrary({
             D’UNE NOUVELLE HABITUDE.
           </span>
         </div>
+      </section>
+      <section className="computer-entry" aria-labelledby="computer-entry-title">
+        <div className="computer-entry-icon">
+          <Cpu size={29} />
+        </div>
+        <div>
+          <span className="eyebrow">UN AUTRE TERRAIN DE JEU</span>
+          <h2 id="computer-entry-title">Jouer contre l’ordinateur</h2>
+          <p>Joue une partie complète contre Stockfish puis analyse chacun de tes coups.</p>
+          <span className="computer-entry-details">
+            3 niveaux · Partie libre · Bilan sauvegardé sur cet appareil
+          </span>
+        </div>
+        <button className="button primary" onClick={onComputer}>
+          Configurer une partie <ArrowRight size={17} />
+        </button>
       </section>
       <section aria-labelledby="library-title">
         <div className="section-heading">
