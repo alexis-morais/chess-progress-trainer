@@ -1,61 +1,64 @@
-# Contrôle de livraison — 30 août 2026
+# Contrôle de l’évolution locale — 30 août 2026
 
 ## Résultat
 
-- **53 tests réussis / 53**, répartis dans quatre fichiers.
-- **Build de production réussi**, vérification TypeScript comprise, sans avertissement de taille ni erreur.
-- **Audit des dépendances de production : aucune vulnérabilité connue** au moment du contrôle.
-- Installation reproduite avec `pnpm install --frozen-lockfile --offline` depuis les paquets déjà téléchargés.
-- Toutes les séquences sont légales en SAN stricte : **16 variantes, 4 par ouverture**.
-- Aucun service externe, compte, clé, suivi publicitaire ou backend n’est utilisé par l’application.
+- **402 tests réussis / 402** dans quatre fichiers.
+- **120 / 120 séquences légales**, entièrement rejouées depuis la position initiale avec chess.js en SAN stricte : 60 essentielles et 60 étendues.
+- Exactement **10 ouvertures, 5 par camp, 6 variantes chacune**.
+- Les **16 variantes historiques** gardent leurs identifiants, noms, coups et explications.
+- Les 60 prolongements reprennent exactement leur ligne essentielle. Longueurs : 12–14 demi-coups essentiels et 20–29 étendus.
+- Les noms ont été recoupés avec **60 positions de référence Lichess CC0**, conservées dans les fixtures. Les transpositions sont comparées par position.
+- **Build de production réussi**, TypeScript et intégrité Stockfish compris, sans avertissement de taille.
+- **Aucune publication GitHub**, conformément à la demande. Le workflow et le préfixe GitHub Pages restent en place.
 
-## Tests automatiques réellement exécutés
+## Tests automatiques
 
-| Fichier | Tests | Couverture |
-| --- | ---: | --- |
-| `src/test/openings.test.ts` | 19 | Catalogue, identifiants, 16 lignes entièrement rejouées, données invalides, notation française |
-| `src/test/trainer.test.ts` | 22 | Orientations, premier coup, coups interdits, compteurs, aides uniques, réinitialisation, réponses et fin exactes pour les 16 lignes |
-| `src/test/engine.test.ts` | 7 | UCI, centipions et mats, point de vue des Blancs, limites de calcul, recherches périmées, pannes, délais et destruction |
-| `src/test/app.test.tsx` | 5 | Sélection explicite, véritable composant react-chessboard, flèche, feedback, délai de 600 ms, orientation noire, reprise, bilan et clavier |
+| Fichier                     | Tests | Couverture                                                                                                                                                                                                    |
+| --------------------------- | ----: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `src/test/openings.test.ts` |   259 | Catalogue 10 × 6, répartition 5/5, identifiants, 120 séquences légales, 60 préfixes exacts, 60 positions nommées, conservation des 16 historiques, données invalides et notation française                    |
+| `src/test/trainer.test.ts`  |   127 | Les 120 séances : orientation, réponses scriptées, progression, fin, reset ; coups interdits, erreurs, aides uniques, badges et minuteries périmées                                                           |
+| `src/test/engine.test.ts`   |     7 | UCI, scores et mats, point de vue des Blancs, limites de recherche, dernières positions, pannes, délais et destruction                                                                                        |
+| `src/test/app.test.tsx`     |     9 | Sélection ouverture/variante/mode, absence de moteur sur l’accueil, vrai échiquier React, refus, couleurs et badges, délais 600/900/1000 ms, flèche, compteurs, clavier, deux modes jusqu’au bilan et reprise |
 
-Commande : `pnpm check` (tests puis build). Le test sans moteur force l’échec du Worker et vérifie que les coups, compteurs et redémarrages restent utilisables.
+Commandes : `pnpm test`, puis `pnpm check` pour le contrôle final avec build. Le test de panne force l’échec du Worker et vérifie que l’exercice reste utilisable.
 
-## Vérifications dans un vrai navigateur
+Le premier passage a détecté des dépassements de durée des tests UI, dus aux dix aperçus interactifs de l’accueil. Ils ont été remplacés par des aperçus statiques utilisant les mêmes pièces SVG, sans contrôleurs de glisser-déposer. Les délais maximaux de tests n’ont pas été augmentés ; les tests passent après cette amélioration.
 
-Navigateur Chromium intégré, application servie en HTTP, d’abord en développement, puis depuis **le dossier `dist/`** à l’adresse `http://127.0.0.1:4173/chess-progress-trainer/`.
+## Parcours dans un vrai navigateur
 
-- Choix d’une ouverture : aucune partie avant la sélection d’une variante et le bouton de démarrage.
-- Italienne : Blancs en bas ; Française et Scandinave : Noirs en bas.
-- Française : premier coup blanc automatique `e4`, puis tour de l’élève.
-- Mauvais glisser-déposer `d2 → d4` dans l’Italienne : pion revenu sur d2, position inchangée, erreurs +1, progression 0/7.
-- Aide répétée sur le même coup : une seule aide ; flèche visible e2 → e4, supprimée après le coup correct.
-- Entrée sur e2 puis e4 au clavier : coup accepté ; progression 1/7.
-- Réponse noire automatique e5 et surbrillance effective des cases e7/e5.
-- Rejeu complet de l’Italienne jusqu’à 7/7 sur le build de production ; bilan, blocage du plateau et choix d’une autre variante vérifiés.
-- Rejeu complet de la Française jusqu’à 6/6 au format smartphone ; bilan et bouton Rejouer : position et compteurs remis à zéro.
-- Aucun message d’erreur ou d’avertissement de l’application dans la console du navigateur pendant ces parcours.
+Chromium intégré, en développement puis depuis **le build `dist/`**, servi à `http://127.0.0.1:4173/chess-progress-trainer/`.
 
-## Stockfish depuis le build final
+- Accueil : deux sections de cinq cartes, six variantes par carte, deux niveaux explicites. Le bouton Commencer reste désactivé tant qu’aucun niveau n’est sélectionné.
+- Italienne étendue sur ordinateur : mauvaise tentative d2–d4 refusée, pion conservé en d2, case d4 rouge et croix ; e2–e4 accepté, case verte et coche avant la réponse e7–e5. Stockfish actif.
+- **Londres / Fianchetto avec d5 / Version étendue** : parcours complet 12/12 jusqu’au bilan, 0 erreur, 12 aides ; les roques et les échanges sont joués réellement sur l’échiquier.
+- **Est-Indienne / Petrosian / Version étendue** sur smartphone simulé : Noirs en bas, premier coup d4 automatique ; d7–d5 refusé avec badge en d5, g8–f6 accepté avec badge en f6. Parcours complet 14/14, bilan avec 1 erreur et 13 aides.
+- Rejouer l’Est-Indienne : progression 0/14, erreurs 0, aides 0, même mode conservé.
+- **Viennoise / Gambit viennois / Ligne essentielle** : mauvais glisser-déposer d2–d4 refusé avec retour en d2 et croix rouge ; glisser-déposer e2–e4 accepté ; parcours jusqu’au bilan 6/6, 1 erreur et 5 aides.
+- **Sicilienne / Dragon / Ligne essentielle** sur tablette simulée : premier coup e4 automatique, moteur actif, parcours complet 6/6, 0 erreur et 6 aides.
+- Mode essentiel et mode étendu également parcourus jusqu’au bilan dans les tests UI de la Caro-Kann ; l’Italienne essentielle conserve son parcours de non-régression.
+- Console sans avertissement ni erreur pendant les contrôles de production.
 
-- `stockfish-18-lite-single.js` démarre bien dans un Worker classique ; le WASM local est effectivement exécuté.
-- État affiché : **Analyse locale active**, avec évaluation numérique observée (`+0.4` à la position initiale), puis nouvelles évaluations après les mouvements.
-- Réponse HTTP **200**, type **application/wasm**, taille **7 295 411 octets** sous `/chess-progress-trainer/engine/stockfish-18-lite-single.wasm`.
-- Empreintes SHA-256 du JavaScript, du WASM, des sources amont et du réseau NNUE vérifiées à chaque build.
-- Les liens de licences et d’archive source répondent en HTTP **200** sous le même préfixe.
-- Le modèle du trainer ne dépend pas du module d’analyse. Le contenu du coup `bestmove` n’est jamais interprété : seul le marqueur de fin de recherche est utilisé pour la file UCI.
+## Moteur et fichiers de production
 
-Le JavaScript principal de l’application représente environ 342 ko (108 ko compressés), le CSS 21 ko (5,4 ko compressés). Les archives de sources et le réseau séparé ne sont **pas** téléchargés pour jouer ; seul le moteur WASM embarquant déjà son réseau est nécessaire à l’analyse.
+- **Stockfish 18 Lite fonctionne toujours** depuis le build : état « Analyse locale active », évaluation numérique puis nouvelles valeurs après les coups.
+- JavaScript et WASM servis localement sous `/chess-progress-trainer/engine/` ; WASM HTTP 200, type `application/wasm`, **7 295 411 octets**.
+- Vérification des empreintes du moteur, des sources amont, du réseau NNUE et des licences à chaque build.
+- Sources de cette version régénérées dans `source/chess-progress-source.tar.gz`, liées depuis la page de licences.
+- Le trainer ne reçoit aucun coup de Stockfish. Les messages `bestmove` terminent seulement l’analyse ; leur contenu n’est pas interprété.
+- L’analyse précédente est arrêtée et ses scores tardifs ignorés. Aucune analyse du catalogue au démarrage.
+- Bundle applicatif : environ **461 ko de JavaScript (123 ko gzip)** et **23 ko de CSS (6 ko gzip)**. Les archives de sources ne sont pas téléchargées pour jouer.
 
-## Responsive et limites de compatibilité
+## Responsive et limites
 
-Tailles réellement vérifiées : **320, 390, 768 et 1280 pixels** de large. Aucun débordement horizontal ; panneau sous l’échiquier sur mobile/tablette, à droite sur ordinateur. Modale de fin visible et utilisable à 390 × 844. Test de glisser-déposer à la souris et de navigation au clavier effectué.
+Largeurs contrôlées : **320, 390, 768 et 1280 px**. Aucun débordement horizontal. Panneau sous le plateau sur mobile/tablette, à droite sur ordinateur. Sélecteur de niveau et bilan utilisables à 390 × 844. Les badges sont placés dans la case elle-même : aucune conversion fragile des coordonnées lorsque le plateau est retourné.
 
-Le build cible Chrome 107+, Firefox 104+ et Safari 16+ ; Worker classique et WASM mono-thread sans SharedArrayBuffer, donc sans en-têtes d’isolation spécifiques. Les cibles Firefox et Safari sont vérifiées **par la compilation et les API utilisées**, pas par une exécution dans ces navigateurs. Aucun test sur téléphone physique n’a été effectué ; les tailles mobiles sont simulées. Une interface tactile est fournie par react-chessboard et par la sélection en deux touches.
+Chrome/Chromium a été exécuté réellement. Les cibles Firefox 104+ et Safari 16+ sont vérifiées par le build et les API employées, **pas par une exécution dans ces navigateurs**. Aucun téléphone physique n’a été utilisé. Les tailles mobiles sont simulées ; le déplacement en deux touches et le glisser-déposer de la bibliothèque sont conservés.
 
-## GitHub Pages
+Les prolongements sont des scénarios pédagogiques cohérents, pas une promesse de meilleurs coups forcés ni une validation par un professeur d’échecs. Ils expliquent notamment les ruptures, les colonnes ouvertes, les trajets de cavaliers et les échanges de structure.
 
-Workflow prêt dans `.github/workflows/deploy-pages.yml` : dépendances verrouillées, tests, build et publication de `dist/` à chaque push sur `main`. Les références d’actions officielles configurées ont été vérifiées. Les pull requests sont testées sans déploiement.
+## Livraison locale
 
-**La publication distante n’a pas été exécutée.** Le dépôt local est relié à `https://github.com/mralexis901/chess-progress-trainer.git`, mais cet environnement ne dispose pas de l’authentification GitHub pour l’envoyer ou activer Pages. Le site public prévu répondait **404** lors de la vérification. Cela ne permet pas de déterminer si le dépôt distant est privé ou absent.
-
-Après envoi des fichiers sur `main`, activer **GitHub → Settings → Pages → Source → GitHub Actions**, puis **Actions → Tester et déployer Chess Progress → Run workflow → Run workflow**. Adresse attendue après succès : `https://mralexis901.github.io/chess-progress-trainer/`.
+- Version de développement : `http://127.0.0.1:5173/chess-progress-trainer/`.
+- Version de production locale : `http://127.0.0.1:4173/chess-progress-trainer/`.
+- Pas de push, pas de déploiement, pas de modification des paramètres GitHub.
+- Les licences et le workflow Pages sont conservés. Aucune action GitHub n’est nécessaire pour essayer cette évolution en local.

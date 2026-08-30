@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { Chess } from 'chess.js';
-import { openings } from '../data/openings';
+import { openings, lessonModes } from '../data/openings';
 import {
   compileLesson,
   initialState,
@@ -10,16 +10,16 @@ import {
   reduceTrainer,
 } from '../trainer/model';
 
-const lessons = openings.flatMap((o) => o.variations.map((v) => compileLesson(o, v)));
+const lessons = openings.flatMap((o) =>
+  o.variations.flatMap((v) => lessonModes.map((mode) => compileLesson(o, v, mode.id))),
+);
 const white = lessons[0];
-const black = lessons[8];
+const black = lessons.find((lesson) => lesson.opening.side === 'b')!;
 
 describe('Moteur pédagogique indépendant de Stockfish', () => {
-  it('oriente les Blancs en bas pour les deux ouvertures et les Noirs en bas pour les défenses', () => {
-    expect(lessons.map((l) => l.orientation)).toEqual([
-      ...Array(8).fill('white'),
-      ...Array(8).fill('black'),
-    ]);
+  it('oriente les 120 séances du côté de l’élève', () => {
+    for (const lesson of lessons)
+      expect(lesson.orientation).toBe(lesson.opening.side === 'w' ? 'white' : 'black');
   });
   it('réserve le premier coup aux Blancs', () => {
     expect(isPlayerTurn(white, initialState())).toBe(true);
@@ -38,7 +38,22 @@ describe('Moteur pédagogique indépendant de Stockfish', () => {
     expect(state.errors).toBe(2);
     expect(white.positions[state.ply]).toBe(new Chess().fen());
     expect(state.feedback).toBe('incorrect');
+    expect(state.boardFeedback).toMatchObject({ kind: 'incorrect', square: 'e5' });
     expect(isExpectedMove(white, state, 'e2', 'e4', 'q')).toBe(false);
+  });
+  it('une ancienne minuterie ne supprime pas le feedback d’une tentative plus récente', () => {
+    let state = reduceTrainer(white, initialState(), { type: 'attempt', from: 'd2', to: 'd4' });
+    const oldId = state.boardFeedback!.id;
+    state = reduceTrainer(white, state, { type: 'attempt', from: 'e2', to: 'e4' });
+    expect(state.boardFeedback).toMatchObject({ kind: 'correct', square: 'e4' });
+    expect(reduceTrainer(white, state, { type: 'clearFeedback', id: oldId })).toBe(state);
+    const cleared = reduceTrainer(white, state, {
+      type: 'clearFeedback',
+      id: state.boardFeedback!.id,
+    });
+    expect(cleared.boardFeedback).toBeNull();
+    expect(cleared.feedback).toBe('correct');
+    expect(cleared.errors).toBe(1);
   });
   it('ne compte qu’une aide par décision, même après une erreur', () => {
     let state = reduceTrainer(white, initialState(), { type: 'hint' });
@@ -68,7 +83,7 @@ describe('Moteur pédagogique indépendant de Stockfish', () => {
     expect(reduceTrainer(white, state, { type: 'reset' })).toEqual(initialState());
   });
   for (const lesson of lessons) {
-    it(`${lesson.variation.name} : réponses strictement prévues, progression et fin exactes`, () => {
+    it(`${lesson.opening.name} / ${lesson.variation.name} / ${lesson.mode} : réponses scriptées, fin et restart`, () => {
       let state = initialState();
       const replay = new Chess();
       for (const expected of lesson.moves) {
@@ -84,7 +99,8 @@ describe('Moteur pédagogique indépendant de Stockfish', () => {
             promotion: expected.promotion,
           });
           expect(state.completed).toBe(before.completed + 1);
-          expect(state.explanation).toBe(lesson.variation.moves[before.ply].explanation);
+          expect(state.explanation).toBe(lesson.steps[before.ply].explanation);
+          expect(state.boardFeedback).toMatchObject({ kind: 'correct', square: expected.to });
         } else {
           state = reduceTrainer(lesson, state, { type: 'computer', expectedPly: state.ply });
           expect(state.completed).toBe(before.completed);
@@ -102,6 +118,7 @@ describe('Moteur pédagogique indépendant de Stockfish', () => {
       expect(reduceTrainer(lesson, state, { type: 'computer', expectedPly: state.ply })).toBe(
         state,
       );
+      expect(reduceTrainer(lesson, state, { type: 'reset' })).toEqual(initialState());
     });
   }
 });

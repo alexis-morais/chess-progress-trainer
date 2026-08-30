@@ -13,7 +13,7 @@ import {
 import { useTrainer } from '../trainer/useTrainer';
 import { isExpectedMove, type CompiledLesson } from '../trainer/model';
 import { useStockfish } from '../engine/useStockfish';
-import { frenchSan, sideName } from '../data/openings';
+import { frenchSan, sideName, modeName } from '../data/openings';
 import { TrainingBoard } from './TrainingBoard';
 import { EvaluationBar } from './EvaluationBar';
 import { CompletionDialog } from './CompletionDialog';
@@ -123,6 +123,7 @@ export function Trainer({
             </span>
             <h2>{lesson.opening.name}</h2>
             <p>{lesson.variation.name}</p>
+            <span className="lesson-mode">{modeName(lesson.mode)}</span>
             <span className="side-badge">
               <span className={`side-dot ${lesson.opening.side === 'b' ? 'black' : ''}`} />
               Tu joues les {sideName(lesson.opening.side)}
@@ -233,7 +234,7 @@ export function Trainer({
         <BookNote /> Les coups de l’adversaire sont prédéfinis. Stockfish évalue la position, sans
         choisir les coups.
       </p>
-      {complete && (
+      {complete && !state.boardFeedback && (
         <CompletionDialog
           lesson={lesson}
           state={state}

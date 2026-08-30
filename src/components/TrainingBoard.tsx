@@ -41,6 +41,11 @@ export function TrainingBoard({ lesson, state, fen, enabled, onMove }: Props) {
   }
   if (selected)
     squareStyles[selected] = { boxShadow: 'inset 0 0 0 4px #f4df89', backgroundColor: '#91a67d' };
+  if (state.boardFeedback)
+    squareStyles[state.boardFeedback.square] = {
+      backgroundColor: state.boardFeedback.kind === 'correct' ? '#a8d8a4' : '#e5a4a0',
+      boxShadow: `inset 0 0 0 3px ${state.boardFeedback.kind === 'correct' ? '#39804d' : '#b33b44'}`,
+    };
 
   function submit(from: string, to: string) {
     setSelection(null);
@@ -139,6 +144,17 @@ export function TrainingBoard({ lesson, state, fen, enabled, onMove }: Props) {
                 <div className="piece-content" aria-hidden="true">
                   {children}
                 </div>
+                {state.boardFeedback?.square === square && (
+                  <span
+                    key={state.boardFeedback.id}
+                    className={`move-badge ${state.boardFeedback.kind}`}
+                    data-testid="move-badge"
+                    data-square={square}
+                    aria-hidden="true"
+                  >
+                    {state.boardFeedback.kind === 'correct' ? '✓' : '✕'}
+                  </span>
+                )}
               </div>
             );
           },

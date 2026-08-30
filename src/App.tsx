@@ -1,7 +1,7 @@
 import { Component, useMemo, useState, type ReactNode } from 'react';
 import { ArrowUpRight, BookOpen, ShieldCheck } from 'lucide-react';
-import { openings } from './data/openings';
-import { compileLesson, type CompiledLesson } from './trainer/model';
+import { openings, type LessonMode, type Opening, type Variation } from './data/openings';
+import { compileLesson } from './trainer/model';
 import { OpeningLibrary } from './components/OpeningLibrary';
 import { Trainer } from './components/Trainer';
 
@@ -33,21 +33,16 @@ export class ErrorBoundary extends Component<{ children: ReactNode }, { error: E
 }
 
 export default function App() {
-  const lessons = useMemo(
-    () =>
-      openings.flatMap((opening) =>
-        opening.variations.map((variation) => compileLesson(opening, variation)),
-      ),
-    [],
-  );
-  const [active, setActive] = useState<CompiledLesson | null>(null);
+  const [active, setActive] = useState<Selection | null>(null);
   const [expanded, setExpanded] = useState<string | null>(null);
   const [selected, setSelected] = useState<string | null>(null);
+  const [mode, setMode] = useState<LessonMode | null>(null);
   const [session, setSession] = useState(0);
   function goHome() {
     setActive(null);
     setExpanded(null);
     setSelected(null);
+    setMode(null);
     window.scrollTo(0, 0);
   }
   function variants() {
@@ -87,9 +82,9 @@ export default function App() {
         </div>
       </header>
       {active ? (
-        <Trainer
-          key={`${active.variation.id}-${session}`}
-          lesson={active}
+        <ActiveTrainer
+          key={`${active.variation.id}-${active.mode}-${session}`}
+          selection={active}
           onRestart={() => setSession((value) => value + 1)}
           onVariants={variants}
           onHome={goHome}
@@ -97,16 +92,21 @@ export default function App() {
       ) : (
         <OpeningLibrary
           openings={openings}
-          lessons={lessons}
           expanded={expanded}
           selected={selected}
+          mode={mode}
+          onMode={setMode}
           onExpand={(id) => {
             setExpanded(expanded === id ? null : id);
             setSelected(null);
+            setMode(null);
           }}
-          onSelect={setSelected}
-          onStart={(lesson) => {
-            setActive(lesson);
+          onSelect={(id) => {
+            setSelected(id);
+            setMode(null);
+          }}
+          onStart={(opening, variation, mode) => {
+            setActive({ opening, variation, mode });
             setSession((value) => value + 1);
             window.scrollTo(0, 0);
           }}
@@ -120,4 +120,22 @@ export default function App() {
       </footer>
     </>
   );
+}
+
+type Selection = { opening: Opening; variation: Variation; mode: LessonMode };
+function ActiveTrainer({
+  selection,
+  ...actions
+}: {
+  selection: Selection;
+  onRestart: () => void;
+  onVariants: () => void;
+  onHome: () => void;
+}) {
+  // Only the selected lesson is replayed. The catalogue does not run 120 analyses.
+  const lesson = useMemo(
+    () => compileLesson(selection.opening, selection.variation, selection.mode),
+    [selection],
+  );
+  return <Trainer lesson={lesson} {...actions} />;
 }

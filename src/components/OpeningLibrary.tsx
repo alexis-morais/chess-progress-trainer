@@ -7,30 +7,46 @@ import {
   Lightbulb,
   MousePointer2,
 } from 'lucide-react';
-import { Chessboard } from 'react-chessboard';
-import type { Opening } from '../data/openings';
-import { frenchSan, sideName } from '../data/openings';
-import type { CompiledLesson } from '../trainer/model';
+import { OpeningPreview } from './OpeningPreview';
+import { Chess } from 'chess.js';
+import { useMemo } from 'react';
+import type { Opening, Variation, LessonMode } from '../data/openings';
+import { frenchSan, sideName, lessonModes, learnerMoveCount } from '../data/openings';
 
 type Props = {
   openings: Opening[];
-  lessons: CompiledLesson[];
   expanded: string | null;
   selected: string | null;
+  mode: LessonMode | null;
+  onMode: (mode: LessonMode) => void;
   onExpand: (id: string) => void;
   onSelect: (id: string) => void;
-  onStart: (lesson: CompiledLesson) => void;
+  onStart: (opening: Opening, variation: Variation, mode: LessonMode) => void;
 };
 
 export function OpeningLibrary({
   openings,
-  lessons,
   expanded,
   selected,
+  mode,
+  onMode,
   onExpand,
   onSelect,
   onStart,
 }: Props) {
+  const previews = useMemo(
+    () =>
+      Object.fromEntries(
+        openings.map((opening) => {
+          const game = new Chess();
+          opening.variations[0].moves
+            .slice(0, opening.previewPly)
+            .forEach((move) => game.move(move.san, { strict: true }));
+          return [opening.id, game.fen()];
+        }),
+      ),
+    [openings],
+  );
   return (
     <main id="main" className="library page-width">
       <section className="intro">
@@ -45,11 +61,11 @@ export function OpeningLibrary({
         <p>Entraîne-toi aux ouvertures, coup après coup.</p>
         <div className="intro-facts">
           <span>
-            <BookOpen size={15} /> 4 ouvertures essentielles
+            <BookOpen size={15} /> 10 ouvertures
           </span>
-          <i /> <span>16 variantes guidées</span>
+          <i /> <span>60 variantes guidées</span>
           <i />
-          <span>À ton rythme</span>
+          <span>2 niveaux pour chacune</span>
         </div>
         <div className="intro-mark" aria-hidden="true">
           <span>01</span>
@@ -68,108 +84,145 @@ export function OpeningLibrary({
           </div>
           <span className="muted">Les bons débuts font la différence.</span>
         </div>
-        <div className="opening-grid">
-          {openings.map((opening, index) => {
-            const isExpanded = expanded === opening.id;
-            const firstLesson = lessons.find((l) => l.opening.id === opening.id)!;
-            const chosen = lessons.find(
-              (l) => l.opening.id === opening.id && l.variation.id === selected,
-            );
-            return (
-              <article className={`opening-card ${isExpanded ? 'expanded' : ''}`} key={opening.id}>
-                <button
-                  className="opening-card-trigger"
-                  aria-expanded={isExpanded}
-                  aria-controls={`variants-${opening.id}`}
-                  onClick={() => onExpand(opening.id)}
-                >
-                  <div className="mini-board" aria-hidden="true" inert>
-                    <Chessboard
-                      options={{
-                        id: `preview-${opening.id}`,
-                        position: firstLesson.positions[opening.previewPly],
-                        boardOrientation: firstLesson.orientation,
-                        allowDragging: false,
-                        allowDrawingArrows: false,
-                        showNotation: false,
-                        showAnimations: false,
-                        darkSquareStyle: { backgroundColor: '#637668' },
-                        lightSquareStyle: { backgroundColor: '#d8decd' },
-                      }}
-                    />
-                  </div>
-                  <div className="opening-card-copy">
-                    <span className="card-index">OUVERTURE 0{index + 1}</span>
-                    <h3>{opening.name}</h3>
-                    <p>{opening.description}</p>
-                    <div className="card-meta">
-                      <span className="side-badge">
-                        <span className={`side-dot ${opening.side === 'b' ? 'black' : ''}`} />
-                        {sideName(opening.side)}
-                      </span>
-                      <span>4 variantes</span>
-                    </div>
-                  </div>
-                  <ChevronDown className="expand-icon" size={19} />
-                </button>
-                {isExpanded && (
-                  <div className="variant-picker" id={`variants-${opening.id}`}>
-                    <div className="variant-picker-heading">
-                      <span className="step-number">02</span>
-                      <h4>Sélectionne une variante</h4>
-                    </div>
-                    <div className="variant-grid">
-                      {opening.variations.map((variation) => {
-                        const lesson = lessons.find((l) => l.variation.id === variation.id)!;
-                        return (
-                          <button
-                            className={`variant-option ${selected === variation.id ? 'selected' : ''}`}
-                            key={variation.id}
-                            aria-pressed={selected === variation.id}
-                            onClick={() => onSelect(variation.id)}
-                          >
-                            <span>
-                              <strong>{variation.name}</strong>
-                              <small>
-                                {lesson.total} coups à jouer · {variation.eco}
-                              </small>
+        {(['w', 'b'] as const).map((side) => (
+          <section className="side-library" key={side} aria-labelledby={`library-${side}`}>
+            <div className="side-library-heading">
+              <h3 id={`library-${side}`}>
+                <span className={`side-dot ${side === 'b' ? 'black' : ''}`} />
+                Jouer avec les {sideName(side)}
+              </h3>
+              <span>5 ouvertures · 30 variantes</span>
+            </div>
+            <div className="opening-grid">
+              {openings
+                .filter((opening) => opening.side === side)
+                .map((opening, index) => {
+                  const isExpanded = expanded === opening.id;
+                  const chosen = opening.variations.find((variation) => variation.id === selected);
+                  return (
+                    <article
+                      className={`opening-card ${isExpanded ? 'expanded' : ''}`}
+                      key={opening.id}
+                    >
+                      <button
+                        className="opening-card-trigger"
+                        aria-expanded={isExpanded}
+                        aria-controls={`variants-${opening.id}`}
+                        onClick={() => onExpand(opening.id)}
+                      >
+                        <OpeningPreview fen={previews[opening.id]} black={side === 'b'} />
+                        <div className="opening-card-copy">
+                          <span className="card-index">
+                            OUVERTURE {String(index + 1 + (side === 'b' ? 5 : 0)).padStart(2, '0')}
+                          </span>
+                          <h3>{opening.name}</h3>
+                          <p>{opening.description}</p>
+                          <div className="card-meta">
+                            <span className="side-badge">
+                              <span className={`side-dot ${opening.side === 'b' ? 'black' : ''}`} />
+                              Vous jouez : {sideName(opening.side)}
                             </span>
-                            <span className="radio-indicator">
-                              {selected === variation.id && <Check size={12} />}
-                            </span>
-                          </button>
-                        );
-                      })}
-                    </div>
-                    {chosen ? (
-                      <div className="variant-detail">
-                        <p>{chosen.variation.description}</p>
-                        <div className="line-preview" aria-label="Début de la variante">
-                          {chosen.moves.slice(0, 6).map((move, i) => (
-                            <span key={i}>
-                              {i % 2 === 0 ? `${i / 2 + 1}. ` : ''}
-                              {frenchSan(move.san)}
-                            </span>
-                          ))}
+                            <span>6 variantes</span>
+                          </div>
                         </div>
-                        <button
-                          className="button primary start-button"
-                          onClick={() => onStart(chosen)}
-                        >
-                          Commencer l’entraînement <ArrowRight size={17} />
-                        </button>
-                      </div>
-                    ) : (
-                      <p className="selection-prompt">
-                        Choisis une ligne pour commencer ton entraînement.
-                      </p>
-                    )}
-                  </div>
-                )}
-              </article>
-            );
-          })}
-        </div>
+                        <ChevronDown className="expand-icon" size={19} />
+                      </button>
+                      {isExpanded && (
+                        <div className="variant-picker" id={`variants-${opening.id}`}>
+                          <div className="variant-picker-heading">
+                            <span className="step-number">02</span>
+                            <h4>Sélectionne une variante</h4>
+                          </div>
+                          <div className="variant-grid">
+                            {opening.variations.map((variation) => {
+                              return (
+                                <button
+                                  className={`variant-option ${selected === variation.id ? 'selected' : ''}`}
+                                  key={variation.id}
+                                  aria-pressed={selected === variation.id}
+                                  onClick={() => onSelect(variation.id)}
+                                >
+                                  <span>
+                                    <strong>{variation.name}</strong>
+                                    <small>
+                                      {learnerMoveCount(side, variation.moves.length)} coups
+                                      essentiels · {variation.eco}
+                                    </small>
+                                  </span>
+                                  <span className="radio-indicator">
+                                    {selected === variation.id && <Check size={12} />}
+                                  </span>
+                                </button>
+                              );
+                            })}
+                          </div>
+                          {chosen ? (
+                            <div className="variant-detail">
+                              <p>{chosen.description}</p>
+                              <div className="line-preview" aria-label="Début de la variante">
+                                {chosen.moves.slice(0, 6).map((move, i) => (
+                                  <span key={i}>
+                                    {i % 2 === 0 ? `${i / 2 + 1}. ` : ''}
+                                    {frenchSan(move.san)}
+                                  </span>
+                                ))}
+                              </div>
+                              <fieldset className="mode-picker">
+                                <legend>
+                                  <span className="step-number">03</span>Choisis ton niveau
+                                </legend>
+                                {lessonModes.map((option) => (
+                                  <label
+                                    key={option.id}
+                                    className={`mode-option ${mode === option.id ? 'selected' : ''}`}
+                                  >
+                                    <input
+                                      type="radio"
+                                      name="lesson-mode"
+                                      value={option.id}
+                                      checked={mode === option.id}
+                                      onChange={() => onMode(option.id)}
+                                    />
+                                    <span>
+                                      <strong>{option.name}</strong>
+                                      <small>{option.description}</small>
+                                      <em>
+                                        {learnerMoveCount(
+                                          side,
+                                          chosen.moves.length +
+                                            (option.id === 'extended'
+                                              ? chosen.extension.length
+                                              : 0),
+                                        )}{' '}
+                                        coups à jouer
+                                      </em>
+                                    </span>
+                                  </label>
+                                ))}
+                              </fieldset>
+                              <button
+                                className="button primary start-button"
+                                disabled={!mode}
+                                onClick={() => {
+                                  if (mode) onStart(opening, chosen, mode);
+                                }}
+                              >
+                                Commencer l’entraînement <ArrowRight size={17} />
+                              </button>
+                            </div>
+                          ) : (
+                            <p className="selection-prompt">
+                              Choisis une ligne pour commencer ton entraînement.
+                            </p>
+                          )}
+                        </div>
+                      )}
+                    </article>
+                  );
+                })}
+            </div>
+          </section>
+        ))}
       </section>
       <section className="how-it-works" id="comment-ca-marche" aria-labelledby="how-title">
         <div className="section-heading">

@@ -1,0 +1,422 @@
+[
+  {
+    "id": "giuoco-piano",
+    "eco": "C54",
+    "name": "Italian Game: Classical Variation, Greco Gambit, Traditional Line",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. c3 Nf6 5. d4 exd4 6. cxd4",
+    "atPly": 11
+  },
+  {
+    "id": "two-knights",
+    "eco": "C55",
+    "name": "Italian Game: Two Knights Defense, Modern Bishop's Opening",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bc4 Nf6 4. d3",
+    "atPly": 7
+  },
+  {
+    "id": "pianissimo",
+    "eco": "C50",
+    "name": "Italian Game: Giuoco Pianissimo, Italian Four Knights Variation",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. d3 Nf6 5. Nc3",
+    "atPly": 9
+  },
+  {
+    "id": "hungarian",
+    "eco": "C50",
+    "name": "Italian Game: Hungarian Defense",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bc4 Be7",
+    "atPly": 6
+  },
+  {
+    "id": "scotch-classical",
+    "eco": "C45",
+    "name": "Scotch Game: Classical Variation",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. d4 exd4 4. Nxd4 Bc5",
+    "atPly": 8
+  },
+  {
+    "id": "schmidt",
+    "eco": "C45",
+    "name": "Scotch Game: Schmidt Variation",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. d4 exd4 4. Nxd4 Nf6",
+    "atPly": 8
+  },
+  {
+    "id": "scotch-gambit",
+    "eco": "C44",
+    "name": "Scotch Game: Scotch Gambit",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. d4 exd4 4. Bc4",
+    "atPly": 7
+  },
+  {
+    "id": "steinitz",
+    "eco": "C45",
+    "name": "Scotch Game: Steinitz Variation",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. d4 exd4 4. Nxd4 Qh4 5. Nc3",
+    "atPly": 9
+  },
+  {
+    "id": "advance",
+    "eco": "C02",
+    "name": "French Defense: Advance Variation, Lputian Variation",
+    "pgn": "1. e4 e6 2. d4 d5 3. e5 c5 4. c3 Nc6 5. Nf3 Qb6 6. a3 Nh6",
+    "atPly": 12
+  },
+  {
+    "id": "exchange",
+    "eco": "C01",
+    "name": "French Defense: Exchange Variation",
+    "pgn": "1. e4 e6 2. d4 d5 3. exd5 exd5 4. Nf3",
+    "atPly": 7
+  },
+  {
+    "id": "tarrasch",
+    "eco": "C05",
+    "name": "French Defense: Tarrasch Variation, Closed Variation",
+    "pgn": "1. e4 e6 2. d4 d5 3. Nd2 Nf6 4. e5 Nfd7 5. Bd3 c5 6. c3 Nc6",
+    "atPly": 12
+  },
+  {
+    "id": "french-classical",
+    "eco": "C14",
+    "name": "French Defense: Classical Variation, Steinitz Variation",
+    "pgn": "1. e4 e6 2. d4 d5 3. Nc3 Nf6 4. Bg5 Be7 5. e5 Nfd7 6. Bxe7 Qxe7 7. f4",
+    "atPly": 13
+  },
+  {
+    "id": "queen-a5",
+    "eco": "B01",
+    "name": "Scandinavian Defense: Main Line",
+    "pgn": "1. e4 d5 2. exd5 Qxd5 3. Nc3 Qa5",
+    "atPly": 6
+  },
+  {
+    "id": "queen-d6",
+    "eco": "B01",
+    "name": "Scandinavian Defense: Gubinsky-Melts Defense",
+    "pgn": "1. e4 d5 2. exd5 Qxd5 3. Nc3 Qd6",
+    "atPly": 6
+  },
+  {
+    "id": "queen-d8",
+    "eco": "B01",
+    "name": "Scandinavian Defense: Valencian Variation, Main Line",
+    "pgn": "1. e4 d5 2. exd5 Qxd5 3. Nc3 Qd8 4. d4 Nf6 5. Nf3 Bg4",
+    "atPly": 10
+  },
+  {
+    "id": "modern",
+    "eco": "B01",
+    "name": "Scandinavian Defense: Modern Variation",
+    "pgn": "1. e4 d5 2. exd5 Nf6 3. d4",
+    "atPly": 5
+  },
+  {
+    "id": "evans",
+    "eco": "C51",
+    "name": "Italian Game: Evans Gambit, McDonnell Defense",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. b4 Bxb4 5. c3 Bc5",
+    "atPly": 10
+  },
+  {
+    "id": "knight-attack",
+    "eco": "C57",
+    "name": "Italian Game: Two Knights Defense, Knight Attack, Normal Variation",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bc4 Nf6 4. Ng5 d5",
+    "atPly": 8
+  },
+  {
+    "id": "mieses",
+    "eco": "C45",
+    "name": "Scotch Game: Mieses Variation",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. d4 exd4 4. Nxd4 Nf6 5. Nxc6 bxc6 6. e5",
+    "atPly": 11
+  },
+  {
+    "id": "goring",
+    "eco": "C44",
+    "name": "Scotch Game: Göring Gambit, Main Line",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. d4 exd4 4. c3 dxc3 5. Nxc3 Bb4",
+    "atPly": 10
+  },
+  {
+    "id": "winawer",
+    "eco": "C18",
+    "name": "French Defense: Winawer Variation, Advance Variation",
+    "pgn": "1. e4 e6 2. d4 d5 3. Nc3 Bb4 4. e5 c5 5. a3 Bxc3+ 6. bxc3 Ne7",
+    "atPly": 12
+  },
+  {
+    "id": "rubinstein",
+    "eco": "C10",
+    "name": "French Defense: Rubinstein Variation, Blackburne Defense",
+    "pgn": "1. e4 e6 2. d4 d5 3. Nc3 dxe4 4. Nxe4 Nd7",
+    "atPly": 8
+  },
+  {
+    "id": "portuguese",
+    "eco": "B01",
+    "name": "Scandinavian Defense: Portuguese Gambit, Jadoul Variation",
+    "pgn": "1. e4 d5 2. exd5 Nf6 3. d4 Bg4 4. f3 Bf5 5. Bb5+ Nbd7 6. c4",
+    "atPly": 11
+  },
+  {
+    "id": "icelandic",
+    "eco": "B01",
+    "name": "Scandinavian Defense: Icelandic-Palme Gambit",
+    "pgn": "1. e4 d5 2. exd5 Nf6 3. c4 e6",
+    "atPly": 6
+  },
+  {
+    "id": "vienna-max-lange",
+    "eco": "C25",
+    "name": "Vienna Game: Max Lange Defense",
+    "pgn": "1. e4 e5 2. Nc3 Nc6",
+    "atPly": 4
+  },
+  {
+    "id": "vienna-falkbeer",
+    "eco": "C26",
+    "name": "Vienna Game: Falkbeer Variation",
+    "pgn": "1. e4 e5 2. Nc3 Nf6",
+    "atPly": 4
+  },
+  {
+    "id": "vienna-gambit",
+    "eco": "C29",
+    "name": "Vienna Game: Vienna Gambit, Breyer Variation",
+    "pgn": "1. e4 e5 2. Nc3 Nf6 3. f4 d5 4. fxe5 Nxe4 5. Nf3 Be7",
+    "atPly": 10
+  },
+  {
+    "id": "vienna-stanley",
+    "eco": "C26",
+    "name": "Vienna Game: Stanley Variation",
+    "pgn": "1. e4 e5 2. Nc3 Nf6 3. Bc4",
+    "atPly": 5
+  },
+  {
+    "id": "vienna-paulsen",
+    "eco": "C25",
+    "name": "Vienna Game: Paulsen Variation",
+    "pgn": "1. e4 e5 2. Nc3 Nc6 3. g3",
+    "atPly": 5
+  },
+  {
+    "id": "vienna-anderssen",
+    "eco": "C25",
+    "name": "Vienna Game: Anderssen Defense",
+    "pgn": "1. e4 e5 2. Nc3 Bc5",
+    "atPly": 4
+  },
+  {
+    "id": "queens-declined",
+    "eco": "D60",
+    "name": "Queen's Gambit Declined: Orthodox Defense",
+    "pgn": "1. d4 Nf6 2. c4 e6 3. Nf3 d5 4. Nc3 Be7 5. Bg5 O-O 6. e3 Nbd7",
+    "atPly": 12
+  },
+  {
+    "id": "queens-accepted",
+    "eco": "D27",
+    "name": "Queen's Gambit Accepted: Classical Defense, Main Line",
+    "pgn": "1. d4 d5 2. c4 dxc4 3. Nf3 Nf6 4. e3 e6 5. Bxc4 c5 6. O-O a6",
+    "atPly": 12
+  },
+  {
+    "id": "queens-slav",
+    "eco": "D18",
+    "name": "Slav Defense: Czech Variation, Classical System",
+    "pgn": "1. d4 d5 2. c4 c6 3. Nf3 Nf6 4. Nc3 dxc4 5. a4 Bf5 6. e3",
+    "atPly": 11
+  },
+  {
+    "id": "queens-semi-slav",
+    "eco": "D43",
+    "name": "Semi-Slav Defense",
+    "pgn": "1. d4 d5 2. c4 c6 3. Nf3 Nf6 4. Nc3 e6",
+    "atPly": 8
+  },
+  {
+    "id": "queens-chigorin",
+    "eco": "D07",
+    "name": "Queen's Gambit Declined: Chigorin Defense",
+    "pgn": "1. d4 d5 2. c4 Nc6 3. Nc3",
+    "atPly": 5
+  },
+  {
+    "id": "queens-albin",
+    "eco": "D08",
+    "name": "Queen's Gambit Declined: Albin Countergambit, Normal Line",
+    "pgn": "1. d4 d5 2. c4 e5 3. dxe5 d4 4. Nf3",
+    "atPly": 7
+  },
+  {
+    "id": "london-solid",
+    "eco": "D02",
+    "name": "Queen's Pawn Game: London System, with e6",
+    "pgn": "1. d4 d5 2. Nf3 e6 3. Bf4 Nf6",
+    "atPly": 6
+  },
+  {
+    "id": "london-c5",
+    "eco": "D02",
+    "name": "Queen's Pawn Game: London System",
+    "pgn": "1. d4 d5 2. Nf3 Nf6 3. Bf4 c5 4. e3 Nc6 5. Nbd2 e6 6. c3",
+    "atPly": 11
+  },
+  {
+    "id": "london-bf5",
+    "eco": "D02",
+    "name": "Queen's Pawn Game: London System",
+    "pgn": "1. d4 d5 2. Nf3 Nf6 3. Bf4",
+    "atPly": 5
+  },
+  {
+    "id": "london-qb6",
+    "eco": "D02",
+    "name": "London System: Poisoned Pawn Variation",
+    "pgn": "1. d4 Nf6 2. Nf3 d5 3. Bf4 c5 4. e3 Qb6 5. Nc3",
+    "atPly": 9
+  },
+  {
+    "id": "london-kings-indian",
+    "eco": "A48",
+    "name": "London System, with Be2",
+    "pgn": "1. d4 Nf6 2. Nf3 g6 3. Bf4 Bg7 4. e3 d6 5. Be2 O-O",
+    "atPly": 10
+  },
+  {
+    "id": "london-fianchetto",
+    "eco": "A48",
+    "name": "London System",
+    "pgn": "1. d4 Nf6 2. Nf3 g6 3. Bf4 Bg7 4. e3",
+    "atPly": 7
+  },
+  {
+    "id": "caro-classical",
+    "eco": "B18",
+    "name": "Caro-Kann Defense: Classical Variation, Main Line",
+    "pgn": "1. e4 c6 2. d4 d5 3. Nd2 dxe4 4. Nxe4 Bf5 5. Ng3 Bg6 6. h4",
+    "atPly": 11
+  },
+  {
+    "id": "caro-advance",
+    "eco": "B12",
+    "name": "Caro-Kann Defense: Advance Variation, Short Variation",
+    "pgn": "1. e4 c6 2. d4 d5 3. e5 Bf5 4. Nf3",
+    "atPly": 7
+  },
+  {
+    "id": "caro-exchange",
+    "eco": "B13",
+    "name": "Caro-Kann Defense: Exchange Variation, Rubinstein Variation",
+    "pgn": "1. e4 c6 2. d4 d5 3. exd5 cxd5 4. Bd3 Nc6 5. c3 Nf6 6. Bf4",
+    "atPly": 11
+  },
+  {
+    "id": "caro-panov",
+    "eco": "B14",
+    "name": "Caro-Kann Defense: Panov Attack, Main Line",
+    "pgn": "1. e4 c6 2. d4 d5 3. exd5 cxd5 4. c4 Nf6 5. Nc3 e6 6. Nf3 Bb4",
+    "atPly": 12
+  },
+  {
+    "id": "caro-tartakower",
+    "eco": "B15",
+    "name": "Caro-Kann Defense: Tartakower Variation",
+    "pgn": "1. e4 c6 2. d4 d5 3. Nc3 dxe4 4. Nxe4 Nf6 5. Nxf6+ exf6",
+    "atPly": 10
+  },
+  {
+    "id": "caro-two-knights",
+    "eco": "B11",
+    "name": "Caro-Kann Defense: Two Knights Attack, Mindeno Variation, Exchange Line",
+    "pgn": "1. e4 c6 2. Nc3 d5 3. Nf3 Bg4 4. h3 Bxf3",
+    "atPly": 8
+  },
+  {
+    "id": "sicilian-open",
+    "eco": "B58",
+    "name": "Sicilian Defense: Classical Variation",
+    "pgn": "1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 Nc6 6. Be2",
+    "atPly": 11
+  },
+  {
+    "id": "sicilian-najdorf",
+    "eco": "B90",
+    "name": "Sicilian Defense: Najdorf Variation, English Attack",
+    "pgn": "1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 a6 6. Be3",
+    "atPly": 11
+  },
+  {
+    "id": "sicilian-dragon",
+    "eco": "B72",
+    "name": "Sicilian Defense: Dragon Variation",
+    "pgn": "1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 g6 6. Be3",
+    "atPly": 11
+  },
+  {
+    "id": "sicilian-accelerated",
+    "eco": "B34",
+    "name": "Sicilian Defense: Accelerated Dragon, Modern Variation",
+    "pgn": "1. e4 c5 2. Nf3 Nc6 3. d4 cxd4 4. Nxd4 g6 5. Nc3",
+    "atPly": 9
+  },
+  {
+    "id": "sicilian-alapin",
+    "eco": "B22",
+    "name": "Sicilian Defense: Alapin Variation, Smith-Morra Declined",
+    "pgn": "1. e4 c5 2. c3 Nf6 3. e5 Nd5 4. d4 cxd4",
+    "atPly": 8
+  },
+  {
+    "id": "sicilian-closed",
+    "eco": "B25",
+    "name": "Sicilian Defense: Closed",
+    "pgn": "1. e4 c5 2. Nc3 Nc6 3. g3 g6 4. Bg2 Bg7 5. d3 d6 6. f4",
+    "atPly": 11
+  },
+  {
+    "id": "kid-classical",
+    "eco": "E97",
+    "name": "King's Indian Defense: Orthodox Variation, Aronin-Taimanov Defense",
+    "pgn": "1. d4 Nf6 2. c4 g6 3. Nc3 Bg7 4. e4 d6 5. Nf3 O-O 6. Be2 e5 7. O-O Nc6",
+    "atPly": 14
+  },
+  {
+    "id": "kid-saemisch",
+    "eco": "E83",
+    "name": "King's Indian Defense: Sämisch Variation, Yates Defense",
+    "pgn": "1. d4 Nf6 2. c4 g6 3. Nc3 Bg7 4. e4 d6 5. f3 O-O 6. Be3 Nc6",
+    "atPly": 12
+  },
+  {
+    "id": "kid-fianchetto",
+    "eco": "E67",
+    "name": "King's Indian Defense: Fianchetto Variation, Classical Fianchetto",
+    "pgn": "1. d4 Nf6 2. c4 g6 3. Nf3 Bg7 4. g3 O-O 5. Bg2 d6 6. O-O Nbd7 7. Nc3 e5",
+    "atPly": 14
+  },
+  {
+    "id": "kid-four-pawns",
+    "eco": "E76",
+    "name": "King's Indian Defense: Four Pawns Attack",
+    "pgn": "1. d4 Nf6 2. c4 g6 3. Nc3 Bg7 4. e4 d6 5. f4",
+    "atPly": 9
+  },
+  {
+    "id": "kid-averbakh",
+    "eco": "E74",
+    "name": "King's Indian Defense: Averbakh Variation, Benoni Defense",
+    "pgn": "1. d4 Nf6 2. c4 g6 3. Nc3 Bg7 4. e4 d6 5. Be2 O-O 6. Bg5 c5",
+    "atPly": 12
+  },
+  {
+    "id": "kid-petrosian",
+    "eco": "E92",
+    "name": "King's Indian Defense: Petrosian Variation, Stein Defense",
+    "pgn": "1. d4 Nf6 2. c4 g6 3. Nc3 Bg7 4. e4 d6 5. Nf3 O-O 6. Be2 e5 7. d5 a5",
+    "atPly": 14
+  }
+]

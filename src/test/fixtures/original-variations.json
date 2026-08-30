@@ -1,0 +1,918 @@
+[
+  {
+    "openingId": "italian",
+    "id": "giuoco-piano",
+    "name": "Giuoco Piano",
+    "moves": [
+      {
+        "san": "e4",
+        "explanation": "Tu occupes le centre et libères le passage du fou et de la dame."
+      },
+      {
+        "san": "e5",
+        "explanation": "Le pion noir occupe le centre et répond à e4."
+      },
+      {
+        "san": "Nf3",
+        "explanation": "Tu développes ton cavalier, attaques e5 et prépares le roque."
+      },
+      {
+        "san": "Nc6",
+        "explanation": "Le cavalier noir se développe et défend le pion e5."
+      },
+      {
+        "san": "Bc4",
+        "explanation": "Ton fou vise la case f7, près du roi adverse."
+      },
+      {
+        "san": "Bc5",
+        "explanation": "Le fou noir se développe sur une diagonale active."
+      },
+      {
+        "san": "c3",
+        "explanation": "Tu prépares d4 en donnant un soutien à ton futur pion central."
+      },
+      {
+        "san": "Nf6",
+        "explanation": "Les Noirs développent leur cavalier et attaquent e4."
+      },
+      {
+        "san": "d4",
+        "explanation": "Tu gagnes de l’espace au centre tout en attaquant le fou."
+      },
+      {
+        "san": "exd4",
+        "explanation": "Les Noirs échangent un pion au centre."
+      },
+      {
+        "san": "cxd4",
+        "explanation": "Tu reprends vers le centre et gardes deux pions côte à côte."
+      },
+      {
+        "san": "Bb4+",
+        "explanation": "Le fou noir donne échec sur la diagonale du roi."
+      },
+      {
+        "san": "Bd2",
+        "explanation": "Tu pares l’échec avec ton fou et proposes un échange."
+      }
+    ]
+  },
+  {
+    "openingId": "italian",
+    "id": "two-knights",
+    "name": "Deux Cavaliers",
+    "moves": [
+      {
+        "san": "e4",
+        "explanation": "Tu occupes le centre et libères le passage du fou et de la dame."
+      },
+      {
+        "san": "e5",
+        "explanation": "Le pion noir occupe le centre et répond à e4."
+      },
+      {
+        "san": "Nf3",
+        "explanation": "Tu développes ton cavalier, attaques e5 et prépares le roque."
+      },
+      {
+        "san": "Nc6",
+        "explanation": "Le cavalier noir se développe et défend le pion e5."
+      },
+      {
+        "san": "Bc4",
+        "explanation": "Ton fou vise la case f7, près du roi adverse."
+      },
+      {
+        "san": "Nf6",
+        "explanation": "Les Noirs développent leurs deux cavaliers et attaquent e4."
+      },
+      {
+        "san": "d3",
+        "explanation": "Tu protèges e4 et ouvres la diagonale de ton second fou."
+      },
+      {
+        "san": "Bc5",
+        "explanation": "Le fou noir rejoint une case active."
+      },
+      {
+        "san": "c3",
+        "explanation": "Tu prépares une future poussée d4 au centre."
+      },
+      {
+        "san": "d6",
+        "explanation": "Les Noirs consolident e5."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Tu mets ton roi à l’abri et rapproches la tour du centre."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Le roi noir se met à l’abri."
+      }
+    ]
+  },
+  {
+    "openingId": "italian",
+    "id": "pianissimo",
+    "name": "Giuoco Pianissimo",
+    "moves": [
+      {
+        "san": "e4",
+        "explanation": "Tu occupes le centre et libères le passage du fou et de la dame."
+      },
+      {
+        "san": "e5",
+        "explanation": "Le pion noir occupe le centre et répond à e4."
+      },
+      {
+        "san": "Nf3",
+        "explanation": "Tu développes ton cavalier, attaques e5 et prépares le roque."
+      },
+      {
+        "san": "Nc6",
+        "explanation": "Le cavalier noir se développe et défend le pion e5."
+      },
+      {
+        "san": "Bc4",
+        "explanation": "Ton fou vise la case f7, près du roi adverse."
+      },
+      {
+        "san": "Bc5",
+        "explanation": "Le fou noir se développe face à ton petit roque."
+      },
+      {
+        "san": "d3",
+        "explanation": "Tu soutiens e4 et choisis une construction calme du centre."
+      },
+      {
+        "san": "Nf6",
+        "explanation": "Les Noirs développent leur cavalier."
+      },
+      {
+        "san": "Nc3",
+        "explanation": "Tu développes ton second cavalier et renforces le contrôle de d5."
+      },
+      {
+        "san": "d6",
+        "explanation": "Les Noirs soutiennent leur pion central."
+      },
+      {
+        "san": "h3",
+        "explanation": "Tu empêches un fou ou un cavalier adverse de venir en g4."
+      },
+      {
+        "san": "a6",
+        "explanation": "Les Noirs préparent une case de retraite pour leur fou."
+      }
+    ]
+  },
+  {
+    "openingId": "italian",
+    "id": "hungarian",
+    "name": "Défense hongroise",
+    "moves": [
+      {
+        "san": "e4",
+        "explanation": "Tu occupes le centre et libères le passage du fou et de la dame."
+      },
+      {
+        "san": "e5",
+        "explanation": "Le pion noir occupe le centre et répond à e4."
+      },
+      {
+        "san": "Nf3",
+        "explanation": "Tu développes ton cavalier, attaques e5 et prépares le roque."
+      },
+      {
+        "san": "Nc6",
+        "explanation": "Le cavalier noir se développe et défend le pion e5."
+      },
+      {
+        "san": "Bc4",
+        "explanation": "Ton fou vise la case f7, près du roi adverse."
+      },
+      {
+        "san": "Be7",
+        "explanation": "Le fou noir choisit une case prudente et prépare le roque."
+      },
+      {
+        "san": "d4",
+        "explanation": "Tu profites du jeu calme adverse pour occuper le centre."
+      },
+      {
+        "san": "d6",
+        "explanation": "Les Noirs renforcent leur pion e5."
+      },
+      {
+        "san": "Nc3",
+        "explanation": "Tu développes une pièce et renforces ton contrôle du centre."
+      },
+      {
+        "san": "Nf6",
+        "explanation": "Les Noirs développent leur cavalier et préparent le roque."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Tu mets ton roi à l’abri et rapproches la tour du centre."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Les Noirs mettent aussi leur roi à l’abri."
+      }
+    ]
+  },
+  {
+    "openingId": "scotch",
+    "id": "scotch-classical",
+    "name": "Variante classique",
+    "moves": [
+      {
+        "san": "e4",
+        "explanation": "Tu occupes le centre et libères le passage du fou et de la dame."
+      },
+      {
+        "san": "e5",
+        "explanation": "Le pion noir occupe le centre et répond à e4."
+      },
+      {
+        "san": "Nf3",
+        "explanation": "Tu développes ton cavalier, attaques e5 et prépares le roque."
+      },
+      {
+        "san": "Nc6",
+        "explanation": "Le cavalier noir se développe et défend le pion e5."
+      },
+      {
+        "san": "d4",
+        "explanation": "Tu contestes le centre et ouvres des lignes pour tes pièces."
+      },
+      {
+        "san": "exd4",
+        "explanation": "Les Noirs échangent leur pion central."
+      },
+      {
+        "san": "Nxd4",
+        "explanation": "Tu reprends le pion avec une pièce active au centre."
+      },
+      {
+        "san": "Bc5",
+        "explanation": "Le fou noir attaque ton cavalier d4."
+      },
+      {
+        "san": "Be3",
+        "explanation": "Tu développes ton fou tout en défendant le cavalier."
+      },
+      {
+        "san": "Qf6",
+        "explanation": "La dame noire renforce la pression sur d4."
+      },
+      {
+        "san": "c3",
+        "explanation": "Tu soutiens ton cavalier central avec un pion."
+      },
+      {
+        "san": "Nge7",
+        "explanation": "Le cavalier noir se développe sans bloquer la dame."
+      },
+      {
+        "san": "Bc4",
+        "explanation": "Tu actives ton fou en direction de f7 et prépares le roque."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Le roi noir se met à l’abri."
+      }
+    ]
+  },
+  {
+    "openingId": "scotch",
+    "id": "schmidt",
+    "name": "Variante Schmidt",
+    "moves": [
+      {
+        "san": "e4",
+        "explanation": "Tu occupes le centre et libères le passage du fou et de la dame."
+      },
+      {
+        "san": "e5",
+        "explanation": "Le pion noir occupe le centre et répond à e4."
+      },
+      {
+        "san": "Nf3",
+        "explanation": "Tu développes ton cavalier, attaques e5 et prépares le roque."
+      },
+      {
+        "san": "Nc6",
+        "explanation": "Le cavalier noir se développe et défend le pion e5."
+      },
+      {
+        "san": "d4",
+        "explanation": "Tu contestes le centre et ouvres des lignes pour tes pièces."
+      },
+      {
+        "san": "exd4",
+        "explanation": "Les Noirs échangent leur pion central."
+      },
+      {
+        "san": "Nxd4",
+        "explanation": "Ton cavalier récupère le pion et occupe le centre."
+      },
+      {
+        "san": "Nf6",
+        "explanation": "Les Noirs attaquent e4 en développant une pièce."
+      },
+      {
+        "san": "Nc3",
+        "explanation": "Ton second cavalier défend e4 et contrôle le centre."
+      },
+      {
+        "san": "Bb4",
+        "explanation": "Le fou noir cloue ton cavalier devant ton roi."
+      },
+      {
+        "san": "Nxc6",
+        "explanation": "Tu échanges le cavalier central et modifies les pions adverses."
+      },
+      {
+        "san": "bxc6",
+        "explanation": "Les Noirs reprennent vers le centre."
+      },
+      {
+        "san": "Bd3",
+        "explanation": "Tu développes le fou, protèges e4 et prépares le roque."
+      },
+      {
+        "san": "d5",
+        "explanation": "Les Noirs contestent le centre avec leurs pions."
+      }
+    ]
+  },
+  {
+    "openingId": "scotch",
+    "id": "scotch-gambit",
+    "name": "Gambit écossais",
+    "moves": [
+      {
+        "san": "e4",
+        "explanation": "Tu occupes le centre et libères le passage du fou et de la dame."
+      },
+      {
+        "san": "e5",
+        "explanation": "Le pion noir occupe le centre et répond à e4."
+      },
+      {
+        "san": "Nf3",
+        "explanation": "Tu développes ton cavalier, attaques e5 et prépares le roque."
+      },
+      {
+        "san": "Nc6",
+        "explanation": "Le cavalier noir se développe et défend le pion e5."
+      },
+      {
+        "san": "d4",
+        "explanation": "Tu contestes le centre et ouvres des lignes pour tes pièces."
+      },
+      {
+        "san": "exd4",
+        "explanation": "Les Noirs échangent leur pion central."
+      },
+      {
+        "san": "Bc4",
+        "explanation": "Tu développes ton fou plutôt que de reprendre immédiatement le pion."
+      },
+      {
+        "san": "Bc5",
+        "explanation": "Les Noirs activent aussi leur fou."
+      },
+      {
+        "san": "c3",
+        "explanation": "Tu proposes un pion pour ouvrir le centre et accélérer le développement."
+      },
+      {
+        "san": "Nf6",
+        "explanation": "Les Noirs développent une pièce et attaquent e4."
+      },
+      {
+        "san": "e5",
+        "explanation": "Tu gagnes de l’espace en attaquant le cavalier f6."
+      },
+      {
+        "san": "d5",
+        "explanation": "Les Noirs contre-attaquent au centre et attaquent ton fou."
+      },
+      {
+        "san": "Bb5",
+        "explanation": "Tu retires ton fou et cloues le cavalier c6 devant le roi."
+      },
+      {
+        "san": "Ne4",
+        "explanation": "Le cavalier noir rejoint une case centrale."
+      }
+    ]
+  },
+  {
+    "openingId": "scotch",
+    "id": "steinitz",
+    "name": "Variante Steinitz",
+    "moves": [
+      {
+        "san": "e4",
+        "explanation": "Tu occupes le centre et libères le passage du fou et de la dame."
+      },
+      {
+        "san": "e5",
+        "explanation": "Le pion noir occupe le centre et répond à e4."
+      },
+      {
+        "san": "Nf3",
+        "explanation": "Tu développes ton cavalier, attaques e5 et prépares le roque."
+      },
+      {
+        "san": "Nc6",
+        "explanation": "Le cavalier noir se développe et défend le pion e5."
+      },
+      {
+        "san": "d4",
+        "explanation": "Tu contestes le centre et ouvres des lignes pour tes pièces."
+      },
+      {
+        "san": "exd4",
+        "explanation": "Les Noirs échangent leur pion central."
+      },
+      {
+        "san": "Nxd4",
+        "explanation": "Tu reprends le pion et centralises ton cavalier."
+      },
+      {
+        "san": "Qh4",
+        "explanation": "La dame noire sort tôt pour attaquer le pion e4."
+      },
+      {
+        "san": "Nc3",
+        "explanation": "Tu développes ton cavalier en protégeant le pion e4."
+      },
+      {
+        "san": "Bb4",
+        "explanation": "Le fou noir cloue ton cavalier c3."
+      },
+      {
+        "san": "Be2",
+        "explanation": "Tu prépares le roque. Dans cette ligne, tu offres e4 pour développer tes pièces."
+      },
+      {
+        "san": "Qxe4",
+        "explanation": "Les Noirs prennent le pion offert ; leur dame reste exposée."
+      }
+    ]
+  },
+  {
+    "openingId": "french",
+    "id": "advance",
+    "name": "Variante d’avance",
+    "moves": [
+      {
+        "san": "e4",
+        "explanation": "Tu occupes le centre et libères le passage du fou et de la dame."
+      },
+      {
+        "san": "e6",
+        "explanation": "Tu prépares la poussée d5 et ouvres la diagonale de ton fou."
+      },
+      {
+        "san": "d4",
+        "explanation": "Les Blancs installent deux pions au centre."
+      },
+      {
+        "san": "d5",
+        "explanation": "Tu contestes immédiatement le centre blanc avec d5."
+      },
+      {
+        "san": "e5",
+        "explanation": "Les Blancs gagnent de l’espace et ferment le centre."
+      },
+      {
+        "san": "c5",
+        "explanation": "Tu attaques d4, la base de la chaîne de pions blanche."
+      },
+      {
+        "san": "c3",
+        "explanation": "Les Blancs soutiennent leur centre."
+      },
+      {
+        "san": "Nc6",
+        "explanation": "Tu développes ton cavalier et augmentes la pression sur d4."
+      },
+      {
+        "san": "Nf3",
+        "explanation": "Les Blancs développent leur cavalier."
+      },
+      {
+        "san": "Qb6",
+        "explanation": "Ta dame attaque d4 et regarde aussi le pion b2."
+      },
+      {
+        "san": "a3",
+        "explanation": "Les Blancs préparent b4 pour gagner de l’espace."
+      },
+      {
+        "san": "Nh6",
+        "explanation": "Ton cavalier se prépare à rejoindre f5 pour attaquer d4."
+      }
+    ]
+  },
+  {
+    "openingId": "french",
+    "id": "exchange",
+    "name": "Variante d’échange",
+    "moves": [
+      {
+        "san": "e4",
+        "explanation": "Tu occupes le centre et libères le passage du fou et de la dame."
+      },
+      {
+        "san": "e6",
+        "explanation": "Tu prépares la poussée d5 et ouvres la diagonale de ton fou."
+      },
+      {
+        "san": "d4",
+        "explanation": "Les Blancs installent deux pions au centre."
+      },
+      {
+        "san": "d5",
+        "explanation": "Tu contestes immédiatement le centre blanc avec d5."
+      },
+      {
+        "san": "exd5",
+        "explanation": "Les Blancs choisissent un échange central."
+      },
+      {
+        "san": "exd5",
+        "explanation": "Tu reprends vers le centre et libères ton fou c8."
+      },
+      {
+        "san": "Nf3",
+        "explanation": "Les Blancs développent leur cavalier."
+      },
+      {
+        "san": "Nf6",
+        "explanation": "Tu développes ton cavalier et contrôles e4."
+      },
+      {
+        "san": "Bd3",
+        "explanation": "Le fou blanc vise ton aile roi."
+      },
+      {
+        "san": "Bd6",
+        "explanation": "Tu développes ton fou sur une diagonale active."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Les Blancs mettent leur roi à l’abri."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Tu mets ton roi à l’abri et rapproches la tour du centre."
+      }
+    ]
+  },
+  {
+    "openingId": "french",
+    "id": "tarrasch",
+    "name": "Variante Tarrasch",
+    "moves": [
+      {
+        "san": "e4",
+        "explanation": "Tu occupes le centre et libères le passage du fou et de la dame."
+      },
+      {
+        "san": "e6",
+        "explanation": "Tu prépares la poussée d5 et ouvres la diagonale de ton fou."
+      },
+      {
+        "san": "d4",
+        "explanation": "Les Blancs installent deux pions au centre."
+      },
+      {
+        "san": "d5",
+        "explanation": "Tu contestes immédiatement le centre blanc avec d5."
+      },
+      {
+        "san": "Nd2",
+        "explanation": "Les Blancs défendent e4 sans bloquer le pion c2."
+      },
+      {
+        "san": "Nf6",
+        "explanation": "Tu développes ton cavalier en attaquant e4."
+      },
+      {
+        "san": "e5",
+        "explanation": "Les Blancs gagnent de l’espace en attaquant ton cavalier."
+      },
+      {
+        "san": "Nfd7",
+        "explanation": "Tu retires ton cavalier et prépares une attaque du centre."
+      },
+      {
+        "san": "Bd3",
+        "explanation": "Le fou blanc se développe."
+      },
+      {
+        "san": "c5",
+        "explanation": "Tu attaques le pion d4, point de soutien du centre blanc."
+      },
+      {
+        "san": "c3",
+        "explanation": "Les Blancs renforcent d4."
+      },
+      {
+        "san": "Nc6",
+        "explanation": "Ton second cavalier rejoint la bataille pour le centre."
+      }
+    ]
+  },
+  {
+    "openingId": "french",
+    "id": "french-classical",
+    "name": "Variante classique",
+    "moves": [
+      {
+        "san": "e4",
+        "explanation": "Tu occupes le centre et libères le passage du fou et de la dame."
+      },
+      {
+        "san": "e6",
+        "explanation": "Tu prépares la poussée d5 et ouvres la diagonale de ton fou."
+      },
+      {
+        "san": "d4",
+        "explanation": "Les Blancs installent deux pions au centre."
+      },
+      {
+        "san": "d5",
+        "explanation": "Tu contestes immédiatement le centre blanc avec d5."
+      },
+      {
+        "san": "Nc3",
+        "explanation": "Les Blancs défendent e4 avec leur cavalier."
+      },
+      {
+        "san": "Nf6",
+        "explanation": "Tu attaques e4 avec ton cavalier : c’est la défense classique."
+      },
+      {
+        "san": "Bg5",
+        "explanation": "Les Blancs clouent ton cavalier devant la dame."
+      },
+      {
+        "san": "Be7",
+        "explanation": "Tu prépares le roque et permets de répondre à un échange en f6."
+      },
+      {
+        "san": "e5",
+        "explanation": "Les Blancs avancent leur centre en attaquant ton cavalier."
+      },
+      {
+        "san": "Nfd7",
+        "explanation": "Tu retires ton cavalier pour ensuite contester le centre."
+      },
+      {
+        "san": "Bxe7",
+        "explanation": "Les Blancs proposent un échange de fous."
+      },
+      {
+        "san": "Qxe7",
+        "explanation": "Tu reprends le fou et libères le passage pour le roque."
+      },
+      {
+        "san": "f4",
+        "explanation": "Les Blancs soutiennent leur pion e5."
+      },
+      {
+        "san": "c5",
+        "explanation": "Tu attaques la base du centre blanc avec ton pion c."
+      }
+    ]
+  },
+  {
+    "openingId": "scandinavian",
+    "id": "queen-a5",
+    "name": "Ligne principale · Da5",
+    "moves": [
+      {
+        "san": "e4",
+        "explanation": "Tu occupes le centre et libères le passage du fou et de la dame."
+      },
+      {
+        "san": "d5",
+        "explanation": "Tu attaques tout de suite le pion e4 et contestes le centre."
+      },
+      {
+        "san": "exd5",
+        "explanation": "Les Blancs capturent ton pion central."
+      },
+      {
+        "san": "Qxd5",
+        "explanation": "Tu récupères le pion avec ta dame. Attention aux attaques sur celle-ci !"
+      },
+      {
+        "san": "Nc3",
+        "explanation": "Les Blancs développent leur cavalier en attaquant ta dame."
+      },
+      {
+        "san": "Qa5",
+        "explanation": "Tu mets ta dame à l’abri de l’attaque du cavalier."
+      },
+      {
+        "san": "d4",
+        "explanation": "Les Blancs occupent le centre."
+      },
+      {
+        "san": "Nf6",
+        "explanation": "Tu développes ton cavalier et contrôles e4."
+      },
+      {
+        "san": "Nf3",
+        "explanation": "Les Blancs poursuivent leur développement."
+      },
+      {
+        "san": "Bf5",
+        "explanation": "Tu sors ton fou avant de jouer e6 pour ne pas l’enfermer."
+      },
+      {
+        "san": "Bc4",
+        "explanation": "Le fou blanc vise f7."
+      },
+      {
+        "san": "e6",
+        "explanation": "Tu consolides le centre et ouvres le passage de ton fou f8."
+      }
+    ]
+  },
+  {
+    "openingId": "scandinavian",
+    "id": "queen-d6",
+    "name": "Variante avec Dd6",
+    "moves": [
+      {
+        "san": "e4",
+        "explanation": "Tu occupes le centre et libères le passage du fou et de la dame."
+      },
+      {
+        "san": "d5",
+        "explanation": "Tu attaques tout de suite le pion e4 et contestes le centre."
+      },
+      {
+        "san": "exd5",
+        "explanation": "Les Blancs capturent ton pion central."
+      },
+      {
+        "san": "Qxd5",
+        "explanation": "Tu récupères le pion avec ta dame. Attention aux attaques sur celle-ci !"
+      },
+      {
+        "san": "Nc3",
+        "explanation": "Les Blancs développent leur cavalier en attaquant ta dame."
+      },
+      {
+        "san": "Qd6",
+        "explanation": "Ta dame se retire en restant proche du centre."
+      },
+      {
+        "san": "d4",
+        "explanation": "Les Blancs occupent le centre."
+      },
+      {
+        "san": "Nf6",
+        "explanation": "Ton cavalier se développe et contrôle e4."
+      },
+      {
+        "san": "Nf3",
+        "explanation": "Les Blancs développent leur cavalier."
+      },
+      {
+        "san": "a6",
+        "explanation": "Tu empêches un cavalier ou un fou blanc de venir en b5."
+      },
+      {
+        "san": "g3",
+        "explanation": "Les Blancs préparent le développement du fou en g2."
+      },
+      {
+        "san": "Bg4",
+        "explanation": "Tu développes ton fou et cloues le cavalier devant la dame."
+      }
+    ]
+  },
+  {
+    "openingId": "scandinavian",
+    "id": "queen-d8",
+    "name": "Retraite de la dame · Dd8",
+    "moves": [
+      {
+        "san": "e4",
+        "explanation": "Tu occupes le centre et libères le passage du fou et de la dame."
+      },
+      {
+        "san": "d5",
+        "explanation": "Tu attaques tout de suite le pion e4 et contestes le centre."
+      },
+      {
+        "san": "exd5",
+        "explanation": "Les Blancs capturent ton pion central."
+      },
+      {
+        "san": "Qxd5",
+        "explanation": "Tu récupères le pion avec ta dame. Attention aux attaques sur celle-ci !"
+      },
+      {
+        "san": "Nc3",
+        "explanation": "Les Blancs développent leur cavalier en attaquant ta dame."
+      },
+      {
+        "san": "Qd8",
+        "explanation": "Tu remets ta dame en sécurité pour développer tes autres pièces."
+      },
+      {
+        "san": "d4",
+        "explanation": "Les Blancs occupent le centre."
+      },
+      {
+        "san": "Nf6",
+        "explanation": "Tu développes ton cavalier et contrôles e4."
+      },
+      {
+        "san": "Nf3",
+        "explanation": "Les Blancs développent leur cavalier."
+      },
+      {
+        "san": "Bg4",
+        "explanation": "Tu actives ton fou avant de fermer sa diagonale avec e6."
+      },
+      {
+        "san": "Be2",
+        "explanation": "Les Blancs préparent le roque et neutralisent le clouage."
+      },
+      {
+        "san": "e6",
+        "explanation": "Tu consolides ta position et libères ton second fou."
+      }
+    ]
+  },
+  {
+    "openingId": "scandinavian",
+    "id": "modern",
+    "name": "Variante moderne · Cf6",
+    "moves": [
+      {
+        "san": "e4",
+        "explanation": "Tu occupes le centre et libères le passage du fou et de la dame."
+      },
+      {
+        "san": "d5",
+        "explanation": "Tu attaques tout de suite le pion e4 et contestes le centre."
+      },
+      {
+        "san": "exd5",
+        "explanation": "Les Blancs capturent ton pion central."
+      },
+      {
+        "san": "Nf6",
+        "explanation": "Tu développes ton cavalier pour reprendre d5 sans exposer ta dame."
+      },
+      {
+        "san": "d4",
+        "explanation": "Les Blancs occupent le centre."
+      },
+      {
+        "san": "Nxd5",
+        "explanation": "Tu récupères le pion avec un cavalier actif au centre."
+      },
+      {
+        "san": "c4",
+        "explanation": "Les Blancs attaquent ton cavalier et gagnent de l’espace."
+      },
+      {
+        "san": "Nb6",
+        "explanation": "Tu retires ton cavalier sur une case sûre."
+      },
+      {
+        "san": "Nf3",
+        "explanation": "Les Blancs développent une pièce."
+      },
+      {
+        "san": "g6",
+        "explanation": "Tu prépares le développement de ton fou sur la grande diagonale."
+      },
+      {
+        "san": "Nc3",
+        "explanation": "Les Blancs développent leur second cavalier."
+      },
+      {
+        "san": "Bg7",
+        "explanation": "Ton fou rejoint la grande diagonale et tu prépares le roque."
+      }
+    ]
+  }
+]

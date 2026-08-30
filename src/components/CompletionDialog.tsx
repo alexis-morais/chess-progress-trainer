@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { ArrowRight, RotateCcw, Trophy } from 'lucide-react';
 import type { CompiledLesson, TrainerState } from '../trainer/model';
+import { modeName } from '../data/openings';
 
 export function CompletionDialog({
   lesson,
@@ -43,6 +44,7 @@ export function CompletionDialog({
       <div className="completion-lesson">
         <span>Ouverture : {lesson.opening.name}</span>
         <strong>Variante : {lesson.variation.name}</strong>
+        <span>Mode : {modeName(lesson.mode)}</span>
       </div>
       <div className="completion-stats">
         <div>

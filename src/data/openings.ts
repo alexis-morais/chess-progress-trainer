@@ -1,4 +1,20 @@
+import repertoire from './repertoire.json';
+
 export type Side = 'w' | 'b';
+export type LessonMode = 'essential' | 'extended';
+export const lessonModes: { id: LessonMode; name: string; description: string }[] = [
+  {
+    id: 'essential',
+    name: 'Ligne essentielle',
+    description: 'Apprends les coups fondamentaux de cette variante.',
+  },
+  {
+    id: 'extended',
+    name: 'Version étendue',
+    description: 'Continue plus loin pour découvrir les plans, stratégies et tactiques typiques.',
+  },
+];
+export const modeName = (mode: LessonMode) => lessonModes.find((item) => item.id === mode)!.name;
 export type LessonMove = { san: string; explanation: string };
 export type Variation = {
   id: string;
@@ -6,6 +22,7 @@ export type Variation = {
   description: string;
   eco: string;
   moves: LessonMove[];
+  extension: LessonMove[];
 };
 export type Opening = {
   id: string;
@@ -50,7 +67,10 @@ const scandiQueen = [
   move('Nc3', 'Les Blancs développent leur cavalier en attaquant ta dame.'),
 ];
 
-export const openings: Opening[] = [
+// Les 16 lignes d’origine restent intactes ; leurs prolongements sont dans repertoire.json.
+const originalOpenings: (Omit<Opening, 'variations'> & {
+  variations: Omit<Variation, 'extension'>[];
+})[] = [
   {
     id: 'italian',
     name: 'Ouverture italienne',
@@ -362,6 +382,88 @@ export const openings: Opening[] = [
     ],
   },
 ];
+
+const newOpenings: Omit<Opening, 'variations'>[] = [
+  {
+    id: 'vienna',
+    name: 'Partie viennoise',
+    side: 'w',
+    theme: 'Préparer un jeu dynamique',
+    description: 'Développe le cavalier dame et découvre la force de la poussée f4.',
+    previewPly: 4,
+  },
+  {
+    id: 'queens-gambit',
+    name: 'Gambit Dame',
+    side: 'w',
+    theme: 'Construire le centre',
+    description: 'Conteste d5 avec c4 et découvre les grandes structures de pions.',
+    previewPly: 4,
+  },
+  {
+    id: 'london',
+    name: 'Système de Londres',
+    side: 'w',
+    theme: 'Comprendre une structure',
+    description: 'Place ton fou en f4 et adapte ton plan aux réponses des Noirs.',
+    previewPly: 6,
+  },
+  {
+    id: 'caro-kann',
+    name: 'Défense Caro-Kann',
+    side: 'b',
+    theme: 'Solidité et activité',
+    description: 'Prépare d5 avec c6, puis trouve de bonnes cases pour tes pièces.',
+    previewPly: 4,
+  },
+  {
+    id: 'sicilian',
+    name: 'Défense sicilienne',
+    side: 'b',
+    theme: 'Créer du contre-jeu',
+    description: 'Déséquilibre le centre et explore les plans sur les deux ailes.',
+    previewPly: 6,
+  },
+  {
+    id: 'kings-indian',
+    name: 'Défense Est-Indienne',
+    side: 'b',
+    theme: 'Frapper au bon moment',
+    description: 'Prépare ton fianchetto avant de défier le grand centre blanc.',
+    previewPly: 8,
+  },
+];
+
+export const openings: Opening[] = [...originalOpenings, ...newOpenings].map((opening) => {
+  const original = originalOpenings.find((item) => item.id === opening.id);
+  return {
+    ...opening,
+    variations: repertoire
+      .filter((item) => item.openingId === opening.id)
+      .map((item) => {
+        const legacy = original?.variations.find((variation) => variation.id === item.id);
+        if (legacy) return { ...legacy, extension: item.extension };
+        if (!item.name || !item.eco || !item.description || !item.moves) {
+          throw new Error(`Données de variante incomplètes : ${item.id}`);
+        }
+        return {
+          id: item.id,
+          name: item.name,
+          eco: item.eco,
+          description: item.description,
+          moves: item.moves,
+          extension: item.extension,
+        };
+      }),
+  };
+});
+
+// L’extension contient uniquement les nouveaux coups : le préfixe ne peut pas diverger.
+export const getLessonMoves = (variation: Variation, mode: LessonMode): LessonMove[] =>
+  mode === 'essential' ? variation.moves : [...variation.moves, ...variation.extension];
+
+export const learnerMoveCount = (side: Side, plies: number) =>
+  side === 'w' ? Math.ceil(plies / 2) : Math.floor(plies / 2);
 
 export const sideName = (side: Side) => (side === 'w' ? 'Blancs' : 'Noirs');
 export const frenchSan = (san: string) =>

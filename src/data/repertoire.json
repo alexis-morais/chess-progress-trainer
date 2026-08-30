@@ -1,0 +1,5206 @@
+[
+  {
+    "openingId": "italian",
+    "id": "giuoco-piano",
+    "extension": [
+      {
+        "san": "Bxd2+",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nbxd2",
+        "explanation": "Le cavalier reprend le fou et se développe sans déplacer le roi."
+      },
+      {
+        "san": "d5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "exd5",
+        "explanation": "Tu échanges au centre : la colonne e va devenir disponible pour tes tours."
+      },
+      {
+        "san": "Nxd5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Ton roi quitte le centre avant que les lignes ne s’ouvrent davantage."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Re1",
+        "explanation": "La tour rejoint la colonne e ouverte pour exercer une pression centrale."
+      },
+      {
+        "san": "Be6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      }
+    ]
+  },
+  {
+    "openingId": "italian",
+    "id": "two-knights",
+    "extension": [
+      {
+        "san": "Re1",
+        "explanation": "La tour soutient e4 avant de réorganiser tes cavaliers."
+      },
+      {
+        "san": "a6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bb3",
+        "explanation": "Le fou conserve sa diagonale vers f7 tout en évitant une future attaque par les pions."
+      },
+      {
+        "san": "Ba7",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nbd2",
+        "explanation": "Le cavalier prépare le trajet d2-f1-g3, typique de ces positions."
+      },
+      {
+        "san": "h6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nf1",
+        "explanation": "Le cavalier utilise f1 comme étape pour rejoindre l’aile roi."
+      },
+      {
+        "san": "Re8",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Ng3",
+        "explanation": "Depuis g3, le cavalier contrôle f5 et h5 et peut soutenir une attaque."
+      },
+      {
+        "san": "Be6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      }
+    ]
+  },
+  {
+    "openingId": "italian",
+    "id": "pianissimo",
+    "extension": [
+      {
+        "san": "O-O",
+        "explanation": "La sécurité du roi permet de préparer tes plans sans craindre un échec au centre."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Be3",
+        "explanation": "Tu proposes l’échange du fou actif adverse qui vise f2."
+      },
+      {
+        "san": "Ba7",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bxa7",
+        "explanation": "Cet échange retire le fou qui exerçait une pression sur ton roque."
+      },
+      {
+        "san": "Rxa7",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nh2",
+        "explanation": "Le cavalier libère f3 pour permettre au pion f d’avancer de deux cases."
+      },
+      {
+        "san": "Be6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "f4",
+        "explanation": "La rupture f4 remet en question le pion e5 et ouvre le jeu sur l’aile roi."
+      },
+      {
+        "san": "exf4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Rxf4",
+        "explanation": "La tour reprend sur une case active : la colonne f est maintenant ouverte."
+      }
+    ]
+  },
+  {
+    "openingId": "italian",
+    "id": "hungarian",
+    "extension": [
+      {
+        "san": "Re1",
+        "explanation": "La tour soutient le pion e4, point central de ta position."
+      },
+      {
+        "san": "Bg4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Be3",
+        "explanation": "Tu développes le fou et renforces le pion d4."
+      },
+      {
+        "san": "exd4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bxd4",
+        "explanation": "Ton fou reprend au centre et occupe une longue diagonale."
+      },
+      {
+        "san": "Nxd4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Qxd4",
+        "explanation": "La dame reprend le cavalier ; les échanges ont ouvert les lignes centrales."
+      },
+      {
+        "san": "Bxf3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "gxf3",
+        "explanation": "Tu reprends le fou : tes pions f sont doublés, mais tu conserves le matériel et renforces e4."
+      }
+    ]
+  },
+  {
+    "openingId": "scotch",
+    "id": "scotch-classical",
+    "extension": [
+      {
+        "san": "O-O",
+        "explanation": "Tu abrites le roi avant d’avancer les pions de l’aile roi."
+      },
+      {
+        "san": "d6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "f4",
+        "explanation": "Le pion f soutient e5 et gagne de l’espace pour tes pièces."
+      },
+      {
+        "san": "Bb6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Kh1",
+        "explanation": "Le roi quitte la diagonale a7-g1, où le fou noir peut devenir dangereux."
+      },
+      {
+        "san": "Qg6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Qd3",
+        "explanation": "La dame soutient e4 et coordonne les pièces autour du centre."
+      },
+      {
+        "san": "Nxd4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "cxd4",
+        "explanation": "Tu reprends vers le centre : le duo d4-e4 offre de l’espace, mais doit être défendu."
+      }
+    ]
+  },
+  {
+    "openingId": "scotch",
+    "id": "schmidt",
+    "extension": [
+      {
+        "san": "exd5",
+        "explanation": "Tu échanges le pion e4 pour modifier la structure centrale noire."
+      },
+      {
+        "san": "cxd5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Tu mets le roi à l’abri dans cette position ouverte."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bg5",
+        "explanation": "Le fou cloue le cavalier f6 devant la dame et augmente la pression."
+      },
+      {
+        "san": "c6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Qf3",
+        "explanation": "La dame appuie le fou g5 et regarde les cases de l’aile roi."
+      },
+      {
+        "san": "Be6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Rad1",
+        "explanation": "La tour a1 rejoint la colonne d pour faire pression sur le pion d5."
+      }
+    ]
+  },
+  {
+    "openingId": "scotch",
+    "id": "scotch-gambit",
+    "extension": [
+      {
+        "san": "cxd4",
+        "explanation": "Tu reprends d4 et reconstruis un centre de pions solide."
+      },
+      {
+        "san": "Bb6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nc3",
+        "explanation": "Le cavalier attaque e4 : tu cherches à chasser la pièce noire centrale."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Le roi se met à l’abri tandis que la tour se rapproche du centre."
+      },
+      {
+        "san": "Bg4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Be3",
+        "explanation": "Le fou défend d4 et complète le développement des pièces mineures."
+      },
+      {
+        "san": "f6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "exf6",
+        "explanation": "Tu prends le pion f6 pour ouvrir la colonne e et obliger le cavalier noir à reculer."
+      },
+      {
+        "san": "Nxf6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      }
+    ]
+  },
+  {
+    "openingId": "scotch",
+    "id": "steinitz",
+    "extension": [
+      {
+        "san": "Nb5",
+        "explanation": "Le cavalier vise c7 : la dame sortie trop tôt laisse des cases sensibles."
+      },
+      {
+        "san": "Bxc3+",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "bxc3",
+        "explanation": "Tu reprends le fou et ouvres la colonne b, au prix de pions doublés."
+      },
+      {
+        "san": "Kd8",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Ton roi est en sécurité alors que le roi adverse a perdu le droit de roquer."
+      },
+      {
+        "san": "Nf6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Re1",
+        "explanation": "La tour gagne un tempo en attaquant la dame e4 sur la colonne ouverte."
+      },
+      {
+        "san": "d6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bd3",
+        "explanation": "Le fou attaque à nouveau la dame e4 : développe tes pièces avec des menaces."
+      },
+      {
+        "san": "Qd5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      }
+    ]
+  },
+  {
+    "openingId": "french",
+    "id": "advance",
+    "extension": [
+      {
+        "san": "b4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "cxd4",
+        "explanation": "Tu échanges la base d4 de la chaîne blanche pour réduire son soutien."
+      },
+      {
+        "san": "cxd4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nf5",
+        "explanation": "Le cavalier atteint f5, où il attaque d4 et le fou potentiel en e3."
+      },
+      {
+        "san": "Bb2",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bd7",
+        "explanation": "Tu sors le fou c8 pour relier les tours et préparer leur activité."
+      },
+      {
+        "san": "Be2",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Rc8",
+        "explanation": "La tour occupe la colonne c ouverte et met la pression sur l’aile dame."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      }
+    ]
+  },
+  {
+    "openingId": "french",
+    "id": "exchange",
+    "extension": [
+      {
+        "san": "Re1",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Re8",
+        "explanation": "Tu contestes la colonne e ouverte : il faut empêcher l’adversaire de l’occuper seul."
+      },
+      {
+        "san": "Rxe8+",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Qxe8",
+        "explanation": "La dame reprend la tour et maintient le contrôle de la colonne e."
+      },
+      {
+        "san": "Bg5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nbd7",
+        "explanation": "Le cavalier se développe sans bloquer le fou d6 et soutient f6."
+      },
+      {
+        "san": "Nbd2",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "c6",
+        "explanation": "Le pion c consolide d5 et donne une structure solide aux pièces noires."
+      }
+    ]
+  },
+  {
+    "openingId": "french",
+    "id": "tarrasch",
+    "extension": [
+      {
+        "san": "Ne2",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "cxd4",
+        "explanation": "Cet échange attaque la base d4 et oblige les Blancs à préciser leur centre."
+      },
+      {
+        "san": "cxd4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "f6",
+        "explanation": "La rupture f6 attaque maintenant le sommet e5 de la chaîne blanche."
+      },
+      {
+        "san": "exf6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nxf6",
+        "explanation": "Le cavalier reprend et retrouve une case active ; la colonne f est libérée."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bd6",
+        "explanation": "Le fou vise h2 et prépare le petit roque."
+      },
+      {
+        "san": "Nf3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Ton roi se met à l’abri une fois le centre blanc affaibli."
+      }
+    ]
+  },
+  {
+    "openingId": "french",
+    "id": "french-classical",
+    "extension": [
+      {
+        "san": "Nf3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nc6",
+        "explanation": "Tu ajoutes une pièce à la pression contre le pion d4."
+      },
+      {
+        "san": "Qd2",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Tu sécurises le roi avant les échanges centraux."
+      },
+      {
+        "san": "O-O-O",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "cxd4",
+        "explanation": "Cet échange ouvre la colonne c et réduit le soutien du pion e5."
+      },
+      {
+        "san": "Nxd4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nxd4",
+        "explanation": "Le cavalier échange une pièce centrale active des Blancs."
+      },
+      {
+        "san": "Qxd4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      }
+    ]
+  },
+  {
+    "openingId": "scandinavian",
+    "id": "queen-a5",
+    "extension": [
+      {
+        "san": "Bd2",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "c6",
+        "explanation": "Le pion c6 limite le cavalier blanc et prépare une structure solide."
+      },
+      {
+        "san": "Nd5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Qd8",
+        "explanation": "Le cavalier blanc a libéré la diagonale du fou d2 : ta dame doit quitter a5."
+      },
+      {
+        "san": "Nxf6+",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "gxf6",
+        "explanation": "Tu reprends le cavalier ; les pions f doublés contrôlent davantage de cases centrales."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nd7",
+        "explanation": "Le cavalier se développe vers le centre et prépare la sortie du fou f8."
+      },
+      {
+        "san": "Re1",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      }
+    ]
+  },
+  {
+    "openingId": "scandinavian",
+    "id": "queen-d6",
+    "extension": [
+      {
+        "san": "Bg2",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nc6",
+        "explanation": "Le cavalier augmente le contrôle de d4 et prépare le grand roque."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "O-O-O",
+        "explanation": "Ton roi rejoint l’aile dame et la tour occupe immédiatement la colonne d."
+      },
+      {
+        "san": "Be3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "e5",
+        "explanation": "La rupture e5 conteste d4 et libère les pièces noires."
+      },
+      {
+        "san": "dxe5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nxe5",
+        "explanation": "Le cavalier reprend au centre et gagne une case active en e5."
+      }
+    ]
+  },
+  {
+    "openingId": "scandinavian",
+    "id": "queen-d8",
+    "extension": [
+      {
+        "san": "O-O",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "c6",
+        "explanation": "Le pion c6 soutient les cases d5 et b5 et stabilise la position."
+      },
+      {
+        "san": "h3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bxf3",
+        "explanation": "Tu échanges le fou contre le cavalier avant de poursuivre le développement."
+      },
+      {
+        "san": "Bxf3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nbd7",
+        "explanation": "Le cavalier d7 soutient f6 et pourra rejoindre b6 ou c5."
+      },
+      {
+        "san": "Re1",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Be7",
+        "explanation": "Le fou se développe sans gêner les autres pièces et prépare le roque."
+      },
+      {
+        "san": "Bf4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Tu termines la mise en sécurité du roi après avoir construit ta défense."
+      }
+    ]
+  },
+  {
+    "openingId": "scandinavian",
+    "id": "modern",
+    "extension": [
+      {
+        "san": "Be2",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Le roi s’abrite derrière le fou en fianchetto."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nc6",
+        "explanation": "Le cavalier fait pression sur d4 : tu attaques le centre avec tes pièces."
+      },
+      {
+        "san": "Be3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bg4",
+        "explanation": "Le fou cloue le cavalier f3 devant la dame pour accroître la pression centrale."
+      },
+      {
+        "san": "b3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "e5",
+        "explanation": "La poussée e5 conteste d4 et fixe la structure de pions."
+      },
+      {
+        "san": "d5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Ne7",
+        "explanation": "Le cavalier quitte l’attaque du pion d5 et se prépare à rejoindre l’aile roi."
+      }
+    ]
+  },
+  {
+    "openingId": "italian",
+    "id": "evans",
+    "name": "Gambit Evans",
+    "eco": "C51",
+    "description": "Tu offres un pion pour chasser le fou et gagner du temps au centre.",
+    "moves": [
+      {
+        "san": "e4",
+        "explanation": "Tu occupes le centre et libères les diagonales du fou et de la dame."
+      },
+      {
+        "san": "e5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nf3",
+        "explanation": "Le cavalier se développe et contrôle les cases centrales d4 et e5."
+      },
+      {
+        "san": "Nc6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bc4",
+        "explanation": "Le fou se développe sur une diagonale dirigée vers f7."
+      },
+      {
+        "san": "Bc5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "b4",
+        "explanation": "Tu offres un pion pour chasser le fou et gagner du temps au centre."
+      },
+      {
+        "san": "Bxb4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "c3",
+        "explanation": "Tu attaques le fou pour préparer d4 avec tempo."
+      },
+      {
+        "san": "Bc5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "d4",
+        "explanation": "Tu installes deux pions au centre grâce aux tempos du gambit."
+      },
+      {
+        "san": "exd4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      }
+    ],
+    "extension": [
+      {
+        "san": "O-O",
+        "explanation": "Tu utilises ton avance de développement pour mettre le roi à l’abri."
+      },
+      {
+        "san": "d6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "cxd4",
+        "explanation": "Tu reprends au centre : le pion offert en b4 a permis d’installer d4 et e4."
+      },
+      {
+        "san": "Bb6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nc3",
+        "explanation": "Le cavalier arrive avec tempo contre les cases centrales ; le gambit mise sur l’activité."
+      },
+      {
+        "san": "Bg4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Qa4",
+        "explanation": "La dame vise c6 et le roi noir encore au centre."
+      },
+      {
+        "san": "Bd7",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Qb3",
+        "explanation": "La dame et le fou c4 se coordonnent contre le point f7."
+      }
+    ]
+  },
+  {
+    "openingId": "italian",
+    "id": "knight-attack",
+    "name": "Attaque avec Cg5",
+    "eco": "C58",
+    "description": "Ton cavalier et ton fou attaquent ensemble f7.",
+    "moves": [
+      {
+        "san": "e4",
+        "explanation": "Tu occupes le centre et libères les diagonales du fou et de la dame."
+      },
+      {
+        "san": "e5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nf3",
+        "explanation": "Le cavalier se développe et contrôle les cases centrales d4 et e5."
+      },
+      {
+        "san": "Nc6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bc4",
+        "explanation": "Le fou se développe sur une diagonale dirigée vers f7."
+      },
+      {
+        "san": "Nf6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Ng5",
+        "explanation": "Ton cavalier et ton fou attaquent ensemble f7."
+      },
+      {
+        "san": "d5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "exd5",
+        "explanation": "Tu ouvres le centre tout en conservant la menace sur f7."
+      },
+      {
+        "san": "Na5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bb5+",
+        "explanation": "L’échec oblige les Noirs à répondre avant de terminer leur développement."
+      },
+      {
+        "san": "c6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      }
+    ],
+    "extension": [
+      {
+        "san": "dxc6",
+        "explanation": "Tu prends le pion c6 pour ouvrir des lignes et forcer une nouvelle reprise."
+      },
+      {
+        "san": "bxc6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Be2",
+        "explanation": "Le fou se retire sur une case sûre et permet le roque."
+      },
+      {
+        "san": "h6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nf3",
+        "explanation": "Ton cavalier quitte g5, attaquée par le pion h6."
+      },
+      {
+        "san": "e4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Ne5",
+        "explanation": "Le cavalier se centralise et échappe au pion e4."
+      },
+      {
+        "san": "Bd6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "d4",
+        "explanation": "Tu contestes e5 et ouvres la diagonale du fou c1 ; surveille la prise en passant."
+      },
+      {
+        "san": "exd3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nxd3",
+        "explanation": "Tu reprends le pion passé en d3 avec un cavalier bien centralisé."
+      }
+    ]
+  },
+  {
+    "openingId": "scotch",
+    "id": "mieses",
+    "name": "Variante Mieses",
+    "eco": "C45",
+    "description": "L’échange oblige les Noirs à reprendre avec un pion et modifie leur structure.",
+    "moves": [
+      {
+        "san": "e4",
+        "explanation": "Tu occupes le centre et libères les diagonales du fou et de la dame."
+      },
+      {
+        "san": "e5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nf3",
+        "explanation": "Le cavalier se développe et contrôle les cases centrales d4 et e5."
+      },
+      {
+        "san": "Nc6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "d4",
+        "explanation": "Tu prends de l’espace au centre et ouvres la diagonale du fou."
+      },
+      {
+        "san": "exd4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nxd4",
+        "explanation": "Le cavalier reprend le pion et occupe une case centrale active."
+      },
+      {
+        "san": "Nf6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nxc6",
+        "explanation": "L’échange oblige les Noirs à reprendre avec un pion et modifie leur structure."
+      },
+      {
+        "san": "bxc6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "e5",
+        "explanation": "Le pion chasse le cavalier f6 et gagne de l’espace."
+      },
+      {
+        "san": "Qe7",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      }
+    ],
+    "extension": [
+      {
+        "san": "Qe2",
+        "explanation": "La dame défend le pion e5, immobilisé par le face-à-face sur la colonne e."
+      },
+      {
+        "san": "Nd5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "c4",
+        "explanation": "Le pion attaque le cavalier d5 pour gagner du temps et de l’espace."
+      },
+      {
+        "san": "Ba6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "b3",
+        "explanation": "Tu prépares le développement du fou c1 en b2 et soutiens c4."
+      },
+      {
+        "san": "g6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "f4",
+        "explanation": "Le pion soutient e5 : le centre avancé doit rester bien protégé."
+      },
+      {
+        "san": "Bg7",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Qf2",
+        "explanation": "La dame quitte la colonne e et prépare une meilleure coordination sur l’aile roi."
+      },
+      {
+        "san": "Nb6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      }
+    ]
+  },
+  {
+    "openingId": "scotch",
+    "id": "goring",
+    "name": "Gambit Göring",
+    "eco": "C44",
+    "description": "Tu offres un pion pour accélérer le développement et ouvrir des colonnes.",
+    "moves": [
+      {
+        "san": "e4",
+        "explanation": "Tu occupes le centre et libères les diagonales du fou et de la dame."
+      },
+      {
+        "san": "e5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nf3",
+        "explanation": "Le cavalier se développe et contrôle les cases centrales d4 et e5."
+      },
+      {
+        "san": "Nc6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "d4",
+        "explanation": "Tu prends de l’espace au centre et ouvres la diagonale du fou."
+      },
+      {
+        "san": "exd4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "c3",
+        "explanation": "Tu offres un pion pour accélérer le développement et ouvrir des colonnes."
+      },
+      {
+        "san": "dxc3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nxc3",
+        "explanation": "Le cavalier reprend avec développement : c’est l’idée du gambit Göring."
+      },
+      {
+        "san": "Bb4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bc4",
+        "explanation": "Le fou se développe sur une diagonale dirigée vers f7."
+      },
+      {
+        "san": "d6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      }
+    ],
+    "extension": [
+      {
+        "san": "O-O",
+        "explanation": "Dans un gambit, la sécurité du roi permet d’utiliser rapidement les colonnes ouvertes."
+      },
+      {
+        "san": "Bxc3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "bxc3",
+        "explanation": "Tu reprends et ouvres la colonne b ; l’activité compense en partie la structure abîmée."
+      },
+      {
+        "san": "Nf6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Re1",
+        "explanation": "La tour soutient e4 et regarde la colonne e semi-ouverte."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bg5",
+        "explanation": "Le fou cloue le cavalier f6 devant la dame et crée une menace utile."
+      },
+      {
+        "san": "Be6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bxe6",
+        "explanation": "Cet échange impose des pions e doublés aux Noirs et modifie leurs cases faibles."
+      },
+      {
+        "san": "fxe6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      }
+    ]
+  },
+  {
+    "openingId": "french",
+    "id": "winawer",
+    "name": "Variante Winawer",
+    "eco": "C18",
+    "description": "Le fou cloue le cavalier c3 : c’est le signe distinctif de la Winawer.",
+    "moves": [
+      {
+        "san": "e4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "e6",
+        "explanation": "Tu prépares le développement du fou f8 et contrôles d5."
+      },
+      {
+        "san": "d4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "d5",
+        "explanation": "Tu contestes le centre blanc avec un pion soutenu par tes pièces."
+      },
+      {
+        "san": "Nc3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bb4",
+        "explanation": "Le fou cloue le cavalier c3 : c’est le signe distinctif de la Winawer."
+      },
+      {
+        "san": "e5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "c5",
+        "explanation": "Tu attaques d4, base de la chaîne de pions blanche."
+      },
+      {
+        "san": "a3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bxc3+",
+        "explanation": "Tu échanges ton fou pour doubler les pions c blancs."
+      },
+      {
+        "san": "bxc3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Ne7",
+        "explanation": "Le cavalier se développe sans passer par f6, contrôlée par e5."
+      }
+    ],
+    "extension": [
+      {
+        "san": "Nf3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nbc6",
+        "explanation": "Le cavalier b8 accroît la pression sur d4, base de la chaîne blanche."
+      },
+      {
+        "san": "a4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Qa5",
+        "explanation": "La dame se place sur l’aile dame et vise le pion c3 doublé."
+      },
+      {
+        "san": "Bd2",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bd7",
+        "explanation": "Le fou quitte c8 pour terminer le développement et relier les tours."
+      },
+      {
+        "san": "Bd3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Tu sécurises le roi avant de fermer davantage le centre."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "c4",
+        "explanation": "La poussée c4 gagne de l’espace et chasse le fou d3 ; elle ferme aussi la colonne c."
+      },
+      {
+        "san": "Be2",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      }
+    ]
+  },
+  {
+    "openingId": "french",
+    "id": "rubinstein",
+    "name": "Variante Rubinstein",
+    "eco": "C10",
+    "description": "Tu simplifies le centre : c’est le choix de la Rubinstein.",
+    "moves": [
+      {
+        "san": "e4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "e6",
+        "explanation": "Tu prépares le développement du fou f8 et contrôles d5."
+      },
+      {
+        "san": "d4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "d5",
+        "explanation": "Tu contestes le centre blanc avec un pion soutenu par tes pièces."
+      },
+      {
+        "san": "Nc3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "dxe4",
+        "explanation": "Tu simplifies le centre : c’est le choix de la Rubinstein."
+      },
+      {
+        "san": "Nxe4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nd7",
+        "explanation": "Le cavalier prépare f6 en soutenant le développement."
+      },
+      {
+        "san": "Nf3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Ngf6",
+        "explanation": "Tu attaques le cavalier e4 et proposes un échange central."
+      },
+      {
+        "san": "Nxf6+",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nxf6",
+        "explanation": "Le cavalier reprend sur une case naturelle et prépare le roque."
+      }
+    ],
+    "extension": [
+      {
+        "san": "Bd3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "c5",
+        "explanation": "Tu contestes d4 pour éviter que les Blancs gardent un centre libre."
+      },
+      {
+        "san": "dxc5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bxc5",
+        "explanation": "Le fou reprend avec activité sur une diagonale tournée vers f2."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Le roi se met à l’abri dans une structure centrale simplifiée."
+      },
+      {
+        "san": "Qe2",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "b6",
+        "explanation": "Le pion b prépare un fianchetto pour donner de l’activité au fou c8."
+      },
+      {
+        "san": "Bg5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bb7",
+        "explanation": "Le fou vise le centre depuis b7, sans rester enfermé derrière les pions."
+      }
+    ]
+  },
+  {
+    "openingId": "scandinavian",
+    "id": "portuguese",
+    "name": "Gambit portugais",
+    "eco": "B01",
+    "description": "Tu développes une pièce avant de récupérer le pion.",
+    "moves": [
+      {
+        "san": "e4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "d5",
+        "explanation": "Tu contestes le centre blanc avec un pion soutenu par tes pièces."
+      },
+      {
+        "san": "exd5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nf6",
+        "explanation": "Tu développes une pièce avant de récupérer le pion."
+      },
+      {
+        "san": "d4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bg4",
+        "explanation": "Tu privilégies l’activité du fou : c’est l’idée du gambit portugais."
+      },
+      {
+        "san": "f3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bf5",
+        "explanation": "Le fou se retire en conservant une diagonale active."
+      },
+      {
+        "san": "Bb5+",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nbd7",
+        "explanation": "Le cavalier pare l’échec tout en se développant."
+      },
+      {
+        "san": "c4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "e6",
+        "explanation": "Tu offres un pion pour ouvrir des lignes à tes pièces."
+      }
+    ],
+    "extension": [
+      {
+        "san": "dxe6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bxe6",
+        "explanation": "Le fou reprend e6 et se développe : le gambit recherche des tempos utiles."
+      },
+      {
+        "san": "Ne2",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "c6",
+        "explanation": "Tu attaques le fou b5 tout en préparant le contrôle de d5."
+      },
+      {
+        "san": "Ba4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bxc4",
+        "explanation": "Le fou récupère le pion c4 : l’activité permet de retrouver du matériel."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Be7",
+        "explanation": "Tu développes le dernier fou et prépares le roque."
+      },
+      {
+        "san": "Re1",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "O-O",
+        "explanation": "La sécurité du roi complète le développement obtenu grâce au gambit."
+      }
+    ]
+  },
+  {
+    "openingId": "scandinavian",
+    "id": "icelandic",
+    "name": "Gambit islandais",
+    "eco": "B01",
+    "description": "Tu attaques d5 avec une pièce sans exposer ta dame.",
+    "moves": [
+      {
+        "san": "e4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "d5",
+        "explanation": "Tu contestes le centre blanc avec un pion soutenu par tes pièces."
+      },
+      {
+        "san": "exd5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nf6",
+        "explanation": "Tu attaques d5 avec une pièce sans exposer ta dame."
+      },
+      {
+        "san": "c4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "e6",
+        "explanation": "Tu offres un second pion pour ouvrir le jeu : c’est le gambit islandais."
+      },
+      {
+        "san": "dxe6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bxe6",
+        "explanation": "Le fou reprend et se développe avec activité."
+      },
+      {
+        "san": "Nf3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Qe7",
+        "explanation": "La dame soutient le fou e6 et prépare le grand roque."
+      },
+      {
+        "san": "Be2",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bxc4",
+        "explanation": "Le fou récupère un pion grâce à l’activité des pièces."
+      }
+    ],
+    "extension": [
+      {
+        "san": "Nc3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nc6",
+        "explanation": "Le cavalier attaque d4 et prépare le grand roque."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "O-O-O",
+        "explanation": "La tour arrive sur la colonne d, face au pion d2 : c’est une compensation active."
+      },
+      {
+        "san": "Re1",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Qc5",
+        "explanation": "La dame se centralise et quitte la colonne e où la tour blanche arrive."
+      },
+      {
+        "san": "d3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Ba6",
+        "explanation": "Le fou se retire en gardant une diagonale dirigée vers le roi blanc."
+      },
+      {
+        "san": "Be3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Qf5",
+        "explanation": "La dame évite le fou e3 et maintient une présence active près de l’aile roi."
+      }
+    ]
+  },
+  {
+    "openingId": "vienna",
+    "id": "vienna-max-lange",
+    "name": "Défense Max Lange",
+    "eco": "C25",
+    "description": "Développe naturellement tes pièces face à 2…Cc6, puis ouvre le centre.",
+    "moves": [
+      {
+        "san": "e4",
+        "explanation": "Tu occupes le centre et libères les diagonales du fou et de la dame."
+      },
+      {
+        "san": "e5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nc3",
+        "explanation": "Tu développes d’abord le cavalier dame : c’est la Partie viennoise."
+      },
+      {
+        "san": "Nc6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nf3",
+        "explanation": "Le cavalier se développe et contrôle les cases centrales d4 et e5."
+      },
+      {
+        "san": "Nf6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "d4",
+        "explanation": "Cette poussée mène à une structure ouverte de type Quatre Cavaliers."
+      },
+      {
+        "san": "exd4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nxd4",
+        "explanation": "Le cavalier reprend le pion et occupe une case centrale active."
+      },
+      {
+        "san": "Bb4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nxc6",
+        "explanation": "Tu échanges au centre pour modifier la structure de pions noire."
+      },
+      {
+        "san": "bxc6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      }
+    ],
+    "extension": [
+      {
+        "san": "Bd3",
+        "explanation": "Le fou protège e4 et prépare le roque dans cette transition vers les Quatre Cavaliers."
+      },
+      {
+        "san": "d5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "exd5",
+        "explanation": "L’échange central crée des pions noirs en c6 et d5, des cibles à surveiller."
+      },
+      {
+        "san": "cxd5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Le roi s’abrite pour laisser les tours agir au centre."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bg5",
+        "explanation": "Le fou cloue le cavalier f6 devant la dame."
+      },
+      {
+        "san": "c6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Qf3",
+        "explanation": "La dame appuie la pression sur l’aile roi et relie les tours."
+      },
+      {
+        "san": "Be7",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      }
+    ]
+  },
+  {
+    "openingId": "vienna",
+    "id": "vienna-falkbeer",
+    "name": "Variante Falkbeer",
+    "eco": "C26",
+    "description": "Réponds à 2…Cf6 avec un développement calme et actif.",
+    "moves": [
+      {
+        "san": "e4",
+        "explanation": "Tu occupes le centre et libères les diagonales du fou et de la dame."
+      },
+      {
+        "san": "e5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nc3",
+        "explanation": "Le cavalier dame se développe avant le cavalier roi."
+      },
+      {
+        "san": "Nf6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nf3",
+        "explanation": "Le cavalier se développe et contrôle les cases centrales d4 et e5."
+      },
+      {
+        "san": "Nc6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bc4",
+        "explanation": "Le fou se développe sur une diagonale dirigée vers f7."
+      },
+      {
+        "san": "Bc5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "d3",
+        "explanation": "Tu soutiens e4 et choisis un développement calme contre la réponse Falkbeer."
+      },
+      {
+        "san": "d6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Tu mets le roi à l’abri et rapproches la tour du centre."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      }
+    ],
+    "extension": [
+      {
+        "san": "Bg5",
+        "explanation": "Le fou cloue le cavalier f6 devant la dame, ce qui gêne sa mobilité."
+      },
+      {
+        "san": "h6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bh4",
+        "explanation": "Le fou conserve le clouage après l’attaque du pion h."
+      },
+      {
+        "san": "g5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bg3",
+        "explanation": "Tu gardes le fou : les Noirs ont avancé leurs pions devant leur roi."
+      },
+      {
+        "san": "Bg4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "h3",
+        "explanation": "Le pion chasse le fou g4 et permet de contester son clouage."
+      },
+      {
+        "san": "Bh5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "a3",
+        "explanation": "Tu empêches une pièce noire de venir en b4 et prépares une case de retraite au fou."
+      }
+    ]
+  },
+  {
+    "openingId": "vienna",
+    "id": "vienna-gambit",
+    "name": "Gambit viennois",
+    "eco": "C29",
+    "description": "Joue f4 pour ouvrir des lignes et découvrir un jeu dynamique.",
+    "moves": [
+      {
+        "san": "e4",
+        "explanation": "Tu occupes le centre et libères les diagonales du fou et de la dame."
+      },
+      {
+        "san": "e5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nc3",
+        "explanation": "Le cavalier se développe et renforce le contrôle des cases d5 et e4."
+      },
+      {
+        "san": "Nf6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "f4",
+        "explanation": "Tu proposes le pion f pour contester e5 et ouvrir des lignes."
+      },
+      {
+        "san": "d5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "fxe5",
+        "explanation": "Tu captures le pion e5 en attaquant le cavalier f6."
+      },
+      {
+        "san": "Nxe4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nf3",
+        "explanation": "Le cavalier se développe et contrôle les cases centrales d4 et e5."
+      },
+      {
+        "san": "Be7",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "d4",
+        "explanation": "Le pion soutient e5 et installe un centre actif."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      }
+    ],
+    "extension": [
+      {
+        "san": "Bd3",
+        "explanation": "Le fou vise h7 et prépare le petit roque derrière le centre ouvert."
+      },
+      {
+        "san": "Nxc3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "bxc3",
+        "explanation": "Tu reprends avec le pion b pour soutenir d4 et ouvrir la colonne b."
+      },
+      {
+        "san": "c5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Ton roi quitte le centre ; la colonne f ouverte pourra servir à attaquer."
+      },
+      {
+        "san": "Nc6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Qe1",
+        "explanation": "La dame peut rejoindre h4 via e1 : un plan d’attaque typique du gambit."
+      },
+      {
+        "san": "Be6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      }
+    ]
+  },
+  {
+    "openingId": "vienna",
+    "id": "vienna-stanley",
+    "name": "Variante Stanley",
+    "eco": "C26",
+    "description": "Développe le fou en c4 et utilise la case centrale d5.",
+    "moves": [
+      {
+        "san": "e4",
+        "explanation": "Tu occupes le centre et libères les diagonales du fou et de la dame."
+      },
+      {
+        "san": "e5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nc3",
+        "explanation": "Le cavalier se développe et renforce le contrôle des cases d5 et e4."
+      },
+      {
+        "san": "Nf6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bc4",
+        "explanation": "Le fou vise f7 : ce développement caractérise la variante Stanley."
+      },
+      {
+        "san": "Bc5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "d3",
+        "explanation": "Tu soutiens e4 avant de terminer le développement."
+      },
+      {
+        "san": "d6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nf3",
+        "explanation": "Le cavalier se développe et contrôle les cases centrales d4 et e5."
+      },
+      {
+        "san": "Nc6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Tu mets le roi à l’abri et rapproches la tour du centre."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      }
+    ],
+    "extension": [
+      {
+        "san": "Kh1",
+        "explanation": "Le roi quitte la diagonale du fou c5 pour réduire les risques tactiques."
+      },
+      {
+        "san": "a6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "a4",
+        "explanation": "Tu freines la poussée noire b5 qui attaquerait ton fou c4."
+      },
+      {
+        "san": "Ba7",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nd5",
+        "explanation": "Le cavalier occupe d5, une case avancée que tes pions contrôlent."
+      },
+      {
+        "san": "Nxd5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bxd5",
+        "explanation": "Le fou reprend au centre et reste très actif."
+      },
+      {
+        "san": "Ne7",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bb3",
+        "explanation": "Le fou revient sur une diagonale dirigée vers f7."
+      },
+      {
+        "san": "c6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Be3",
+        "explanation": "Tu développes le dernier fou et proposes l’échange du fou adverse actif."
+      },
+      {
+        "san": "Bxe3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "fxe3",
+        "explanation": "La reprise ouvre la colonne f, mais crée des pions e doublés : activité contre structure."
+      },
+      {
+        "san": "Ng6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      }
+    ]
+  },
+  {
+    "openingId": "vienna",
+    "id": "vienna-paulsen",
+    "name": "Variante Paulsen",
+    "eco": "C25",
+    "description": "Prépare un fianchetto puis la rupture f4.",
+    "moves": [
+      {
+        "san": "e4",
+        "explanation": "Tu occupes le centre et libères les diagonales du fou et de la dame."
+      },
+      {
+        "san": "e5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nc3",
+        "explanation": "Le cavalier se développe et renforce le contrôle des cases d5 et e4."
+      },
+      {
+        "san": "Nc6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "g3",
+        "explanation": "Tu prépares un fianchetto : c’est le plan de la variante Paulsen."
+      },
+      {
+        "san": "Nf6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bg2",
+        "explanation": "Le fou surveille le centre depuis la grande diagonale."
+      },
+      {
+        "san": "Bc5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nge2",
+        "explanation": "Le cavalier laisse le pion f libre pour une future poussée f4."
+      },
+      {
+        "san": "d6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "d3",
+        "explanation": "Ce coup soutient ta position avant de poursuivre le développement."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      }
+    ],
+    "extension": [
+      {
+        "san": "O-O",
+        "explanation": "Le fianchetto protège le roi avant l’ouverture du centre."
+      },
+      {
+        "san": "a6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "h3",
+        "explanation": "Le pion empêche une pièce adverse de s’installer en g4."
+      },
+      {
+        "san": "Ba7",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Kh2",
+        "explanation": "Le roi se décale pour soutenir l’avancée des pions de l’aile roi."
+      },
+      {
+        "san": "Be6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "f4",
+        "explanation": "La rupture f4 conteste e5 ; le cavalier en e2 avait laissé le pion libre d’avancer."
+      },
+      {
+        "san": "exf4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nxf4",
+        "explanation": "Le cavalier reprend sur f4 et exerce une pression sur d5 et e6."
+      },
+      {
+        "san": "d5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      }
+    ]
+  },
+  {
+    "openingId": "vienna",
+    "id": "vienna-anderssen",
+    "name": "Défense Anderssen",
+    "eco": "C25",
+    "description": "Conteste le centre face au développement précoce du fou en c5.",
+    "moves": [
+      {
+        "san": "e4",
+        "explanation": "Tu occupes le centre et libères les diagonales du fou et de la dame."
+      },
+      {
+        "san": "e5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nc3",
+        "explanation": "Le cavalier se développe et renforce le contrôle des cases d5 et e4."
+      },
+      {
+        "san": "Bc5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nf3",
+        "explanation": "Le cavalier se développe et contrôle les cases centrales d4 et e5."
+      },
+      {
+        "san": "d6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "d4",
+        "explanation": "Tu contestes immédiatement le centre face au fou c5."
+      },
+      {
+        "san": "exd4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nxd4",
+        "explanation": "Le cavalier reprend le pion et occupe une case centrale active."
+      },
+      {
+        "san": "Nf6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Be3",
+        "explanation": "Le fou soutient le cavalier d4 et prépare la coordination des pièces."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      }
+    ],
+    "extension": [
+      {
+        "san": "Be2",
+        "explanation": "Le fou se développe et libère la case f1 pour roquer."
+      },
+      {
+        "san": "Re8",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Tu mets ton roi à l’abri dans cette position ouverte."
+      },
+      {
+        "san": "Bb6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "f3",
+        "explanation": "Le pion soutient e4 et réduit les possibilités de saut en g4."
+      },
+      {
+        "san": "Nc6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Qd2",
+        "explanation": "La dame relie les tours et soutient le fou e3."
+      },
+      {
+        "san": "Nxd4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bxd4",
+        "explanation": "Le fou reprend au centre sans créer de pion isolé."
+      },
+      {
+        "san": "Bxd4+",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Qxd4",
+        "explanation": "La dame reprend après l’échange des fous ; les pièces lourdes peuvent maintenant s’activer."
+      }
+    ]
+  },
+  {
+    "openingId": "queens-gambit",
+    "id": "queens-declined",
+    "name": "Gambit Dame refusé",
+    "eco": "D60",
+    "description": "Le fou cloue le cavalier f6 devant la dame noire.",
+    "moves": [
+      {
+        "san": "d4",
+        "explanation": "Tu prends de l’espace au centre et ouvres la diagonale du fou."
+      },
+      {
+        "san": "d5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "c4",
+        "explanation": "Tu contestes d5 avec un pion et gagnes de l’espace sur l’aile dame."
+      },
+      {
+        "san": "e6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nc3",
+        "explanation": "Le cavalier se développe et renforce le contrôle des cases d5 et e4."
+      },
+      {
+        "san": "Nf6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bg5",
+        "explanation": "Le fou cloue le cavalier f6 devant la dame noire."
+      },
+      {
+        "san": "Be7",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "e3",
+        "explanation": "Tu ouvres la diagonale du fou f1 et soutiens d4."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nf3",
+        "explanation": "Le cavalier se développe et contrôle les cases centrales d4 et e5."
+      },
+      {
+        "san": "Nbd7",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      }
+    ],
+    "extension": [
+      {
+        "san": "Rc1",
+        "explanation": "La tour vient sur la colonne c, susceptible de s’ouvrir après un échange de pions."
+      },
+      {
+        "san": "c6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bd3",
+        "explanation": "Le fou vise h7 et prépare le roque."
+      },
+      {
+        "san": "dxc4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bxc4",
+        "explanation": "Le fou récupère le pion offert tout en gagnant une diagonale active."
+      },
+      {
+        "san": "Nd5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bxe7",
+        "explanation": "Tu échanges les fous avant de mettre ton roi à l’abri."
+      },
+      {
+        "san": "Qxe7",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Le roi s’éloigne du centre au moment où les Noirs cherchent la poussée e5."
+      },
+      {
+        "san": "Nxc3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Rxc3",
+        "explanation": "La tour reprend sur c3 : elle reste active et évite de doubler tes pions."
+      },
+      {
+        "san": "e5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      }
+    ]
+  },
+  {
+    "openingId": "queens-gambit",
+    "id": "queens-accepted",
+    "name": "Gambit Dame accepté",
+    "eco": "D27",
+    "description": "Tu prépares la récupération du pion c4 par le fou.",
+    "moves": [
+      {
+        "san": "d4",
+        "explanation": "Tu prends de l’espace au centre et ouvres la diagonale du fou."
+      },
+      {
+        "san": "d5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "c4",
+        "explanation": "Tu contestes d5 avec un pion et gagnes de l’espace sur l’aile dame."
+      },
+      {
+        "san": "dxc4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nf3",
+        "explanation": "Le cavalier se développe et contrôle les cases centrales d4 et e5."
+      },
+      {
+        "san": "Nf6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "e3",
+        "explanation": "Tu prépares la récupération du pion c4 par le fou."
+      },
+      {
+        "san": "e6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bxc4",
+        "explanation": "Le fou récupère le pion offert en se développant."
+      },
+      {
+        "san": "c5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Tu mets le roi à l’abri et rapproches la tour du centre."
+      },
+      {
+        "san": "a6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      }
+    ],
+    "extension": [
+      {
+        "san": "Qe2",
+        "explanation": "La dame libère d1 pour la tour et soutient une future poussée e4."
+      },
+      {
+        "san": "b5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bb3",
+        "explanation": "Le fou recule sans perdre sa diagonale vers f7."
+      },
+      {
+        "san": "Bb7",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Rd1",
+        "explanation": "La tour surveille la colonne d, qui peut s’ouvrir après les échanges."
+      },
+      {
+        "san": "Nbd7",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nc3",
+        "explanation": "Le cavalier soutient d5 et e4 pour renforcer le jeu central."
+      },
+      {
+        "san": "cxd4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "exd4",
+        "explanation": "La reprise crée un pion d4 isolé : il donne de l’espace mais devra être protégé."
+      },
+      {
+        "san": "Be7",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bg5",
+        "explanation": "Le fou cloue le cavalier f6 pour utiliser ton activité avant que le pion isolé ne devienne faible."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      }
+    ]
+  },
+  {
+    "openingId": "queens-gambit",
+    "id": "queens-slav",
+    "name": "Défense slave",
+    "eco": "D18",
+    "description": "Tu empêches b5, qui permettrait aux Noirs de garder le pion c4.",
+    "moves": [
+      {
+        "san": "d4",
+        "explanation": "Tu prends de l’espace au centre et ouvres la diagonale du fou."
+      },
+      {
+        "san": "d5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "c4",
+        "explanation": "Tu contestes d5 avec un pion et gagnes de l’espace sur l’aile dame."
+      },
+      {
+        "san": "c6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nf3",
+        "explanation": "Le cavalier se développe et contrôle les cases centrales d4 et e5."
+      },
+      {
+        "san": "Nf6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nc3",
+        "explanation": "Le cavalier se développe et renforce le contrôle des cases d5 et e4."
+      },
+      {
+        "san": "dxc4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "a4",
+        "explanation": "Tu empêches b5, qui permettrait aux Noirs de garder le pion c4."
+      },
+      {
+        "san": "Bf5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "e3",
+        "explanation": "Tu ouvres la diagonale du fou pour récupérer c4."
+      },
+      {
+        "san": "e6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      }
+    ],
+    "extension": [
+      {
+        "san": "Bxc4",
+        "explanation": "Le fou récupère c4 après que le pion a4 a empêché le soutien noir par b5."
+      },
+      {
+        "san": "Bb4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Le roi se met à l’abri avant la poussée centrale."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Qe2",
+        "explanation": "La dame soutient e4 : les pièces préparent le centre avant les pions."
+      },
+      {
+        "san": "Nbd7",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "e4",
+        "explanation": "Tu occupes e4 et attaques le fou f5 en gagnant de l’espace."
+      },
+      {
+        "san": "Bg6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bd3",
+        "explanation": "Le fou soutient e4 et se tourne vers le roi noir."
+      },
+      {
+        "san": "Qe7",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      }
+    ]
+  },
+  {
+    "openingId": "queens-gambit",
+    "id": "queens-semi-slav",
+    "name": "Défense semi-slave",
+    "eco": "D43",
+    "description": "Tu consolides d4 face au triangle noir c6-d5-e6.",
+    "moves": [
+      {
+        "san": "d4",
+        "explanation": "Tu prends de l’espace au centre et ouvres la diagonale du fou."
+      },
+      {
+        "san": "d5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "c4",
+        "explanation": "Tu contestes d5 avec un pion et gagnes de l’espace sur l’aile dame."
+      },
+      {
+        "san": "e6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nc3",
+        "explanation": "Le cavalier se développe et renforce le contrôle des cases d5 et e4."
+      },
+      {
+        "san": "Nf6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nf3",
+        "explanation": "Le cavalier se développe et contrôle les cases centrales d4 et e5."
+      },
+      {
+        "san": "c6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "e3",
+        "explanation": "Tu consolides d4 face au triangle noir c6-d5-e6."
+      },
+      {
+        "san": "Nbd7",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bd3",
+        "explanation": "Le fou se prépare à reprendre en c4 si les Noirs échangent."
+      },
+      {
+        "san": "dxc4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      }
+    ],
+    "extension": [
+      {
+        "san": "Bxc4",
+        "explanation": "Le fou récupère c4 : les Noirs vont essayer de gagner des tempos sur lui."
+      },
+      {
+        "san": "b5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bd3",
+        "explanation": "Le fou garde le contrôle du centre malgré l’avance b5."
+      },
+      {
+        "san": "Bb7",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "e4",
+        "explanation": "Tu occupes le centre pendant que les Noirs avancent sur l’aile dame."
+      },
+      {
+        "san": "b4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Na4",
+        "explanation": "Le cavalier évite le pion b4 et vise c5."
+      },
+      {
+        "san": "c5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "e5",
+        "explanation": "Tu gagnes de l’espace en chassant le cavalier f6."
+      },
+      {
+        "san": "Nd5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nxc5",
+        "explanation": "Le cavalier capture c5 et provoque des échanges dans le centre ouvert."
+      },
+      {
+        "san": "Bxc5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "dxc5",
+        "explanation": "Le pion reprend le fou : les échanges réduisent la tension centrale."
+      },
+      {
+        "san": "Nxc5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bb5+",
+        "explanation": "L’échec développe une menace contre le roi encore au centre et force une réponse."
+      },
+      {
+        "san": "Nd7",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      }
+    ]
+  },
+  {
+    "openingId": "queens-gambit",
+    "id": "queens-chigorin",
+    "name": "Défense Chigorin",
+    "eco": "D07",
+    "description": "Tu échanges un pion pour obliger les Noirs à préciser leur centre.",
+    "moves": [
+      {
+        "san": "d4",
+        "explanation": "Tu prends de l’espace au centre et ouvres la diagonale du fou."
+      },
+      {
+        "san": "d5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "c4",
+        "explanation": "Tu contestes d5 avec un pion et gagnes de l’espace sur l’aile dame."
+      },
+      {
+        "san": "Nc6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nc3",
+        "explanation": "Le cavalier se développe et renforce le contrôle des cases d5 et e4."
+      },
+      {
+        "san": "Nf6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nf3",
+        "explanation": "Le cavalier se développe et contrôle les cases centrales d4 et e5."
+      },
+      {
+        "san": "Bg4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "cxd5",
+        "explanation": "Tu échanges un pion pour obliger les Noirs à préciser leur centre."
+      },
+      {
+        "san": "Nxd5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "e4",
+        "explanation": "Tu occupes le centre avec tempo contre le cavalier d5."
+      },
+      {
+        "san": "Nxc3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      }
+    ],
+    "extension": [
+      {
+        "san": "bxc3",
+        "explanation": "La reprise renforce le centre avec un pion en c3, malgré les pions c doublés."
+      },
+      {
+        "san": "e5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "d5",
+        "explanation": "Le pion chasse le cavalier c6 et gagne de l’espace."
+      },
+      {
+        "san": "Nb8",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Qa4+",
+        "explanation": "L’échec gagne du temps pour déplacer la dame vers une case active."
+      },
+      {
+        "san": "Bd7",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Qb3",
+        "explanation": "La dame attaque b7 et soutient le pion d5."
+      },
+      {
+        "san": "Bd6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Be2",
+        "explanation": "Le fou se développe pour permettre le roque."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Le roi s’abrite ; ton avantage d’espace peut servir à mieux placer les pièces."
+      }
+    ]
+  },
+  {
+    "openingId": "queens-gambit",
+    "id": "queens-albin",
+    "name": "Contre-gambit Albin",
+    "eco": "D08",
+    "description": "Tu acceptes le contre-gambit, mais le pion noir va avancer en d4.",
+    "moves": [
+      {
+        "san": "d4",
+        "explanation": "Tu prends de l’espace au centre et ouvres la diagonale du fou."
+      },
+      {
+        "san": "d5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "c4",
+        "explanation": "Tu contestes d5 avec un pion et gagnes de l’espace sur l’aile dame."
+      },
+      {
+        "san": "e5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "dxe5",
+        "explanation": "Tu acceptes le contre-gambit, mais le pion noir va avancer en d4."
+      },
+      {
+        "san": "d4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nf3",
+        "explanation": "Le cavalier se développe et contrôle les cases centrales d4 et e5."
+      },
+      {
+        "san": "Nc6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "a3",
+        "explanation": "Tu empêches un fou de venir en b4 avec échec."
+      },
+      {
+        "san": "Nge7",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nbd2",
+        "explanation": "Le cavalier soutient f3 sans gêner le pion c4."
+      },
+      {
+        "san": "Ng6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      }
+    ],
+    "extension": [
+      {
+        "san": "g3",
+        "explanation": "Tu prépares le fianchetto pour surveiller le pion noir avancé en d4."
+      },
+      {
+        "san": "Ngxe5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nxe5",
+        "explanation": "Le cavalier échange une pièce noire active au centre."
+      },
+      {
+        "san": "Nxe5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bg2",
+        "explanation": "Le fou prend la grande diagonale et augmente la pression sur le centre."
+      },
+      {
+        "san": "c6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Tu sécurises le roi avant d’attaquer la chaîne de pions noire."
+      },
+      {
+        "san": "Be7",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "b4",
+        "explanation": "Tu gagnes de l’espace sur l’aile dame et prépares la sortie du fou c1."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bb2",
+        "explanation": "Les deux fous en fianchetto exercent leur pression à distance sur le centre."
+      }
+    ]
+  },
+  {
+    "openingId": "london",
+    "id": "london-solid",
+    "name": "Structure classique · e6",
+    "eco": "D02",
+    "description": "Tu sors le fou avant e3 : c’est une idée centrale du Londres.",
+    "moves": [
+      {
+        "san": "d4",
+        "explanation": "Tu prends de l’espace au centre et ouvres la diagonale du fou."
+      },
+      {
+        "san": "d5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nf3",
+        "explanation": "Le cavalier se développe et contrôle les cases centrales d4 et e5."
+      },
+      {
+        "san": "Nf6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bf4",
+        "explanation": "Tu sors le fou avant e3 : c’est une idée centrale du Londres."
+      },
+      {
+        "san": "e6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "e3",
+        "explanation": "Tu soutiens d4 et libères le passage du fou f1."
+      },
+      {
+        "san": "Bd6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bg3",
+        "explanation": "Le fou garde sa diagonale sans accepter immédiatement l’échange."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nbd2",
+        "explanation": "Le cavalier laisse la case c3 disponible pour un pion."
+      },
+      {
+        "san": "c5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      }
+    ],
+    "extension": [
+      {
+        "san": "c3",
+        "explanation": "Le triangle c3-d4-e3 stabilise le centre et limite les échanges forcés."
+      },
+      {
+        "san": "Nc6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bd3",
+        "explanation": "Le fou vise h7 et soutient une future attaque sur l’aile roi."
+      },
+      {
+        "san": "b6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "O-O",
+        "explanation": "La structure est prête ; tu termines la sécurité du roi."
+      },
+      {
+        "san": "Bb7",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Ne5",
+        "explanation": "Le cavalier occupe e5, soutenu par d4 : une case clé du Londres."
+      },
+      {
+        "san": "Qc7",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "f4",
+        "explanation": "Le pion renforce e5 et prépare davantage d’espace sur l’aile roi."
+      },
+      {
+        "san": "Ne7",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      }
+    ]
+  },
+  {
+    "openingId": "london",
+    "id": "london-c5",
+    "name": "Réagir à la poussée c5",
+    "eco": "D02",
+    "description": "Le fou sort avant la fermeture de sa diagonale par e3.",
+    "moves": [
+      {
+        "san": "d4",
+        "explanation": "Tu prends de l’espace au centre et ouvres la diagonale du fou."
+      },
+      {
+        "san": "d5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nf3",
+        "explanation": "Le cavalier se développe et contrôle les cases centrales d4 et e5."
+      },
+      {
+        "san": "Nf6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bf4",
+        "explanation": "Le fou sort avant la fermeture de sa diagonale par e3."
+      },
+      {
+        "san": "c5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "e3",
+        "explanation": "Tu soutiens d4 et libères le passage du fou f1."
+      },
+      {
+        "san": "Nc6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nbd2",
+        "explanation": "Tu développes le cavalier pour contrôler davantage de cases centrales."
+      },
+      {
+        "san": "e6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "c3",
+        "explanation": "Le pion renforce d4 face à l’attaque noire par c5."
+      },
+      {
+        "san": "Qb6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      }
+    ],
+    "extension": [
+      {
+        "san": "Qb3",
+        "explanation": "La dame défend b2 et propose un échange de dames."
+      },
+      {
+        "san": "c4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Qc2",
+        "explanation": "La dame évite le pion c4 et vise la diagonale b1-h7."
+      },
+      {
+        "san": "Be7",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "h3",
+        "explanation": "Le pion donne une case de retraite h2 au fou f4."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Be2",
+        "explanation": "Le fou se développe sans encombrer la colonne d."
+      },
+      {
+        "san": "Bd7",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Tu sécurises le roi ; le centre fermé permet ensuite de préparer une rupture de pions."
+      },
+      {
+        "san": "Rac8",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      }
+    ]
+  },
+  {
+    "openingId": "london",
+    "id": "london-bf5",
+    "name": "Face au fou en f5",
+    "eco": "D02",
+    "description": "Tu proposes l’échange du fou noir actif en f5.",
+    "moves": [
+      {
+        "san": "d4",
+        "explanation": "Tu prends de l’espace au centre et ouvres la diagonale du fou."
+      },
+      {
+        "san": "d5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nf3",
+        "explanation": "Le cavalier se développe et contrôle les cases centrales d4 et e5."
+      },
+      {
+        "san": "Nf6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bf4",
+        "explanation": "Tu développes le fou avant de jouer e3 pour garder sa diagonale libre."
+      },
+      {
+        "san": "Bf5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "e3",
+        "explanation": "Tu soutiens d4 et libères le passage du fou f1."
+      },
+      {
+        "san": "e6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bd3",
+        "explanation": "Tu proposes l’échange du fou noir actif en f5."
+      },
+      {
+        "san": "Bxd3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Qxd3",
+        "explanation": "La dame reprend et se place sur une diagonale tournée vers l’aile roi."
+      },
+      {
+        "san": "c5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      }
+    ],
+    "extension": [
+      {
+        "san": "c3",
+        "explanation": "Le pion c3 soutient d4 après l’échange des fous de cases blanches."
+      },
+      {
+        "san": "Nc6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nbd2",
+        "explanation": "Le cavalier soutient e4 et renforce la case e5."
+      },
+      {
+        "san": "Be7",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Tu mets le roi à l’abri avant de centraliser les pièces."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Ne5",
+        "explanation": "Le cavalier s’installe en e5 avec le soutien du pion d4."
+      },
+      {
+        "san": "Rc8",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Rad1",
+        "explanation": "La tour vient en d1 pour soutenir le pion central et une éventuelle ouverture de la colonne."
+      },
+      {
+        "san": "cxd4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "exd4",
+        "explanation": "Tu reprends vers le centre et ouvres la colonne e pour une tour."
+      }
+    ]
+  },
+  {
+    "openingId": "london",
+    "id": "london-qb6",
+    "name": "Pression de la dame · Db6",
+    "eco": "D02",
+    "description": "Tu développes le cavalier sans bloquer la tour a1.",
+    "moves": [
+      {
+        "san": "d4",
+        "explanation": "Tu prends de l’espace au centre et ouvres la diagonale du fou."
+      },
+      {
+        "san": "d5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nf3",
+        "explanation": "Le cavalier se développe et contrôle les cases centrales d4 et e5."
+      },
+      {
+        "san": "Nf6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bf4",
+        "explanation": "Tu développes le fou avant de jouer e3 pour garder sa diagonale libre."
+      },
+      {
+        "san": "c5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "e3",
+        "explanation": "Tu soutiens d4 et libères le passage du fou f1."
+      },
+      {
+        "san": "Qb6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nc3",
+        "explanation": "Tu développes le cavalier sans bloquer la tour a1."
+      },
+      {
+        "san": "Nc6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Rb1",
+        "explanation": "La tour défend b2, attaqué par la dame b6."
+      },
+      {
+        "san": "Bf5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      }
+    ],
+    "extension": [
+      {
+        "san": "dxc5",
+        "explanation": "Tu échanges d4 pour attirer la dame noire en c5 et réduire la pression sur b2."
+      },
+      {
+        "san": "Qxc5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bd3",
+        "explanation": "Le fou se développe en proposant l’échange du fou f5, très actif."
+      },
+      {
+        "san": "Bxd3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "cxd3",
+        "explanation": "La reprise ouvre la colonne c : tes pions centraux contrôlent e4 et e5."
+      },
+      {
+        "san": "e6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Le roi se met à l’abri après avoir résolu la menace sur b2."
+      },
+      {
+        "san": "Be7",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "a3",
+        "explanation": "Le pion empêche le cavalier noir d’arriver en b4 contre ton pion d3."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      }
+    ]
+  },
+  {
+    "openingId": "london",
+    "id": "london-kings-indian",
+    "name": "Structure Est-Indienne",
+    "eco": "A48",
+    "description": "Le fou se développe sobrement face au fianchetto noir.",
+    "moves": [
+      {
+        "san": "d4",
+        "explanation": "Tu prends de l’espace au centre et ouvres la diagonale du fou."
+      },
+      {
+        "san": "Nf6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nf3",
+        "explanation": "Le cavalier se développe et contrôle les cases centrales d4 et e5."
+      },
+      {
+        "san": "g6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bf4",
+        "explanation": "Tu développes le fou avant de jouer e3 pour garder sa diagonale libre."
+      },
+      {
+        "san": "Bg7",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "e3",
+        "explanation": "Tu soutiens d4 et libères le passage du fou f1."
+      },
+      {
+        "san": "d6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Be2",
+        "explanation": "Le fou se développe sobrement face au fianchetto noir."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "h3",
+        "explanation": "Tu offres une case de retraite en h2 au fou f4."
+      },
+      {
+        "san": "c5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      }
+    ],
+    "extension": [
+      {
+        "san": "c3",
+        "explanation": "Le pion soutient d4 face à la pression du fou g7."
+      },
+      {
+        "san": "Nc6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Le roi s’abrite derrière une structure stable."
+      },
+      {
+        "san": "Be6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nbd2",
+        "explanation": "Le cavalier prépare le contrôle de e4 et laisse le pion c3 en place."
+      },
+      {
+        "san": "Qb6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Qc2",
+        "explanation": "La dame défend b2 et soutient une future poussée e4."
+      },
+      {
+        "san": "Rac8",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Rfe1",
+        "explanation": "La tour rejoint e1 pour préparer l’ouverture du centre."
+      },
+      {
+        "san": "cxd4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "exd4",
+        "explanation": "Tu reprends vers d4 : le centre reste solide malgré la pression du fianchetto."
+      }
+    ]
+  },
+  {
+    "openingId": "london",
+    "id": "london-fianchetto",
+    "name": "Fianchetto avec d5",
+    "eco": "A48",
+    "description": "Le pion garde une case h2 pour ton fou de cases noires.",
+    "moves": [
+      {
+        "san": "d4",
+        "explanation": "Tu prends de l’espace au centre et ouvres la diagonale du fou."
+      },
+      {
+        "san": "Nf6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nf3",
+        "explanation": "Le cavalier se développe et contrôle les cases centrales d4 et e5."
+      },
+      {
+        "san": "g6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bf4",
+        "explanation": "Tu développes le fou avant de jouer e3 pour garder sa diagonale libre."
+      },
+      {
+        "san": "Bg7",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "e3",
+        "explanation": "Tu soutiens d4 et libères le passage du fou f1."
+      },
+      {
+        "san": "d5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "h3",
+        "explanation": "Le pion garde une case h2 pour ton fou de cases noires."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bd3",
+        "explanation": "Le fou vise h7 et prépare le roque."
+      },
+      {
+        "san": "c5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      }
+    ],
+    "extension": [
+      {
+        "san": "c3",
+        "explanation": "Le pion renforce d4 face à la poussée c5."
+      },
+      {
+        "san": "Nc6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nbd2",
+        "explanation": "Le cavalier soutient e4 et permet aux pièces de travailler ensemble."
+      },
+      {
+        "san": "Nd7",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Ton roi est prêt à affronter l’ouverture du centre."
+      },
+      {
+        "san": "e5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nxe5",
+        "explanation": "Le cavalier élimine le pion e5 avant qu’il ne gagne davantage d’espace."
+      },
+      {
+        "san": "Ndxe5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "dxe5",
+        "explanation": "Le pion reprend une pièce et attaque le cavalier c6."
+      },
+      {
+        "san": "Nxe5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Be2",
+        "explanation": "Le fou attaqué par le cavalier e5 se retire ; les échanges ont simplifié le centre."
+      }
+    ]
+  },
+  {
+    "openingId": "caro-kann",
+    "id": "caro-classical",
+    "name": "Variante classique",
+    "eco": "B18",
+    "description": "Tu prépares d5 sans fermer la diagonale du fou c8.",
+    "moves": [
+      {
+        "san": "e4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "c6",
+        "explanation": "Tu prépares d5 sans fermer la diagonale du fou c8."
+      },
+      {
+        "san": "d4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "d5",
+        "explanation": "Tu contestes le centre blanc avec un pion soutenu par tes pièces."
+      },
+      {
+        "san": "Nd2",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "dxe4",
+        "explanation": "Tu échanges au centre et ouvres des lignes pour le développement."
+      },
+      {
+        "san": "Nxe4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bf5",
+        "explanation": "Tu développes le fou avant e6 : c’est le plan classique."
+      },
+      {
+        "san": "Ng3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bg6",
+        "explanation": "Le fou quitte l’attaque du cavalier g3."
+      },
+      {
+        "san": "h4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "h6",
+        "explanation": "Tu donnes une case de retraite en h7 au fou."
+      }
+    ],
+    "extension": [
+      {
+        "san": "Nf3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nd7",
+        "explanation": "Le cavalier se développe tout en préparant la sortie de son partenaire par f6."
+      },
+      {
+        "san": "h5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bh7",
+        "explanation": "Le fou recule sur une case sûre en conservant sa diagonale active."
+      },
+      {
+        "san": "Bd3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bxd3",
+        "explanation": "Tu échanges ton fou contre le fou blanc actif avant de fermer le centre."
+      },
+      {
+        "san": "Qxd3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "e6",
+        "explanation": "Le pion libère le fou f8, maintenant que le fou de cases blanches est échangé."
+      },
+      {
+        "san": "Bd2",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Ngf6",
+        "explanation": "Le cavalier g8 rejoint f6 sans laisser e4 libre."
+      },
+      {
+        "san": "O-O-O",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Be7",
+        "explanation": "Le fou prépare le roque ; ton développement est presque achevé."
+      }
+    ]
+  },
+  {
+    "openingId": "caro-kann",
+    "id": "caro-advance",
+    "name": "Variante d’avance",
+    "eco": "B12",
+    "description": "Tu sors le fou avant de fermer le centre avec e6.",
+    "moves": [
+      {
+        "san": "e4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "c6",
+        "explanation": "Tu prépares d5 et donnes un soutien au futur centre noir."
+      },
+      {
+        "san": "d4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "d5",
+        "explanation": "Tu contestes le centre blanc avec un pion soutenu par tes pièces."
+      },
+      {
+        "san": "e5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bf5",
+        "explanation": "Tu sors le fou avant de fermer le centre avec e6."
+      },
+      {
+        "san": "Nf3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "e6",
+        "explanation": "Tu prépares le développement du fou f8 et contrôles d5."
+      },
+      {
+        "san": "Be2",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "c5",
+        "explanation": "Tu attaques d4, la base de la chaîne blanche."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nc6",
+        "explanation": "Le cavalier renforce la pression sur d4."
+      }
+    ],
+    "extension": [
+      {
+        "san": "Be3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "cxd4",
+        "explanation": "Tu échanges d4, la base du centre blanc avancé."
+      },
+      {
+        "san": "Nxd4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nge7",
+        "explanation": "Le cavalier se développe sans gêner le fou f5 et prépare f5 ou g6."
+      },
+      {
+        "san": "f4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nxd4",
+        "explanation": "Tu échanges le cavalier central pour réduire le contrôle blanc."
+      },
+      {
+        "san": "Bxd4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nc6",
+        "explanation": "Le second cavalier met de nouveau la pression sur d4."
+      },
+      {
+        "san": "c3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Be7",
+        "explanation": "Le fou termine le développement et permet le petit roque."
+      }
+    ]
+  },
+  {
+    "openingId": "caro-kann",
+    "id": "caro-exchange",
+    "name": "Variante d’échange",
+    "eco": "B13",
+    "description": "Tu reprends vers le centre et ouvres la colonne c.",
+    "moves": [
+      {
+        "san": "e4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "c6",
+        "explanation": "Tu prépares d5 et donnes un soutien au futur centre noir."
+      },
+      {
+        "san": "d4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "d5",
+        "explanation": "Tu contestes le centre blanc avec un pion soutenu par tes pièces."
+      },
+      {
+        "san": "exd5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "cxd5",
+        "explanation": "Tu reprends vers le centre et ouvres la colonne c."
+      },
+      {
+        "san": "Bd3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nc6",
+        "explanation": "Le cavalier contrôle d4 et e5 et participe au combat pour le centre."
+      },
+      {
+        "san": "c3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nf6",
+        "explanation": "Le cavalier contrôle e4 et d5 et prépare le petit roque."
+      },
+      {
+        "san": "Bf4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bg4",
+        "explanation": "Le fou sort avant e6 et gêne le développement du cavalier g1."
+      }
+    ],
+    "extension": [
+      {
+        "san": "Qb3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Qd7",
+        "explanation": "La dame défend b7, attaqué par la dame blanche."
+      },
+      {
+        "san": "Nd2",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "e6",
+        "explanation": "Tu libères le fou f8 et renforces d5."
+      },
+      {
+        "san": "Ngf3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bd6",
+        "explanation": "Le fou propose un échange au fou f4, actif contre ta position."
+      },
+      {
+        "san": "Bxd6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Qxd6",
+        "explanation": "La dame reprend et se centralise après l’échange des fous."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Le roi se met à l’abri dans cette structure assez symétrique."
+      }
+    ]
+  },
+  {
+    "openingId": "caro-kann",
+    "id": "caro-panov",
+    "name": "Attaque Panov",
+    "eco": "B14",
+    "description": "Tu défends d5 face à la pression de c4 et du cavalier c3.",
+    "moves": [
+      {
+        "san": "e4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "c6",
+        "explanation": "Tu prépares d5 et donnes un soutien au futur centre noir."
+      },
+      {
+        "san": "d4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "d5",
+        "explanation": "Tu contestes le centre blanc avec un pion soutenu par tes pièces."
+      },
+      {
+        "san": "exd5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "cxd5",
+        "explanation": "Tu reprends le matériel et gardes une présence active au centre."
+      },
+      {
+        "san": "c4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nf6",
+        "explanation": "Le cavalier contrôle e4 et d5 et prépare le petit roque."
+      },
+      {
+        "san": "Nc3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "e6",
+        "explanation": "Tu défends d5 face à la pression de c4 et du cavalier c3."
+      },
+      {
+        "san": "Nf3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bb4",
+        "explanation": "Le fou cloue le cavalier c3 pour réduire son influence sur d5."
+      }
+    ],
+    "extension": [
+      {
+        "san": "cxd5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nxd5",
+        "explanation": "La reprise laisse aux Blancs un pion d4 isolé, une cible à bloquer."
+      },
+      {
+        "san": "Bd2",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nc6",
+        "explanation": "Le cavalier attaque d4 et augmente la pression sur ce pion isolé."
+      },
+      {
+        "san": "Bd3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "O-O",
+        "explanation": "La sécurité du roi est prioritaire avant d’attaquer le centre."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Be7",
+        "explanation": "Le fou se retire pour éviter un échange qui aiderait le développement adverse."
+      },
+      {
+        "san": "Re1",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nf6",
+        "explanation": "Le cavalier renforce le contrôle de d5, case de blocage devant le pion isolé."
+      }
+    ]
+  },
+  {
+    "openingId": "caro-kann",
+    "id": "caro-tartakower",
+    "name": "Variante Tartakower",
+    "eco": "B15",
+    "description": "Tu proposes un échange de cavaliers au centre.",
+    "moves": [
+      {
+        "san": "e4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "c6",
+        "explanation": "Tu prépares d5 et donnes un soutien au futur centre noir."
+      },
+      {
+        "san": "d4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "d5",
+        "explanation": "Tu contestes le centre blanc avec un pion soutenu par tes pièces."
+      },
+      {
+        "san": "Nc3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "dxe4",
+        "explanation": "Tu échanges au centre et ouvres des lignes pour le développement."
+      },
+      {
+        "san": "Nxe4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nf6",
+        "explanation": "Tu proposes un échange de cavaliers au centre."
+      },
+      {
+        "san": "Nxf6+",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "exf6",
+        "explanation": "Tu acceptes les pions f doublés : c’est la variante Tartakower."
+      },
+      {
+        "san": "c3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bd6",
+        "explanation": "Le fou vise h2 et prépare le petit roque."
+      }
+    ],
+    "extension": [
+      {
+        "san": "Bd3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Le roi s’abrite ; les pions f doublés contrôlent e5 et g5."
+      },
+      {
+        "san": "Qc2",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "h6",
+        "explanation": "Le pion empêche une pièce blanche de venir en g5."
+      },
+      {
+        "san": "Ne2",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Re8",
+        "explanation": "La tour occupe la colonne e semi-ouverte, une compensation pour les pions doublés."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nd7",
+        "explanation": "Le cavalier prépare un trajet vers f8, puis e6 ou g6."
+      },
+      {
+        "san": "Ng3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nf8",
+        "explanation": "Le cavalier protège le roi et pourra rejoindre une case active en e6 ou g6."
+      }
+    ]
+  },
+  {
+    "openingId": "caro-kann",
+    "id": "caro-two-knights",
+    "name": "Variante des deux Cavaliers",
+    "eco": "B11",
+    "description": "Le fou cloue le cavalier f3 devant la dame.",
+    "moves": [
+      {
+        "san": "e4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "c6",
+        "explanation": "Tu prépares d5 et donnes un soutien au futur centre noir."
+      },
+      {
+        "san": "Nc3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "d5",
+        "explanation": "Tu contestes le centre blanc avec un pion soutenu par tes pièces."
+      },
+      {
+        "san": "Nf3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bg4",
+        "explanation": "Le fou cloue le cavalier f3 devant la dame."
+      },
+      {
+        "san": "h3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bxf3",
+        "explanation": "Tu échanges le fou pour modifier le développement blanc."
+      },
+      {
+        "san": "Qxf3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "e6",
+        "explanation": "Tu ouvres la diagonale du fou f8 après avoir sorti le fou c8."
+      },
+      {
+        "san": "d4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nf6",
+        "explanation": "Le cavalier contrôle e4 et d5 et prépare le petit roque."
+      }
+    ],
+    "extension": [
+      {
+        "san": "Bd3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "dxe4",
+        "explanation": "Tu échanges au centre pour libérer les lignes de tes pièces."
+      },
+      {
+        "san": "Nxe4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nxe4",
+        "explanation": "L’échange enlève un cavalier blanc central et simplifie la position."
+      },
+      {
+        "san": "Bxe4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nd7",
+        "explanation": "Le cavalier restant se développe avec un contrôle utile sur e5."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Be7",
+        "explanation": "Le fou sort pour permettre le roque et relier les tours."
+      },
+      {
+        "san": "c3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Tu termines la sécurité du roi après les échanges centraux."
+      }
+    ]
+  },
+  {
+    "openingId": "sicilian",
+    "id": "sicilian-open",
+    "name": "Sicilienne ouverte",
+    "eco": "B58",
+    "description": "Tu contestes d4 de côté : c’est le principe de la Sicilienne.",
+    "moves": [
+      {
+        "san": "e4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "c5",
+        "explanation": "Tu contestes d4 de côté : c’est le principe de la Sicilienne."
+      },
+      {
+        "san": "Nf3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "d6",
+        "explanation": "Tu contrôles e5 et libères la diagonale du fou c8."
+      },
+      {
+        "san": "d4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "cxd4",
+        "explanation": "Tu échanges un pion de l’aile contre un pion central et ouvres la colonne c."
+      },
+      {
+        "san": "Nxd4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nf6",
+        "explanation": "Le cavalier contrôle e4 et d5 et prépare le petit roque."
+      },
+      {
+        "san": "Nc3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nc6",
+        "explanation": "Le cavalier contrôle d4 et e5 et participe au combat pour le centre."
+      },
+      {
+        "san": "Be2",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "e6",
+        "explanation": "Le duo d6-e6 contrôle les cases centrales et libère le fou f8."
+      }
+    ],
+    "extension": [
+      {
+        "san": "O-O",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Be7",
+        "explanation": "Le fou se développe derrière le petit centre d6-e6."
+      },
+      {
+        "san": "Be3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Le roi s’abrite avant de lancer le contre-jeu sur l’aile dame."
+      },
+      {
+        "san": "f4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "a6",
+        "explanation": "Le pion interdit b5 aux pièces blanches et prépare l’expansion b5."
+      },
+      {
+        "san": "Qe1",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Qc7",
+        "explanation": "La dame surveille la colonne c semi-ouverte et appuie le centre."
+      },
+      {
+        "san": "Qg3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bd7",
+        "explanation": "Le fou se développe pour relier les tours et préparer leur activité sur c8."
+      }
+    ]
+  },
+  {
+    "openingId": "sicilian",
+    "id": "sicilian-najdorf",
+    "name": "Variante Najdorf",
+    "eco": "B90",
+    "description": "Tu empêches Cb5 et prépares b5 : c’est la Najdorf.",
+    "moves": [
+      {
+        "san": "e4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "c5",
+        "explanation": "Tu contestes d4 pour réduire la liberté du centre blanc."
+      },
+      {
+        "san": "Nf3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "d6",
+        "explanation": "Tu contrôles e5 et libères la diagonale du fou c8."
+      },
+      {
+        "san": "d4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "cxd4",
+        "explanation": "Tu échanges le pion central blanc et ouvres la colonne c."
+      },
+      {
+        "san": "Nxd4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nf6",
+        "explanation": "Le cavalier contrôle e4 et d5 et prépare le petit roque."
+      },
+      {
+        "san": "Nc3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "a6",
+        "explanation": "Tu empêches Cb5 et prépares b5 : c’est la Najdorf."
+      },
+      {
+        "san": "Be3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "e5",
+        "explanation": "Tu gagnes de l’espace en chassant le cavalier d4, mais affaiblis d5."
+      }
+    ],
+    "extension": [
+      {
+        "san": "Nb3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Be7",
+        "explanation": "Le fou prépare le roque derrière les pions centraux d6-e5."
+      },
+      {
+        "san": "f3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Le roi s’abrite avant la course d’attaques sur les ailes opposées."
+      },
+      {
+        "san": "Qd2",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Be6",
+        "explanation": "Le fou se développe en surveillant les cases d5 et c4."
+      },
+      {
+        "san": "O-O-O",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nbd7",
+        "explanation": "Le cavalier soutient f6 et prépare des sauts vers c5 ou b6."
+      },
+      {
+        "san": "g4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "b5",
+        "explanation": "La poussée b5 gagne de l’espace vers le roi blanc qui a roqué à l’aile dame."
+      },
+      {
+        "san": "g5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nh5",
+        "explanation": "Le cavalier évite g5 et rejoint h5, d’où il peut contrôler f4."
+      }
+    ]
+  },
+  {
+    "openingId": "sicilian",
+    "id": "sicilian-dragon",
+    "name": "Variante du Dragon",
+    "eco": "B72",
+    "description": "Tu prépares le fianchetto qui caractérise le Dragon.",
+    "moves": [
+      {
+        "san": "e4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "c5",
+        "explanation": "Tu contestes d4 pour réduire la liberté du centre blanc."
+      },
+      {
+        "san": "Nf3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "d6",
+        "explanation": "Tu contrôles e5 et libères la diagonale du fou c8."
+      },
+      {
+        "san": "d4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "cxd4",
+        "explanation": "Tu échanges le pion central blanc et ouvres la colonne c."
+      },
+      {
+        "san": "Nxd4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nf6",
+        "explanation": "Le cavalier contrôle e4 et d5 et prépare le petit roque."
+      },
+      {
+        "san": "Nc3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "g6",
+        "explanation": "Tu prépares le fianchetto qui caractérise le Dragon."
+      },
+      {
+        "san": "Be3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bg7",
+        "explanation": "Le fou vise d4 sur la grande diagonale."
+      }
+    ],
+    "extension": [
+      {
+        "san": "f3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Le roi se place derrière le fou g7, pièce clé du Dragon."
+      },
+      {
+        "san": "Qd2",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nc6",
+        "explanation": "Le cavalier augmente la pression sur d4 et prépare le jeu sur la colonne c."
+      },
+      {
+        "san": "Bc4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bd7",
+        "explanation": "Le fou libère c8 pour la tour."
+      },
+      {
+        "san": "O-O-O",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Rc8",
+        "explanation": "La tour occupe la colonne c semi-ouverte, dirigée vers le roi blanc."
+      },
+      {
+        "san": "Bb3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Ne5",
+        "explanation": "Le cavalier se centralise et vise c4 pour participer à l’attaque de l’aile dame."
+      }
+    ]
+  },
+  {
+    "openingId": "sicilian",
+    "id": "sicilian-accelerated",
+    "name": "Dragon accéléré",
+    "eco": "B34",
+    "description": "Tu prépares le Dragon sans jouer d6 : la rupture d5 reste possible en un seul coup.",
+    "moves": [
+      {
+        "san": "e4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "c5",
+        "explanation": "Tu contestes d4 pour réduire la liberté du centre blanc."
+      },
+      {
+        "san": "Nf3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nc6",
+        "explanation": "Le cavalier contrôle d4 et e5 et participe au combat pour le centre."
+      },
+      {
+        "san": "d4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "cxd4",
+        "explanation": "Tu échanges le pion central blanc et ouvres la colonne c."
+      },
+      {
+        "san": "Nxd4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "g6",
+        "explanation": "Tu prépares le Dragon sans jouer d6 : la rupture d5 reste possible en un seul coup."
+      },
+      {
+        "san": "Nc3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bg7",
+        "explanation": "Le fou exerce sa pression sur le cavalier d4."
+      },
+      {
+        "san": "Be3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nf6",
+        "explanation": "Le cavalier contrôle e4 et d5 et prépare le petit roque."
+      }
+    ],
+    "extension": [
+      {
+        "san": "Bc4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Tu roques sans avoir joué d6 : le pion d peut encore avancer de deux cases."
+      },
+      {
+        "san": "Bb3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "a5",
+        "explanation": "Le pion prépare a4 pour gagner un tempo sur le fou b3."
+      },
+      {
+        "san": "f3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "d5",
+        "explanation": "La rupture d5 en un seul coup est l’idée clé du Dragon accéléré."
+      },
+      {
+        "san": "exd5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nb4",
+        "explanation": "Le cavalier attaque d5 et c2, au lieu de reprendre immédiatement le pion."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "a4",
+        "explanation": "Le pion attaque le fou b3 : les menaces donnent du temps pour le contre-jeu."
+      }
+    ]
+  },
+  {
+    "openingId": "sicilian",
+    "id": "sicilian-alapin",
+    "name": "Variante Alapine",
+    "eco": "B22",
+    "description": "Tu attaques e4 avant que les Blancs ne jouent d4.",
+    "moves": [
+      {
+        "san": "e4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "c5",
+        "explanation": "Tu contestes d4 pour réduire la liberté du centre blanc."
+      },
+      {
+        "san": "c3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nf6",
+        "explanation": "Tu attaques e4 avant que les Blancs ne jouent d4."
+      },
+      {
+        "san": "e5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nd5",
+        "explanation": "Le cavalier se centralise en évitant l’attaque du pion e5."
+      },
+      {
+        "san": "d4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "cxd4",
+        "explanation": "Tu échanges le pion central blanc et ouvres la colonne c."
+      },
+      {
+        "san": "Nf3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nc6",
+        "explanation": "Le cavalier contrôle d4 et e5 et participe au combat pour le centre."
+      },
+      {
+        "san": "cxd4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "d6",
+        "explanation": "Tu contestes le pion e5 pour ouvrir le centre."
+      }
+    ],
+    "extension": [
+      {
+        "san": "Bc4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nb6",
+        "explanation": "Le cavalier attaque le fou c4 pour gagner un tempo."
+      },
+      {
+        "san": "Bb5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bd7",
+        "explanation": "Le fou se développe et protège le cavalier c6 cloué devant le roi."
+      },
+      {
+        "san": "exd6",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "e6",
+        "explanation": "Le pion libère le fou f8, qui pourra reprendre en d6."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bxd6",
+        "explanation": "Le fou récupère le pion central tout en se développant."
+      },
+      {
+        "san": "Nc3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Tu roques dans une position où les Blancs devront surveiller leur pion d4 isolé."
+      }
+    ]
+  },
+  {
+    "openingId": "sicilian",
+    "id": "sicilian-closed",
+    "name": "Sicilienne fermée",
+    "eco": "B25",
+    "description": "Tu prépares le fianchetto face au centre blanc fermé.",
+    "moves": [
+      {
+        "san": "e4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "c5",
+        "explanation": "Tu contestes d4 pour réduire la liberté du centre blanc."
+      },
+      {
+        "san": "Nc3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nc6",
+        "explanation": "Le cavalier contrôle d4 et e5 et participe au combat pour le centre."
+      },
+      {
+        "san": "g3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "g6",
+        "explanation": "Tu prépares le fianchetto face au centre blanc fermé."
+      },
+      {
+        "san": "Bg2",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bg7",
+        "explanation": "Le fou rejoint la grande diagonale et prépare le petit roque."
+      },
+      {
+        "san": "d3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "d6",
+        "explanation": "Le pion soutient c5 et contrôle e5."
+      },
+      {
+        "san": "f4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "e6",
+        "explanation": "Tu contrôles d5 et prépares le développement du cavalier en e7."
+      }
+    ],
+    "extension": [
+      {
+        "san": "Nf3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nge7",
+        "explanation": "Le cavalier se développe sans bloquer le fou g7 et soutient d5."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Le roi s’abrite pendant que les Blancs préparent leur attaque sur l’autre aile."
+      },
+      {
+        "san": "Be3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nd4",
+        "explanation": "Le cavalier occupe d4, soutenu par c5, et attaque le fou e3."
+      },
+      {
+        "san": "Qd2",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Rb8",
+        "explanation": "La tour soutient la future poussée b5 sur l’aile dame."
+      },
+      {
+        "san": "Rae1",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "b5",
+        "explanation": "Tu gagnes de l’espace là où tu as préparé tes pièces, loin de l’attaque blanche."
+      }
+    ]
+  },
+  {
+    "openingId": "kings-indian",
+    "id": "kid-classical",
+    "name": "Variante classique",
+    "eco": "E97",
+    "description": "Tu contestes d4 après avoir laissé les Blancs occuper le centre.",
+    "moves": [
+      {
+        "san": "d4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nf6",
+        "explanation": "Le cavalier contrôle e4 et d5 et prépare le petit roque."
+      },
+      {
+        "san": "c4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "g6",
+        "explanation": "Tu prépares le développement du fou en g7, près du roi."
+      },
+      {
+        "san": "Nc3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bg7",
+        "explanation": "Le fou rejoint la grande diagonale et prépare le petit roque."
+      },
+      {
+        "san": "e4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "d6",
+        "explanation": "Tu contrôles e5 et libères la diagonale du fou c8."
+      },
+      {
+        "san": "Nf3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Tu mets le roi à l’abri et rapproches la tour du centre."
+      },
+      {
+        "san": "Be2",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "e5",
+        "explanation": "Tu contestes d4 après avoir laissé les Blancs occuper le centre."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nc6",
+        "explanation": "Le cavalier attaque d4 et invite les Blancs à avancer d5."
+      }
+    ],
+    "extension": [
+      {
+        "san": "d5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Ne7",
+        "explanation": "Le centre se ferme : le cavalier se réoriente vers l’aile roi."
+      },
+      {
+        "san": "Ne1",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nd7",
+        "explanation": "Le cavalier libère f6 pour la poussée du pion f."
+      },
+      {
+        "san": "Nd3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "f5",
+        "explanation": "La rupture f5 attaque la chaîne de pions blanche et lance le contre-jeu."
+      },
+      {
+        "san": "f3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "f4",
+        "explanation": "Le pion gagne de l’espace et ferme le centre pour préparer une attaque sur l’aile roi."
+      },
+      {
+        "san": "Bd2",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "g5",
+        "explanation": "Le pion soutient f4 et prépare g4 pour ouvrir des lignes près du roi blanc."
+      }
+    ]
+  },
+  {
+    "openingId": "kings-indian",
+    "id": "kid-saemisch",
+    "name": "Variante Sämisch",
+    "eco": "E83",
+    "description": "Tu prépares du contre-jeu sur l’aile dame contre le centre soutenu par f3.",
+    "moves": [
+      {
+        "san": "d4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nf6",
+        "explanation": "Le cavalier contrôle e4 et d5 et prépare le petit roque."
+      },
+      {
+        "san": "c4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "g6",
+        "explanation": "Tu prépares le développement du fou en g7, près du roi."
+      },
+      {
+        "san": "Nc3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bg7",
+        "explanation": "Le fou rejoint la grande diagonale et prépare le petit roque."
+      },
+      {
+        "san": "e4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "d6",
+        "explanation": "Tu contrôles e5 et libères la diagonale du fou c8."
+      },
+      {
+        "san": "f3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Tu mets le roi à l’abri et rapproches la tour du centre."
+      },
+      {
+        "san": "Be3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nc6",
+        "explanation": "Tu prépares du contre-jeu sur l’aile dame contre le centre soutenu par f3."
+      }
+    ],
+    "extension": [
+      {
+        "san": "Nge2",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "a6",
+        "explanation": "Tu prépares b5 pour attaquer sur l’aile dame."
+      },
+      {
+        "san": "Qd2",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Rb8",
+        "explanation": "La tour soutient le pion b avant sa poussée."
+      },
+      {
+        "san": "h4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "h5",
+        "explanation": "Tu freines le pion h4 pour limiter l’attaque blanche sur ton roi."
+      },
+      {
+        "san": "O-O-O",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "b5",
+        "explanation": "La rupture b5 ouvre des lignes vers le roi blanc qui vient de roquer à l’aile dame."
+      },
+      {
+        "san": "cxb5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "axb5",
+        "explanation": "La reprise ouvre la colonne a et laisse le pion b5 soutenu par la tour."
+      },
+      {
+        "san": "Kb1",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      }
+    ]
+  },
+  {
+    "openingId": "kings-indian",
+    "id": "kid-fianchetto",
+    "name": "Variante du fianchetto",
+    "eco": "E67",
+    "description": "Le cavalier soutient e5 face au fou blanc g2.",
+    "moves": [
+      {
+        "san": "d4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nf6",
+        "explanation": "Le cavalier contrôle e4 et d5 et prépare le petit roque."
+      },
+      {
+        "san": "c4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "g6",
+        "explanation": "Tu prépares le développement du fou en g7, près du roi."
+      },
+      {
+        "san": "Nf3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bg7",
+        "explanation": "Le fou rejoint la grande diagonale et prépare le petit roque."
+      },
+      {
+        "san": "g3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Tu mets le roi à l’abri et rapproches la tour du centre."
+      },
+      {
+        "san": "Bg2",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "d6",
+        "explanation": "Tu contrôles e5 et libères la diagonale du fou c8."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nbd7",
+        "explanation": "Le cavalier soutient e5 face au fou blanc g2."
+      },
+      {
+        "san": "Nc3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "e5",
+        "explanation": "Tu contestes le centre blanc tout en libérant les cases des pièces."
+      }
+    ],
+    "extension": [
+      {
+        "san": "e4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "c6",
+        "explanation": "Le pion c6 contrôle d5 et prépare une expansion sur l’aile dame."
+      },
+      {
+        "san": "h3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Re8",
+        "explanation": "La tour soutient e5 avant de modifier le centre."
+      },
+      {
+        "san": "Be3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "exd4",
+        "explanation": "L’échange ouvre la colonne e et libère des cases pour les cavaliers."
+      },
+      {
+        "san": "Nxd4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nc5",
+        "explanation": "Le cavalier rejoint c5, où il attaque e4."
+      },
+      {
+        "san": "Qc2",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "a5",
+        "explanation": "Le pion a5 protège le cavalier c5 d’une poussée b4 immédiate."
+      }
+    ]
+  },
+  {
+    "openingId": "kings-indian",
+    "id": "kid-four-pawns",
+    "name": "Attaque des Quatre Pions",
+    "eco": "E76",
+    "description": "Tu attaques d4 : le grand centre blanc doit être contesté avant de devenir trop fort.",
+    "moves": [
+      {
+        "san": "d4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nf6",
+        "explanation": "Le cavalier contrôle e4 et d5 et prépare le petit roque."
+      },
+      {
+        "san": "c4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "g6",
+        "explanation": "Tu prépares le développement du fou en g7, près du roi."
+      },
+      {
+        "san": "Nc3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bg7",
+        "explanation": "Le fou rejoint la grande diagonale et prépare le petit roque."
+      },
+      {
+        "san": "e4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "d6",
+        "explanation": "Tu contrôles e5 et libères la diagonale du fou c8."
+      },
+      {
+        "san": "f4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Tu mets le roi à l’abri et rapproches la tour du centre."
+      },
+      {
+        "san": "Nf3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "c5",
+        "explanation": "Tu attaques d4 : le grand centre blanc doit être contesté avant de devenir trop fort."
+      }
+    ],
+    "extension": [
+      {
+        "san": "d5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "e6",
+        "explanation": "La rupture e6 attaque le pion d5, base avancée du grand centre blanc."
+      },
+      {
+        "san": "Be2",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "exd5",
+        "explanation": "Tu échanges au centre pour créer des lignes et limiter l’espace blanc."
+      },
+      {
+        "san": "cxd5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Re8",
+        "explanation": "La tour utilise la colonne e semi-ouverte pour viser e4."
+      },
+      {
+        "san": "Qc2",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Na6",
+        "explanation": "Le cavalier prépare un saut vers b4 ou c5 pour attaquer le centre."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nb4",
+        "explanation": "Le cavalier attaque la dame c2 avec tempo et contrôle d5."
+      },
+      {
+        "san": "Qb1",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      }
+    ]
+  },
+  {
+    "openingId": "kings-indian",
+    "id": "kid-averbakh",
+    "name": "Variante Averbakh",
+    "eco": "E74",
+    "description": "Tu contestes d4 face au placement blanc Fe2 et Fg5.",
+    "moves": [
+      {
+        "san": "d4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nf6",
+        "explanation": "Le cavalier contrôle e4 et d5 et prépare le petit roque."
+      },
+      {
+        "san": "c4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "g6",
+        "explanation": "Tu prépares le développement du fou en g7, près du roi."
+      },
+      {
+        "san": "Nc3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bg7",
+        "explanation": "Le fou rejoint la grande diagonale et prépare le petit roque."
+      },
+      {
+        "san": "e4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "d6",
+        "explanation": "Tu contrôles e5 et libères la diagonale du fou c8."
+      },
+      {
+        "san": "Be2",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Tu mets le roi à l’abri et rapproches la tour du centre."
+      },
+      {
+        "san": "Bg5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "c5",
+        "explanation": "Tu contestes d4 face au placement blanc Fe2 et Fg5."
+      }
+    ],
+    "extension": [
+      {
+        "san": "d5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "e6",
+        "explanation": "La rupture e6 conteste le pion d5 au lieu de rester à l’étroit."
+      },
+      {
+        "san": "Qd2",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "exd5",
+        "explanation": "Tu échanges d5 pour ouvrir des lignes à tes pièces."
+      },
+      {
+        "san": "cxd5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Re8",
+        "explanation": "La tour vise le pion e4 sur la colonne e semi-ouverte."
+      },
+      {
+        "san": "f3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "a6",
+        "explanation": "Le pion empêche une pièce blanche de venir en b5."
+      },
+      {
+        "san": "a4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nbd7",
+        "explanation": "Le cavalier prépare une occupation de e5, au cœur de la position."
+      },
+      {
+        "san": "Nh3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Ne5",
+        "explanation": "Le cavalier arrive en e5, une case active qui bloque l’avance du pion e4."
+      },
+      {
+        "san": "Nf2",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      }
+    ]
+  },
+  {
+    "openingId": "kings-indian",
+    "id": "kid-petrosian",
+    "name": "Variante Petrosian",
+    "eco": "E92",
+    "description": "Tu attaques d4 et fixes la future structure centrale.",
+    "moves": [
+      {
+        "san": "d4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nf6",
+        "explanation": "Le cavalier contrôle e4 et d5 et prépare le petit roque."
+      },
+      {
+        "san": "c4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "g6",
+        "explanation": "Tu prépares le développement du fou en g7, près du roi."
+      },
+      {
+        "san": "Nc3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bg7",
+        "explanation": "Le fou rejoint la grande diagonale et prépare le petit roque."
+      },
+      {
+        "san": "e4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "d6",
+        "explanation": "Tu contrôles e5 et libères la diagonale du fou c8."
+      },
+      {
+        "san": "Nf3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Tu mets le roi à l’abri et rapproches la tour du centre."
+      },
+      {
+        "san": "Be2",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "e5",
+        "explanation": "Tu attaques d4 et fixes la future structure centrale."
+      },
+      {
+        "san": "d5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "a5",
+        "explanation": "Tu freines b4, un plan blanc courant lorsque le centre est fermé."
+      }
+    ],
+    "extension": [
+      {
+        "san": "Bg5",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "h6",
+        "explanation": "Tu demandes au fou g5 de choisir sa case et prépares plus de liberté au cavalier."
+      },
+      {
+        "san": "Be3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Na6",
+        "explanation": "Le cavalier passe par a6 pour rejoindre c5, devant le centre blanc."
+      },
+      {
+        "san": "Nd2",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nc5",
+        "explanation": "Le cavalier contrôle e4 et d3 depuis une case avancée."
+      },
+      {
+        "san": "O-O",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Nh7",
+        "explanation": "Le cavalier libère f6 : la rupture f5 devient possible lorsque le moment sera favorable."
+      },
+      {
+        "san": "a3",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Bd7",
+        "explanation": "Le fou se développe et relie les tours avant les opérations sur les ailes."
+      },
+      {
+        "san": "b4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "axb4",
+        "explanation": "Tu échanges le pion b4 pour ouvrir la colonne a."
+      },
+      {
+        "san": "axb4",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      },
+      {
+        "san": "Rxa1",
+        "explanation": "La tour échange son homologue sur la colonne ouverte et réduit l’activité blanche."
+      },
+      {
+        "san": "Qxa1",
+        "explanation": "Réponse prédéfinie de l’adversaire dans cette ligne."
+      }
+    ]
+  }
+]
