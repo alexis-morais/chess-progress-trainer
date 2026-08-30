@@ -1,0 +1,4 @@
+* text=auto
+*.wasm binary
+*.nnue binary
+*.tar.gz binary

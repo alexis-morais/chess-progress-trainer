@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#121713" />
+    <title>Licences et crédits — Chess Progress</title>
+    <style>
+      body {
+        font:
+          16px/1.8 system-ui,
+          sans-serif;
+        background: #121713;
+        color: #e8eedf;
+        margin: 0;
+        padding: 40px 24px;
+      }
+      main {
+        max-width: 760px;
+        margin: auto;
+      }
+      h1 {
+        font-size: 32px;
+        line-height: 1.2;
+      }
+      h2 {
+        font-size: 22px;
+        margin-top: 35px;
+      }
+      a {
+        color: #c4ed98;
+        text-underline-offset: 4px;
+      }
+      li {
+        margin-bottom: 8px;
+      }
+      small {
+        color: #b5c3a8;
+      }
+      code {
+        overflow-wrap: anywhere;
+      }
+      a:focus-visible {
+        outline: 3px solid #c4ed98;
+        outline-offset: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <a href="./">← Retour à Chess Progress</a>
+      <h1>Logiciels libres & crédits</h1>
+      <p>
+        Chess Progress Project 2026 — Prototype pédagogique gratuit, sans compte et sans publicité.
+      </p>
+      <h2>Chess Progress</h2>
+      <p>
+        Le code et les textes originaux du prototype sont distribués sous
+        <a href="licenses/Stockfish-GPL-3.0.txt">GNU GPL version 3</a>, sans garantie. Les
+        bibliothèques conservent leurs licences respectives.
+      </p>
+      <p>
+        <a href="https://github.com/mralexis901/chess-progress-trainer"
+          >Code source de l’application</a
+        >
+        ·
+        <a href="source/chess-progress-source.tar.gz" download
+          >Archive des sources de cette version</a
+        >
+      </p>
+      <h2>Stockfish.js 18</h2>
+      <p>
+        Stockfish.js 18.0.8 Lite Single-Threaded est une adaptation WebAssembly de Nathan Rugg, ©
+        2026 Chess.com, LLC, basée sur le travail de Tord Romstad, Marco Costalba, Joona Kiiski,
+        Gary Linscott et des autres contributeurs de Stockfish. Réseau d’évaluation de Linmiao Xu.
+      </p>
+      <p>
+        <strong
+          >Les coups de l’adversaire sont prédéfinis par les variantes pédagogiques. Stockfish est
+          utilisé uniquement pour l’évaluation des positions.</strong
+        >
+      </p>
+      <ul>
+        <li>
+          <a href="licenses/Stockfish-GPL-3.0.txt">Licence GPLv3 complète</a> et
+          <a href="licenses/Stockfish-AUTHORS.txt">liste des auteurs</a>
+        </li>
+        <li>
+          <a href="engine/stockfish-source-18.0.8.tar.gz" download
+            >Code source correspondant de Stockfish.js</a
+          >
+          (commit <code>93c994592dcf3b4b21052ab925e9b534df9c0918</code>)
+        </li>
+        <li>
+          <a href="engine/nn-9067e33176e8.nnue" download
+            >Réseau NNUE nécessaire à la reconstruction</a
+          >
+        </li>
+        <li><a href="engine/README.md">Provenance et instructions de reconstruction</a></li>
+        <li>
+          <a href="https://github.com/nmrugg/stockfish.js">Projet Stockfish.js</a> et
+          <a href="https://stockfishchess.org/">Stockfish</a>
+        </li>
+      </ul>
+      <h2>Bibliothèques et références</h2>
+      <ul>
+        <li>React et React DOM : Meta et contributeurs, licence MIT.</li>
+        <li>chess.js : Jeff Hlywa et contributeurs, licence BSD-2-Clause.</li>
+        <li>
+          react-chessboard : Ryan Gregory et contributeurs, licence MIT ; pièces fournies par la
+          bibliothèque.
+        </li>
+        <li>Lucide : contributeurs Lucide / Feather, licence ISC.</li>
+        <li>DnD Kit : MIT ; tslib : 0BSD.</li>
+        <li>
+          Vite, TypeScript et Vitest : outils de construction et de test ; licences propres aux
+          projets.
+        </li>
+      </ul>
+      <p>
+        <a href="licenses/THIRD-PARTY-NOTICES.txt"
+          >Textes complets des licences des bibliothèques distribuées</a
+        >
+      </p>
+      <p>
+        Les noms et préfixes des variantes ont été recoupés avec le
+        <a href="https://github.com/lichess-org/chess-openings">répertoire d’ouvertures Lichess</a>
+        (CC0). Les explications françaises ont été rédigées pour ce prototype.
+      </p>
+      <p>
+        <small
+          >Projet indépendant : aucune affiliation avec Chess.com, Lichess ou les auteurs de
+          Stockfish. Aucune garantie de progression ou d’exhaustivité théorique.</small
+        >
+      </p>
+    </main>
+  </body>
+</html>

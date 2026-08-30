@@ -1,0 +1,59 @@
+name: Tester et déployer Chess Progress
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Tests et construction
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer le projet
+        uses: actions/checkout@v6
+      - name: Installer pnpm
+        uses: pnpm/action-setup@v4
+      - name: Installer Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          cache: pnpm
+      - name: Installer les dépendances verrouillées
+        run: pnpm install --frozen-lockfile
+      - name: Tester les variantes, le trainer et l’analyse
+        run: pnpm test
+      - name: Construire la version de production et vérifier Stockfish
+        run: pnpm build
+      - name: Préparer le site pour GitHub Pages
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+
+  deploy:
+    name: Publication sur GitHub Pages
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Configurer GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Publier le site
+        id: deployment
+        uses: actions/deploy-pages@v5
