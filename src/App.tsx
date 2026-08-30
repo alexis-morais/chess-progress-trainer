@@ -1,9 +1,12 @@
-import { Component, lazy, Suspense, useMemo, useState, type ReactNode } from 'react';
-import { ArrowUpRight, BookOpen, ShieldCheck } from 'lucide-react';
+import { Component, lazy, Suspense, useEffect, useMemo, useState, type ReactNode } from 'react';
+import { ArrowUpRight, BookOpen, Cpu, House, Moon, Sun } from 'lucide-react';
 import { openings, type LessonMode, type Opening, type Variation } from './data/openings';
 import { compileLesson } from './trainer/model';
 import { OpeningLibrary } from './components/OpeningLibrary';
 import { Trainer } from './components/Trainer';
+import { HomePage } from './components/HomePage';
+import { useTheme } from './ui/theme';
+import { useNavigation, type AppView } from './ui/navigation';
 
 const ComputerMode = lazy(() => import('./computer/ComputerMode'));
 
@@ -40,9 +43,17 @@ export default function App() {
   const [selected, setSelected] = useState<string | null>(null);
   const [mode, setMode] = useState<LessonMode | null>(null);
   const [session, setSession] = useState(0);
-  const [computer, setComputer] = useState(false);
+  const { view, navigate } = useNavigation();
+  const { theme, toggle } = useTheme();
+  useEffect(() => {
+    setActive(null);
+  }, [view]);
+  function openView(next: AppView) {
+    setActive(null);
+    navigate(next);
+  }
   function goHome() {
-    setComputer(false);
+    navigate('home');
     setActive(null);
     setExpanded(null);
     setSelected(null);
@@ -50,13 +61,24 @@ export default function App() {
     window.scrollTo(0, 0);
   }
   function variants() {
-    setComputer(false);
+    navigate('openings');
     setActive(null);
     window.scrollTo(0, 0);
   }
   return (
     <>
-      <a href="#main" className="skip-link">
+      <a
+        href="#main"
+        className="skip-link"
+        onClick={(event) => {
+          event.preventDefault();
+          const main = document.getElementById('main');
+          if (main) {
+            main.tabIndex = -1;
+            main.focus();
+          }
+        }}
+      >
         Aller au contenu
       </a>
       <header className="site-header">
@@ -68,31 +90,40 @@ export default function App() {
           >
             <img src={`${import.meta.env.BASE_URL}favicon.svg`} alt="" width="39" height="39" />
             <span>
-              Chess Progress<small>OPENING TRAINER</small>
+              Chess Progress<small>LE JEU. LA PROGRESSION.</small>
             </span>
           </button>
           <nav aria-label="Navigation principale">
-            <button className="nav-active" onClick={variants}>
-              <BookOpen size={16} />
-              Entraînement
+            <button aria-current={view === 'home' ? 'page' : undefined} onClick={goHome}>
+              <House size={16} />
+              Accueil
             </button>
-            <a
-              href="#comment-ca-marche"
-              onClick={() => {
-                setActive(null);
-                setComputer(false);
-              }}
+            <button aria-current={view === 'openings' ? 'page' : undefined} onClick={variants}>
+              <BookOpen size={16} />
+              Ouvertures
+            </button>
+            <button
+              aria-current={view === 'computer' ? 'page' : undefined}
+              onClick={() => openView('computer')}
             >
-              Comment ça marche <ArrowUpRight size={13} />
-            </a>
+              <Cpu size={16} />
+              Partie libre
+            </button>
           </nav>
-          <span className="free-badge">
-            <ShieldCheck size={15} />
-            Gratuit & sans inscription
-          </span>
+          <button
+            className="theme-switch"
+            onClick={toggle}
+            aria-label={`Activer le thème ${theme === 'dark' ? 'clair' : 'sombre'}`}
+            title={`Passer au thème ${theme === 'dark' ? 'clair' : 'sombre'}`}
+          >
+            {theme === 'dark' ? <Sun size={19} /> : <Moon size={19} />}
+            <span>{theme === 'dark' ? 'Sombre' : 'Clair'}</span>
+          </button>
         </div>
       </header>
-      {computer ? (
+      {view === 'home' ? (
+        <HomePage onOpenings={() => openView('openings')} onComputer={() => openView('computer')} />
+      ) : view === 'computer' ? (
         <Suspense
           fallback={
             <main id="main" className="page-width">
@@ -112,10 +143,7 @@ export default function App() {
         />
       ) : (
         <OpeningLibrary
-          onComputer={() => {
-            setComputer(true);
-            window.scrollTo(0, 0);
-          }}
+          onHome={goHome}
           openings={openings}
           expanded={expanded}
           selected={selected}

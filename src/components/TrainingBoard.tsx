@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, type CSSProperties, type KeyboardEvent } f
 import { Chessboard } from 'react-chessboard';
 import { Chess, type Square } from 'chess.js';
 import type { CompiledLesson, TrainerState } from '../trainer/model';
+import { boardColors, chessPieces } from '../ui/pieces';
 
 type Props = {
   lesson: CompiledLesson;
@@ -99,6 +100,7 @@ export function TrainingBoard({ lesson, state, fen, enabled, onMove }: Props) {
       <Chessboard
         options={{
           id: 'training-board',
+          pieces: chessPieces,
           position: fen,
           boardOrientation: lesson.orientation,
           allowDragging: enabled,
@@ -106,11 +108,11 @@ export function TrainingBoard({ lesson, state, fen, enabled, onMove }: Props) {
           allowDragOffBoard: false,
           allowAutoScroll: false,
           animationDurationInMs: 220,
-          darkSquareStyle: { backgroundColor: '#718676' },
-          lightSquareStyle: { backgroundColor: '#e2e7d5' },
+          darkSquareStyle: { backgroundColor: boardColors.dark },
+          lightSquareStyle: { backgroundColor: boardColors.light },
           squareStyles,
-          darkSquareNotationStyle: { color: '#e8eedb', fontWeight: 600, fontSize: 12 },
-          lightSquareNotationStyle: { color: '#536450', fontWeight: 600, fontSize: 12 },
+          darkSquareNotationStyle: { color: '#10291e', fontWeight: 600, fontSize: 12 },
+          lightSquareNotationStyle: { color: '#344a3c', fontWeight: 600, fontSize: 12 },
           canDragPiece: ({ piece }) => enabled && piece.pieceType[0] === lesson.opening.side,
           onPieceDrop: ({ sourceSquare, targetSquare }) =>
             targetSquare ? submit(sourceSquare, targetSquare) : false,

@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { Chess } from 'chess.js';
-import { defaultPieces } from 'react-chessboard';
+import { boardColors, chessPieces } from '../ui/pieces';
 
 // A static preview avoids mounting ten drag-and-drop controllers in the catalogue.
 export const OpeningPreview = memo(function OpeningPreview({
@@ -15,11 +15,14 @@ export const OpeningPreview = memo(function OpeningPreview({
   return (
     <div className="mini-board preview-grid" aria-hidden="true">
       {squares.map((piece, i) => {
-        const Piece = piece ? defaultPieces[`${piece.color}${piece.type.toUpperCase()}`] : null;
+        const Piece = piece ? chessPieces[`${piece.color}${piece.type.toUpperCase()}`] : null;
         return (
           <span
             key={i}
-            style={{ backgroundColor: (Math.floor(i / 8) + (i % 8)) % 2 ? '#637668' : '#d8decd' }}
+            style={{
+              backgroundColor:
+                (Math.floor(i / 8) + (i % 8)) % 2 ? boardColors.dark : boardColors.light,
+            }}
           >
             {Piece && <Piece />}
           </span>

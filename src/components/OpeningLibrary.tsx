@@ -1,12 +1,11 @@
 import {
   ArrowRight,
-  BookOpen,
+  ArrowLeft,
   Check,
   ChevronDown,
   Flag,
   Lightbulb,
   MousePointer2,
-  Cpu,
 } from 'lucide-react';
 import { OpeningPreview } from './OpeningPreview';
 import { Chess } from 'chess.js';
@@ -15,7 +14,7 @@ import type { Opening, Variation, LessonMode } from '../data/openings';
 import { frenchSan, sideName, lessonModes, learnerMoveCount } from '../data/openings';
 
 type Props = {
-  onComputer: () => void;
+  onHome: () => void;
   openings: Opening[];
   expanded: string | null;
   selected: string | null;
@@ -27,7 +26,7 @@ type Props = {
 };
 
 export function OpeningLibrary({
-  onComputer,
+  onHome,
   openings,
   expanded,
   selected,
@@ -52,48 +51,29 @@ export function OpeningLibrary({
   );
   return (
     <main id="main" className="library page-width">
-      <section className="intro">
+      <div className="breadcrumb">
+        <button onClick={onHome}>
+          <ArrowLeft size={15} />
+          Retour à l’accueil
+        </button>
+        <span>Le répertoire</span>
+      </div>
+      <section className="intro library-intro">
         <div className="eyebrow">
-          <span className="live-dot" /> APPRENDRE. COMPRENDRE. PROGRESSER.
+          <span className="live-dot" /> L’ESPACE OUVERTURES
         </div>
         <h1>
-          Un coup d’avance,
+          Les bonnes bases.
           <br />
-          <span>ça s’apprend.</span>
+          <span>De belles possibilités.</span>
         </h1>
         <p>Entraîne-toi aux ouvertures, coup après coup.</p>
         <div className="intro-facts">
-          <span>
-            <BookOpen size={15} /> 10 ouvertures
-          </span>
+          <span>10 ouvertures</span>
           <i /> <span>60 variantes guidées</span>
           <i />
           <span>2 niveaux pour chacune</span>
         </div>
-        <div className="intro-mark" aria-hidden="true">
-          <span>01</span>
-          <span>
-            LE PREMIER COUP
-            <br />
-            D’UNE NOUVELLE HABITUDE.
-          </span>
-        </div>
-      </section>
-      <section className="computer-entry" aria-labelledby="computer-entry-title">
-        <div className="computer-entry-icon">
-          <Cpu size={29} />
-        </div>
-        <div>
-          <span className="eyebrow">UN AUTRE TERRAIN DE JEU</span>
-          <h2 id="computer-entry-title">Jouer contre l’ordinateur</h2>
-          <p>Joue une partie complète contre Stockfish puis analyse chacun de tes coups.</p>
-          <span className="computer-entry-details">
-            3 niveaux · Partie libre · Bilan sauvegardé sur cet appareil
-          </span>
-        </div>
-        <button className="button primary" onClick={onComputer}>
-          Configurer une partie <ArrowRight size={17} />
-        </button>
       </section>
       <section aria-labelledby="library-title">
         <div className="section-heading">

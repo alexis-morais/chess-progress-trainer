@@ -137,7 +137,7 @@ export function GameSession({
       </section>
       <aside className="training-panel computer-panel" aria-label="Ta partie">
         <span className="eyebrow">PARTIE LIBRE</span>
-        <h2>À toi de jouer.</h2>
+        <h2>Ta partie, tes décisions.</h2>
         <p className="muted">
           Ici, Stockfish choisit ses coups. L’analyse de tes décisions sera disponible après la
           partie.

@@ -10,6 +10,7 @@ import { Chess, type Move, type Square } from 'chess.js';
 import { Chessboard } from 'react-chessboard';
 import type { Side } from '../data/openings';
 import { legalPromotions } from './game';
+import { boardColors, chessPieces } from '../ui/pieces';
 
 const names: Record<string, string> = {
   p: 'pion',
@@ -102,6 +103,7 @@ export function ComputerBoard({ fen, player, enabled = false, last, arrow, mark,
         <Chessboard
           options={{
             id: 'computer-board',
+            pieces: chessPieces,
             position: fen,
             boardOrientation: player === 'w' ? 'white' : 'black',
             allowDragging: active,
@@ -109,11 +111,11 @@ export function ComputerBoard({ fen, player, enabled = false, last, arrow, mark,
             allowDragOffBoard: false,
             allowAutoScroll: false,
             animationDurationInMs: 200,
-            darkSquareStyle: { backgroundColor: '#718676' },
-            lightSquareStyle: { backgroundColor: '#e2e7d5' },
+            darkSquareStyle: { backgroundColor: boardColors.dark },
+            lightSquareStyle: { backgroundColor: boardColors.light },
             squareStyles: styles,
-            darkSquareNotationStyle: { color: '#e8eedb', fontWeight: 600, fontSize: 12 },
-            lightSquareNotationStyle: { color: '#536450', fontWeight: 600, fontSize: 12 },
+            darkSquareNotationStyle: { color: '#10291e', fontWeight: 600, fontSize: 12 },
+            lightSquareNotationStyle: { color: '#344a3c', fontWeight: 600, fontSize: 12 },
             canDragPiece: ({ piece }) => active && piece.pieceType[0] === player,
             onPieceDrop: ({ sourceSquare, targetSquare }) =>
               targetSquare ? submit(sourceSquare, targetSquare) : false,

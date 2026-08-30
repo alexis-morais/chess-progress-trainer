@@ -93,6 +93,7 @@ describe('Partie libre : parcours avec le véritable échiquier', () => {
     expect(await screen.findByRole('heading', { name: 'Prépare ta partie' })).toBeVisible();
     expect(ProtocolWorker.all).toHaveLength(0);
     fireEvent.click(screen.getByRole('button', { name: 'Retour à l’accueil' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Explorer les ouvertures' }));
     expect(screen.getByRole('button', { name: /Ouverture italienne/ })).toBeVisible();
   });
   it('laisse les Blancs commencer, refuse un coup illégal et applique le choix libre du moteur', async () => {
@@ -244,5 +245,33 @@ describe('Partie libre : parcours avec le véritable échiquier', () => {
     expect(onSelect).toHaveBeenLastCalledWith(0);
     expect(chart.querySelector('polyline')?.getAttribute('points')).not.toMatch(/NaN|Infinity/);
     expect(screen.getAllByText('M')).toHaveLength(2);
+  });
+  it('adapte la courbe au téléphone sans étirer les libellés ni perdre la sélection', () => {
+    let resize = () => {};
+    const disconnect = vi.fn();
+    vi.stubGlobal(
+      'ResizeObserver',
+      class {
+        constructor(callback: () => void) {
+          resize = callback;
+        }
+        observe() {}
+        disconnect = disconnect;
+      },
+    );
+    const onSelect = vi.fn();
+    const view = render(
+      <EvaluationChart positions={exampleAnalyses()} selected={2} onSelect={onSelect} />,
+    );
+    const chart = screen.getByRole('img');
+    vi.spyOn(chart, 'getBoundingClientRect').mockReturnValue({ left: 16, width: 320 } as DOMRect);
+    act(() => resize());
+    expect(chart).toHaveAttribute('viewBox', '0 0 320 170');
+    expect(screen.getByRole('slider')).toHaveValue('2');
+    expect(screen.getByText('Coup 2')).toHaveAttribute('text-anchor', 'end');
+    fireEvent.click(chart, { clientX: 189 });
+    expect(onSelect).toHaveBeenLastCalledWith(2);
+    view.unmount();
+    expect(disconnect).toHaveBeenCalled();
   });
 });

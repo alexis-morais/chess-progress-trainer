@@ -1,5 +1,6 @@
 import { useCallback, useMemo, useState } from 'react';
-import { ArrowLeft, ArrowRight, Cpu, Sparkles, Trophy } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Cpu, Sparkles, Trophy, Shuffle } from 'lucide-react';
+import { pieceUrl } from '../ui/pieces';
 import { sideName } from '../data/openings';
 import { ComputerBoard } from './ComputerBoard';
 import { GameSession } from './GameSession';
@@ -59,7 +60,7 @@ export default function ComputerMode({ onHome }: { onHome: () => void }) {
       {view === 'setup' && (
         <>
           <div className="computer-intro">
-            <span className="eyebrow">LA PARTIE T’APPARTIENT</span>
+            <span className="eyebrow">L’ESPACE PARTIE LIBRE</span>
             <h1>
               Un adversaire.
               <br />
@@ -95,6 +96,11 @@ export default function ComputerMode({ onHome }: { onHome: () => void }) {
                       checked={color === item.id}
                       onChange={() => setColor(item.id)}
                     />
+                    {item.id === 'random' ? (
+                      <Shuffle size={25} aria-hidden="true" />
+                    ) : (
+                      <img src={pieceUrl(`${item.id}K`)} alt="" />
+                    )}
                     <span>{item.name}</span>
                   </label>
                 ))}
@@ -114,7 +120,7 @@ export default function ComputerMode({ onHome }: { onHome: () => void }) {
                       <small>{item.description}</small>
                     </span>
                     <span className="level-bars" aria-hidden="true">
-                      {'▰'.repeat(difficulties.indexOf(item) + 1)}
+                      {String(difficulties.indexOf(item) + 1).padStart(2, '0')}
                     </span>
                   </label>
                 ))}
@@ -151,6 +157,21 @@ export default function ComputerMode({ onHome }: { onHome: () => void }) {
                 <li>Une analyse locale, position après position.</li>
                 <li>Un bilan à explorer, à ton rythme.</li>
               </ol>
+              <div className="review-preview-art" aria-hidden="true">
+                <span>LE FIL DE TA PARTIE</span>
+                <svg viewBox="0 0 340 95">
+                  <path d="M0 48H340" stroke="currentColor" opacity=".2" strokeDasharray="4 6" />
+                  <path
+                    d="M5 50 38 51 64 43 93 55 126 29 157 34 185 61 214 36 249 42 283 19 330 11"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinejoin="round"
+                  />
+                  <circle cx="283" cy="19" r="5" fill="currentColor" />
+                </svg>
+                <p>Des évaluations, des idées et de nouveaux repères.</p>
+              </div>
               <p className="computer-note">
                 Dans l’entraîneur d’ouvertures, rien ne change : l’adversaire suit toujours la
                 variante prévue.

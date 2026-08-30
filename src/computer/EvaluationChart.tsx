@@ -1,4 +1,4 @@
-import type { MouseEvent } from 'react';
+import { useEffect, useRef, useState, type MouseEvent } from 'react';
 import { scoreLabel, whiteScore } from './review';
 import type { PositionAnalysis } from './types';
 
@@ -11,8 +11,23 @@ export function EvaluationChart({
   selected: number;
   onSelect: (ply: number) => void;
 }) {
-  const width = 720,
-    height = 170,
+  const svg = useRef<SVGSVGElement>(null);
+  const [width, setWidth] = useState(720);
+  useEffect(() => {
+    const element = svg.current;
+    if (!element) return;
+    const measure = () => {
+      const measured = Math.round(element.getBoundingClientRect().width);
+      if (measured >= 240) setWidth(measured);
+    };
+    measure();
+    // Match the drawing to its container so labels stay legible instead of stretching.
+    if (typeof ResizeObserver === 'undefined') return;
+    const observer = new ResizeObserver(measure);
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
+  const height = 170,
     left = 38,
     right = 12,
     top = 15,
@@ -41,6 +56,7 @@ export function EvaluationChart({
         </strong>
       </div>
       <svg
+        ref={svg}
         viewBox={`0 0 ${width} ${height}`}
         preserveAspectRatio="none"
         role="img"
@@ -52,7 +68,8 @@ export function EvaluationChart({
           y={top}
           width={width - left - right}
           height={(height - top - bottom) / 2}
-          fill="#d5e1bd0c"
+          fill="var(--accent-soft)"
+          opacity="0.45"
         />
         {[8, 0, -8].map((value) => {
           const yy = top + ((9 - value) / 18) * (height - top - bottom);
@@ -63,7 +80,7 @@ export function EvaluationChart({
                 x2={width - right}
                 y1={yy}
                 y2={yy}
-                stroke={value === 0 ? '#91a481' : '#394535'}
+                stroke={value === 0 ? 'var(--muted)' : 'var(--border)'}
                 strokeDasharray={value === 0 ? '' : '3 5'}
               />
               <text x="3" y={yy + 4}>
@@ -76,7 +93,7 @@ export function EvaluationChart({
         <polyline
           points={points}
           fill="none"
-          stroke="#c1d59b"
+          stroke="var(--accent)"
           strokeWidth="2.5"
           strokeLinejoin="round"
         />
@@ -86,7 +103,7 @@ export function EvaluationChart({
               cx={x(ply)}
               cy={y(ply)}
               r={selected === ply ? 5 : 2}
-              fill={selected === ply ? '#f1d086' : '#c1d59b'}
+              fill={selected === ply ? 'var(--gold)' : 'var(--accent)'}
             >
               <title>
                 {ply ? `Demi-coup ${ply}` : 'Début'} : {scoreLabel(position.score)}
@@ -104,13 +121,18 @@ export function EvaluationChart({
           x2={x(selected)}
           y1={top}
           y2={height - bottom}
-          stroke="#f1d086"
+          stroke="var(--gold)"
           strokeDasharray="3 3"
         />
         {[0, Math.floor(count / 2), count]
           .filter((value, index, array) => array.indexOf(value) === index)
           .map((ply) => (
-            <text key={ply} x={x(ply)} y={height - 5} textAnchor="middle">
+            <text
+              key={ply}
+              x={x(ply)}
+              y={height - 5}
+              textAnchor={ply === 0 ? 'start' : ply === count ? 'end' : 'middle'}
+            >
               {ply === 0 ? 'Début' : `Coup ${Math.ceil(ply / 2)}`}
             </text>
           ))}

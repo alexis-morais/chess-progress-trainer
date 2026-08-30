@@ -22,6 +22,8 @@ const files = [
   '.prettierrc.json',
   '.prettierignore',
   'public/favicon.svg',
+  'public/theme-init.js',
+  'public/pieces',
   'public/.nojekyll',
   'public/licences.html',
   'public/licenses',

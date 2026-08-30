@@ -9,5 +9,7 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: ['./src/test/setup.ts'],
     restoreMocks: true,
+    // The real chessboard UI can exceed 5 s on shared GitHub runners. Keep local failures fast.
+    testTimeout: process.env.CI ? 20_000 : 5_000,
   },
 });

@@ -2,7 +2,7 @@
 
 ## Résultat
 
-- **473 tests réussis / 473** dans neuf fichiers : les 402 historiques inchangés et 71 nouveaux.
+- **486 tests réussis / 486** dans dix fichiers : les 473 tests existants conservés et 13 contrôles supplémentaires pour la refonte. Aucun test supprimé ni désactivé ; les anciens parcours passent désormais par la vue Ouvertures.
 - **120 / 120 séquences légales**, entièrement rejouées depuis la position initiale avec chess.js en SAN stricte : 60 essentielles et 60 étendues.
 - Exactement **10 ouvertures, 5 par camp, 6 variantes chacune**.
 - Les **16 variantes historiques** gardent leurs identifiants, noms, coups et explications.
@@ -13,27 +13,45 @@
 
 ## Tests automatiques
 
-| Fichier                             | Tests | Couverture                                                                                                                                                                                                    |
-| ----------------------------------- | ----: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `src/test/openings.test.ts`         |   259 | Catalogue 10 × 6, répartition 5/5, identifiants, 120 séquences légales, 60 préfixes exacts, 60 positions nommées, conservation des 16 historiques, données invalides et notation française                    |
-| `src/test/trainer.test.ts`          |   127 | Les 120 séances : orientation, réponses scriptées, progression, fin, reset ; coups interdits, erreurs, aides uniques, badges et minuteries périmées                                                           |
-| `src/test/engine.test.ts`           |     7 | UCI, scores et mats, point de vue des Blancs, limites de recherche, dernières positions, pannes, délais et destruction                                                                                        |
-| `src/test/app.test.tsx`             |     9 | Sélection ouverture/variante/mode, absence de moteur sur l’accueil, vrai échiquier React, refus, couleurs et badges, délais 600/900/1000 ms, flèche, compteurs, clavier, deux modes jusqu’au bilan et reprise |
-| `src/test/computer-game.test.ts`    |    13 | Camps, hasard, niveaux, coups illégaux, réponses périmées, mat, pat, répétition, 50 coups, matériel, abandon, roque, prise en passant et promotions                                                           |
-| `src/test/computer-engine.test.ts`  |    13 | Options Skill Level, vrai usage de bestmove dans ce module, historique complet, scores, PV, sérialisation, barrières UCI, annulations, pannes et délais                                                       |
-| `src/test/computer-review.test.ts`  |    20 | Catégories, scores vus des Noirs, mats et positions déséquilibrées, analyse séquentielle, progression, annulation, navigation, précision et commentaires prudents                                             |
-| `src/test/computer-storage.test.ts` |    13 | Dernière partie et bilan restaurés, stockage bloqué, données illégales ou corrompues, résultats incohérents, conservation de la partie si le bilan est endommagé                                              |
-| `src/test/computer-ui.test.tsx`     |    12 | Vrai échiquier + protocole UCI simulé : accueil, camps/niveaux, réponse libre, mat, promotion, abandon confirmé, panne/reprise, bilan et sauvegarde, courbe et annulation                                     |
+| Fichier                             | Tests | Couverture                                                                                                                                                                                                                                |
+| ----------------------------------- | ----: | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `src/test/openings.test.ts`         |   259 | Catalogue 10 × 6, répartition 5/5, identifiants, 120 séquences légales, 60 préfixes exacts, 60 positions nommées, conservation des 16 historiques, données invalides et notation française                                                |
+| `src/test/trainer.test.ts`          |   127 | Les 120 séances : orientation, réponses scriptées, progression, fin, reset ; coups interdits, erreurs, aides uniques, badges et minuteries périmées                                                                                       |
+| `src/test/engine.test.ts`           |     7 | UCI, scores et mats, point de vue des Blancs, limites de recherche, dernières positions, pannes, délais et destruction                                                                                                                    |
+| `src/test/app.test.tsx`             |     9 | Sélection ouverture/variante/mode, absence de moteur sur l’accueil, vrai échiquier React, refus, couleurs et badges, délais 600/900/1000 ms, flèche, compteurs, clavier, deux modes jusqu’au bilan et reprise                             |
+| `src/test/computer-game.test.ts`    |    13 | Camps, hasard, niveaux, coups illégaux, réponses périmées, mat, pat, répétition, 50 coups, matériel, abandon, roque, prise en passant et promotions                                                                                       |
+| `src/test/computer-engine.test.ts`  |    13 | Options Skill Level, vrai usage de bestmove dans ce module, historique complet, scores, PV, sérialisation, barrières UCI, annulations, pannes et délais                                                                                   |
+| `src/test/computer-review.test.ts`  |    20 | Catégories, scores vus des Noirs, mats et positions déséquilibrées, analyse séquentielle, progression, annulation, navigation, précision et commentaires prudents                                                                         |
+| `src/test/computer-storage.test.ts` |    13 | Dernière partie et bilan restaurés, stockage bloqué, données illégales ou corrompues, résultats incohérents, conservation de la partie si le bilan est endommagé                                                                          |
+| `src/test/computer-ui.test.tsx`     |    13 | Vrai échiquier + protocole UCI simulé : accueil, camps/niveaux, réponse libre, mat, promotion, abandon confirmé, panne/reprise, bilan et sauvegarde, courbe, redimensionnement et annulation                                              |
+| `src/test/appearance.test.tsx`      |    12 | Système clair/sombre, préférence mémorisée, stockage bloqué, changement entre onglets, navigation et liens directs, retour, lien clavier, séance conservée pendant le changement de thème, initialisation avant React et douze SVG locaux |
+
+Le nouveau test de graphique vérifie le changement de largeur, les libellés non étirés, la sélection conservée et le retrait de l’observateur à la fermeture.
 
 Commandes : `pnpm test`, puis `pnpm check` pour le contrôle final avec build. Le test de panne force l’échec du Worker et vérifie que l’exercice reste utilisable.
 
-Le premier passage a détecté des dépassements de durée des tests UI, dus aux dix aperçus interactifs de l’accueil. Ils ont été remplacés par des aperçus statiques utilisant les mêmes pièces SVG, sans contrôleurs de glisser-déposer. Les délais maximaux de tests n’ont pas été augmentés ; les tests passent après cette amélioration.
+L’optimisation précédente des aperçus statiques est conservée. Pour les runners GitHub partagés, `vite.config.ts` fixe maintenant **20 000 ms par test si `CI` est défini**, et garde **5 000 ms en local**. Aucun contournement des assertions ni nouvelle tentative automatique. La suite complète est également exécutée localement avec `CI=true pnpm test`. Aucun workflow distant n’a été déclenché.
+
+## Contrôle de la refonte UX/UI
+
+- Trois vues distinctes : Accueil, Ouvertures, Partie libre. Navigation par fragments `#/`, `#/ouvertures`, `#/partie`, compatible avec une actualisation sous le préfixe GitHub Pages. Retour du navigateur contrôlé.
+- Thèmes clair et sombre vérifiés dans le build : le choix survit à l’actualisation. Basculer pendant une séance conserve la position, les erreurs, les aides et le format.
+- Palette crème/pierre/vert en clair, verts profonds en sombre. Tous les composants, sélecteurs, modales, bilans et la page de licences suivent la palette. Transitions discrètes et préférence de réduction des animations respectée.
+- Douze pièces classiques **cburnett** en SVG local, attribution Colin M. L. Burnett et GPLv3 fournie, sources vectorielles incluses dans l’archive distribuée. Toutes les images de pièces se chargent correctement sous `/chess-progress-trainer/pieces/`.
+- À **1366 × 900**, plateau d’ouverture de **742 px** avec panneau latéral de 340 px. La taille s’adapte à la largeur et à la hauteur de l’écran. À 820 px, le plateau d’analyse atteint **740 px** et le panneau passe dessous. À 390 px : plateau d’ouverture **329 px**, plateau de partie/bilan **358 px**.
+- Largeurs **320, 390, 820, 1366 et 1440 px** contrôlées, sans débordement horizontal du contenu. Aucun téléphone physique utilisé.
+- Italienne / Giuoco Piano essentielle : refus de d2–d4, compteur d’erreurs, flèche e2–e4, badge vert et réponse scriptée e7–e5. Française / Avance étendue sur mobile : Noirs en bas, e4 automatique ; d7–d5 refusé avec croix en d5, e7–e6 accepté avec coche en e6, réponse d4. Réinitialisation des compteurs et du mode contrôlée.
+- Parcours final de l’Italienne essentielle jusqu’au bilan **7/7**, avec sept aides et zéro erreur. Glisser-déposer réel de c2 vers c3 avec les nouveaux SVG ; modale de fin et bouton Rejouer contrôlés, compteurs remis à zéro.
+- Vraie partie libre **Débutant, Noirs** : `1. e4 e5 2. d4 Cf6 3. Cf3`, choix de l’ordinateur effectué par Stockfish. Abandon confirmé, analyse séquentielle terminée, bilan de deux décisions sauvegardé puis restauré. e5 est classé Meilleur coup ; Cf6 Imprécision avec suggestion exd4 et suite proposée. Aucun changement des règles de classification.
+- Bilan dans les deux thèmes : précédent/suivant, flèche sur la position avant le coup et sélection par clic réel dans la courbe contrôlés. Le graphique ajuste son repère à la largeur de l’écran afin de ne plus comprimer ou étirer ses libellés ; les valeurs extrêmes restent bornées.
+- Stockfish affiche « Analyse locale active » dans le trainer et répond effectivement dans le mode libre. Les modules moteur, les règles d’échecs, les données d’ouverture et les calculs de bilan n’ont pas été modifiés.
+- Console du build sans erreur ni avertissement durant ces parcours. Le build et le formatage passent sans avertissement. Les validations historiques ci-dessous restent documentées séparément.
 
 ## Parcours dans un vrai navigateur
 
 Chromium intégré, en développement puis depuis **le build `dist/`**, servi à `http://127.0.0.1:4173/chess-progress-trainer/`.
 
-### Nouvelle partie libre et bilan
+### Parcours historiques conservés : partie libre et bilan
 
 - **Débutant, Blancs** : tentative e2–e5 refusée, pion conservé en e2 et badge rouge ; partie `1. e4 e6 2. Cf3 d5 3. exd5 c6`, choisie librement par le vrai Stockfish. Abandon annulé une première fois, puis confirmé. Bilan de trois décisions, terminé sans erreur moteur.
 - **Intermédiaire, Noirs** : premier coup blanc automatique, Noirs en bas ; partie `1. Cf3 c5 2. Cc3 e6 3. e4`. Abandon et bilan des deux décisions des Noirs. Signes des évaluations et commentaires contrôlés.
@@ -65,7 +83,7 @@ Chromium intégré, en développement puis depuis **le build `dist/`**, servi à
 - Sources de cette version régénérées dans `source/chess-progress-source.tar.gz`, liées depuis la page de licences.
 - Le trainer ne reçoit aucun coup de Stockfish. Les messages `bestmove` terminent seulement l’analyse ; leur contenu n’est pas interprété.
 - L’analyse précédente est arrêtée et ses scores tardifs ignorés. Aucune analyse du catalogue au démarrage.
-- Bundle principal : environ **463 ko de JavaScript (124 ko gzip)** et **24 ko de CSS (6 ko gzip)**. Le nouveau module chargé à la demande ajoute environ **38 ko de JavaScript (14 ko gzip)** et **11 ko de CSS (3 ko gzip)**. Aucun nouveau moteur ou paquet npm n’a été ajouté. Les archives de sources ne sont pas téléchargées pour jouer.
+- Bundle principal après refonte : environ **470 ko de JavaScript (126 ko gzip)** et **29 ko de CSS (7 ko gzip)**. Le module Partie libre chargé à la demande ajoute environ **39 ko de JavaScript (14 ko gzip)** et **14 ko de CSS (3 ko gzip)**. Aucun nouveau moteur ou paquet npm n’a été ajouté. Les archives de sources ne sont pas téléchargées pour jouer.
 - Partie libre : Skill 0/7/20, limites respectives profondeur 3/8/18 et 100/350/1 200 ms. Bilan : Skill 20, profondeur 14 ou 350 ms par position, Worker unique, Hash 16 Mo. Les fichiers Stockfish locaux sont réutilisés.
 
 ## Responsive et limites

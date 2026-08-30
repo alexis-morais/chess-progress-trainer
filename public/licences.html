@@ -3,15 +3,30 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="theme-color" content="#121713" />
+    <meta name="theme-color" content="#f6f7f2" />
     <title>Licences et crédits — Chess Progress</title>
+    <script src="theme-init.js"></script>
     <style>
+      :root {
+        color-scheme: light;
+        --bg: #f6f7f2;
+        --text: #203b31;
+        --accent: #25664e;
+        --muted: #58695f;
+      }
+      :root[data-theme='dark'] {
+        color-scheme: dark;
+        --bg: #14201e;
+        --text: #edf4eb;
+        --accent: #b4d8bd;
+        --muted: #afc1b6;
+      }
       body {
         font:
           16px/1.8 system-ui,
           sans-serif;
-        background: #121713;
-        color: #e8eedf;
+        background: var(--bg);
+        color: var(--text);
         margin: 0;
         padding: 40px 24px;
       }
@@ -28,20 +43,20 @@
         margin-top: 35px;
       }
       a {
-        color: #c4ed98;
+        color: var(--accent);
         text-underline-offset: 4px;
       }
       li {
         margin-bottom: 8px;
       }
       small {
-        color: #b5c3a8;
+        color: var(--muted);
       }
       code {
         overflow-wrap: anywhere;
       }
       a:focus-visible {
-        outline: 3px solid #c4ed98;
+        outline: 3px solid var(--accent);
         outline-offset: 4px;
       }
     </style>
@@ -110,9 +125,12 @@
       <ul>
         <li>React et React DOM : Meta et contributeurs, licence MIT.</li>
         <li>chess.js : Jeff Hlywa et contributeurs, licence BSD-2-Clause.</li>
+        <li>react-chessboard : Ryan Gregory et contributeurs, licence MIT.</li>
         <li>
-          react-chessboard : Ryan Gregory et contributeurs, licence MIT ; pièces fournies par la
-          bibliothèque.
+          Pièces 2D « cburnett » : Colin M. L. Burnett, GPL version 2 ou ultérieure, redistribuées
+          ici sous GPLv3. Les douze SVG originaux et leurs sources modifiables sont hébergés sur ce
+          site et inclus dans l’archive des sources.
+          <a href="pieces/README.md">Provenance, attribution et licence</a>.
         </li>
         <li>Lucide : contributeurs Lucide / Feather, licence ISC.</li>
         <li>DnD Kit : MIT ; tslib : 0BSD.</li>

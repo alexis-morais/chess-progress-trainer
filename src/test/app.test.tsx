@@ -22,6 +22,7 @@ function start(
   variation = 'Giuoco Piano',
   mode: LessonMode = 'essential',
 ) {
+  fireEvent.click(screen.getByRole('button', { name: 'Ouvertures' }));
   fireEvent.click(screen.getByRole('button', { name: new RegExp(opening) }));
   fireEvent.click(screen.getByRole('button', { name: new RegExp(`^${variation}`) }));
   fireEvent.click(
@@ -50,6 +51,7 @@ describe('Parcours complet de l’interface avec le véritable échiquier React'
     });
     vi.stubGlobal('Worker', worker);
     render(<App />);
+    fireEvent.click(screen.getByRole('button', { name: 'Explorer les ouvertures' }));
     expect(screen.getAllByText('Vous jouez : Blancs')).toHaveLength(5);
     expect(screen.getAllByText('Vous jouez : Noirs')).toHaveLength(5);
     fireEvent.click(screen.getByRole('button', { name: /Ouverture italienne/ }));

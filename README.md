@@ -1,4 +1,4 @@
-# Chess Progress — Opening Trainer
+# Chess Progress — Apprendre, jouer, progresser
 
 **Entraîne-toi aux ouvertures, coup après coup.**
 
@@ -10,7 +10,16 @@ Dans le **mode Ouvertures**, le principe reste inchangé :
 
 Dans le **mode Partie libre**, Stockfish choisit réellement ses coups. Les deux comportements sont séparés dans le code.
 
-Évolution du 30 août 2026 : ajout des deux niveaux, de 44 variantes et du feedback sur l’échiquier, en conservant les 16 lignes historiques et l’intégration locale de Stockfish.
+Évolution du 30 août 2026 : accueil à deux entrées, vues dédiées, thèmes clair et sombre, échiquiers agrandis et pièces vectorielles classiques. Le catalogue, les deux formats, la partie libre, les bilans et les règles pédagogiques sont conservés.
+
+## Navigation et apparence
+
+- **Accueil** : choisir entre apprendre les ouvertures et jouer contre l’ordinateur.
+- **Ouvertures** : parcourir les deux camps, choisir une variante et son format, puis commencer.
+- **Partie libre** : choisir son camp et le niveau de Stockfish, jouer puis consulter le bilan.
+- La navigation utilise les fragments `#/`, `#/ouvertures` et `#/partie`. Le retour du navigateur fonctionne et les liens sont actualisables sur GitHub Pages sans serveur de routage.
+- Le bouton **Clair / Sombre** dans l’en-tête change le thème sans interrompre la séance. Le choix initial suit le système ; un choix manuel est mémorisé localement avec la clé `chess-progress:theme:v1`. Si le stockage est bloqué, le choix reste valable pendant la session. Aucun compte ni synchronisation distante.
+- Les deux thèmes partagent les mêmes espacements, composants et pièces. Les animations respectent la préférence « réduire les animations » du système. Le plateau et les contrôles restent accessibles au clavier.
 
 ## Ouvertures disponibles
 
@@ -35,7 +44,7 @@ Les noms et positions caractéristiques ont été recoupés avec le [répertoire
 
 ## Utiliser le trainer
 
-1. Choisir une ouverture dans « Jouer avec les Blancs » ou « Jouer avec les Noirs », puis l’une de ses six variantes.
+1. Depuis l’accueil, cliquer sur **Explorer les ouvertures**. Choisir une ouverture dans « Jouer avec les Blancs » ou « Jouer avec les Noirs », puis l’une de ses six variantes.
 2. Sélectionner **Ligne essentielle** ou **Version étendue**, puis cliquer sur **Commencer l’entraînement**.
 3. Déplacer une pièce avec la souris, ou toucher sa case puis sa destination. Au clavier, utiliser les flèches puis Entrée ou Espace ; Échap annule la sélection.
 4. Seul le coup prévu est accepté. Un autre coup est refusé et compte comme une erreur ; la position ne change pas. La destination tentée devient rouge avec une croix blanche pendant 1 seconde.
@@ -45,7 +54,7 @@ Les noms et positions caractéristiques ont été recoupés avec le [répertoire
 
 Ton camp est toujours en bas. Si tu joues les Noirs, l’ordinateur joue le premier coup blanc après 600 ms. La progression compte uniquement **tes** coups, pas ceux de l’adversaire. Le compteur principal indique les coups complétés ; « Coup 3 / 6 » désigne la prochaine décision attendue. Le dernier mouvement est surligné pour les deux camps.
 
-**Recommencer** et **Rejouer la variante** réinitialisent la position, la progression, les erreurs, les aides, les sélections, les badges, les minuteries et le moteur d’analyse. Le mode choisi est conservé. Les séances d’ouverture ne sont pas enregistrées : une actualisation revient à l’accueil.
+**Recommencer** et **Rejouer la variante** réinitialisent la position, la progression, les erreurs, les aides, les sélections, les badges, les minuteries et le moteur d’analyse. Le mode choisi est conservé. Les séances d’ouverture ne sont pas enregistrées : une actualisation revient au catalogue de la vue Ouvertures. Quitter cette vue termine la séance en cours.
 
 ## Jouer contre l’ordinateur
 
@@ -115,10 +124,12 @@ src/trainer/useTrainer.ts   Temporisation des réponses automatiques
 src/engine/                 Intégration UCI, isolation et gestion des erreurs
 src/components/             Accueil, plateau, évaluation et bilan
 src/computer/               Partie libre, moteur dédié, bilan, graphique et sauvegarde
-src/styles.css             Thème sombre et responsive
+src/ui/                    Thèmes, navigation et pièces SVG partagées
+src/styles.css             Mise en page, composants et responsive
 src/test/                  Tests des 120 lignes, des préfixes, du trainer, de l’UI et du moteur
 public/engine/             Moteur, sources correspondantes et réseau NNUE
 public/licenses/           Licences intégrales et attributions
+public/pieces/             Pièces 2D cburnett, sources SVG et attribution
 scripts/                   Vérification des fichiers et archives de distribution
 .github/workflows/         Tests, build et déploiement automatiques
 ```
@@ -143,6 +154,12 @@ pnpm run licenses   # Régénérer les crédits après une mise à jour des dép
 
 Ne pas ouvrir `dist/index.html` en double-cliquant : les Workers/WASM doivent être servis par HTTP(S). `pnpm preview` reproduit le préfixe GitHub Pages.
 
+### Tests et runners GitHub Actions
+
+Les 473 tests existants sont conservés et complétés par 12 tests d’apparence et de navigation et un test du graphique responsive, soit **486 tests**. Les seuls ajustements des anciens parcours concernent l’entrée dans la nouvelle vue Ouvertures ; aucune assertion n’a été retirée.
+
+Dans `vite.config.ts`, le délai maximum par test est de **20 secondes en CI**, contre **5 secondes en local**. GitHub définit automatiquement `CI=true` : le workflow existant bénéficie donc du délai adapté aux runners partagés. Aucun test n’est désactivé et les échecs réels restent bloquants. Pour reproduire cette configuration localement : `CI=true pnpm test`. Ce réglage ne modifie pas les délais de l’application ni les recherches Stockfish.
+
 ## Modifier les variantes
 
 Les données sont regroupées dans **`src/data/`** :
@@ -164,7 +181,7 @@ Après toute modification, lancer `pnpm test` puis `pnpm build`. Une variante il
 
 Le dépôt doit s’appeler **chess-progress-trainer**. Pour un hébergement gratuit avec un compte GitHub Free, le dépôt doit être **public**. Le site ne demande aucun compte à ses visiteurs.
 
-Le chemin `/chess-progress-trainer/` est déjà configuré dans `vite.config.ts`. Le moteur, les licences et les fichiers de l’application utilisent ce même préfixe. Une actualisation ne provoque pas de 404, car la navigation interne n’utilise pas d’URL supplémentaire.
+Le chemin `/chess-progress-trainer/` est déjà configuré dans `vite.config.ts`. Le moteur, les pièces, les licences et les fichiers de l’application utilisent ce même préfixe. Une actualisation ne provoque pas de 404 : les vues sont identifiées par un fragment après `#`, qui n’est pas envoyé au serveur.
 
 ### Activation, une seule fois
 
@@ -188,7 +205,7 @@ Documentation officielle : [déploiement avec GitHub Actions](https://docs.githu
 
 ## Tests et compatibilité
 
-Les **473 tests** incluent les **402 tests historiques**, inchangés : les **120 lignes** légales, les 60 préfixes exacts, les 60 positions de référence, les 16 variantes historiques et tous les comportements du trainer. Les **71 nouveaux tests** vérifient les camps, les difficultés, les coups libres et illégaux, les fins de partie, les promotions, le protocole UCI, les analyses sérialisées et annulées, la classification, les commentaires, le graphique, la navigation et la sauvegarde validée. Les tests UI utilisent le vrai composant react-chessboard ; le processus Worker y est simulé. Le vrai moteur est aussi essayé dans le navigateur de production.
+Les **486 tests** incluent les **402 tests historiques du trainer** : les **120 lignes** légales, les 60 préfixes exacts, les 60 positions de référence, les 16 variantes historiques et tous les comportements de l’entraînement. Les **71 tests de partie libre** vérifient les camps, les difficultés, les coups libres et illégaux, les fins de partie, les promotions, le protocole UCI, les analyses sérialisées et annulées, la classification, les commentaires, le graphique, la navigation et la sauvegarde validée. Les **13 tests ajoutés pour la refonte** couvrent les thèmes, les liens directs et retours, la conservation de la séance lors d’un changement de thème et le graphique responsive. Les tests UI utilisent le vrai composant react-chessboard ; le processus Worker y est simulé. Le vrai moteur est aussi essayé dans le navigateur de production.
 
 La compilation cible Chrome 107+, Firefox 104+ et Safari 16+. Le moteur amont vise les navigateurs modernes avec WebAssembly (notamment iOS 16+). La version de production est à vérifier sur HTTP(S), à l’URL avec son sous-répertoire. Si un appareil refuse le WASM, l’exercice reste accessible.
 
