@@ -43,7 +43,7 @@ export default function ComputerMode({ onHome }: { onHome: () => void }) {
     [record],
   );
   return (
-    <main id="main" className="computer-page page-width">
+    <main id="main" className={`computer-page page-width ${view !== 'setup' ? 'playing-page' : ''}`}>
       <div className="breadcrumb">
         <button onClick={onHome}>
           <ArrowLeft size={15} />

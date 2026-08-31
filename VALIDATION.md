@@ -1,6 +1,47 @@
 # Contrôle de l’évolution locale — 31 août 2026
 
-## Résultat
+## Mise à jour interaction et sécurité
+
+- **770 / 770 tests**, dans 19 fichiers : les 715 tests existants sont conservés ; ajout de 32 tests d’interaction, 12 tests de règles/géométrie, 4 tests d’animation et 7 tests de robustesse/sécurité.
+- **CI : 770 / 770**, exécutés avec `CI=true pnpm test` et le timeout existant de 20 secondes. Aucun test désactivé, aucun workflow distant déclenché.
+- **Build de production réussi**, vérification TypeScript, intégrité et licences Stockfish, archive source, assets et CSP comprise. Aucun avertissement important.
+- **Audit dépendances : aucune vulnérabilité connue**. Aucun secret détecté dans les fichiers texte audités et les six commits locaux accessibles (187 blobs texte historiques). Voir [le périmètre, les corrections et les limites de sécurité](SECURITY.md).
+- **Aucun commit, push ou déploiement.**
+
+### Mesures du plateau avant / après
+
+Largeur extérieure mesurée dans le navigateur, en pixels ; aucune largeur de page supérieure au viewport. Ratio carré conservé.
+
+| Viewport | Ouvertures avant | Ouvertures après | Tactiques / libre / bilan avant |    Après |
+| -------: | ---------------: | ---------------: | ------------------------------: | -------: |
+|      320 |              259 |              304 |                             288 |      304 |
+|      375 |              314 |              359 |                             343 |      359 |
+|      390 |              329 |              374 |                             358 |      374 |
+|      430 |              369 |              414 |                             398 |      414 |
+|      820 |              702 |              702 |                             740 |      740 |
+|     1440 |              832 |              832 |        870 tactique / 830 libre | Inchangé |
+
+Les mesures antérieures ont été prises sur le projet avant modification. Sur mobile, 8 px de marge de chaque côté et barre d’évaluation horizontale sous le trainer. Panneaux latéraux et tailles desktop conservés. Rectangles et `scrollWidth` contrôlés aux six tailles pour les écrans de jeu ; accueil vérifié en clair et sombre. Aucun débordement horizontal des composants principaux dans les parcours examinés.
+
+### Interactions vérifiées dans le navigateur
+
+- **Souris native** : sélection, changement de pièce, clic-clic et glisser-déposer. Italienne : e2-e3 légal mais refusé avec erreur, puis e2-e4 accepté ; réponse e7-e5 scriptée. Française/Tarrasch étendue : Noirs en bas, premier coup automatique, Indice gratuit, Solution e7-e6 comptée une fois, puis drag e7-e6 accepté.
+- **Tactique italienne** : les huit destinations du cavalier sont indiquées, dont deux captures, tandis que la flèche Solution désigne seulement c7. Cxc7+ accepté, réponse scriptée, sélection et marqueurs remis à zéro.
+- **Partie libre** : e4 contre le vrai Stockfish Débutant, réponse d5, anneau de capture d5, exd5 joué par drag natif. Depuis le build avec CSP, Stockfish répond à nouveau et le joueur récupère le trait. Difficultés et algorithmes de bilan inchangés.
+- **Bilan existant** : sauvegarde restaurée sans l’écraser, navigation 5/5 → 4/5, commentaire de Cf6, suite conseillée, flèche du meilleur coup et graphique conservés.
+- **Touch simulé** dans le [banc local](qa/README.md), avec le véritable composant partagé : pièce à 125 %, centre environ 40 px au-dessus du contact à 390 px, repères visibles durant le maintien, capture et orientation noire. Petit/grand roque, en passant, sous-promotion cavalier et refus pédagogique exécutés dans le navigateur. Les quatre promotions sont aussi testées en clic et drag automatiquement.
+- Tests supplémentaires : pièce clouée, roi en échec, absence de roque à travers une attaque, promotion unique avec quatre choix, retour d’un drag invalide/hors plateau, capture du pointeur, absence de clic parasite, micro-mouvement tactile, annulations/blur/resize/démontage, positions obsolètes, gestes hors pièce jouable, clavier et réduction des animations.
+- **Production `/chess-progress-trainer/`** : CSP présente, évaluation locale active (+0.3 observé), Worker/WASM, chargement du module Partie libre, styles, SVG et navigation fonctionnels. Aucun avertissement ou erreur important provenant du build dans les parcours contrôlés.
+
+Les valeurs 140 ms (snap) et 170 ms (coups par clic/automatiques) n’ajoutent aucun délai à la logique d’échecs ; les délais pédagogiques restent inchangés. Les badges attendent la fin de la courte transition avant d’apparaître.
+
+### Limites de la validation
+
+Exécution réelle dans le navigateur Chromium intégré ; dimensions mobiles simulées. Les événements tactiles du banc sont synthétiques : ils permettent le contrôle visuel, **pas une certification de l’arbitrage natif du scroll de Safari iOS ou Chrome Android**. Le CSS réserve les gestes uniquement aux pièces jouables ; les cases vides et zones extérieures conservent `pan-y`/le défilement normal. Un essai sur téléphone physique reste recommandé, en particulier pour le zoom et les interruptions système. Safari/Firefox sont des cibles du build, pas des navigateurs exécutés durant cet audit. Un avertissement de rechargement React est apparu sur le banc de développement pendant son édition ; son nettoyage HMR a été corrigé et il ne concerne pas le build livré.
+
+Les rapports précédents sont conservés ci-dessous comme historique des fonctionnalités et vérifications pédagogiques.
+
+## Résultat de la version structurelle précédente
 
 - **715 tests réussis / 715** dans quinze fichiers : les 637 tests précédents conservés et 78 contrôles supplémentaires pour les tactiques et la sélection des modes. Aucun test supprimé ni désactivé ; les assertions d’assistance ont été adaptées au comportement explicitement demandé (indice facultatif, Solution comptée).
 - **Configuration CI : 715 / 715**, avec `CI=true pnpm test`. Timeout inchangé : 20 secondes en CI, 5 secondes en local. Aucun workflow distant déclenché.

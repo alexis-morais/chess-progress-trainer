@@ -1175,6 +1175,7 @@ main {
   bottom: 0;
   background: #f5f0e2;
   width: 100%;
+  height: var(--white-share);
   transition: height 0.5s;
 }
 .eval-track.flipped .eval-white {
@@ -2340,5 +2341,90 @@ progress::-moz-progress-bar {
   }
   .tactic-explanation {
     padding: 14px;
+  }
+}
+
+/* Keep the board almost edge to edge on phones; other content retains its breathing room. */
+@media (max-width: 600px) {
+  .trainer.page-width,
+  .playing-page.page-width {
+    width: calc(100% - 16px);
+  }
+  .trainer > .breadcrumb,
+  .trainer > .training-heading,
+  .trainer > .training-assistance,
+  .trainer > .training-note,
+  .playing-page > .breadcrumb,
+  .playing-page > .computer-game-heading,
+  .playing-page .review-title,
+  .playing-page .review-summary {
+    margin-inline: 8px;
+  }
+  .trainer .training-panel,
+  .playing-page .training-panel {
+    margin-inline: 8px;
+    width: auto;
+  }
+  .board-with-eval {
+    flex-direction: column-reverse;
+    gap: 8px;
+  }
+  .board-with-eval .training-board {
+    flex: none;
+    width: 100%;
+  }
+  .evaluation {
+    flex-direction: row;
+    width: 100%;
+    height: 22px;
+    padding-inline: 8px;
+    gap: 9px;
+  }
+  .eval-value {
+    width: 32px;
+    height: auto;
+    font-size: 10px;
+  }
+  .eval-track {
+    height: 9px;
+    width: auto;
+  }
+  .eval-white {
+    width: var(--white-share);
+    height: 100%;
+    left: 0;
+    transition: width 0.5s;
+  }
+  .eval-track.flipped .eval-white {
+    left: auto;
+    right: 0;
+  }
+  .eval-midline {
+    left: 50%;
+    top: 0;
+    height: 100%;
+    width: 0;
+    border-top: 0;
+    border-left: 1px dashed #8b9986;
+  }
+  .eval-side {
+    height: auto;
+  }
+  .trainer .player-label {
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+  .trainer .board-instructions {
+    margin-left: 0;
+    padding-inline: 8px;
+  }
+  .trainer .engine-status {
+    padding-left: 0;
+  }
+  .tactic-board-caption {
+    padding-inline: 8px;
+  }
+  .playing-page .computer-board-section .player-label {
+    padding-inline: 8px;
   }
 }

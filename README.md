@@ -59,6 +59,18 @@ Ton camp est toujours en bas. Si tu joues les Noirs, l’ordinateur joue le prem
 
 **Recommencer** et **Rejouer la variante** réinitialisent la position, la progression, les erreurs, les aides, les sélections, les badges, les minuteries et le moteur d’analyse. Le mode choisi est conservé. Les séances d’ouverture ne sont pas enregistrées : une actualisation revient au catalogue de la vue Ouvertures. Quitter cette vue termine la séance en cours.
 
+## Interagir avec l’échiquier
+
+Dans les ouvertures, les tactiques et la partie libre, **cliquer/toucher une pièce puis sa destination** et **glisser-déposer** fonctionnent sans réglage. Une autre pièce de ton camp peut être sélectionnée immédiatement. Les points indiquent les cases vides légales ; les anneaux indiquent les captures. Ces destinations sont calculées par chess.js, avec les échecs, clouages, roques, prises en passant et promotions.
+
+**Légal ne signifie pas solution de l’exercice.** Tous les coups légaux de la pièce sont indiqués, mais seul le coup pédagogique prévu est accepté dans les ouvertures et tactiques. Indice reste facultatif et gratuit ; Solution révèle toujours sa flèche et compte une aide. En partie libre, tous les coups légaux sont autorisés.
+
+Pendant le drag, les marqueurs restent visibles. À la souris, la pièce suit le curseur. Au toucher, après un seuil de 10 px, elle grandit à **125 %** et s’élève d’environ **40 px au-dessus du doigt** sur téléphone ; la case soulignée sous le contact reste la destination. Le snap/retour dure 140 ms ; les coups par clic et automatiques sont animés sur 170 ms. La préférence de réduction des animations est respectée. Les quatre promotions restent proposées dans une fenêtre accessible.
+
+Sur téléphone, le plateau utilise la largeur disponible avec 8 px de marge de chaque côté : **374 px sur un écran de 390 px**. La barre d’évaluation du trainer passe sous le plateau. Les grands plateaux et panneaux latéraux desktop sont conservés. Seuls les gestes démarrés sur une pièce jouable réservent le déplacement à un doigt ; le défilement reste disponible sur les cases vides et hors plateau.
+
+Les gestes sont centralisés dans `src/board/` ; les composants du trainer et de partie libre conservent la décision d’accepter un coup. Le [banc visuel local](qa/README.md) permet de reproduire les simulations tactiles et coups spéciaux sans être inclus dans le site publié.
+
 ## Tactiques d’ouverture
 
 Chaque ouverture propose deux exercices, indépendants de ses six variantes. Ils commencent directement depuis une position réelle, avec le camp à jouer en bas : il peut s’agir de l’autre camp que celui travaillé dans le trainer théorique. Les exercices comprennent **1 à 3 décisions de l’élève** ; **19 sur 20 demandent plusieurs coups**. Les réponses adverses sont prédéfinies et l’aide ne révèle que le coup courant.
@@ -137,6 +149,7 @@ src/tactics/                Compilation et écran des exercices tactiques, sans 
 src/trainer/model.ts        Validation et transitions partagées des exercices scriptés
 src/trainer/hints.ts        Indices généraux facultatifs et libellés précis des solutions
 src/trainer/useTrainer.ts   Temporisation des réponses automatiques
+src/board/                 Interaction partagée, marqueurs légaux, drag, animations, promotion
 src/engine/                 Intégration UCI, isolation et gestion des erreurs
 src/components/             Accueil, plateau, évaluation et bilan
 src/computer/               Partie libre, moteur dédié, bilan, graphique et sauvegarde
@@ -174,7 +187,7 @@ Ne pas ouvrir `dist/index.html` en double-cliquant : les Workers/WASM doivent ê
 
 ### Tests et runners GitHub Actions
 
-Les **637 tests existants sont conservés**, avec **78 tests supplémentaires**, soit **715 tests**. Les assertions d’assistance sont adaptées au nouveau comportement demandé : indice facultatif et gratuit, Solution comptée. Les nouveaux contrôles couvrent les tactiques, leur provenance, les résultats Stockfish enregistrés, la navigation et la sélection des modes dans chaque carte.
+Les **715 tests existants sont conservés**, avec **55 nouveaux tests**, soit **770 tests**. Les nouveaux contrôles couvrent les gestes souris/tactiles, les destinations légales, les règles spéciales, les animations, les trois modes et la robustesse du stockage et des messages du moteur.
 
 Dans `vite.config.ts`, le délai maximum par test est de **20 secondes en CI**, contre **5 secondes en local**. GitHub définit automatiquement `CI=true` : le workflow existant bénéficie donc du délai adapté aux runners partagés. Aucun test n’est désactivé et les échecs réels restent bloquants. Pour reproduire cette configuration localement : `CI=true pnpm test`. Ce réglage ne modifie pas les délais de l’application ni les recherches Stockfish.
 
@@ -227,13 +240,17 @@ Documentation officielle : [déploiement avec GitHub Actions](https://docs.githu
 
 ## Tests et compatibilité
 
-Les **715 tests** incluent les **402 tests historiques du trainer**, les **71 tests de partie libre**, les **13 tests de la refonte**, les **151 tests d’aide et d’accessibilité**, et les **78 tests structurels et tactiques**. Les 120 lignes et leurs préfixes, les 16 variantes historiques, les règles d’échecs, les trois difficultés, le bilan, le graphique, le stockage, les thèmes et le clavier restent couverts. Les tests UI utilisent le vrai composant react-chessboard ; le processus Worker y est simulé. Le vrai moteur est aussi essayé dans le navigateur de production et par la validation tactique séparée.
+Les **770 tests** incluent les **715 tests antérieurs**, **48 tests d’interaction et de règles du plateau** et **7 tests supplémentaires de robustesse/sécurité**. Les 120 lignes et leurs préfixes, les 16 variantes historiques, les règles d’échecs, les trois difficultés, le bilan, le graphique, le stockage, les thèmes et le clavier restent couverts. Les tests UI utilisent le vrai composant react-chessboard ; le processus Worker y est simulé. Le vrai moteur est aussi essayé dans le navigateur de production et par la validation tactique séparée.
 
 La compilation cible Chrome 107+, Firefox 104+ et Safari 16+. Le moteur amont vise les navigateurs modernes avec WebAssembly (notamment iOS 16+). La version de production est à vérifier sur HTTP(S), à l’URL avec son sous-répertoire. Si un appareil refuse le WASM, l’exercice reste accessible.
 
 Le catalogue utilise des aperçus statiques légers ; seule la séance sélectionnée est compilée avec chess.js. Le module Partie libre est chargé à la demande. Stockfish ne démarre ni sur l’accueil, ni sur l’écran de configuration, ni pendant les tactiques. Dans les parties et le trainer, il ne calcule que la position courante ; dans le bilan, il parcourt la partie une position à la fois. Les rapports de validation tactique restent dans les tests et ne sont pas chargés par le site.
 
 Le contrôle navigateur réalisé lors de la livraison et ses limites sont consignés dans `VALIDATION.md`. Une simulation de taille mobile ne remplace pas un test sur un appareil physique.
+
+## Sécurité et confidentialité
+
+Le [rapport d’audit local](SECURITY.md) décrit les contrôles, corrections et limites. Aucun secret détecté dans le périmètre examiné ; `pnpm audit` ne signale aucune vulnérabilité connue à la date de validation. Le build ajoute une CSP compatible avec le Worker/WASM local et une politique `no-referrer`. Les types des sauvegardes et les messages du moteur sont validés ; les données invalides ne sont pas exécutées comme du HTML. Aucun tracking ni compte n’a été ajouté. Le JavaScript reste public, comme pour tout site statique.
 
 ## Licence
 

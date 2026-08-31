@@ -5,6 +5,7 @@ mkdirSync('public/source', { recursive: true });
 const files = [
   'src',
   'scripts',
+  'qa',
   '.github',
   'package.json',
   'pnpm-lock.yaml',
@@ -16,6 +17,7 @@ const files = [
   'README.md',
   'TACTICS.md',
   'VALIDATION.md',
+  'SECURITY.md',
   'LICENSE',
   'THIRD_PARTY_NOTICES.md',
   '.gitignore',

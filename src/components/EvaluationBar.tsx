@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react';
 import type { AnalysisState, Evaluation } from '../engine/StockfishEngine';
 
 export function evaluationLabel(evaluation: Evaluation | null) {
@@ -34,8 +35,11 @@ export function EvaluationBar({
       <span className="eval-value" data-testid="evaluation-value">
         {label}
       </span>
-      <div className={`eval-track ${orientation === 'black' ? 'flipped' : ''}`}>
-        <div className="eval-white" style={{ height: `${whitePercent}%` }} />
+      <div
+        className={`eval-track ${orientation === 'black' ? 'flipped' : ''}`}
+        style={{ '--white-share': `${whitePercent}%` } as CSSProperties}
+      >
+        <div className="eval-white" />
         <span className="eval-midline" />
       </div>
       <span className="eval-side" title="Évaluation du point de vue des Blancs">

@@ -10,12 +10,21 @@ type EngineWorker = Pick<
 type Request = { id: number; fen: string };
 
 export function parseEvaluation(line: string, fen: string): Evaluation | null {
+  if (line.length > 16_384) return null;
   if (!line.startsWith('info ') || /\b(lowerbound|upperbound)\b/.test(line)) return null;
-  const match = line.match(/\bscore (cp|mate) (-?\d+)/);
+  const match = line.match(/\bscore (cp|mate) (-?\d+)(?=\s|$)/);
   if (!match) return null;
   const sign = fen.split(' ')[1] === 'w' ? 1 : -1;
   const value = Number(match[2]) * sign;
-  const depth = Number(line.match(/\bdepth (\d+)/)?.[1] ?? 0);
+  const depth = Number(line.match(/\bdepth (-?\d+)(?=\s|$)/)?.[1] ?? 0);
+  if (
+    !Number.isSafeInteger(value) ||
+    !Number.isSafeInteger(depth) ||
+    depth < 0 ||
+    depth > 128 ||
+    Math.abs(value) > (match[1] === 'mate' ? 1000 : 100000)
+  )
+    return null;
   return match[1] === 'mate' ? { mate: value, depth } : { cp: value, depth };
 }
 
@@ -43,7 +52,7 @@ export class StockfishEngine {
     try {
       this.worker = factory();
       this.worker.onmessage = (event: MessageEvent) => {
-        if (typeof event.data === 'string')
+        if (typeof event.data === 'string' && event.data.length <= 65_536)
           event.data.split('\n').forEach((line) => this.receive(line.trim()));
       };
       this.worker.onerror = () => this.fail();

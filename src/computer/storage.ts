@@ -36,6 +36,10 @@ export function loadLastGame(storage?: StorageAccess): SavedGame | null {
       game.id.length > 100 ||
       !['w', 'b'].includes(game.player) ||
       !difficulties.some((item) => item.id === game.difficulty) ||
+      typeof game.startedAt !== 'string' ||
+      typeof game.completedAt !== 'string' ||
+      game.startedAt.length > 40 ||
+      game.completedAt.length > 40 ||
       !Number.isFinite(Date.parse(game.startedAt)) ||
       !Number.isFinite(Date.parse(game.completedAt ?? '')) ||
       !Array.isArray(game.moves) ||
@@ -68,6 +72,9 @@ export function loadLastGame(storage?: StorageAccess): SavedGame | null {
           if (
             !item ||
             !item.score ||
+            typeof item.score !== 'object' ||
+            Array.isArray(item.score) ||
+            ('cp' in item.score && 'mate' in item.score) ||
             !Number.isInteger(item.score.depth) ||
             item.score.depth < 0 ||
             item.score.depth > 100
@@ -95,11 +102,33 @@ export function loadLastGame(storage?: StorageAccess): SavedGame | null {
           return true;
         })
       )
-        review = buildReport(game, analyses);
+        review = buildReport(
+          game,
+          analyses.map((item) => ({
+            score:
+              'cp' in item.score
+                ? { cp: item.score.cp, depth: item.score.depth }
+                : { mate: item.score.mate, winner: item.score.winner, depth: item.score.depth },
+            bestMove: item.bestMove,
+            pv: [...item.pv],
+          })),
+        );
     } catch {
       /* Keep the legal game even if its cached review is damaged. */
     }
-    return { game, review };
+    // Rebuild a small record instead of retaining arbitrary persisted properties.
+    return {
+      game: {
+        id: game.id,
+        player: game.player,
+        difficulty: game.difficulty,
+        startedAt: game.startedAt,
+        completedAt: game.completedAt,
+        moves: [...game.moves],
+        result: { winner: game.result.winner, reason: game.result.reason },
+      },
+      review,
+    };
   } catch {
     return null;
   }

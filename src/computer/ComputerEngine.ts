@@ -73,7 +73,7 @@ export class ComputerEngine implements SearchEngine {
       if (typeof WebAssembly === 'undefined') throw new Error('WebAssembly indisponible.');
       this.worker = factory();
       this.worker.onmessage = (event) => {
-        if (typeof event.data === 'string')
+        if (typeof event.data === 'string' && event.data.length <= 65_536)
           event.data.split('\n').forEach((line) => this.receive(line.trim()));
       };
       this.worker.onerror = this.worker.onmessageerror = () => this.fail();
