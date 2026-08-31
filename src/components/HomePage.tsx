@@ -8,6 +8,14 @@ import {
   MoveUpRight,
 } from 'lucide-react';
 import { pieceUrl } from '../ui/pieces';
+import type { MouseEvent } from 'react';
+
+function openPathway(event: MouseEvent<HTMLAnchorElement>, navigate: () => void) {
+  if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey)
+    return;
+  event.preventDefault();
+  navigate();
+}
 
 export function StudyIllustration() {
   return (
@@ -74,7 +82,7 @@ export function HomePage({
           <h1>
             Le plaisir de jouer.
             <br />
-            <span>L’art de progresser.</span>
+            <span className="hero-signature">L’art de progresser.</span>
           </h1>
           <p>
             Des premiers coups aux meilleures décisions.
@@ -88,16 +96,22 @@ export function HomePage({
         <StudyIllustration />
       </section>
       <section className="pathways" aria-label="Choisis ton espace d’entraînement">
-        <article className="pathway-card repertoire-path">
+        <a
+          className="pathway-card repertoire-path"
+          href="#/ouvertures"
+          aria-labelledby="openings-path-title"
+          aria-describedby="openings-path-description"
+          onClick={(event) => openPathway(event, onOpenings)}
+        >
           <div className="pathway-top">
             <span className="pathway-icon">
               <BookOpen size={24} />
             </span>
-            <span>01 / COMPRENDRE</span>
-            <MoveUpRight size={20} />
+            <span>01 / APPRENDRE</span>
+            <MoveUpRight size={20} data-testid="openings-card-arrow" aria-hidden="true" />
           </div>
-          <h2>Apprendre les ouvertures</h2>
-          <p>
+          <h2 id="openings-path-title">OUVERTURES</h2>
+          <p id="openings-path-description">
             Construis un répertoire solide. Découvre les bons coups et les idées qui les relient.
           </p>
           <div className="pathway-facts">
@@ -111,20 +125,26 @@ export function HomePage({
               <strong>2</strong> formats
             </span>
           </div>
-          <button className="button primary" onClick={onOpenings}>
+          <span className="button primary pathway-cta" aria-hidden="true">
             Explorer les ouvertures <ArrowRight size={18} />
-          </button>
-        </article>
-        <article className="pathway-card freeplay-path">
+          </span>
+        </a>
+        <a
+          className="pathway-card freeplay-path"
+          href="#/partie"
+          aria-labelledby="computer-path-title"
+          aria-describedby="computer-path-description"
+          onClick={(event) => openPathway(event, onComputer)}
+        >
           <div className="pathway-top">
             <span className="pathway-icon">
               <Cpu size={24} />
             </span>
-            <span>02 / METTRE EN PRATIQUE</span>
-            <MoveUpRight size={20} />
+            <span>02 / JOUER</span>
+            <MoveUpRight size={20} data-testid="computer-card-arrow" aria-hidden="true" />
           </div>
-          <h2>Jouer contre l’ordinateur</h2>
-          <p>
+          <h2 id="computer-path-title">ENTRAÎNEMENT LIBRE</h2>
+          <p id="computer-path-description">
             Fais tes propres choix face à Stockfish. Reviens sur chaque décision avec un bilan de ta
             partie.
           </p>
@@ -136,10 +156,10 @@ export function HomePage({
               <Target size={17} /> Analyse coup par coup
             </span>
           </div>
-          <button className="button secondary" onClick={onComputer}>
+          <span className="button secondary pathway-cta" aria-hidden="true">
             Configurer une partie <ArrowRight size={18} />
-          </button>
-        </article>
+          </span>
+        </a>
       </section>
       <section className="home-manifesto" aria-label="L’esprit Chess Progress">
         <span className="eyebrow">MOINS D’HÉSITATION. PLUS DE COMPRÉHENSION.</span>

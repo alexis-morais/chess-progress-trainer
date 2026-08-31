@@ -15,7 +15,7 @@ export const lessonModes: { id: LessonMode; name: string; description: string }[
   },
 ];
 export const modeName = (mode: LessonMode) => lessonModes.find((item) => item.id === mode)!.name;
-export type LessonMove = { san: string; explanation: string };
+export type LessonMove = { san: string; explanation: string; hint?: string };
 export type Variation = {
   id: string;
   name: string;
@@ -36,7 +36,11 @@ export type Opening = {
 
 // Les coups utilisent la notation SAN internationale : N = cavalier, B = fou,
 // R = tour, Q = dame, K = roi. L’interface les traduit en français.
-const move = (san: string, explanation: string): LessonMove => ({ san, explanation });
+const move = (san: string, explanation: string, hint?: string): LessonMove => ({
+  san,
+  explanation,
+  ...(hint === undefined ? {} : { hint }),
+});
 const e4 = move('e4', 'Tu occupes le centre et libères le passage du fou et de la dame.');
 const e5 = move('e5', 'Le pion noir occupe le centre et répond à e4.');
 const nf3 = move('Nf3', 'Tu développes ton cavalier, attaques e5 et prépares le roque.');

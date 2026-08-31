@@ -1,8 +1,9 @@
-# Contrôle de l’évolution locale — 30 août 2026
+# Contrôle de l’évolution locale — 31 août 2026
 
 ## Résultat
 
-- **486 tests réussis / 486** dans dix fichiers : les 473 tests existants conservés et 13 contrôles supplémentaires pour la refonte. Aucun test supprimé ni désactivé ; les anciens parcours passent désormais par la vue Ouvertures.
+- **637 tests réussis / 637** dans douze fichiers : les 486 tests existants conservés et 151 contrôles supplémentaires pour les indices et les cartes accessibles. Aucun test supprimé ni désactivé ; seuls les libellés et rôles des contrôles modifiés ont été adaptés dans les anciens parcours.
+- **Configuration CI : 637 / 637**, avec `CI=true pnpm test`. Timeout inchangé : 20 secondes en CI, 5 secondes en local. Aucun workflow distant déclenché.
 - **120 / 120 séquences légales**, entièrement rejouées depuis la position initiale avec chess.js en SAN stricte : 60 essentielles et 60 étendues.
 - Exactement **10 ouvertures, 5 par camp, 6 variantes chacune**.
 - Les **16 variantes historiques** gardent leurs identifiants, noms, coups et explications.
@@ -25,14 +26,42 @@
 | `src/test/computer-storage.test.ts` |    13 | Dernière partie et bilan restaurés, stockage bloqué, données illégales ou corrompues, résultats incohérents, conservation de la partie si le bilan est endommagé                                                                          |
 | `src/test/computer-ui.test.tsx`     |    13 | Vrai échiquier + protocole UCI simulé : accueil, camps/niveaux, réponse libre, mat, promotion, abandon confirmé, panne/reprise, bilan et sauvegarde, courbe, redimensionnement et annulation                                              |
 | `src/test/appearance.test.tsx`      |    12 | Système clair/sombre, préférence mémorisée, stockage bloqué, changement entre onglets, navigation et liens directs, retour, lien clavier, séance conservée pendant le changement de thème, initialisation avant React et douze SVG locaux |
+| `src/test/hints.test.ts`            |   144 | Indice gratuit à chaque décision des 120 séances, absence de coordonnées dans les indices automatiques, captures, quatre roques orientés, promotions, prise en passant, déplacements factuels, override et données invalides              |
+| `src/test/guidance.test.tsx`        |     7 | Deux camps × deux formats sur le vrai échiquier : indice, erreur, révélation exacte et flèche unique, reset au coup suivant ; cartes-liens, clic surface/texte/flèche, focus et contrat d’activation clavier                              |
 
 Le nouveau test de graphique vérifie le changement de largeur, les libellés non étirés, la sélection conservée et le retrait de l’observateur à la fermeture.
 
 Commandes : `pnpm test`, puis `pnpm check` pour le contrôle final avec build. Le test de panne force l’échec du Worker et vérifie que l’exercice reste utilisable.
 
-L’optimisation précédente des aperçus statiques est conservée. Pour les runners GitHub partagés, `vite.config.ts` fixe maintenant **20 000 ms par test si `CI` est défini**, et garde **5 000 ms en local**. Aucun contournement des assertions ni nouvelle tentative automatique. La suite complète est également exécutée localement avec `CI=true pnpm test`. Aucun workflow distant n’a été déclenché.
+L’optimisation précédente des aperçus statiques est conservée. Pour les runners GitHub partagés, `vite.config.ts` conserve **20 000 ms par test si `CI` est défini**, et **5 000 ms en local**. Aucun contournement des assertions ni nouvelle tentative automatique. La suite complète est également exécutée localement avec `CI=true pnpm test`. Aucun workflow distant n’a été déclenché.
 
-## Contrôle de la refonte UX/UI
+## Mise à jour ciblée : débutants et petits écrans
+
+- L’indice apparaît avant chaque coup de l’élève, sans action ni incrément de compteur. Il décrit des faits issus du coup légal de chess.js et reste distinct de l’explication pédagogique conservée après le coup. Aucun changement de ligne ou de décision du moteur.
+- « Voir le coup » est placé sous le titre, avant le plateau. Deux clics pendant le même tour donnent une seule aide, le nom de la pièce, les coordonnées et la flèche existante. Après le bon coup, la flèche et les coordonnées disparaissent ; l’indice suivant arrive après la réponse scriptée.
+- Italienne / Giuoco Piano / essentielle : indice du pion devant le roi, révélation e2 → e4, deux clics = 1 aide, d2 → d4 refusé avec croix rouge, e2 → e4 validé avec coche verte, e5 automatique, puis indice du cavalier et révélation g1 → f3. Recommencer remet les compteurs à zéro.
+- Française / Avance / étendue : Noirs en bas, pas d’indice pendant le premier coup blanc automatique ; indice du pion devant le roi, flèche e7 → e6, deux clics = 1 aide ; e6 accepté, d4 automatique puis indice du pion devant la dame. Le changement de thème conserve l’exercice.
+- Parties libres : e4 joué contre le vrai Stockfish Débutant, réponse e5 et retour « À toi de jouer ». Dernier bilan sauvegardé restauré sans nouveau calcul ; navigation précédent, commentaire, résumé, graphique et orientation conservés. Aucune modification des fichiers de la partie libre.
+- Accueil : titres **OUVERTURES** et **ENTRAÎNEMENT LIBRE**, carte entière et flèche dans un seul lien natif, sans bouton imbriqué. Les deux flèches ont déclenché leur navigation dans le navigateur. Le focus, le rôle lien, les destinations et l’activation par clic clavier sont testés automatiquement. La simulation navigateur des touches natives Tab/Entrée ne déplaçait pas le focus dans cet environnement ; elle n’est pas présentée comme une validation clavier physique.
+- Seule la signature « L’art de progresser » reste en italique ; les autres titres sont droits. Bordures fines et atténuées, espacements et tailles de cartes adaptés au téléphone. Les décorations de l’accueil sont dimensionnées sans débordement ; aucun masquage global du débordement n’a été ajouté.
+- Stockfish affiche « Analyse locale active » depuis le build. Console de ces parcours sans avertissement ni erreur. Thèmes clair/sombre contrôlés et préférence toujours mémorisée.
+
+### Mesures dans Chromium, depuis le build final
+
+| Largeur du viewport | Accueil clair/sombre | Catalogue et sélection | Trainer clair/sombre | Partie libre : réglages et bilan | Largeur du plateau d’ouverture |
+| ------------------- | -------------------- | ---------------------- | -------------------- | -------------------------------- | -----------------------------: |
+| 320 px              | Sans débordement     | Sans débordement       | Sans débordement     | Sans débordement                 |                         259 px |
+| 375 px              | Sans débordement     | Sans débordement       | Sans débordement     | Sans débordement                 |                         314 px |
+| 390 px              | Sans débordement     | Sans débordement       | Sans débordement     | Sans débordement                 |                         329 px |
+| 430 px              | Sans débordement     | Sans débordement       | Sans débordement     | Sans débordement                 |                         369 px |
+| 820 px              | Sans débordement     | Sans débordement       | Sans débordement     | Sans débordement                 |                         702 px |
+| 1366 px             | Sans débordement     | Sans débordement       | Sans débordement     | Sans débordement                 |                         742 px |
+
+Contrôle des rectangles visibles, `scrollWidth`/`clientWidth`, du viewport et de la largeur du plateau avec `scripts/audit-responsive.js`, complété par des captures réelles. Ce fichier contient une fonction de lecture du DOM à exécuter dans un navigateur disposant d’un moteur de rendu, pas dans jsdom. Pour reproduire : afficher chaque vue à chacune des six largeurs, appeler la fonction, puis vérifier `issues.length === 0` ; tout résultat non vide est un échec. Les redimensionnements sont attendus jusqu’à ce que `innerWidth` corresponde à la largeur demandée. Les contrôles de mise en page sont complémentaires aux 637 tests unitaires/UI, qui ne prétendent pas mesurer le rendu dans jsdom.
+
+Sur mobile, le bas du bouton « Voir le coup » se situe environ entre 382 et 439 px depuis le haut de page selon le texte révélé. Il est donc accessible dès le premier écran dans les hauteurs 780/844 px utilisées. Les plateaux conservent leurs grandes dimensions ; à 1366 px, le panneau reste à droite. Les contrôles de largeur ont aussi été exécutés à 900 px de hauteur. Pas de téléphone physique ni de nouvelle exécution dans Safari/Firefox : ces limites restent celles précisées plus bas.
+
+## Contrôle conservé de la refonte UX/UI du 30 août
 
 - Trois vues distinctes : Accueil, Ouvertures, Partie libre. Navigation par fragments `#/`, `#/ouvertures`, `#/partie`, compatible avec une actualisation sous le préfixe GitHub Pages. Retour du navigateur contrôlé.
 - Thèmes clair et sombre vérifiés dans le build : le choix survit à l’actualisation. Basculer pendant une séance conserve la position, les erreurs, les aides et le format.

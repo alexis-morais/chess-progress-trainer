@@ -93,8 +93,8 @@ describe('Thèmes et navigation sans perte de fonctionnalités', () => {
     mockSystem(false);
     render(<App />);
     expect(screen.queryByRole('button', { name: /Ouverture italienne/ })).toBeNull();
-    expect(screen.getByRole('button', { name: 'Explorer les ouvertures' })).toBeVisible();
-    fireEvent.click(screen.getByRole('button', { name: 'Explorer les ouvertures' }));
+    expect(screen.getByRole('link', { name: 'OUVERTURES' })).toBeVisible();
+    fireEvent.click(screen.getByRole('link', { name: 'OUVERTURES' }));
     expect(location.hash).toBe('#/ouvertures');
     expect(screen.getByRole('button', { name: 'Ouvertures' })).toHaveAttribute(
       'aria-current',
@@ -122,7 +122,7 @@ describe('Thèmes et navigation sans perte de fonctionnalités', () => {
   it('respecte le retour du navigateur et le lien clavier ne change pas de vue', () => {
     mockSystem(false);
     render(<App />);
-    fireEvent.click(screen.getByRole('button', { name: 'Explorer les ouvertures' }));
+    fireEvent.click(screen.getByRole('link', { name: 'OUVERTURES' }));
     fireEvent.click(screen.getByRole('link', { name: 'Aller au contenu' }));
     expect(location.hash).toBe('#/ouvertures');
     expect(document.activeElement?.id).toBe('main');
@@ -130,7 +130,7 @@ describe('Thèmes et navigation sans perte de fonctionnalités', () => {
       history.replaceState(null, '', '#/');
       window.dispatchEvent(new PopStateEvent('popstate'));
     });
-    expect(screen.getByRole('button', { name: 'Explorer les ouvertures' })).toBeVisible();
+    expect(screen.getByRole('link', { name: 'OUVERTURES' })).toBeVisible();
   });
   it('change le thème sans remettre à zéro une séance, ses erreurs ou ses aides', () => {
     vi.useFakeTimers();
@@ -144,14 +144,14 @@ describe('Thèmes et navigation sans perte de fonctionnalités', () => {
       },
     );
     render(<App />);
-    fireEvent.click(screen.getByRole('button', { name: 'Explorer les ouvertures' }));
+    fireEvent.click(screen.getByRole('link', { name: 'OUVERTURES' }));
     fireEvent.click(screen.getByRole('button', { name: /Ouverture italienne/ }));
     fireEvent.click(screen.getByRole('button', { name: /^Giuoco Piano/ }));
     fireEvent.click(screen.getByRole('radio', { name: /^Ligne essentielle/ }));
     fireEvent.click(screen.getByRole('button', { name: 'Commencer l’entraînement' }));
     fireEvent.click(screen.getByRole('button', { name: 'd2, pion blanc' }));
     fireEvent.click(screen.getByRole('button', { name: 'd4, case vide' }));
-    fireEvent.click(screen.getByRole('button', { name: /💡 Aide/ }));
+    fireEvent.click(screen.getByRole('button', { name: 'Voir le coup' }));
     fireEvent.click(screen.getByRole('button', { name: 'e2, pion blanc' }));
     fireEvent.click(screen.getByRole('button', { name: 'e4, case vide' }));
     fireEvent.click(screen.getByRole('button', { name: 'Activer le thème sombre' }));

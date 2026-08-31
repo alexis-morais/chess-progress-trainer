@@ -231,13 +231,19 @@ export function OpeningLibrary({
         <div className="how-grid">
           <div>
             <MousePointer2 size={21} />
-            <h3>Joue de mémoire</h3>
-            <p>Retrouve les coups de ta variante. Ton adversaire suit toujours la ligne prévue.</p>
+            <h3>Pars d’un indice</h3>
+            <p>
+              Un indice gratuit avant chacun de tes coups. Ton adversaire suit toujours la ligne
+              prévue.
+            </p>
           </div>
           <div>
             <Lightbulb size={21} />
             <h3>Comprends chaque coup</h3>
-            <p>Une explication à chaque réussite et une flèche d’aide si tu hésites.</p>
+            <p>
+              « Voir le coup » révèle la flèche et compte une aide. Une explication suit chaque
+              réussite.
+            </p>
           </div>
           <div>
             <Flag size={21} />

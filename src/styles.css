@@ -71,6 +71,12 @@ h2,
 h3 {
   font-weight: 600;
 }
+h1,
+h2,
+h3,
+h4 {
+  font-style: normal;
+}
 button img {
   display: block;
 }
@@ -218,6 +224,7 @@ main {
 }
 .hero-copy {
   z-index: 1;
+  min-width: 0;
 }
 .hero-kicker {
   color: var(--accent);
@@ -231,7 +238,7 @@ main {
   font-weight: 570;
   margin: 24px 0;
 }
-.home-hero h1 span {
+.home-hero h1 .hero-signature {
   color: var(--accent);
   font-family: Georgia, 'Times New Roman', serif;
   font-weight: 400;
@@ -362,24 +369,39 @@ main {
 }
 .pathways {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 24px;
 }
 .pathway-card {
-  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  text-align: left;
+  cursor: pointer;
+  border: 1px solid var(--card-border);
   border-radius: 26px;
   padding: 30px 34px;
   background: var(--panel);
-  box-shadow: var(--shadow);
+  box-shadow: 0 4px 18px #213c3008;
   transition:
     transform 0.25s,
     box-shadow 0.25s,
     border-color 0.25s;
 }
 .pathway-card:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-lift);
-  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+  border-color: var(--border);
+}
+.pathway-card:active {
+  transform: translateY(1px);
+}
+.pathway-card:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 4px;
+}
+.pathway-card > * {
+  min-width: 0;
 }
 .freeplay-path {
   background: linear-gradient(140deg, var(--panel), var(--surface-soft));
@@ -395,8 +417,13 @@ main {
 .pathway-top > svg {
   margin-left: auto;
   color: var(--accent);
+  transition: transform 0.2s;
+}
+.pathway-card:hover .pathway-top > svg {
+  transform: translateY(-2px);
 }
 .pathway-icon {
+  flex-shrink: 0;
   display: grid;
   place-items: center;
   width: 47px;
@@ -410,8 +437,10 @@ main {
   color: var(--text);
 }
 .pathway-card h2 {
-  font-size: 27px;
-  letter-spacing: -0.9px;
+  font-size: 24px;
+  line-height: 1.3;
+  letter-spacing: -0.5px;
+  overflow-wrap: anywhere;
   margin: 24px 0 10px;
 }
 .pathway-card > p {
@@ -444,6 +473,8 @@ main {
 .pathway-card .button {
   width: 100%;
   justify-content: space-between;
+  margin-top: auto;
+  white-space: normal;
 }
 .home-manifesto {
   text-align: center;
@@ -628,7 +659,7 @@ main {
 }
 .opening-card {
   background: var(--panel);
-  border: 1px solid var(--border);
+  border: 1px solid var(--card-border);
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 3px 12px #213c3005;
@@ -638,11 +669,11 @@ main {
 }
 .opening-card:hover {
   box-shadow: var(--shadow);
-  border-color: var(--accent);
+  border-color: var(--border);
 }
 .opening-card.expanded {
   grid-column: 1/-1;
-  border-color: var(--accent);
+  border-color: var(--border);
 }
 .opening-card-trigger {
   position: relative;
@@ -683,6 +714,8 @@ main {
   height: 100%;
 }
 .opening-card-copy {
+  min-width: 0;
+  overflow-wrap: anywhere;
   align-self: center;
   padding-right: 10px;
 }
@@ -1315,18 +1348,53 @@ progress::-moz-progress-bar {
 .feedback.incorrect p {
   color: var(--danger);
 }
+.training-assistance {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 17px 22px;
+  margin: 0 0 24px;
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  background: var(--panel);
+}
+.instruction-copy {
+  min-width: 0;
+}
+.instruction-label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 5px;
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 600;
+}
+.instruction-copy > p {
+  font-size: 15px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.assistance-controls {
+  width: 196px;
+  flex-shrink: 0;
+  text-align: center;
+}
 .hint-button {
   width: 100%;
-  justify-content: space-between;
+  min-height: 44px;
 }
-.button-detail {
+.assistance-controls > span {
+  display: block;
+  margin-top: 5px;
   font-size: 10px;
-  font-weight: 400;
+  color: var(--muted);
 }
 .hint-description {
-  margin-top: 9px;
-  text-align: center;
-  font-size: 11px;
+  margin-top: 7px;
+  font-size: 14px;
+  font-weight: 600;
   color: var(--accent);
 }
 .session-stats {
@@ -1555,7 +1623,7 @@ progress::-moz-progress-bar {
     height: 300px;
   }
   .orbit-two {
-    width: 350px;
+    width: min(350px, 75%);
     height: 230px;
   }
   .study-label {
@@ -1580,6 +1648,10 @@ progress::-moz-progress-bar {
   }
 }
 @media (max-width: 900px) {
+  .training-assistance {
+    max-width: 740px;
+    margin-inline: auto;
+  }
   .board-section {
     max-width: 740px;
   }
@@ -1622,7 +1694,7 @@ progress::-moz-progress-bar {
     font-size: 11px;
   }
   .orbit-two {
-    width: 300px;
+    width: min(300px, 75%);
   }
   .pathway-card {
     padding: 25px;
@@ -1710,7 +1782,7 @@ progress::-moz-progress-bar {
     line-height: 1.1;
     margin: 22px 0;
   }
-  .home-hero h1 span {
+  .home-hero h1 .hero-signature {
     letter-spacing: -1.7px;
   }
   .hero-copy > p {
@@ -1753,7 +1825,7 @@ progress::-moz-progress-bar {
     border-radius: 22px;
   }
   .pathway-card h2 {
-    font-size: 25px;
+    font-size: 23px;
   }
   .pathway-facts {
     gap: 23px;
@@ -1811,7 +1883,7 @@ progress::-moz-progress-bar {
     height: 255px;
   }
   .orbit-two {
-    width: 280px;
+    width: min(280px, 75%);
   }
   .study-board {
     width: 205px;
@@ -1828,7 +1900,9 @@ progress::-moz-progress-bar {
     letter-spacing: 1.5px;
   }
   .pathway-card {
-    padding: 23px;
+    padding: 20px;
+    border-radius: 19px;
+    box-shadow: 0 3px 12px #213c3005;
   }
   .pathway-top {
     font-size: 8px;
@@ -1839,7 +1913,9 @@ progress::-moz-progress-bar {
     height: 42px;
   }
   .pathway-card h2 {
-    font-size: 23px;
+    font-size: clamp(18px, 5.1vw, 22px);
+    letter-spacing: -0.35px;
+    margin-top: 20px;
   }
   .pathway-facts {
     font-size: 10px;
@@ -1869,12 +1945,12 @@ progress::-moz-progress-bar {
   .opening-card-trigger,
   .opening-card.expanded .opening-card-trigger {
     flex-direction: row;
-    min-height: 170px;
-    gap: 16px;
-    padding: 20px;
+    min-height: 0;
+    gap: 12px;
+    padding: 18px 16px;
   }
   .mini-board {
-    width: 74px;
+    width: 64px;
     align-self: center;
   }
   .opening-card h3 {
@@ -1939,6 +2015,22 @@ progress::-moz-progress-bar {
   }
   .training-heading .eyebrow {
     font-size: 8px;
+  }
+  .training-heading {
+    margin-bottom: 14px;
+  }
+  .training-assistance {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 14px 16px;
+    margin-bottom: 17px;
+  }
+  .instruction-copy > p {
+    font-size: 13px;
+  }
+  .assistance-controls {
+    width: 100%;
   }
   .training-layout {
     gap: 20px;

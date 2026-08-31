@@ -87,13 +87,13 @@ describe('Partie libre : parcours avec le véritable échiquier', () => {
   });
   it('ajoute un accès séparé sans démarrer Stockfish sur l’accueil', async () => {
     render(<App />);
-    expect(screen.getByRole('heading', { name: 'Jouer contre l’ordinateur' })).toBeVisible();
+    expect(screen.getByRole('heading', { name: 'ENTRAÎNEMENT LIBRE' })).toBeVisible();
     expect(ProtocolWorker.all).toHaveLength(0);
-    fireEvent.click(screen.getByRole('button', { name: /Configurer une partie/ }));
+    fireEvent.click(screen.getByRole('link', { name: 'ENTRAÎNEMENT LIBRE' }));
     expect(await screen.findByRole('heading', { name: 'Prépare ta partie' })).toBeVisible();
     expect(ProtocolWorker.all).toHaveLength(0);
     fireEvent.click(screen.getByRole('button', { name: 'Retour à l’accueil' }));
-    fireEvent.click(screen.getByRole('button', { name: 'Explorer les ouvertures' }));
+    fireEvent.click(screen.getByRole('link', { name: 'OUVERTURES' }));
     expect(screen.getByRole('button', { name: /Ouverture italienne/ })).toBeVisible();
   });
   it('laisse les Blancs commencer, refuse un coup illégal et applique le choix libre du moteur', async () => {

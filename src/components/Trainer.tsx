@@ -17,6 +17,7 @@ import { frenchSan, sideName, modeName } from '../data/openings';
 import { TrainingBoard } from './TrainingBoard';
 import { EvaluationBar } from './EvaluationBar';
 import { CompletionDialog } from './CompletionDialog';
+import { TrainingAssistance } from './TrainingAssistance';
 
 export function Trainer({
   lesson,
@@ -64,6 +65,11 @@ export function Trainer({
           <Sparkles size={15} /> Entraînement guidé
         </span>
       </div>
+      <TrainingAssistance
+        lesson={lesson}
+        state={state}
+        onReveal={() => dispatch({ type: 'hint' })}
+      />
       <div className="training-layout">
         <section className="board-section" aria-label="Zone de jeu">
           <div className="player-label top-player">
@@ -172,25 +178,10 @@ export function Trainer({
                 : state.feedback === 'correct'
                   ? state.explanation
                   : lesson.opening.side === 'w'
-                    ? 'Joue le premier coup de la variante. Besoin d’un petit coup de pouce ? Utilise l’aide.'
-                    : 'L’ordinateur commence avec les Blancs. À toi ensuite de trouver la réponse des Noirs.'}
+                    ? 'Lis l’indice au-dessus de l’échiquier, puis essaie le coup. « Voir le coup » révèle la flèche si tu hésites.'
+                    : 'Les Blancs commencent. Lis ensuite ton indice au-dessus de l’échiquier pour trouver la réponse.'}
             </p>
           </div>
-          <button
-            className="button primary hint-button"
-            disabled={!playerTurn || complete}
-            onClick={() => dispatch({ type: 'hint' })}
-          >
-            <span>💡 Aide</span>
-            <span className="button-detail">
-              {state.hintVisible ? 'Flèche affichée' : 'Voir le coup attendu'}
-            </span>
-          </button>
-          {state.hintVisible && (
-            <p className="hint-description" role="status">
-              Joue de {lesson.moves[state.ply].from} vers {lesson.moves[state.ply].to}.
-            </p>
-          )}
           <div className="session-stats">
             <div>
               <span>Erreurs</span>

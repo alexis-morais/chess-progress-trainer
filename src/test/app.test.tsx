@@ -51,7 +51,7 @@ describe('Parcours complet de l’interface avec le véritable échiquier React'
     });
     vi.stubGlobal('Worker', worker);
     render(<App />);
-    fireEvent.click(screen.getByRole('button', { name: 'Explorer les ouvertures' }));
+    fireEvent.click(screen.getByRole('link', { name: 'OUVERTURES' }));
     expect(screen.getAllByText('Vous jouez : Blancs')).toHaveLength(5);
     expect(screen.getAllByText('Vous jouez : Noirs')).toHaveLength(5);
     fireEvent.click(screen.getByRole('button', { name: /Ouverture italienne/ }));
@@ -75,7 +75,7 @@ describe('Parcours complet de l’interface avec le véritable échiquier React'
     expect(screen.getByTestId('errors')).toHaveTextContent('1');
     expect(screen.getByTestId('progress')).toHaveTextContent('0 / 7');
     expect(screen.getByRole('button', { name: 'd2, pion blanc' })).toBeInTheDocument();
-    const hint = screen.getByRole('button', { name: /💡 Aide/ });
+    const hint = screen.getByRole('button', { name: 'Voir le coup' });
     fireEvent.click(hint);
     fireEvent.click(hint);
     expect(screen.getByTestId('hints')).toHaveTextContent('1');
@@ -83,7 +83,7 @@ describe('Parcours complet de l’interface avec le véritable échiquier React'
     play('e2', 'e4');
     expect(screen.getByText('✓ Bon coup !')).toBeVisible();
     expect(screen.getByTestId('progress')).toHaveTextContent('1 / 7');
-    expect(screen.queryByText('Joue de e2 vers e4.')).not.toBeInTheDocument();
+    expect(screen.queryByText('Pion : e2 → e4')).not.toBeInTheDocument();
     expect(hint).toBeDisabled();
     act(() => vi.advanceTimersByTime(CORRECT_FEEDBACK_DELAY - 1));
     expect(screen.getByRole('button', { name: 'e7, pion noir' })).toBeInTheDocument();
@@ -104,7 +104,7 @@ describe('Parcours complet de l’interface avec le véritable échiquier React'
       'data-square',
       'h1',
     );
-    expect(screen.getByRole('button', { name: /💡 Aide/ })).toBeDisabled();
+    expect(screen.getByRole('button', { name: 'Voir le coup' })).toBeDisabled();
     waitComputer(COMPUTER_DELAY);
     expect(screen.getByRole('button', { name: 'e4, pion blanc' })).toBeInTheDocument();
     expect(screen.getByTestId('progress')).toHaveTextContent('0 / 6');
@@ -126,7 +126,7 @@ describe('Parcours complet de l’interface avec le véritable échiquier React'
     waitComputer();
     expect(screen.getByRole('dialog')).toBeVisible();
     expect(screen.getByText('🎉 Variante terminée !')).toBeVisible();
-    expect(screen.getByRole('button', { name: /💡 Aide/ })).toBeDisabled();
+    expect(screen.getByRole('button', { name: 'Voir le coup' })).toBeDisabled();
     expect(screen.getByRole('button', { name: 'd2, fou blanc' })).toHaveAttribute(
       'aria-disabled',
       'true',

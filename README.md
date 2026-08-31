@@ -12,6 +12,8 @@ Dans le **mode Partie libre**, Stockfish choisit réellement ses coups. Les deux
 
 Évolution du 30 août 2026 : accueil à deux entrées, vues dédiées, thèmes clair et sombre, échiquiers agrandis et pièces vectorielles classiques. Le catalogue, les deux formats, la partie libre, les bilans et les règles pédagogiques sont conservés.
 
+Mise à jour ciblée du 31 août 2026 : indice gratuit avant chaque décision, bouton **Voir le coup** directement au-dessus du plateau, cartes d’accueil entièrement cliquables et ajustements pour petits écrans. La direction artistique et les deux thèmes sont conservés.
+
 ## Navigation et apparence
 
 - **Accueil** : choisir entre apprendre les ouvertures et jouer contre l’ordinateur.
@@ -46,11 +48,12 @@ Les noms et positions caractéristiques ont été recoupés avec le [répertoire
 
 1. Depuis l’accueil, cliquer sur **Explorer les ouvertures**. Choisir une ouverture dans « Jouer avec les Blancs » ou « Jouer avec les Noirs », puis l’une de ses six variantes.
 2. Sélectionner **Ligne essentielle** ou **Version étendue**, puis cliquer sur **Commencer l’entraînement**.
-3. Déplacer une pièce avec la souris, ou toucher sa case puis sa destination. Au clavier, utiliser les flèches puis Entrée ou Espace ; Échap annule la sélection.
-4. Seul le coup prévu est accepté. Un autre coup est refusé et compte comme une erreur ; la position ne change pas. La destination tentée devient rouge avec une croix blanche pendant 1 seconde.
-5. Après chaque bon coup, une coche verte apparaît sur la destination pendant 900 ms. Lire l’explication, puis regarder la réponse prédéfinie de l’ordinateur.
-6. **Aide** affiche une flèche et les cases de départ/d’arrivée. Réappuyer pendant le même coup ne compte pas une aide supplémentaire.
-7. À la fin, consulter le bilan avec le mode joué, rejouer dans le même mode ou changer de variante.
+3. Lire l’**indice pédagogique gratuit**, affiché avant chacun de tes coups dans la barre au-dessus du plateau : par exemple « Avance le pion situé devant ton roi de deux cases. » Il ne demande pas de connaître la notation et ne compte jamais comme une aide utilisée.
+4. Déplacer une pièce avec la souris, ou toucher sa case puis sa destination. Au clavier, utiliser les flèches puis Entrée ou Espace ; Échap annule la sélection.
+5. Si tu hésites, **Voir le coup** révèle la flèche et le déplacement exact, par exemple « Pion : e2 → e4 ». Cela compte **une seule aide par coup**, même après plusieurs clics. Le déplacement et la flèche disparaissent après le coup ; l’indice suivant arrive après la réponse adverse.
+6. Seul le coup prévu est accepté. Un autre coup est refusé et compte comme une erreur ; la position ne change pas. La destination tentée devient rouge avec une croix blanche pendant 1 seconde.
+7. Après chaque bon coup, une coche verte apparaît sur la destination pendant 900 ms. Lire l’explication, puis regarder la réponse prédéfinie de l’ordinateur.
+8. À la fin, consulter le bilan avec le mode joué, rejouer dans le même mode ou changer de variante.
 
 Ton camp est toujours en bas. Si tu joues les Noirs, l’ordinateur joue le premier coup blanc après 600 ms. La progression compte uniquement **tes** coups, pas ceux de l’adversaire. Le compteur principal indique les coups complétés ; « Coup 3 / 6 » désigne la prochaine décision attendue. Le dernier mouvement est surligné pour les deux camps.
 
@@ -120,6 +123,7 @@ React 19, Vite 7, TypeScript, chess.js 1.4, react-chessboard 5.12, Lucide et Sto
 src/data/openings.ts        Catalogue, modes et 16 lignes historiques
 src/data/repertoire.json    44 nouvelles lignes et 60 prolongements annotés
 src/trainer/model.ts        Validation et transitions de l’exercice
+src/trainer/hints.ts        Indices naturels et libellés précis à partir des coups légaux
 src/trainer/useTrainer.ts   Temporisation des réponses automatiques
 src/engine/                 Intégration UCI, isolation et gestion des erreurs
 src/components/             Accueil, plateau, évaluation et bilan
@@ -156,7 +160,7 @@ Ne pas ouvrir `dist/index.html` en double-cliquant : les Workers/WASM doivent ê
 
 ### Tests et runners GitHub Actions
 
-Les 473 tests existants sont conservés et complétés par 12 tests d’apparence et de navigation et un test du graphique responsive, soit **486 tests**. Les seuls ajustements des anciens parcours concernent l’entrée dans la nouvelle vue Ouvertures ; aucune assertion n’a été retirée.
+Les **486 tests existants sont conservés**, avec **151 tests supplémentaires**, soit **637 tests**. Les anciens parcours utilisent désormais les cartes-liens de l’accueil et le libellé « Voir le coup » ; aucune assertion n’a été retirée. Les nouveaux tests parcourent chaque décision des 120 séances et couvrent les cas particuliers, les deux camps/formats, les compteurs et les cartes accessibles.
 
 Dans `vite.config.ts`, le délai maximum par test est de **20 secondes en CI**, contre **5 secondes en local**. GitHub définit automatiquement `CI=true` : le workflow existant bénéficie donc du délai adapté aux runners partagés. Aucun test n’est désactivé et les échecs réels restent bloquants. Pour reproduire cette configuration localement : `CI=true pnpm test`. Ce réglage ne modifie pas les délais de l’application ni les recherches Stockfish.
 
@@ -170,6 +174,10 @@ Les données sont regroupées dans **`src/data/`** :
 - Le trainer assemble automatiquement `moves + extension` en version étendue. Chaque explication est affichée après le coup correspondant de l’élève.
 
 Exemple d’un coup : `{ "san": "Nf3", "explanation": "Le cavalier contrôle le centre et prépare le roque." }`.
+
+Les indices sont générés automatiquement dans `src/trainer/hints.ts`, à partir du coup légal reconstruit par chess.js : pièce, départ, arrivée, capture, roque, promotion et position avant le mouvement. Les directions de roque suivent le côté affiché du joueur. Ces règles décrivent des faits simples ; elles ne cherchent pas à inventer une justification tactique. Stockfish n’intervient pas dans les indices.
+
+Un champ facultatif `hint` permet un indice spécifique, sans modifier l’explication affichée après le coup : `{ "san": "Nf3", "explanation": "Le cavalier contrôle le centre et prépare le roque.", "hint": "Sors le cavalier situé près de ton roi vers le centre." }`. Dans les lignes historiques utilisant le helper `move`, cet indice peut être fourni comme troisième argument. Sans ce champ, aucune rédaction manuelle n’est nécessaire. Un indice personnalisé vide ou invalide est signalé lors de la compilation de la séance.
 
 Les coups de données sont en **SAN internationale** : `Nf3` pour Cf3, `Bc4` pour Fc4, `Qxd5` pour Dxd5, `O-O` pour le petit roque. L’interface traduit automatiquement les lettres en français. Conserver les indications d’échec et de désambiguïsation (`Bb4+`, `Nfd7`, etc.).
 
@@ -205,7 +213,7 @@ Documentation officielle : [déploiement avec GitHub Actions](https://docs.githu
 
 ## Tests et compatibilité
 
-Les **486 tests** incluent les **402 tests historiques du trainer** : les **120 lignes** légales, les 60 préfixes exacts, les 60 positions de référence, les 16 variantes historiques et tous les comportements de l’entraînement. Les **71 tests de partie libre** vérifient les camps, les difficultés, les coups libres et illégaux, les fins de partie, les promotions, le protocole UCI, les analyses sérialisées et annulées, la classification, les commentaires, le graphique, la navigation et la sauvegarde validée. Les **13 tests ajoutés pour la refonte** couvrent les thèmes, les liens directs et retours, la conservation de la séance lors d’un changement de thème et le graphique responsive. Les tests UI utilisent le vrai composant react-chessboard ; le processus Worker y est simulé. Le vrai moteur est aussi essayé dans le navigateur de production.
+Les **637 tests** incluent les **402 tests historiques du trainer** : les **120 lignes** légales, les 60 préfixes exacts, les 60 positions de référence, les 16 variantes historiques et tous les comportements de l’entraînement. Les **71 tests de partie libre** vérifient les camps, les difficultés, les coups libres et illégaux, les fins de partie, les promotions, le protocole UCI, les analyses sérialisées et annulées, la classification, les commentaires, le graphique, la navigation et la sauvegarde validée. Les **13 tests ajoutés pour la refonte** couvrent les thèmes, les liens directs et retours, la conservation de la séance lors d’un changement de thème et le graphique responsive. Les **151 nouveaux tests d’aide et d’accessibilité** vérifient un indice gratuit à chaque décision des 120 séances, les cas particuliers, les révélations uniques, la réinitialisation et les cartes-liens. Les tests UI utilisent le vrai composant react-chessboard ; le processus Worker y est simulé. Le vrai moteur est aussi essayé dans le navigateur de production.
 
 La compilation cible Chrome 107+, Firefox 104+ et Safari 16+. Le moteur amont vise les navigateurs modernes avec WebAssembly (notamment iOS 16+). La version de production est à vérifier sur HTTP(S), à l’URL avec son sous-répertoire. Si un appareil refuse le WASM, l’exercice reste accessible.
 

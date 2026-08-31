@@ -49,6 +49,8 @@ export function compileLesson(
   const moves = steps.map((step, index) => {
     try {
       if (!step.explanation.trim()) throw new Error('Explication manquante');
+      if (step.hint !== undefined && (typeof step.hint !== 'string' || !step.hint.trim()))
+        throw new Error('Indice personnalisé invalide');
       const result = game.move(step.san, { strict: true });
       positions.push(game.fen());
       return result;
