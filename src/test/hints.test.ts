@@ -11,18 +11,30 @@ function lastMove(line: string[], fen?: string) {
 
 describe('Indices naturels pour les débutants', () => {
   it.each([
-    [['e4'], 'Avance le pion situé devant ton roi de deux cases.'],
-    [['d4'], 'Avance le pion situé devant ta dame de deux cases.'],
-    [['e4', 'e6'], 'Avance le pion situé devant ton roi d’une case.'],
-    [['e4', 'e5', 'Nf3'], 'Sors le cavalier situé près de ton roi vers le centre.'],
-    [['e4', 'e5', 'Nf3', 'Nc6'], 'Sors le cavalier du côté de ta dame vers le centre.'],
+    [['e4'], 'Cherche à prendre davantage de contrôle au centre.'],
+    [['d4'], 'Cherche à prendre davantage de contrôle au centre.'],
+    [['e4', 'e6'], 'Cherche à prendre davantage de contrôle au centre.'],
+    [
+      ['e4', 'e5', 'Nf3'],
+      'Pense à développer une pièce tout en renforçant ta présence dans le jeu.',
+    ],
+    [
+      ['e4', 'e5', 'Nf3', 'Nc6'],
+      'Pense à développer une pièce tout en renforçant ta présence dans le jeu.',
+    ],
     [
       ['e4', 'e5', 'Nf3', 'Nc6', 'Bb5'],
-      'Sors le fou situé près de ton roi sur une diagonale libre.',
+      'Pense à développer une pièce tout en renforçant ta présence dans le jeu.',
     ],
-    [['e4', 'd5', 'exd5'], 'Avec ton pion, capture le pion adverse.'],
-    [['e4', 'd5', 'exd5', 'Qxd5'], 'Avec ta dame, capture le pion adverse.'],
-    [['e4', 'e5', 'Nf3', 'Nc6', 'Bb5', 'a6', 'Bxc6'], 'Avec ton fou, capture le cavalier adverse.'],
+    [['e4', 'd5', 'exd5'], 'Examine les échanges possibles pour contester le centre.'],
+    [
+      ['e4', 'd5', 'exd5', 'Qxd5'],
+      'Observe ce qui est insuffisamment protégé dans le camp adverse.',
+    ],
+    [
+      ['e4', 'e5', 'Nf3', 'Nc6', 'Bb5', 'a6', 'Bxc6'],
+      'Examine les échanges possibles pour contester le centre.',
+    ],
   ] as const)('explique %j sans notation', (line, expected) => {
     expect(pedagogicalHint(lastMove([...line]))).toBe(expected);
   });
@@ -33,7 +45,8 @@ describe('Indices naturels pour les débutants', () => {
     ['b', 'O-O-O', 'droite'],
   ])('décrit le roque %s %s depuis le côté du joueur', (side, san, direction) => {
     const move = lastMove([san], `r3k2r/8/8/8/8/8/8/R3K2R ${side} KQkq - 0 1`);
-    expect(pedagogicalHint(move)).toContain(`deux cases vers la ${direction}`);
+    expect(pedagogicalHint(move)).toContain('sécurité');
+    expect(pedagogicalHint(move)).not.toContain(direction);
     expect(exactMoveLabel(move)).toContain('Roi :');
   });
   it.each([
@@ -43,25 +56,23 @@ describe('Indices naturels pour les débutants', () => {
     ['N', 'cavalier'],
   ])('nomme la promotion en %s, sans imposer une dame', (symbol, name) => {
     const move = lastMove([`a8=${symbol}`], '7k/P7/8/8/8/8/8/4K3 w - - 0 1');
-    expect(pedagogicalHint(move)).toBe(
-      `Avance ton pion jusqu’au bout de l’échiquier et transforme-le en ${name}.`,
-    );
+    expect(pedagogicalHint(move)).toBe('Une avancée pourrait se transformer en avantage décisif.');
     expect(exactMoveLabel(move)).toBe(`Pion : a7 → a8 · promotion en ${name}`);
   });
   it('explique une capture avec promotion et la prise en passant', () => {
     const promotion = lastMove(['axb8=N'], '1r5k/P7/8/8/8/8/8/4K3 w - - 0 1');
     expect(pedagogicalHint(promotion)).toBe(
-      'Capture la tour adverse avec ton pion et transforme-le en cavalier.',
+      'Une avancée pourrait se transformer en avantage décisif.',
     );
     const enPassant = lastMove(['e4', 'a6', 'e5', 'd5', 'exd6']);
-    expect(pedagogicalHint(enPassant)).toContain('en passant');
+    expect(pedagogicalHint(enPassant)).not.toMatch(/en passant|pion|[a-h][1-8]/);
     expect(exactMoveLabel(enPassant)).toBe('Pion : e5 → d6');
   });
   it.each([
-    ['Re1', '7k/8/8/8/8/8/K7/7R w - - 0 1', 'horizontalement'],
-    ['Ra3', '7k/8/8/8/8/8/8/R3K3 w - - 0 1', 'colonne'],
-    ['Qh5', '7k/8/8/8/8/8/8/3QK3 w - - 0 1', 'diagonale'],
-    ['Kd2', '7k/8/8/8/8/8/8/4K3 w - - 0 1', 'case voisine'],
+    ['Re1', '7k/8/8/8/8/8/K7/7R w - - 0 1', 'activité'],
+    ['Ra3', '7k/8/8/8/8/8/8/R3K3 w - - 0 1', 'activité'],
+    ['Qh5', '7k/8/8/8/8/8/8/3QK3 w - - 0 1', 'menace'],
+    ['Kd2', '7k/8/8/8/8/8/8/4K3 w - - 0 1', 'sécurité'],
   ])('reste factuel pour %s', (san, fen, word) => {
     expect(pedagogicalHint(lastMove([san], fen))).toContain(word);
   });
@@ -71,12 +82,12 @@ describe('Indices naturels pour les débutants', () => {
     const changed = {
       ...variation,
       moves: variation.moves.map((step, i) =>
-        i ? step : { ...step, hint: '  Commence par un pion devant ton roi.  ' },
+        i ? step : { ...step, hint: '  Cherche à occuper le centre.  ' },
       ),
     };
     const lesson = compileLesson(opening, changed);
     expect(playerGuidance(lesson, initialState())).toEqual({
-      hint: 'Commence par un pion devant ton roi.',
+      hint: 'Cherche à occuper le centre.',
       exact: 'Pion : e2 → e4',
     });
     expect(lesson.positions).toEqual(compileLesson(opening, variation).positions);
@@ -110,6 +121,14 @@ describe('Un indice gratuit à chaque décision des 120 séances', () => {
               expect(guidance?.hint.length).toBeLessThan(160);
               expect(guidance?.hint).not.toMatch(/\b[a-h][1-8]\b/);
               expect(guidance?.exact).toContain(`${move.from} → ${move.to}`);
+              expect(guidance?.hint).not.toMatch(/pion|cavalier|fou|tour|dame|deux cases|roqu/i);
+              expect(state.hintVisible).toBe(false);
+              expect(state.solutionVisible).toBe(false);
+              state = reduceTrainer(lesson, state, { type: 'hint' });
+              state = reduceTrainer(lesson, state, { type: 'hint' });
+              expect(state.hintVisible).toBe(true);
+              expect(state.hints).toBe(0);
+              expect(state.solutionVisible).toBe(false);
               state = reduceTrainer(lesson, state, {
                 type: 'attempt',
                 from: move.from,

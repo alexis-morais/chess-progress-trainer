@@ -14,6 +14,7 @@ const files = [
   'vite.config.ts',
   'index.html',
   'README.md',
+  'TACTICS.md',
   'VALIDATION.md',
   'LICENSE',
   'THIRD_PARTY_NOTICES.md',

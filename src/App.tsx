@@ -7,6 +7,8 @@ import { Trainer } from './components/Trainer';
 import { HomePage } from './components/HomePage';
 import { useTheme } from './ui/theme';
 import { useNavigation, type AppView } from './ui/navigation';
+import { compileTactic, tacticsFor, type Tactic } from './tactics/model';
+import { TacticTrainer } from './tactics/TacticTrainer';
 
 const ComputerMode = lazy(() => import('./computer/ComputerMode'));
 
@@ -39,6 +41,8 @@ export class ErrorBoundary extends Component<{ children: ReactNode }, { error: E
 
 export default function App() {
   const [active, setActive] = useState<Selection | null>(null);
+  const [activeTactic, setActiveTactic] = useState<Tactic | null>(null);
+  const [returnOpening, setReturnOpening] = useState<string | null>(null);
   const [expanded, setExpanded] = useState<string | null>(null);
   const [selected, setSelected] = useState<string | null>(null);
   const [mode, setMode] = useState<LessonMode | null>(null);
@@ -47,14 +51,18 @@ export default function App() {
   const { theme, toggle } = useTheme();
   useEffect(() => {
     setActive(null);
+    setActiveTactic(null);
   }, [view]);
   function openView(next: AppView) {
     setActive(null);
+    setActiveTactic(null);
     navigate(next);
   }
   function goHome() {
     navigate('home');
     setActive(null);
+    setActiveTactic(null);
+    setReturnOpening(null);
     setExpanded(null);
     setSelected(null);
     setMode(null);
@@ -63,6 +71,8 @@ export default function App() {
   function variants() {
     navigate('openings');
     setActive(null);
+    setActiveTactic(null);
+    setReturnOpening(null);
     window.scrollTo(0, 0);
   }
   return (
@@ -133,6 +143,26 @@ export default function App() {
         >
           <ComputerMode onHome={goHome} />
         </Suspense>
+      ) : activeTactic ? (
+        <ActiveTactic
+          key={`${activeTactic.id}-${session}`}
+          puzzle={activeTactic}
+          onRestart={() => setSession((value) => value + 1)}
+          onBack={() => {
+            setReturnOpening(activeTactic.openingId);
+            setActiveTactic(null);
+          }}
+          onNext={(() => {
+            const list = tacticsFor(activeTactic.openingId);
+            const next = list[list.findIndex((entry) => entry.id === activeTactic.id) + 1];
+            return next
+              ? () => {
+                  setActiveTactic(next);
+                  window.scrollTo(0, 0);
+                }
+              : undefined;
+          })()}
+        />
       ) : active ? (
         <ActiveTrainer
           key={`${active.variation.id}-${active.mode}-${session}`}
@@ -148,8 +178,16 @@ export default function App() {
           expanded={expanded}
           selected={selected}
           mode={mode}
+          focusOpening={returnOpening}
+          onTactic={(puzzle) => {
+            setActive(null);
+            setActiveTactic(puzzle);
+            setReturnOpening(null);
+            window.scrollTo(0, 0);
+          }}
           onMode={setMode}
           onExpand={(id) => {
+            setReturnOpening(null);
             setExpanded(expanded === id ? null : id);
             setSelected(null);
             setMode(null);
@@ -173,6 +211,19 @@ export default function App() {
       </footer>
     </>
   );
+}
+
+function ActiveTactic({
+  puzzle,
+  ...actions
+}: {
+  puzzle: Tactic;
+  onRestart: () => void;
+  onBack: () => void;
+  onNext?: () => void;
+}) {
+  const lesson = useMemo(() => compileTactic(puzzle), [puzzle]);
+  return <TacticTrainer lesson={lesson} {...actions} />;
 }
 
 type Selection = { opening: Opening; variation: Variation; mode: LessonMode };

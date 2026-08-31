@@ -4,13 +4,13 @@ import {
   isComplete,
   isPlayerTurn,
   reduceTrainer,
-  type CompiledLesson,
+  type ScriptedExercise,
 } from './model';
 
 export const COMPUTER_DELAY = 600;
 export const CORRECT_FEEDBACK_DELAY = 900;
 export const INCORRECT_FEEDBACK_DELAY = 1000;
-export function useTrainer(lesson: CompiledLesson) {
+export function useTrainer(lesson: ScriptedExercise) {
   const [state, dispatch] = useReducer(
     (state: ReturnType<typeof initialState>, action: Parameters<typeof reduceTrainer>[2]) =>
       reduceTrainer(lesson, state, action),

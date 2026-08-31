@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 import { pieceUrl } from '../ui/pieces';
 import type { MouseEvent } from 'react';
+import { openings } from '../data/openings';
 
 function openPathway(event: MouseEvent<HTMLAnchorElement>, navigate: () => void) {
   if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey)
@@ -112,14 +113,18 @@ export function HomePage({
           </div>
           <h2 id="openings-path-title">OUVERTURES</h2>
           <p id="openings-path-description">
-            Construis un répertoire solide. Découvre les bons coups et les idées qui les relient.
+            Construis un répertoire solide. Découvre les bons coups, leurs idées et les occasions
+            tactiques.
           </p>
           <div className="pathway-facts">
             <span>
-              <strong>10</strong> ouvertures
+              <strong>{openings.length}</strong> ouvertures
             </span>
             <span>
-              <strong>60</strong> variantes
+              <strong>
+                {openings.reduce((total, opening) => total + opening.variations.length, 0)}
+              </strong>{' '}
+              variantes
             </span>
             <span>
               <strong>2</strong> formats

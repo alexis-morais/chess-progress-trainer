@@ -2,17 +2,18 @@
 
 Le code et les explications originales de **Chess Progress — Opening Trainer**, © 2026 Chess Progress Project 2026, sont disponibles sous **GPL-3.0-only**. Le texte intégral est dans `LICENSE`. Le prototype est fourni sans garantie. Les dépendances gardent leurs propres licences.
 
-| Composant                                  | Licence                                | Attribution / provenance                                                                    |
-| ------------------------------------------ | -------------------------------------- | ------------------------------------------------------------------------------------------- |
-| React / React DOM / Scheduler              | MIT                                    | Meta et contributeurs — https://github.com/facebook/react                                   |
-| chess.js                                   | BSD-2-Clause                           | Jeff Hlywa et contributeurs — https://github.com/jhlywa/chess.js                            |
-| react-chessboard                           | MIT                                    | Ryan Gregory et contributeurs — https://github.com/Clariity/react-chessboard                |
-| Pièces 2D « cburnett »                     | GPL-2.0-or-later, utilisées sous GPLv3 | Colin M. L. Burnett — https://github.com/lichess-org/lila/tree/master/public/piece/cburnett |
-| Lucide                                     | ISC                                    | Contributeurs Lucide et Feather — https://github.com/lucide-icons/lucide                    |
-| DnD Kit                                    | MIT                                    | Clauderic Demers et contributeurs — https://github.com/clauderic/dnd-kit                    |
-| tslib                                      | 0BSD                                   | Microsoft — https://github.com/Microsoft/tslib                                              |
-| Stockfish.js 18.0.8 Lite Single-Threaded   | GPL-3.0                                | Nathan Rugg, Chess.com, LLC, équipe Stockfish ; réseaux de Linmiao Xu                       |
-| Noms et préfixes d’ouvertures de référence | CC0                                    | https://github.com/lichess-org/chess-openings                                               |
+| Composant                                         | Licence                                | Attribution / provenance                                                                                   |
+| ------------------------------------------------- | -------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| React / React DOM / Scheduler                     | MIT                                    | Meta et contributeurs — https://github.com/facebook/react                                                  |
+| chess.js                                          | BSD-2-Clause                           | Jeff Hlywa et contributeurs — https://github.com/jhlywa/chess.js                                           |
+| react-chessboard                                  | MIT                                    | Ryan Gregory et contributeurs — https://github.com/Clariity/react-chessboard                               |
+| Pièces 2D « cburnett »                            | GPL-2.0-or-later, utilisées sous GPLv3 | Colin M. L. Burnett — https://github.com/lichess-org/lila/tree/master/public/piece/cburnett                |
+| Lucide                                            | ISC                                    | Contributeurs Lucide et Feather — https://github.com/lucide-icons/lucide                                   |
+| DnD Kit                                           | MIT                                    | Clauderic Demers et contributeurs — https://github.com/clauderic/dnd-kit                                   |
+| tslib                                             | 0BSD                                   | Microsoft — https://github.com/Microsoft/tslib                                                             |
+| Stockfish.js 18.0.8 Lite Single-Threaded          | GPL-3.0                                | Nathan Rugg, Chess.com, LLC, équipe Stockfish ; réseaux de Linmiao Xu                                      |
+| Noms et préfixes d’ouvertures de référence        | CC0                                    | https://github.com/lichess-org/chess-openings                                                              |
+| Positions tactiques, solutions et parties sources | CC0-1.0                                | Lichess — https://database.lichess.org/#puzzles ; liens individuels conservés dans `src/data/tactics.json` |
 
 Les **textes complets** des licences de toutes les dépendances embarquées, y compris les dépendances transitives, figurent dans `public/licenses/THIRD-PARTY-NOTICES.txt`, produit par `pnpm run licenses`. Les outils de développement Vite, Vitest (MIT), TypeScript (Apache-2.0), Testing Library (MIT) et jsdom (MIT) ne sont pas embarqués dans le site ; leurs textes sont inclus dans leurs paquets installés.
 

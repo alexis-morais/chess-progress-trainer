@@ -1,0 +1,1283 @@
+[
+  {
+    "id": "italian-tactic-1",
+    "openingId": "italian",
+    "title": "Fourchette avec échec",
+    "motif": "Fourchette et gain de dame",
+    "difficulty": "Intermédiaire",
+    "provenance": {
+      "moves": [
+        "e4",
+        "e5",
+        "Nf3",
+        "Nc6",
+        "Bc4",
+        "Bc5",
+        "b4",
+        "Bxb4",
+        "c3",
+        "Bc5",
+        "d4",
+        "exd4",
+        "Qb3",
+        "Qe7",
+        "Ng5",
+        "Nh6",
+        "O-O",
+        "dxc3",
+        "Nxc3",
+        "Ne5",
+        "Nd5",
+        "Qd8",
+        "Be3",
+        "Nxc4",
+        "Qxc4",
+        "Bxe3"
+      ],
+      "gameUrl": "https://lichess.org/sMMrz6Hk",
+      "puzzleUrl": "https://lichess.org/training/NgMmK",
+      "openingTag": "Italian_Game",
+      "license": "CC0-1.0"
+    },
+    "fen": "r1bqk2r/pppp1ppp/7n/3N2N1/2Q1P3/4b3/P4PPP/R4RK1 w kq - 0 14",
+    "side": "w",
+    "sequence": [
+      {
+        "san": "Nxc7+",
+        "explanation": "Bon coup. La combinaison continue.",
+        "hint": "Cherche un coup qui crée plusieurs menaces en même temps."
+      },
+      {
+        "san": "Qxc7",
+        "explanation": "Bon coup. La combinaison continue."
+      },
+      {
+        "san": "Qxc7",
+        "explanation": "La combinaison est terminée.",
+        "hint": "La position a changé : cherche comment poursuivre ton idée sans perdre de temps."
+      }
+    ],
+    "explanation": "L’échec s’accompagne d’une menace sur la tour. Dans la réponse illustrée, la dame prend le cavalier, mais elle peut être reprise à son tour.",
+    "gain": "Une dame et un pion contre un cavalier dans cette ligne.",
+    "principle": "Un échec peut donner le temps de gagner une autre cible."
+  },
+  {
+    "id": "italian-tactic-2",
+    "openingId": "italian",
+    "title": "Deux menaces à la fois",
+    "motif": "Attaque double",
+    "difficulty": "Intermédiaire",
+    "provenance": {
+      "moves": [
+        "e4",
+        "e5",
+        "Nf3",
+        "Nc6",
+        "Bc4",
+        "Nf6",
+        "Ng5",
+        "Qe7",
+        "Bxf7+",
+        "Kd8",
+        "O-O",
+        "d6",
+        "Nc3"
+      ],
+      "gameUrl": "https://lichess.org/dNSLD6Iy",
+      "puzzleUrl": "https://lichess.org/training/s2mJI",
+      "openingTag": "Italian_Game",
+      "license": "CC0-1.0"
+    },
+    "fen": "r1bk1b1r/ppp1qBpp/2np1n2/4p1N1/4P3/2N5/PPPP1PPP/R1BQ1RK1 b - - 1 7",
+    "side": "b",
+    "sequence": [
+      {
+        "san": "h6",
+        "explanation": "Bon coup. La combinaison continue.",
+        "hint": "Vérifie si plusieurs pièces avancées peuvent être menacées simultanément."
+      },
+      {
+        "san": "Bg6",
+        "explanation": "Bon coup. La combinaison continue."
+      },
+      {
+        "san": "hxg5",
+        "explanation": "La combinaison est terminée.",
+        "hint": "La position a changé : cherche comment poursuivre ton idée sans perdre de temps."
+      }
+    ],
+    "explanation": "Le fou avancé est déjà visé par la dame. La poussée ajoute une menace sur le cavalier : les Blancs ne peuvent pas sauver les deux pièces.",
+    "gain": "Un cavalier gagné.",
+    "principle": "Une seconde menace peut rendre une défense impossible."
+  },
+  {
+    "id": "scotch-tactic-1",
+    "openingId": "scotch",
+    "title": "Déjouer la fourchette",
+    "motif": "Défense tactique et échange",
+    "difficulty": "Facile",
+    "provenance": {
+      "moves": [
+        "e4",
+        "e5",
+        "Nf3",
+        "Nc6",
+        "d4",
+        "exd4",
+        "Ng5",
+        "Qf6",
+        "Bc4",
+        "Nh6",
+        "O-O",
+        "Ne5",
+        "Qxd4",
+        "d6",
+        "f4",
+        "Nf3+"
+      ],
+      "gameUrl": "https://lichess.org/VqqVl2DF",
+      "puzzleUrl": "https://lichess.org/training/0RJBp",
+      "openingTag": "Scotch_Game",
+      "license": "CC0-1.0"
+    },
+    "fen": "r1b1kb1r/ppp2ppp/3p1q1n/6N1/2BQPP2/5n2/PPP3PP/RNB2RK1 w kq - 1 9",
+    "side": "w",
+    "sequence": [
+      {
+        "san": "Nxf3",
+        "explanation": "Bon coup. La combinaison continue.",
+        "hint": "Avant de céder à la menace, vérifie si son auteur peut être éliminé."
+      },
+      {
+        "san": "Qxd4+",
+        "explanation": "Bon coup. La combinaison continue."
+      },
+      {
+        "san": "Nxd4",
+        "explanation": "La combinaison est terminée.",
+        "hint": "La position a changé : cherche comment poursuivre ton idée sans perdre de temps."
+      }
+    ],
+    "explanation": "La fourchette vise le roi et la dame, mais un défenseur peut prendre l’attaquant. Après l’échange des dames, la pièce gagnée reste acquise.",
+    "gain": "Un cavalier gagné.",
+    "principle": "Une fourchette ne fonctionne que si son auteur ne peut pas être repris."
+  },
+  {
+    "id": "scotch-tactic-2",
+    "openingId": "scotch",
+    "title": "Échanger avec tempo",
+    "motif": "Déviation et échange avec échec",
+    "difficulty": "Intermédiaire",
+    "provenance": {
+      "moves": [
+        "e4",
+        "e5",
+        "Nf3",
+        "Nc6",
+        "d4",
+        "exd4",
+        "Nxd4",
+        "Bc5",
+        "Nf5",
+        "d6",
+        "Nxg7+",
+        "Kf8",
+        "Nh5",
+        "Qh4",
+        "Ng3",
+        "Nf6",
+        "Qd2",
+        "Nxe4"
+      ],
+      "gameUrl": "https://lichess.org/lK1JAN0H",
+      "puzzleUrl": "https://lichess.org/training/Uf6V1",
+      "openingTag": "Scotch_Game",
+      "license": "CC0-1.0"
+    },
+    "fen": "r1b2k1r/ppp2p1p/2np4/2b5/4n2q/6N1/PPPQ1PPP/RNB1KB1R w KQ - 0 10",
+    "side": "w",
+    "sequence": [
+      {
+        "san": "Qh6+",
+        "explanation": "Bon coup. La combinaison continue.",
+        "hint": "Un échange accompagné d’une menace pourrait retirer une protection importante."
+      },
+      {
+        "san": "Qxh6",
+        "explanation": "Bon coup. La combinaison continue."
+      },
+      {
+        "san": "Bxh6+",
+        "explanation": "Bon coup. La combinaison continue.",
+        "hint": "La position a changé : cherche comment poursuivre ton idée sans perdre de temps."
+      },
+      {
+        "san": "Ke7",
+        "explanation": "Bon coup. La combinaison continue."
+      },
+      {
+        "san": "Nxe4",
+        "explanation": "La combinaison est terminée.",
+        "hint": "La position a changé : cherche comment poursuivre ton idée sans perdre de temps."
+      }
+    ],
+    "explanation": "L’échange des dames se fait avec échec. La dame noire ne protège plus le cavalier avancé ; après la réponse du roi, les Blancs peuvent le prendre.",
+    "gain": "Le cavalier avancé est récupéré avec avantage.",
+    "principle": "Examine les protections qui disparaissent après un échange."
+  },
+  {
+    "id": "vienna-tactic-1",
+    "openingId": "vienna",
+    "title": "Guider le roi vers le coin",
+    "motif": "Réseau de mat",
+    "difficulty": "Intermédiaire",
+    "provenance": {
+      "moves": [
+        "e4",
+        "e5",
+        "Nc3",
+        "Qe7",
+        "f4",
+        "exf4",
+        "Nf3",
+        "Nf6",
+        "Nd5",
+        "Nxd5",
+        "Be2",
+        "Qxe4",
+        "d3",
+        "Qb4+",
+        "Bd2",
+        "Qxb2",
+        "c4",
+        "Ne3",
+        "Bxe3",
+        "fxe3",
+        "O-O",
+        "Bc5",
+        "d4",
+        "Bb4",
+        "Ne5",
+        "O-O",
+        "Rxf7",
+        "Rxf7",
+        "Nxf7",
+        "Kxf7",
+        "Qf1+",
+        "Kg8",
+        "Bh5",
+        "e2"
+      ],
+      "gameUrl": "https://lichess.org/1pqMnt81",
+      "puzzleUrl": "https://lichess.org/training/GbH9Q",
+      "openingTag": "Vienna_Game",
+      "license": "CC0-1.0"
+    },
+    "fen": "rnb3k1/pppp2pp/8/7B/1bPP4/8/Pq2p1PP/R4QK1 w - - 0 18",
+    "side": "w",
+    "sequence": [
+      {
+        "san": "Qf7+",
+        "explanation": "Bon coup. La combinaison continue.",
+        "hint": "Cherche une suite de menaces qui ne laisse pas de répit au roi adverse."
+      },
+      {
+        "san": "Kh8",
+        "explanation": "Bon coup. La combinaison continue."
+      },
+      {
+        "san": "Qe8+",
+        "explanation": "Bon coup. La combinaison continue.",
+        "hint": "La position a changé : cherche comment poursuivre ton idée sans perdre de temps."
+      },
+      {
+        "san": "Bf8",
+        "explanation": "Bon coup. La combinaison continue."
+      },
+      {
+        "san": "Qxf8#",
+        "explanation": "La combinaison est terminée.",
+        "hint": "La position a changé : cherche comment poursuivre ton idée sans perdre de temps."
+      }
+    ],
+    "explanation": "Les échecs repoussent le roi dans le coin. La dame traverse la dernière rangée ; l’interposition ne fait que retarder le mat.",
+    "gain": "Échec et mat en trois coups.",
+    "principle": "Les échecs successifs peuvent réduire les choix de défense."
+  },
+  {
+    "id": "vienna-tactic-2",
+    "openingId": "vienna",
+    "title": "Deux cibles sur une diagonale",
+    "motif": "Attaque double",
+    "difficulty": "Intermédiaire",
+    "provenance": {
+      "moves": [
+        "Nc3",
+        "e5",
+        "e4",
+        "f5",
+        "d4",
+        "exd4",
+        "Qxd4",
+        "Nf6",
+        "Bg5",
+        "Be7",
+        "Nf3",
+        "c5",
+        "Qe3",
+        "Nc6",
+        "Bb5",
+        "a6",
+        "Ba4",
+        "b5",
+        "Nxb5",
+        "axb5",
+        "Bxb5",
+        "Nd4",
+        "Bxf6",
+        "Nxf3+",
+        "Qxf3",
+        "Bxf6",
+        "Qxf5",
+        "O-O"
+      ],
+      "gameUrl": "https://lichess.org/iLqxvARD",
+      "puzzleUrl": "https://lichess.org/training/11jP6",
+      "openingTag": "Vienna_Game",
+      "license": "CC0-1.0"
+    },
+    "fen": "r1bq1rk1/3p2pp/5b2/1Bp2Q2/4P3/8/PPP2PPP/R3K2R w KQ - 1 15",
+    "side": "w",
+    "sequence": [
+      {
+        "san": "Qd5+",
+        "explanation": "Bon coup. La combinaison continue.",
+        "hint": "Observe si une menace sur le roi peut aussi viser une autre cible."
+      },
+      {
+        "san": "Kh8",
+        "explanation": "Bon coup. La combinaison continue."
+      },
+      {
+        "san": "Qxa8",
+        "explanation": "La combinaison est terminée.",
+        "hint": "La position a changé : cherche comment poursuivre ton idée sans perdre de temps."
+      }
+    ],
+    "explanation": "La dame donne échec tout en visant la tour sur l’autre diagonale. Les Noirs doivent protéger leur roi, ce qui laisse le temps de prendre la tour.",
+    "gain": "Une tour gagnée.",
+    "principle": "Une attaque double avec échec donne un tempo décisif."
+  },
+  {
+    "id": "queens-gambit-tactic-1",
+    "openingId": "queens-gambit",
+    "title": "Attirer le roi",
+    "motif": "Attraction et mat",
+    "difficulty": "Intermédiaire",
+    "provenance": {
+      "moves": [
+        "d4",
+        "d5",
+        "c4",
+        "e6",
+        "Nc3",
+        "Nf6",
+        "Bg5",
+        "Nbd7",
+        "Nf3",
+        "Be7",
+        "e3",
+        "O-O",
+        "cxd5",
+        "exd5",
+        "Bxf6",
+        "Nxf6",
+        "Bd3",
+        "Be6",
+        "h3",
+        "c6",
+        "Bc2",
+        "h6",
+        "h4",
+        "Re8",
+        "Qd3",
+        "Qc7",
+        "Ng5",
+        "hxg5",
+        "hxg5",
+        "Ne4",
+        "Nxe4",
+        "dxe4",
+        "Qxe4",
+        "Bxg5"
+      ],
+      "gameUrl": "https://lichess.org/A09LMHoH",
+      "puzzleUrl": "https://lichess.org/training/WW9ym",
+      "openingTag": "Queens_Gambit_Declined",
+      "license": "CC0-1.0"
+    },
+    "fen": "r3r1k1/ppq2pp1/2p1b3/6b1/3PQ3/4P3/PPB2PP1/R3K2R w KQ - 0 18",
+    "side": "w",
+    "sequence": [
+      {
+        "san": "Rh8+",
+        "explanation": "Bon coup. La combinaison continue.",
+        "hint": "Une ligne ouverte et une case bien protégée pourraient se compléter."
+      },
+      {
+        "san": "Kxh8",
+        "explanation": "Bon coup. La combinaison continue."
+      },
+      {
+        "san": "Qh7#",
+        "explanation": "La combinaison est terminée.",
+        "hint": "La position a changé : cherche comment poursuivre ton idée sans perdre de temps."
+      }
+    ],
+    "explanation": "La tour attire le roi sur la colonne ouverte. La dame rejoint ensuite une case protégée par le fou : le roi ne peut ni la prendre ni s’enfuir.",
+    "gain": "Échec et mat en deux coups.",
+    "principle": "Un sacrifice peut forcer le roi à rejoindre une mauvaise case."
+  },
+  {
+    "id": "queens-gambit-tactic-2",
+    "openingId": "queens-gambit",
+    "title": "Une prise avec tempo",
+    "motif": "Échec intermédiaire et gain de qualité",
+    "difficulty": "Facile",
+    "provenance": {
+      "moves": [
+        "d4",
+        "d5",
+        "c4",
+        "dxc4",
+        "Nf3",
+        "Bg4",
+        "Ne5",
+        "Be6",
+        "g3",
+        "f6",
+        "Nf3",
+        "Nc6",
+        "Bg2",
+        "g5",
+        "O-O",
+        "h5",
+        "e4",
+        "Bg4",
+        "h3",
+        "Bxf3",
+        "Bxf3",
+        "Nxd4"
+      ],
+      "gameUrl": "https://lichess.org/h7cYT7Sl",
+      "puzzleUrl": "https://lichess.org/training/56FTv",
+      "openingTag": "Queens_Gambit_Accepted",
+      "license": "CC0-1.0"
+    },
+    "fen": "r2qkbnr/ppp1p3/5p2/6pp/2pnP3/5BPP/PP3P2/RNBQ1RK1 w kq - 0 12",
+    "side": "w",
+    "sequence": [
+      {
+        "san": "Bxh5+",
+        "explanation": "Bon coup. La combinaison continue.",
+        "hint": "Examine les prises qui obligent ton adversaire à répondre immédiatement."
+      },
+      {
+        "san": "Rxh5",
+        "explanation": "Bon coup. La combinaison continue."
+      },
+      {
+        "san": "Qxh5+",
+        "explanation": "La combinaison est terminée.",
+        "hint": "La position a changé : cherche comment poursuivre ton idée sans perdre de temps."
+      }
+    ],
+    "explanation": "Le pion avancé peut être pris avec échec. La tour se déplace pour capturer le fou, puis la dame récupère cette tour.",
+    "gain": "Une tour et un pion contre un fou.",
+    "principle": "Un échec peut modifier l’ordre favorable des échanges."
+  },
+  {
+    "id": "london-tactic-1",
+    "openingId": "london",
+    "title": "Un défenseur immobilisé",
+    "motif": "Clouage et attaque du roi",
+    "difficulty": "Intermédiaire",
+    "provenance": {
+      "moves": [
+        "d4",
+        "d6",
+        "Nf3",
+        "g6",
+        "Bf4",
+        "Bg7",
+        "e3",
+        "Nf6",
+        "h3",
+        "O-O",
+        "Be2",
+        "Nc6",
+        "c3",
+        "e5",
+        "Bg5",
+        "e4",
+        "Nfd2",
+        "d5",
+        "O-O",
+        "Qd6",
+        "Bh4",
+        "Nh5",
+        "a3",
+        "Bf6",
+        "Bxf6",
+        "Qxf6",
+        "c4",
+        "Qg5",
+        "cxd5"
+      ],
+      "gameUrl": "https://lichess.org/39jD4e6A",
+      "puzzleUrl": "https://lichess.org/training/91tuc",
+      "openingTag": "London_System",
+      "license": "CC0-1.0"
+    },
+    "fen": "r1b2rk1/ppp2p1p/2n3p1/3P2qn/3Pp3/P3P2P/1P1NBPP1/RN1Q1RK1 b - - 0 15",
+    "side": "b",
+    "sequence": [
+      {
+        "san": "Bxh3",
+        "explanation": "Bon coup. La combinaison continue.",
+        "hint": "Une protection apparente peut être immobilisée par la sécurité du roi."
+      },
+      {
+        "san": "Bg4",
+        "explanation": "Bon coup. La combinaison continue."
+      },
+      {
+        "san": "Bxg4",
+        "explanation": "La combinaison est terminée.",
+        "hint": "La position a changé : cherche comment poursuivre ton idée sans perdre de temps."
+      }
+    ],
+    "explanation": "Le pion devant le roi ne peut pas reprendre : il est cloué sur la colonne g. Le fou entre près du roi ; après l’interposition montrée, il gagne une pièce.",
+    "gain": "Un fou et un pion gagnés dans la ligne illustrée.",
+    "principle": "Une pièce clouée ne remplit pas toujours son rôle de défenseur."
+  },
+  {
+    "id": "london-tactic-2",
+    "openingId": "london",
+    "title": "Coordonner l’attaque",
+    "motif": "Mat sur les cases noires",
+    "difficulty": "Facile",
+    "provenance": {
+      "moves": [
+        "d4",
+        "Nf6",
+        "Nf3",
+        "g6",
+        "Bf4",
+        "Bg7",
+        "Qd2",
+        "O-O",
+        "Bh6",
+        "d6",
+        "h4",
+        "Nbd7",
+        "h5",
+        "Nxh5",
+        "Rxh5",
+        "gxh5",
+        "Qg5",
+        "f6"
+      ],
+      "gameUrl": "https://lichess.org/r2rUYyQb",
+      "puzzleUrl": "https://lichess.org/training/ySOdN",
+      "openingTag": "London_System",
+      "license": "CC0-1.0"
+    },
+    "fen": "r1bq1rk1/pppnp1bp/3p1p1B/6Qp/3P4/5N2/PPP1PPP1/RN2KB2 w Q - 0 10",
+    "side": "w",
+    "sequence": [
+      {
+        "san": "Qxg7#",
+        "explanation": "La combinaison est terminée.",
+        "hint": "Cherche une menace décisive sur une case déjà soutenue par ton camp."
+      }
+    ],
+    "explanation": "La dame et le fou coordonnent leur attaque sur les cases noires. Le fou protège la case d’arrivée de la dame, ce qui interdit sa capture par le roi.",
+    "gain": "Échec et mat en un coup.",
+    "principle": "Vérifie les cases protégées autour du roi adverse."
+  },
+  {
+    "id": "french-tactic-1",
+    "openingId": "french",
+    "title": "Punir la sortie de dame",
+    "motif": "Piège de dame",
+    "difficulty": "Intermédiaire",
+    "provenance": {
+      "moves": [
+        "e4",
+        "e6",
+        "d4",
+        "d5",
+        "e5",
+        "c5",
+        "c3",
+        "Nc6",
+        "Nf3",
+        "Qb6",
+        "Be2",
+        "cxd4",
+        "cxd4",
+        "Bb4+",
+        "Bd2",
+        "Bd7",
+        "Bxb4",
+        "Nxb4",
+        "a3",
+        "Nc6",
+        "O-O",
+        "Nge7",
+        "g4",
+        "O-O",
+        "Nc3",
+        "Qxb2"
+      ],
+      "gameUrl": "https://lichess.org/v6axqK4e",
+      "puzzleUrl": "https://lichess.org/training/2xaSj",
+      "openingTag": "French_Defense",
+      "license": "CC0-1.0"
+    },
+    "fen": "r4rk1/pp1bnppp/2n1p3/3pP3/3P2P1/P1N2N2/1q2BP1P/R2Q1RK1 w - - 0 14",
+    "side": "w",
+    "sequence": [
+      {
+        "san": "Na4",
+        "explanation": "Bon coup. La combinaison continue.",
+        "hint": "Observe les cases de repli disponibles pour une pièce avancée."
+      },
+      {
+        "san": "Qxa1",
+        "explanation": "Bon coup. La combinaison continue."
+      },
+      {
+        "san": "Qxa1",
+        "explanation": "La combinaison est terminée.",
+        "hint": "La position a changé : cherche comment poursuivre ton idée sans perdre de temps."
+      }
+    ],
+    "explanation": "L’attaque laisse la dame noire sans bonne retraite. La réponse illustrée prend une tour, mais la dame est reprise : les Blancs obtiennent une dame contre une tour.",
+    "gain": "Une dame contre une tour.",
+    "principle": "Une pièce avancée a besoin de cases de repli sûres."
+  },
+  {
+    "id": "french-tactic-2",
+    "openingId": "french",
+    "title": "Deux pièces alignées",
+    "motif": "Enfilade dame-tour",
+    "difficulty": "Intermédiaire",
+    "provenance": {
+      "moves": [
+        "e4",
+        "e6",
+        "d4",
+        "d5",
+        "Nc3",
+        "Nf6",
+        "Bg5",
+        "Be7",
+        "Bxf6",
+        "Bxf6",
+        "e5",
+        "Be7",
+        "Qg4",
+        "O-O",
+        "h4",
+        "f5",
+        "Qg3",
+        "c5",
+        "Nce2",
+        "Nc6",
+        "c3",
+        "cxd4",
+        "cxd4",
+        "Bb4+",
+        "Kd1",
+        "b6",
+        "Rh3",
+        "Ba6",
+        "a3",
+        "Bxe2+",
+        "Nxe2",
+        "Be7",
+        "Rc1",
+        "Rc8",
+        "Qf4",
+        "Rf7",
+        "h5"
+      ],
+      "gameUrl": "https://lichess.org/ILIqEilr",
+      "puzzleUrl": "https://lichess.org/training/QdG70",
+      "openingTag": "French_Defense",
+      "license": "CC0-1.0"
+    },
+    "fen": "2rq2k1/p3brpp/1pn1p3/3pPp1P/3P1Q2/P6R/1P2NPP1/2RK1B2 b - - 0 19",
+    "side": "b",
+    "sequence": [
+      {
+        "san": "Bg5",
+        "explanation": "Bon coup. La combinaison continue.",
+        "hint": "Repère les pièces adverses alignées sur une même diagonale."
+      },
+      {
+        "san": "Qh2",
+        "explanation": "Bon coup. La combinaison continue."
+      },
+      {
+        "san": "Bxc1",
+        "explanation": "La combinaison est terminée.",
+        "hint": "La position a changé : cherche comment poursuivre ton idée sans perdre de temps."
+      }
+    ],
+    "explanation": "La dame et la tour sont sur une même diagonale. En attaquant la dame, le fou gagne un tempo, puis prend la tour située derrière.",
+    "gain": "Une tour gagnée, contre le fou si le roi le reprend.",
+    "principle": "Une pièce de grande valeur peut masquer une autre cible."
+  },
+  {
+    "id": "scandinavian-tactic-1",
+    "openingId": "scandinavian",
+    "title": "Retirer l’obstacle",
+    "motif": "Échange avec échec et attaque double",
+    "difficulty": "Intermédiaire",
+    "provenance": {
+      "moves": [
+        "e4",
+        "d5",
+        "exd5",
+        "Nf6",
+        "d4",
+        "Nxd5",
+        "c4",
+        "Nb6",
+        "Nc3",
+        "Nc6",
+        "c5",
+        "Nd5",
+        "Bc4",
+        "Nxc3",
+        "bxc3",
+        "Bf5",
+        "Qf3",
+        "e6",
+        "g4",
+        "Bg6",
+        "d5",
+        "exd5",
+        "Bxd5",
+        "Bxc5"
+      ],
+      "gameUrl": "https://lichess.org/Ul1xC7UG",
+      "puzzleUrl": "https://lichess.org/training/oGkvq",
+      "openingTag": "Scandinavian_Defense",
+      "license": "CC0-1.0"
+    },
+    "fen": "r2qk2r/ppp2ppp/2n3b1/2bB4/6P1/2P2Q2/P4P1P/R1B1K1NR w KQkq - 0 13",
+    "side": "w",
+    "sequence": [
+      {
+        "san": "Bxc6+",
+        "explanation": "Bon coup. La combinaison continue.",
+        "hint": "Un échange peut ouvrir le passage vers plusieurs cibles."
+      },
+      {
+        "san": "bxc6",
+        "explanation": "Bon coup. La combinaison continue."
+      },
+      {
+        "san": "Qxc6+",
+        "explanation": "Bon coup. La combinaison continue.",
+        "hint": "La position a changé : cherche comment poursuivre ton idée sans perdre de temps."
+      },
+      {
+        "san": "Kf8",
+        "explanation": "Bon coup. La combinaison continue."
+      },
+      {
+        "san": "Qxc5+",
+        "explanation": "La combinaison est terminée.",
+        "hint": "La position a changé : cherche comment poursuivre ton idée sans perdre de temps."
+      }
+    ],
+    "explanation": "L’échange retire le cavalier qui ferme la position. La dame entre ensuite avec échec, tout en attaquant le fou : elle peut prendre cette deuxième cible après la réponse du roi.",
+    "gain": "Une pièce et un pion gagnés.",
+    "principle": "Cherche ce qu’un échange peut ouvrir avant de le jouer."
+  },
+  {
+    "id": "scandinavian-tactic-2",
+    "openingId": "scandinavian",
+    "title": "Fermer les issues",
+    "motif": "Réseau de mat sur l’aile dame",
+    "difficulty": "Intermédiaire",
+    "provenance": {
+      "moves": [
+        "e4",
+        "d5",
+        "exd5",
+        "Qxd5",
+        "Nc3",
+        "Qa5",
+        "b4",
+        "Qxb4",
+        "Nb5",
+        "Na6",
+        "Ba3",
+        "Qa5",
+        "Rb1",
+        "c6",
+        "Bb4",
+        "Nxb4",
+        "Rxb4",
+        "Qxb4",
+        "Nc7+",
+        "Kd7",
+        "Nxa8",
+        "Nf6",
+        "Nf3",
+        "b5",
+        "c4",
+        "Bb7",
+        "cxb5",
+        "cxb5",
+        "Ne5+",
+        "Kc8",
+        "Qc2+",
+        "Kb8"
+      ],
+      "gameUrl": "https://lichess.org/fWcybXN7",
+      "puzzleUrl": "https://lichess.org/training/wZXiD",
+      "openingTag": "Scandinavian_Defense",
+      "license": "CC0-1.0"
+    },
+    "fen": "Nk3b1r/pb2pppp/5n2/1p2N3/1q6/8/P1QP1PPP/4KB1R w K - 4 17",
+    "side": "w",
+    "sequence": [
+      {
+        "san": "Qc7+",
+        "explanation": "Bon coup. La combinaison continue.",
+        "hint": "Cherche une suite d’échecs qui réduit les cases de fuite."
+      },
+      {
+        "san": "Kxa8",
+        "explanation": "Bon coup. La combinaison continue."
+      },
+      {
+        "san": "Qd8+",
+        "explanation": "Bon coup. La combinaison continue.",
+        "hint": "La position a changé : cherche comment poursuivre ton idée sans perdre de temps."
+      },
+      {
+        "san": "Bc8",
+        "explanation": "Bon coup. La combinaison continue."
+      },
+      {
+        "san": "Qxc8#",
+        "explanation": "La combinaison est terminée.",
+        "hint": "La position a changé : cherche comment poursuivre ton idée sans perdre de temps."
+      }
+    ],
+    "explanation": "Le sacrifice dirige le roi vers la dernière rangée. Les échecs suivants ne lui laissent pas le temps d’organiser une défense ; l’interposition finale est capturée avec mat.",
+    "gain": "Échec et mat en trois coups.",
+    "principle": "La sécurité du roi compte davantage que le matériel à gagner."
+  },
+  {
+    "id": "caro-kann-tactic-1",
+    "openingId": "caro-kann",
+    "title": "Une ouverture de colonne calculée",
+    "motif": "Échanges et pièce non protégée",
+    "difficulty": "Intermédiaire",
+    "provenance": {
+      "moves": [
+        "e4",
+        "c6",
+        "Nf3",
+        "d5",
+        "exd5",
+        "cxd5",
+        "d4",
+        "Nc6",
+        "Bb5",
+        "Bg4",
+        "h3",
+        "Bh5",
+        "c3",
+        "Nf6",
+        "Bg5",
+        "h6",
+        "Bxf6",
+        "exf6",
+        "O-O",
+        "Bd6",
+        "Qd3",
+        "O-O",
+        "c4",
+        "dxc4",
+        "Bxc4",
+        "Bc5"
+      ],
+      "gameUrl": "https://lichess.org/jrTKHi8i",
+      "puzzleUrl": "https://lichess.org/training/iEem1",
+      "openingTag": "Caro-Kann_Defense",
+      "license": "CC0-1.0"
+    },
+    "fen": "r2q1rk1/pp3pp1/2n2p1p/2b4b/2BP4/3Q1N1P/PP3PP1/RN3RK1 w - - 1 14",
+    "side": "w",
+    "sequence": [
+      {
+        "san": "dxc5",
+        "explanation": "Bon coup. La combinaison continue.",
+        "hint": "Calcule les reprises avant de renoncer à une prise intéressante."
+      },
+      {
+        "san": "Qxd3",
+        "explanation": "Bon coup. La combinaison continue."
+      },
+      {
+        "san": "Bxd3",
+        "explanation": "Bon coup. La combinaison continue.",
+        "hint": "La position a changé : cherche comment poursuivre ton idée sans perdre de temps."
+      },
+      {
+        "san": "Bxf3",
+        "explanation": "Bon coup. La combinaison continue."
+      },
+      {
+        "san": "gxf3",
+        "explanation": "La combinaison est terminée.",
+        "hint": "La position a changé : cherche comment poursuivre ton idée sans perdre de temps."
+      }
+    ],
+    "explanation": "Le déplacement du pion ouvre la colonne des dames, mais ton fou peut reprendre. L’échange des dames puis des pièces ne fait pas disparaître le fou gagné au départ.",
+    "gain": "Un fou gagné, malgré les échanges suivants.",
+    "principle": "L’ouverture d’une ligne n’est pas dangereuse si les reprises sont prévues."
+  },
+  {
+    "id": "caro-kann-tactic-2",
+    "openingId": "caro-kann",
+    "title": "Un duo décisif",
+    "motif": "Mat avec tour et cavalier",
+    "difficulty": "Facile",
+    "provenance": {
+      "moves": [
+        "e4",
+        "c6",
+        "d4",
+        "d5",
+        "Nf3",
+        "dxe4",
+        "Ne5",
+        "Nf6",
+        "Bc4",
+        "e6",
+        "O-O",
+        "Nbd7",
+        "Bg5",
+        "Nxe5",
+        "dxe5",
+        "Qxd1",
+        "Rxd1",
+        "Nd5",
+        "Bxd5",
+        "cxd5",
+        "c4",
+        "h6",
+        "Bh4",
+        "g5",
+        "Bg3",
+        "dxc4",
+        "Nd2",
+        "b5",
+        "Nxe4",
+        "Bb7"
+      ],
+      "gameUrl": "https://lichess.org/O3H0yhJy",
+      "puzzleUrl": "https://lichess.org/training/dFvFv",
+      "openingTag": "Caro-Kann_Defense",
+      "license": "CC0-1.0"
+    },
+    "fen": "r3kb1r/pb3p2/4p2p/1p2P1p1/2p1N3/6B1/PP3PPP/R2R2K1 w kq - 1 16",
+    "side": "w",
+    "sequence": [
+      {
+        "san": "Nf6+",
+        "explanation": "Bon coup. La combinaison continue.",
+        "hint": "Vérifie comment deux pièces peuvent limiter ensemble les déplacements du roi."
+      },
+      {
+        "san": "Ke7",
+        "explanation": "Bon coup. La combinaison continue."
+      },
+      {
+        "san": "Rd7#",
+        "explanation": "La combinaison est terminée.",
+        "hint": "La position a changé : cherche comment poursuivre ton idée sans perdre de temps."
+      }
+    ],
+    "explanation": "L’échec chasse le roi vers une case où une tour peut le rejoindre. Le cavalier protège la tour, tandis que les autres pièces ferment les issues.",
+    "gain": "Échec et mat en deux coups.",
+    "principle": "Le soutien entre les pièces permet de donner mat de près."
+  },
+  {
+    "id": "sicilian-tactic-1",
+    "openingId": "sicilian",
+    "title": "Maintenir la pression",
+    "motif": "Menace sur le roi et interposition",
+    "difficulty": "Intermédiaire",
+    "provenance": {
+      "moves": [
+        "e4",
+        "c5",
+        "Nf3",
+        "Nc6",
+        "Bb5",
+        "g6",
+        "O-O",
+        "Bg7",
+        "c3",
+        "e6",
+        "d4",
+        "cxd4",
+        "cxd4",
+        "Nge7",
+        "Nc3",
+        "a6",
+        "Ba4",
+        "b5",
+        "Bc2",
+        "O-O",
+        "Be3",
+        "d5",
+        "e5",
+        "Bd7",
+        "Qd2",
+        "Rc8",
+        "Bh6",
+        "b4",
+        "Bxg7",
+        "bxc3"
+      ],
+      "gameUrl": "https://lichess.org/X0NcAZmB",
+      "puzzleUrl": "https://lichess.org/training/VmR1K",
+      "openingTag": "Sicilian_Defense",
+      "license": "CC0-1.0"
+    },
+    "fen": "2rq1rk1/3bnpBp/p1n1p1p1/3pP3/3P4/2p2N2/PPBQ1PPP/R4RK1 w - - 0 16",
+    "side": "w",
+    "sequence": [
+      {
+        "san": "Qh6",
+        "explanation": "Bon coup. La combinaison continue.",
+        "hint": "Une menace sur le roi peut être plus forte qu’une reprise immédiate."
+      },
+      {
+        "san": "Nf5",
+        "explanation": "Bon coup. La combinaison continue."
+      },
+      {
+        "san": "Bxf5",
+        "explanation": "La combinaison est terminée.",
+        "hint": "La position a changé : cherche comment poursuivre ton idée sans perdre de temps."
+      }
+    ],
+    "explanation": "La dame renforce la pression près du roi. Le cavalier s’interpose et l’attaque, mais ton fou peut le capturer : tu conserves l’initiative au lieu de reculer.",
+    "gain": "Un cavalier capturé et une attaque gagnante selon la ligne analysée.",
+    "principle": "Ne réponds pas mécaniquement à une attaque contre ta dame."
+  },
+  {
+    "id": "sicilian-tactic-2",
+    "openingId": "sicilian",
+    "title": "Avancer avec du soutien",
+    "motif": "Poussée tactique et pièce protégée",
+    "difficulty": "Intermédiaire",
+    "provenance": {
+      "moves": [
+        "e4",
+        "c5",
+        "Nf3",
+        "Nc6",
+        "d4",
+        "cxd4",
+        "Nxd4",
+        "Nf6",
+        "Nc3",
+        "e5",
+        "Nxc6",
+        "bxc6",
+        "Bg5",
+        "Bb4",
+        "a3",
+        "Bxc3+",
+        "bxc3",
+        "d5",
+        "exd5",
+        "cxd5",
+        "c4",
+        "d4",
+        "Qf3",
+        "Rb8",
+        "c5",
+        "Qd5",
+        "Bxf6",
+        "Qxf3",
+        "gxf3",
+        "gxf6",
+        "a4",
+        "Rg8",
+        "Bb5+",
+        "Bd7"
+      ],
+      "gameUrl": "https://lichess.org/poyoVhJC",
+      "puzzleUrl": "https://lichess.org/training/E28CM",
+      "openingTag": "Sicilian_Defense",
+      "license": "CC0-1.0"
+    },
+    "fen": "1r2k1r1/p2b1p1p/5p2/1BP1p3/P2p4/5P2/2P2P1P/R3K2R w KQ - 3 18",
+    "side": "w",
+    "sequence": [
+      {
+        "san": "c6",
+        "explanation": "Bon coup. La combinaison continue.",
+        "hint": "Une avancée soutenue peut imposer un échange favorable."
+      },
+      {
+        "san": "Bxc6",
+        "explanation": "Bon coup. La combinaison continue."
+      },
+      {
+        "san": "Bxc6+",
+        "explanation": "La combinaison est terminée.",
+        "hint": "La position a changé : cherche comment poursuivre ton idée sans perdre de temps."
+      }
+    ],
+    "explanation": "Le pion avance avec le soutien du fou. S’il est capturé par le fou adverse, la reprise gagne une pièce contre un pion. Cette idée naît de la structure centrale de la Sicilienne.",
+    "gain": "Un fou contre un pion dans la meilleure réponse illustrée.",
+    "principle": "Un pion bien soutenu peut devenir une menace tactique."
+  },
+  {
+    "id": "kings-indian-tactic-1",
+    "openingId": "kings-indian",
+    "title": "Libérer une colonne",
+    "motif": "Attaque à la découverte et déviation",
+    "difficulty": "Intermédiaire",
+    "provenance": {
+      "moves": [
+        "d4",
+        "Nf6",
+        "c4",
+        "g6",
+        "Nc3",
+        "Bg7",
+        "Nf3",
+        "d6",
+        "e4",
+        "O-O",
+        "h3",
+        "e5",
+        "d5",
+        "a5",
+        "g4",
+        "Na6",
+        "Be3",
+        "Ne8",
+        "Bd3",
+        "Nc5",
+        "Bc2",
+        "f5",
+        "exf5",
+        "gxf5",
+        "gxf5",
+        "Bxf5",
+        "Rg1"
+      ],
+      "gameUrl": "https://lichess.org/KLsuOucL",
+      "puzzleUrl": "https://lichess.org/training/W7mno",
+      "openingTag": "Kings_Indian_Defense",
+      "license": "CC0-1.0"
+    },
+    "fen": "r2qnrk1/1pp3bp/3p4/p1nPpb2/2P5/2N1BN1P/PPB2P2/R2QK1R1 b Q - 1 14",
+    "side": "b",
+    "sequence": [
+      {
+        "san": "Bxc2",
+        "explanation": "Bon coup. La combinaison continue.",
+        "hint": "Une prise peut libérer une ligne tout en éloignant un défenseur."
+      },
+      {
+        "san": "Qxc2",
+        "explanation": "Bon coup. La combinaison continue."
+      },
+      {
+        "san": "Rxf3",
+        "explanation": "La combinaison est terminée.",
+        "hint": "La position a changé : cherche comment poursuivre ton idée sans perdre de temps."
+      }
+    ],
+    "explanation": "Le fou quitte la colonne f en prenant une pièce. Lorsque la dame reprend, elle s’éloigne du cavalier et la tour dispose d’une colonne ouverte pour le capturer.",
+    "gain": "Un cavalier gagné après l’échange des fous.",
+    "principle": "Un seul déplacement peut libérer une ligne et retirer une protection."
+  },
+  {
+    "id": "kings-indian-tactic-2",
+    "openingId": "kings-indian",
+    "title": "Éloigner le défenseur",
+    "motif": "Déviation de la dame",
+    "difficulty": "Intermédiaire",
+    "provenance": {
+      "moves": [
+        "d4",
+        "d6",
+        "c4",
+        "g6",
+        "Nc3",
+        "Bg7",
+        "Bg5",
+        "Nf6",
+        "e4",
+        "Nbd7",
+        "Nf3",
+        "O-O",
+        "Bd3",
+        "Re8",
+        "Qd2",
+        "e5",
+        "dxe5",
+        "Nxe5",
+        "Nxe5",
+        "dxe5",
+        "Bh6"
+      ],
+      "gameUrl": "https://lichess.org/vnT0s8t4",
+      "puzzleUrl": "https://lichess.org/training/jMfAh",
+      "openingTag": "Kings_Indian_Defense",
+      "license": "CC0-1.0"
+    },
+    "fen": "r1bqr1k1/ppp2pbp/5npB/4p3/2P1P3/2NB4/PP1Q1PPP/R3K2R b KQ - 1 11",
+    "side": "b",
+    "sequence": [
+      {
+        "san": "Bxh6",
+        "explanation": "Bon coup. La combinaison continue.",
+        "hint": "Repère une pièce qui assure une protection importante."
+      },
+      {
+        "san": "Qxh6",
+        "explanation": "Bon coup. La combinaison continue."
+      },
+      {
+        "san": "Qxd3",
+        "explanation": "La combinaison est terminée.",
+        "hint": "La position a changé : cherche comment poursuivre ton idée sans perdre de temps."
+      }
+    ],
+    "explanation": "L’échange des fous attire la dame loin de la colonne d. Le fou resté au centre perd sa protection et peut être pris par la dame noire.",
+    "gain": "Un fou gagné après le premier échange.",
+    "principle": "Avant de reprendre, regarde ce que la pièce défendait."
+  }
+]

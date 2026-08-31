@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState, type CSSProperties, type KeyboardEvent } from 'react';
 import { Chessboard } from 'react-chessboard';
 import { Chess, type Square } from 'chess.js';
-import type { CompiledLesson, TrainerState } from '../trainer/model';
+import type { ScriptedExercise, TrainerState } from '../trainer/model';
 import { boardColors, chessPieces } from '../ui/pieces';
 
 type Props = {
-  lesson: CompiledLesson;
+  lesson: ScriptedExercise;
   state: TrainerState;
   fen: string;
   enabled: boolean;
@@ -64,11 +64,11 @@ export function TrainingBoard({ lesson, state, fen, enabled, onMove }: Props) {
       return;
     }
     const piece = game.get(square as Square);
-    if (selected && piece?.color !== lesson.opening.side) {
+    if (selected && piece?.color !== lesson.player) {
       submit(selected, square);
       return;
     }
-    if (piece?.color === lesson.opening.side) setSelection({ square, fen });
+    if (piece?.color === lesson.player) setSelection({ square, fen });
   }
 
   function keySquare(event: KeyboardEvent<HTMLDivElement>, square: string) {
@@ -113,12 +113,12 @@ export function TrainingBoard({ lesson, state, fen, enabled, onMove }: Props) {
           squareStyles,
           darkSquareNotationStyle: { color: '#10291e', fontWeight: 600, fontSize: 12 },
           lightSquareNotationStyle: { color: '#344a3c', fontWeight: 600, fontSize: 12 },
-          canDragPiece: ({ piece }) => enabled && piece.pieceType[0] === lesson.opening.side,
+          canDragPiece: ({ piece }) => enabled && piece.pieceType[0] === lesson.player,
           onPieceDrop: ({ sourceSquare, targetSquare }) =>
             targetSquare ? submit(sourceSquare, targetSquare) : false,
           onSquareClick: ({ square }) => clickSquare(square),
           arrows:
-            state.hintVisible && expected
+            state.solutionVisible && expected
               ? [
                   {
                     startSquare: expected.from,

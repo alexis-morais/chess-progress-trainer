@@ -68,7 +68,8 @@ export function Trainer({
       <TrainingAssistance
         lesson={lesson}
         state={state}
-        onReveal={() => dispatch({ type: 'hint' })}
+        onHint={() => dispatch({ type: 'hint' })}
+        onReveal={() => dispatch({ type: 'solution' })}
       />
       <div className="training-layout">
         <section className="board-section" aria-label="Zone de jeu">
@@ -178,8 +179,8 @@ export function Trainer({
                 : state.feedback === 'correct'
                   ? state.explanation
                   : lesson.opening.side === 'w'
-                    ? 'Lis l’indice au-dessus de l’échiquier, puis essaie le coup. « Voir le coup » révèle la flèche si tu hésites.'
-                    : 'Les Blancs commencent. Lis ensuite ton indice au-dessus de l’échiquier pour trouver la réponse.'}
+                    ? 'Observe la position et essaie le coup. Si tu hésites, choisis un indice ou la solution.'
+                    : 'Les Blancs commencent. Prends ensuite le temps de trouver ta réponse ; l’assistance reste facultative.'}
             </p>
           </div>
           <div className="session-stats">

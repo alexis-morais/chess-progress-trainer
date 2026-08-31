@@ -4,6 +4,7 @@ import { Trainer } from '../components/Trainer';
 import { HomePage } from '../components/HomePage';
 import { lessonModes, openings } from '../data/openings';
 import { compileLesson } from '../trainer/model';
+import { pedagogicalHint } from '../trainer/hints';
 import { COMPUTER_DELAY, CORRECT_FEEDBACK_DELAY } from '../trainer/useTrainer';
 
 function play(from: string, to: string) {
@@ -11,7 +12,7 @@ function play(from: string, to: string) {
   fireEvent.click(screen.getByRole('button', { name: new RegExp(`^${to},`) }));
 }
 
-describe('Indice → réflexion → Voir le coup → explication', () => {
+describe('Indice → réflexion → Solution → explication', () => {
   beforeEach(() => {
     vi.useFakeTimers();
     vi.stubGlobal(
@@ -31,15 +32,22 @@ describe('Indice → réflexion → Voir le coup → explication', () => {
         render(
           <Trainer lesson={lesson} onRestart={vi.fn()} onHome={vi.fn()} onVariants={vi.fn()} />,
         );
-        const reveal = screen.getByRole('button', { name: 'Voir le coup' });
+        const reveal = screen.getByRole('button', { name: 'Solution' });
         if (side === 'b') {
           expect(screen.queryByTestId('pedagogical-hint')).not.toBeInTheDocument();
           expect(reveal).toBeDisabled();
           act(() => vi.advanceTimersByTime(COMPUTER_DELAY));
         }
         const first = lesson.moves[side === 'w' ? 0 : 1];
+        expect(screen.queryByTestId('pedagogical-hint')).not.toBeInTheDocument();
+        const clue = screen.getByRole('button', { name: 'Indice' });
+        clue.focus();
+        expect(clue).toHaveFocus();
+        fireEvent.click(clue, { detail: 0 });
+        fireEvent.click(clue);
         const instruction = screen.getByTestId('pedagogical-hint').textContent;
-        expect(instruction).toContain('pion situé devant ton roi');
+        expect(instruction).toContain('contrôle au centre');
+        expect(instruction).not.toMatch(/pion|roi|[a-h][1-8]/);
         expect(screen.getByTestId('hints')).toHaveTextContent('0');
         expect(screen.queryByTestId('exact-move')).not.toBeInTheDocument();
         expect(document.querySelector('[id*="arrowhead-0-"]')).toBeNull();
@@ -69,7 +77,12 @@ describe('Indice → réflexion → Voir le coup → explication', () => {
         expect(screen.queryByTestId('exact-move')).not.toBeInTheDocument();
         expect(reveal).toBeDisabled();
         act(() => vi.advanceTimersByTime(CORRECT_FEEDBACK_DELAY));
-        expect(screen.getByTestId('pedagogical-hint').textContent).not.toBe(instruction);
+        expect(screen.queryByTestId('pedagogical-hint')).not.toBeInTheDocument();
+        expect(clue).toHaveAttribute('aria-pressed', 'false');
+        fireEvent.click(clue);
+        expect(screen.getByTestId('pedagogical-hint').textContent).toBe(
+          pedagogicalHint(lesson.moves[side === 'w' ? 2 : 3]),
+        );
         expect(screen.getByTestId('hints')).toHaveTextContent('1');
         expect(reveal).toHaveAttribute('aria-pressed', 'false');
         expect(document.querySelector('[id*="arrowhead-0-"]')).toBeNull();

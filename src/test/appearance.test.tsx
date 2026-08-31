@@ -151,7 +151,7 @@ describe('Thèmes et navigation sans perte de fonctionnalités', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Commencer l’entraînement' }));
     fireEvent.click(screen.getByRole('button', { name: 'd2, pion blanc' }));
     fireEvent.click(screen.getByRole('button', { name: 'd4, case vide' }));
-    fireEvent.click(screen.getByRole('button', { name: 'Voir le coup' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Solution' }));
     fireEvent.click(screen.getByRole('button', { name: 'e2, pion blanc' }));
     fireEvent.click(screen.getByRole('button', { name: 'e4, case vide' }));
     fireEvent.click(screen.getByRole('button', { name: 'Activer le thème sombre' }));

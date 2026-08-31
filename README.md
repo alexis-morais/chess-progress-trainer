@@ -2,22 +2,22 @@
 
 **Entraîne-toi aux ouvertures, coup après coup.**
 
-Prototype pédagogique du **Chess Progress Project 2026** : une application web en français pour apprendre **60 variantes d’échecs, chacune en deux niveaux**, soit 120 séquences, et **jouer des parties complètes contre Stockfish avec un bilan après la partie**. Gratuite, sans compte, sans publicité, sans clé API et sans serveur applicatif. Tout fonctionne dans le navigateur, sur ordinateur, tablette et smartphone.
+Prototype pédagogique du **Chess Progress Project 2026** : une application web en français pour apprendre **60 variantes d’échecs, chacune en deux niveaux**, soit 120 séquences, résoudre **20 tactiques issues de ces ouvertures**, et **jouer des parties complètes contre Stockfish avec un bilan après la partie**. Gratuite, sans compte, sans publicité, sans clé API et sans serveur applicatif. Tout fonctionne dans le navigateur, sur ordinateur, tablette et smartphone.
 
 Dans le **mode Ouvertures**, le principe reste inchangé :
 
 > Les coups de l’adversaire sont prédéfinis par les variantes pédagogiques. Stockfish est utilisé uniquement pour l’évaluation des positions.
 
-Dans le **mode Partie libre**, Stockfish choisit réellement ses coups. Les deux comportements sont séparés dans le code.
+Dans les **Tactiques**, les coups et réponses sont également scriptés : aucun moteur ne démarre pendant l’exercice. Stockfish sert à vérifier les solutions lors de la préparation des données. Dans le **mode Partie libre**, Stockfish choisit réellement ses coups. Ces trois usages sont séparés dans le code.
 
 Évolution du 30 août 2026 : accueil à deux entrées, vues dédiées, thèmes clair et sombre, échiquiers agrandis et pièces vectorielles classiques. Le catalogue, les deux formats, la partie libre, les bilans et les règles pédagogiques sont conservés.
 
-Mise à jour ciblée du 31 août 2026 : indice gratuit avant chaque décision, bouton **Voir le coup** directement au-dessus du plateau, cartes d’accueil entièrement cliquables et ajustements pour petits écrans. La direction artistique et les deux thèmes sont conservés.
+Mise à jour structurelle du 31 août 2026 : aide facultative **Indice | Solution** au-dessus du plateau, formats révélés dans la variante sélectionnée, et deux tactiques par ouverture. Les cartes d’accueil entièrement cliquables, les ajustements pour petits écrans, la direction artistique et les deux thèmes sont conservés.
 
 ## Navigation et apparence
 
 - **Accueil** : choisir entre apprendre les ouvertures et jouer contre l’ordinateur.
-- **Ouvertures** : parcourir les deux camps, choisir une variante et son format, puis commencer.
+- **Ouvertures** : parcourir les deux camps. Chaque ouverture propose **APPRENDRE** (variantes et formats) et **TACTIQUES** (exercices indépendants des variantes).
 - **Partie libre** : choisir son camp et le niveau de Stockfish, jouer puis consulter le bilan.
 - La navigation utilise les fragments `#/`, `#/ouvertures` et `#/partie`. Le retour du navigateur fonctionne et les liens sont actualisables sur GitHub Pages sans serveur de routage.
 - Le bouton **Clair / Sombre** dans l’en-tête change le thème sans interrompre la séance. Le choix initial suit le système ; un choix manuel est mémorisé localement avec la clé `chess-progress:theme:v1`. Si le stockage est bloqué, le choix reste valable pendant la session. Aucun compte ni synchronisation distante.
@@ -47,10 +47,10 @@ Les noms et positions caractéristiques ont été recoupés avec le [répertoire
 ## Utiliser le trainer
 
 1. Depuis l’accueil, cliquer sur **Explorer les ouvertures**. Choisir une ouverture dans « Jouer avec les Blancs » ou « Jouer avec les Noirs », puis l’une de ses six variantes.
-2. Sélectionner **Ligne essentielle** ou **Version étendue**, puis cliquer sur **Commencer l’entraînement**.
-3. Lire l’**indice pédagogique gratuit**, affiché avant chacun de tes coups dans la barre au-dessus du plateau : par exemple « Avance le pion situé devant ton roi de deux cases. » Il ne demande pas de connaître la notation et ne compte jamais comme une aide utilisée.
+2. Choisir **Ligne essentielle** ou **Version étendue** directement dans la carte sélectionnée, puis cliquer sur **Commencer l’entraînement**. Sur petit écran, la carte se remet légèrement en vue si nécessaire.
+3. Observer la position sans assistance imposée. Le composant **Indice | Solution** reste disponible au-dessus du plateau. **Indice** affiche une piste générale, par exemple « Cherche à prendre davantage de contrôle au centre. » Il est facultatif, ne désigne pas le déplacement et ne compte jamais comme une aide utilisée.
 4. Déplacer une pièce avec la souris, ou toucher sa case puis sa destination. Au clavier, utiliser les flèches puis Entrée ou Espace ; Échap annule la sélection.
-5. Si tu hésites, **Voir le coup** révèle la flèche et le déplacement exact, par exemple « Pion : e2 → e4 ». Cela compte **une seule aide par coup**, même après plusieurs clics. Le déplacement et la flèche disparaissent après le coup ; l’indice suivant arrive après la réponse adverse.
+5. **Solution** révèle la flèche et le déplacement exact du coup actuel, par exemple « Pion : e2 → e4 ». Cela compte **une seule aide par coup**, même après plusieurs clics. Indice, déplacement et flèche disparaissent après le coup ; le tour suivant commence à nouveau sans assistance visible.
 6. Seul le coup prévu est accepté. Un autre coup est refusé et compte comme une erreur ; la position ne change pas. La destination tentée devient rouge avec une croix blanche pendant 1 seconde.
 7. Après chaque bon coup, une coche verte apparaît sur la destination pendant 900 ms. Lire l’explication, puis regarder la réponse prédéfinie de l’ordinateur.
 8. À la fin, consulter le bilan avec le mode joué, rejouer dans le même mode ou changer de variante.
@@ -58,6 +58,16 @@ Les noms et positions caractéristiques ont été recoupés avec le [répertoire
 Ton camp est toujours en bas. Si tu joues les Noirs, l’ordinateur joue le premier coup blanc après 600 ms. La progression compte uniquement **tes** coups, pas ceux de l’adversaire. Le compteur principal indique les coups complétés ; « Coup 3 / 6 » désigne la prochaine décision attendue. Le dernier mouvement est surligné pour les deux camps.
 
 **Recommencer** et **Rejouer la variante** réinitialisent la position, la progression, les erreurs, les aides, les sélections, les badges, les minuteries et le moteur d’analyse. Le mode choisi est conservé. Les séances d’ouverture ne sont pas enregistrées : une actualisation revient au catalogue de la vue Ouvertures. Quitter cette vue termine la séance en cours.
+
+## Tactiques d’ouverture
+
+Chaque ouverture propose deux exercices, indépendants de ses six variantes. Ils commencent directement depuis une position réelle, avec le camp à jouer en bas : il peut s’agir de l’autre camp que celui travaillé dans le trainer théorique. Les exercices comprennent **1 à 3 décisions de l’élève** ; **19 sur 20 demandent plusieurs coups**. Les réponses adverses sont prédéfinies et l’aide ne révèle que le coup courant.
+
+Un coup inattendu est refusé, avec le même feedback rouge et compteur d’erreurs. Un bon coup reçoit une coche verte avant la réponse automatique. La fiche **Tactique réussie** explique le motif, le gain et le principe à retenir ; elle propose Rejouer, Tactique suivante si disponible, et Retour à l’ouverture. Les séances tactiques ne sont pas sauvegardées.
+
+Les positions proviennent de parties publiques et de puzzles **Lichess CC0**. Leur provenance complète, leur FEN et leur combinaison sont rejouées avec chess.js ; les solutions sont vérifiées séparément avec le Stockfish local. Ces positions illustrent des occasions possibles, pas des gains garantis dans toute partie. Certaines réponses illustrées ont des alternatives : seule la continuation pédagogique enregistrée est acceptée.
+
+Voir le [catalogue des 20 tactiques, leurs sources et la méthode de validation](TACTICS.md).
 
 ## Jouer contre l’ordinateur
 
@@ -99,7 +109,7 @@ Une seule recherche est active par Worker. Quitter l’analyse annule le travail
 
 ## Stockfish
 
-**Stockfish.js 18.0.8 Lite Single-Threaded**, exécuté dans un Web Worker/WASM. Les fichiers officiels `stockfish-18-lite-single.js` et `stockfish-18-lite-single.wasm` sont inclus dans `public/engine/`. Le WASM pèse environ 7,3 Mo et n’est chargé que lors d’un entraînement, d’une partie ou d’un bilan non sauvegardé. Les deux modes réutilisent ces mêmes fichiers ; aucune nouvelle dépendance moteur n’a été ajoutée. Aucun appel à un service d’analyse ou CDN pendant l’utilisation.
+**Stockfish.js 18.0.8 Lite Single-Threaded**, exécuté dans un Web Worker/WASM. Les fichiers officiels `stockfish-18-lite-single.js` et `stockfish-18-lite-single.wasm` sont inclus dans `public/engine/`. Le WASM pèse environ 7,3 Mo et n’est chargé que lors d’un entraînement théorique, d’une partie ou d’un bilan non sauvegardé, jamais pour les tactiques. Les modes réutilisent ces mêmes fichiers ; aucune nouvelle dépendance moteur n’a été ajoutée. Aucun appel à un service d’analyse ou CDN pendant l’utilisation.
 
 **Dans le trainer d’ouvertures** :
 
@@ -122,8 +132,10 @@ React 19, Vite 7, TypeScript, chess.js 1.4, react-chessboard 5.12, Lucide et Sto
 ```text
 src/data/openings.ts        Catalogue, modes et 16 lignes historiques
 src/data/repertoire.json    44 nouvelles lignes et 60 prolongements annotés
-src/trainer/model.ts        Validation et transitions de l’exercice
-src/trainer/hints.ts        Indices naturels et libellés précis à partir des coups légaux
+src/data/tactics.json       Tactiques, provenance, FEN, solutions et commentaires
+src/tactics/                Compilation et écran des exercices tactiques, sans moteur
+src/trainer/model.ts        Validation et transitions partagées des exercices scriptés
+src/trainer/hints.ts        Indices généraux facultatifs et libellés précis des solutions
 src/trainer/useTrainer.ts   Temporisation des réponses automatiques
 src/engine/                 Intégration UCI, isolation et gestion des erreurs
 src/components/             Accueil, plateau, évaluation et bilan
@@ -135,6 +147,7 @@ public/engine/             Moteur, sources correspondantes et réseau NNUE
 public/licenses/           Licences intégrales et attributions
 public/pieces/             Pièces 2D cburnett, sources SVG et attribution
 scripts/                   Vérification des fichiers et archives de distribution
+scripts/validate-tactics.mjs Validation Stockfish séparée, hors ligne
 .github/workflows/         Tests, build et déploiement automatiques
 ```
 
@@ -153,6 +166,7 @@ Ouvrir l’adresse indiquée, habituellement **http://127.0.0.1:5173/chess-progr
 pnpm test           # Tous les tests
 pnpm build          # TypeScript, intégrité Stockfish, sources GPL et build Vite
 pnpm preview        # Tester le dossier dist, habituellement sur le port 4173
+pnpm validate:tactics # Recontrôler les 20 solutions avec le moteur local (plus lent)
 pnpm run licenses   # Régénérer les crédits après une mise à jour des dépendances
 ```
 
@@ -160,7 +174,7 @@ Ne pas ouvrir `dist/index.html` en double-cliquant : les Workers/WASM doivent ê
 
 ### Tests et runners GitHub Actions
 
-Les **486 tests existants sont conservés**, avec **151 tests supplémentaires**, soit **637 tests**. Les anciens parcours utilisent désormais les cartes-liens de l’accueil et le libellé « Voir le coup » ; aucune assertion n’a été retirée. Les nouveaux tests parcourent chaque décision des 120 séances et couvrent les cas particuliers, les deux camps/formats, les compteurs et les cartes accessibles.
+Les **637 tests existants sont conservés**, avec **78 tests supplémentaires**, soit **715 tests**. Les assertions d’assistance sont adaptées au nouveau comportement demandé : indice facultatif et gratuit, Solution comptée. Les nouveaux contrôles couvrent les tactiques, leur provenance, les résultats Stockfish enregistrés, la navigation et la sélection des modes dans chaque carte.
 
 Dans `vite.config.ts`, le délai maximum par test est de **20 secondes en CI**, contre **5 secondes en local**. GitHub définit automatiquement `CI=true` : le workflow existant bénéficie donc du délai adapté aux runners partagés. Aucun test n’est désactivé et les échecs réels restent bloquants. Pour reproduire cette configuration localement : `CI=true pnpm test`. Ce réglage ne modifie pas les délais de l’application ni les recherches Stockfish.
 
@@ -175,9 +189,9 @@ Les données sont regroupées dans **`src/data/`** :
 
 Exemple d’un coup : `{ "san": "Nf3", "explanation": "Le cavalier contrôle le centre et prépare le roque." }`.
 
-Les indices sont générés automatiquement dans `src/trainer/hints.ts`, à partir du coup légal reconstruit par chess.js : pièce, départ, arrivée, capture, roque, promotion et position avant le mouvement. Les directions de roque suivent le côté affiché du joueur. Ces règles décrivent des faits simples ; elles ne cherchent pas à inventer une justification tactique. Stockfish n’intervient pas dans les indices.
+Les indices sont préparés localement dans `src/trainer/hints.ts`, à partir du coup légal reconstruit par chess.js : position, centre, développement, capture, échec, roque ou promotion. Ils ne s’affichent que sur demande et suggèrent une direction générale sans nommer le déplacement. Les règles restent prudentes et n’inventent pas une combinaison. Stockfish n’intervient pas dans les indices.
 
-Un champ facultatif `hint` permet un indice spécifique, sans modifier l’explication affichée après le coup : `{ "san": "Nf3", "explanation": "Le cavalier contrôle le centre et prépare le roque.", "hint": "Sors le cavalier situé près de ton roi vers le centre." }`. Dans les lignes historiques utilisant le helper `move`, cet indice peut être fourni comme troisième argument. Sans ce champ, aucune rédaction manuelle n’est nécessaire. Un indice personnalisé vide ou invalide est signalé lors de la compilation de la séance.
+Un champ facultatif `hint` permet un indice spécifique, sans modifier l’explication affichée après le coup : `{ "san": "Nf3", "explanation": "Le cavalier contrôle le centre et prépare le roque.", "hint": "Pense à développer une pièce tout en renforçant ton contrôle du centre." }`. Ne pas y indiquer de case, de notation ou de pièce exacte. Dans les lignes historiques utilisant le helper `move`, cet indice peut être fourni comme troisième argument. Sans ce champ, aucune rédaction manuelle n’est nécessaire. Un indice personnalisé vide ou invalide est signalé lors de la compilation de la séance.
 
 Les coups de données sont en **SAN internationale** : `Nf3` pour Cf3, `Bc4` pour Fc4, `Qxd5` pour Dxd5, `O-O` pour le petit roque. L’interface traduit automatiquement les lettres en français. Conserver les indications d’échec et de désambiguïsation (`Bb4+`, `Nfd7`, etc.).
 
@@ -213,11 +227,11 @@ Documentation officielle : [déploiement avec GitHub Actions](https://docs.githu
 
 ## Tests et compatibilité
 
-Les **637 tests** incluent les **402 tests historiques du trainer** : les **120 lignes** légales, les 60 préfixes exacts, les 60 positions de référence, les 16 variantes historiques et tous les comportements de l’entraînement. Les **71 tests de partie libre** vérifient les camps, les difficultés, les coups libres et illégaux, les fins de partie, les promotions, le protocole UCI, les analyses sérialisées et annulées, la classification, les commentaires, le graphique, la navigation et la sauvegarde validée. Les **13 tests ajoutés pour la refonte** couvrent les thèmes, les liens directs et retours, la conservation de la séance lors d’un changement de thème et le graphique responsive. Les **151 nouveaux tests d’aide et d’accessibilité** vérifient un indice gratuit à chaque décision des 120 séances, les cas particuliers, les révélations uniques, la réinitialisation et les cartes-liens. Les tests UI utilisent le vrai composant react-chessboard ; le processus Worker y est simulé. Le vrai moteur est aussi essayé dans le navigateur de production.
+Les **715 tests** incluent les **402 tests historiques du trainer**, les **71 tests de partie libre**, les **13 tests de la refonte**, les **151 tests d’aide et d’accessibilité**, et les **78 tests structurels et tactiques**. Les 120 lignes et leurs préfixes, les 16 variantes historiques, les règles d’échecs, les trois difficultés, le bilan, le graphique, le stockage, les thèmes et le clavier restent couverts. Les tests UI utilisent le vrai composant react-chessboard ; le processus Worker y est simulé. Le vrai moteur est aussi essayé dans le navigateur de production et par la validation tactique séparée.
 
 La compilation cible Chrome 107+, Firefox 104+ et Safari 16+. Le moteur amont vise les navigateurs modernes avec WebAssembly (notamment iOS 16+). La version de production est à vérifier sur HTTP(S), à l’URL avec son sous-répertoire. Si un appareil refuse le WASM, l’exercice reste accessible.
 
-Le catalogue utilise des aperçus statiques légers ; seule la séance sélectionnée est compilée avec chess.js. Le module Partie libre est chargé à la demande. Stockfish ne démarre ni sur l’accueil ni sur l’écran de configuration. Dans les parties et le trainer, il ne calcule que la position courante ; dans le bilan, il parcourt la partie une position à la fois.
+Le catalogue utilise des aperçus statiques légers ; seule la séance sélectionnée est compilée avec chess.js. Le module Partie libre est chargé à la demande. Stockfish ne démarre ni sur l’accueil, ni sur l’écran de configuration, ni pendant les tactiques. Dans les parties et le trainer, il ne calcule que la position courante ; dans le bilan, il parcourt la partie une position à la fois. Les rapports de validation tactique restent dans les tests et ne sont pas chargés par le site.
 
 Le contrôle navigateur réalisé lors de la livraison et ses limites sont consignés dans `VALIDATION.md`. Une simulation de taille mobile ne remplace pas un test sur un appareil physique.
 

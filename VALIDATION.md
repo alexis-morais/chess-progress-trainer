@@ -2,32 +2,36 @@
 
 ## Résultat
 
-- **637 tests réussis / 637** dans douze fichiers : les 486 tests existants conservés et 151 contrôles supplémentaires pour les indices et les cartes accessibles. Aucun test supprimé ni désactivé ; seuls les libellés et rôles des contrôles modifiés ont été adaptés dans les anciens parcours.
-- **Configuration CI : 637 / 637**, avec `CI=true pnpm test`. Timeout inchangé : 20 secondes en CI, 5 secondes en local. Aucun workflow distant déclenché.
+- **715 tests réussis / 715** dans quinze fichiers : les 637 tests précédents conservés et 78 contrôles supplémentaires pour les tactiques et la sélection des modes. Aucun test supprimé ni désactivé ; les assertions d’assistance ont été adaptées au comportement explicitement demandé (indice facultatif, Solution comptée).
+- **Configuration CI : 715 / 715**, avec `CI=true pnpm test`. Timeout inchangé : 20 secondes en CI, 5 secondes en local. Aucun workflow distant déclenché.
 - **120 / 120 séquences légales**, entièrement rejouées depuis la position initiale avec chess.js en SAN stricte : 60 essentielles et 60 étendues.
 - Exactement **10 ouvertures, 5 par camp, 6 variantes chacune**.
 - Les **16 variantes historiques** gardent leurs identifiants, noms, coups et explications.
 - Les 60 prolongements reprennent exactement leur ligne essentielle. Longueurs : 12–14 demi-coups essentiels et 20–29 étendus.
 - Les noms ont été recoupés avec **60 positions de référence Lichess CC0**, conservées dans les fixtures. Les transpositions sont comparées par position.
 - **Build de production réussi**, TypeScript et intégrité Stockfish compris, sans avertissement de taille.
+- **20 tactiques sur 20 validées** : provenance complète, identité d’ouverture, FEN, trait, solution et réponses légales. Vérification séparée des **68 positions** avec Stockfish 18 Lite ; 44 décisions de l’élève, toutes égales au meilleur coup trouvé. **19 exercices multi-coups**. Méthode, limites et sources dans [TACTICS.md](TACTICS.md).
 - **Aucune publication GitHub**, conformément à la demande. Le workflow et le préfixe GitHub Pages restent en place.
 
 ## Tests automatiques
 
-| Fichier                             | Tests | Couverture                                                                                                                                                                                                                                |
-| ----------------------------------- | ----: | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `src/test/openings.test.ts`         |   259 | Catalogue 10 × 6, répartition 5/5, identifiants, 120 séquences légales, 60 préfixes exacts, 60 positions nommées, conservation des 16 historiques, données invalides et notation française                                                |
-| `src/test/trainer.test.ts`          |   127 | Les 120 séances : orientation, réponses scriptées, progression, fin, reset ; coups interdits, erreurs, aides uniques, badges et minuteries périmées                                                                                       |
-| `src/test/engine.test.ts`           |     7 | UCI, scores et mats, point de vue des Blancs, limites de recherche, dernières positions, pannes, délais et destruction                                                                                                                    |
-| `src/test/app.test.tsx`             |     9 | Sélection ouverture/variante/mode, absence de moteur sur l’accueil, vrai échiquier React, refus, couleurs et badges, délais 600/900/1000 ms, flèche, compteurs, clavier, deux modes jusqu’au bilan et reprise                             |
-| `src/test/computer-game.test.ts`    |    13 | Camps, hasard, niveaux, coups illégaux, réponses périmées, mat, pat, répétition, 50 coups, matériel, abandon, roque, prise en passant et promotions                                                                                       |
-| `src/test/computer-engine.test.ts`  |    13 | Options Skill Level, vrai usage de bestmove dans ce module, historique complet, scores, PV, sérialisation, barrières UCI, annulations, pannes et délais                                                                                   |
-| `src/test/computer-review.test.ts`  |    20 | Catégories, scores vus des Noirs, mats et positions déséquilibrées, analyse séquentielle, progression, annulation, navigation, précision et commentaires prudents                                                                         |
-| `src/test/computer-storage.test.ts` |    13 | Dernière partie et bilan restaurés, stockage bloqué, données illégales ou corrompues, résultats incohérents, conservation de la partie si le bilan est endommagé                                                                          |
-| `src/test/computer-ui.test.tsx`     |    13 | Vrai échiquier + protocole UCI simulé : accueil, camps/niveaux, réponse libre, mat, promotion, abandon confirmé, panne/reprise, bilan et sauvegarde, courbe, redimensionnement et annulation                                              |
-| `src/test/appearance.test.tsx`      |    12 | Système clair/sombre, préférence mémorisée, stockage bloqué, changement entre onglets, navigation et liens directs, retour, lien clavier, séance conservée pendant le changement de thème, initialisation avant React et douze SVG locaux |
-| `src/test/hints.test.ts`            |   144 | Indice gratuit à chaque décision des 120 séances, absence de coordonnées dans les indices automatiques, captures, quatre roques orientés, promotions, prise en passant, déplacements factuels, override et données invalides              |
-| `src/test/guidance.test.tsx`        |     7 | Deux camps × deux formats sur le vrai échiquier : indice, erreur, révélation exacte et flèche unique, reset au coup suivant ; cartes-liens, clic surface/texte/flèche, focus et contrat d’activation clavier                              |
+| Fichier                                 | Tests | Couverture                                                                                                                                                                                                                                |
+| --------------------------------------- | ----: | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `src/test/openings.test.ts`             |   259 | Catalogue 10 × 6, répartition 5/5, identifiants, 120 séquences légales, 60 préfixes exacts, 60 positions nommées, conservation des 16 historiques, données invalides et notation française                                                |
+| `src/test/trainer.test.ts`              |   127 | Les 120 séances : orientation, réponses scriptées, progression, fin, reset ; coups interdits, erreurs, aides uniques, badges et minuteries périmées                                                                                       |
+| `src/test/engine.test.ts`               |     7 | UCI, scores et mats, point de vue des Blancs, limites de recherche, dernières positions, pannes, délais et destruction                                                                                                                    |
+| `src/test/app.test.tsx`                 |     9 | Sélection ouverture/variante/mode, absence de moteur sur l’accueil, vrai échiquier React, refus, couleurs et badges, délais 600/900/1000 ms, flèche, compteurs, clavier, deux modes jusqu’au bilan et reprise                             |
+| `src/test/computer-game.test.ts`        |    13 | Camps, hasard, niveaux, coups illégaux, réponses périmées, mat, pat, répétition, 50 coups, matériel, abandon, roque, prise en passant et promotions                                                                                       |
+| `src/test/computer-engine.test.ts`      |    13 | Options Skill Level, vrai usage de bestmove dans ce module, historique complet, scores, PV, sérialisation, barrières UCI, annulations, pannes et délais                                                                                   |
+| `src/test/computer-review.test.ts`      |    20 | Catégories, scores vus des Noirs, mats et positions déséquilibrées, analyse séquentielle, progression, annulation, navigation, précision et commentaires prudents                                                                         |
+| `src/test/computer-storage.test.ts`     |    13 | Dernière partie et bilan restaurés, stockage bloqué, données illégales ou corrompues, résultats incohérents, conservation de la partie si le bilan est endommagé                                                                          |
+| `src/test/computer-ui.test.tsx`         |    13 | Vrai échiquier + protocole UCI simulé : accueil, camps/niveaux, réponse libre, mat, promotion, abandon confirmé, panne/reprise, bilan et sauvegarde, courbe, redimensionnement et annulation                                              |
+| `src/test/appearance.test.tsx`          |    12 | Système clair/sombre, préférence mémorisée, stockage bloqué, changement entre onglets, navigation et liens directs, retour, lien clavier, séance conservée pendant le changement de thème, initialisation avant React et douze SVG locaux |
+| `src/test/hints.test.ts`                |   144 | Indice gratuit à chaque décision des 120 séances, absence de coordonnées dans les indices automatiques, captures, quatre roques orientés, promotions, prise en passant, déplacements factuels, override et données invalides              |
+| `src/test/guidance.test.tsx`            |     7 | Deux camps × deux formats sur le vrai échiquier : indice, erreur, révélation exacte et flèche unique, reset au coup suivant ; cartes-liens, clic surface/texte/flèche, focus et contrat d’activation clavier                              |
+| `src/test/tactics.test.ts`              |    63 | Catalogue, provenance indépendante, identité des dix ouvertures, légalité, FEN, trait, empreintes des validations Stockfish, meilleures solutions, défenses, erreurs, compteurs, aides, fin et réinitialisation                           |
+| `src/test/tactics-ui.test.tsx`          |    13 | Vrai échiquier : une tactique de chaque ouverture jusqu’à la fiche finale, combinaisons, mat en un, refus et feedback, assistance facultative, flèches, replay, suivant, retour, clavier, thèmes et absence de Worker                     |
+| `src/test/variation-selection.test.tsx` |     2 | Modes dans la carte sélectionnée, remplacement de la précédente sélection, boutons/radios natifs, remise en vue conditionnelle et réduction des animations                                                                                |
 
 Le nouveau test de graphique vérifie le changement de largeur, les libellés non étirés, la sélection conservée et le retrait de l’observateur à la fermeture.
 
@@ -35,7 +39,35 @@ Commandes : `pnpm test`, puis `pnpm check` pour le contrôle final avec build. L
 
 L’optimisation précédente des aperçus statiques est conservée. Pour les runners GitHub partagés, `vite.config.ts` conserve **20 000 ms par test si `CI` est défini**, et **5 000 ms en local**. Aucun contournement des assertions ni nouvelle tentative automatique. La suite complète est également exécutée localement avec `CI=true pnpm test`. Aucun workflow distant n’a été déclenché.
 
-## Mise à jour ciblée : débutants et petits écrans
+## Nouvelle version structurelle : assistance facultative et tactiques
+
+- Le composant segmenté **Indice | Solution** est partagé par les ouvertures et les tactiques. Aucun texte ni flèche n’apparaît au départ. Indice suggère une idée générale et ne compte aucune aide ; Solution révèle uniquement le coup courant et compte une aide par décision. Tout se cache après chaque coup. Un clic répété ne change pas les compteurs. Les explications après les bons coups d’ouverture restent intactes.
+- Les deux formats apparaissent **dans la carte de la variante choisie**. À 320 px, après sélection de Deux Cavaliers, la carte a été remise en vue de 18 à 483 px de hauteur ; ses deux choix étaient entièrement visibles entre 129 et 362 px. Aucun panneau déporté en bas de liste. Le détail de l’ancienne variante se ferme lors du changement.
+- **Italienne / Deux Cavaliers / essentielle** terminée dans le vrai navigateur : refus de d4 avec 1 erreur, indice gratuit, flèche e2 → e4, Solution répétée = 1 aide, réponses automatiques, roque, fin 6/6 et replay à zéro.
+- **Française / Avance / étendue** terminée : Noirs en bas, premier coup blanc automatique, dix décisions jusqu’à 10/10, flèches correctement orientées et réinitialisation complète au replay. Stockfish affiche « Analyse locale active » depuis le build.
+- **Douze tactiques réellement terminées**, couvrant les dix ouvertures : Fourchette avec échec et Deux menaces à la fois (Italienne), Déjouer la fourchette (Écossaise), Guider le roi vers le coin (Viennoise), Attirer le roi (Gambit Dame), Un défenseur immobilisé et Coordonner l’attaque (Londres), Punir la sortie de dame (Française), Retirer l’obstacle (Scandinave), Une ouverture de colonne calculée (Caro-Kann), Maintenir la pression (Sicilienne), Libérer une colonne (Est-Indienne).
+- Ces essais couvrent un mat en un, plusieurs combinaisons de trois décisions, les deux orientations, l’aide actuelle seule, les explications finales, Rejouer et Tactique suivante. Retour à l’ouverture retrouve la bonne carte et lui rend le focus. Les tests UI rejouent en plus un mauvais coup et toute la combinaison pour chacune des dix ouvertures, sans aucune création de Worker.
+- **Partie libre** : e4 joué contre le vrai Stockfish Débutant, réponse libre d5, retour « À toi de jouer ». Le bilan précédemment sauvegardé a été rouvert sans remplacer la sauvegarde : précision, graphique, commentaire de Cf6, suite conseillée et navigation précédent/suivant conservés. Aucun module de partie libre ou d’analyse modifié.
+- Console de ces parcours sans avertissement ni erreur. Aucune requête d’analyse externe ni nouveau paquet npm. Les documents et licences accompagnent les nouvelles données. Le bundle d’échiquier est séparé du principal pour conserver un build sans avertissement, sans changer la limite d’avertissement.
+
+### Responsive de cette version, dans le build de production
+
+| Viewport | Accueil, catalogue et formats | Trainer clair/sombre | Tactiques clair/sombre | Partie libre et bilan | Plateau d’ouverture | Plateau tactique |
+| -------- | ----------------------------- | -------------------- | ---------------------- | --------------------- | ------------------: | ---------------: |
+| 320 px   | Sans débordement              | Sans débordement     | Sans débordement       | Sans débordement      |              259 px |           288 px |
+| 375 px   | Sans débordement              | Sans débordement     | Sans débordement       | Sans débordement      |              314 px |           343 px |
+| 390 px   | Sans débordement              | Sans débordement     | Sans débordement       | Sans débordement      |              329 px |           358 px |
+| 430 px   | Sans débordement              | Sans débordement     | Sans débordement       | Sans débordement      |              369 px |           398 px |
+| 820 px   | Sans débordement              | Sans débordement     | Sans débordement       | Sans débordement      |              702 px |           740 px |
+| 1440 px  | Sans débordement              | Sans débordement     | Sans débordement       | Sans débordement      |              832 px |           870 px |
+
+Hauteurs simulées : 844 px pour les cinq premiers formats, 1000 px sur desktop. Le bas du composant Indice | Solution se situe entre **329 et 340 px sur les quatre formats téléphone** au début d’une séance. Les fiches finales ont aussi été contrôlées aux quatre largeurs, sans débordement. Le panneau passe sous le plateau sur petit écran et reste latéral sur desktop.
+
+Mesures avec `scripts/audit-responsive.js` : rectangles des composants, largeur de défilement, cartes, nouveaux modes, assistance et fiches tactiques. Captures réelles complémentaires en clair/sombre. Les simulations ne remplacent pas des appareils physiques. Chromium a été exécuté ; Safari/Firefox restent vérifiés par les cibles du build, pas par une nouvelle exécution. Les contrôles clavier reposent sur les éléments natifs, leurs rôles/focus et les tests de l’échiquier ; pas de clavier physique testé.
+
+## Archive : précédente mise à jour débutants et petits écrans
+
+Les points ci-dessous décrivent la version précédente. Son indice automatique et son libellé « Voir le coup » ont été remplacés par le système facultatif décrit ci-dessus ; les contrôles historiques restent documentés.
 
 - L’indice apparaît avant chaque coup de l’élève, sans action ni incrément de compteur. Il décrit des faits issus du coup légal de chess.js et reste distinct de l’explication pédagogique conservée après le coup. Aucun changement de ligne ou de décision du moteur.
 - « Voir le coup » est placé sous le titre, avant le plateau. Deux clics pendant le même tour donnent une seule aide, le nom de la pièce, les coordonnées et la flèche existante. Après le bon coup, la flèche et les coordonnées disparaissent ; l’indice suivant arrive après la réponse scriptée.

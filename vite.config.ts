@@ -4,7 +4,10 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   base: '/chess-progress-trainer/',
-  build: { target: ['chrome107', 'firefox104', 'safari16'] },
+  build: {
+    target: ['chrome107', 'firefox104', 'safari16'],
+    rollupOptions: { output: { manualChunks: { chessboard: ['react-chessboard'] } } },
+  },
   test: {
     environment: 'jsdom',
     setupFiles: ['./src/test/setup.ts'],

@@ -12,10 +12,15 @@
     '.opening-card',
     '.opening-card-copy',
     '.variant-option',
+    '.variant-card',
     '.mode-option',
     '.training-assistance',
+    '.assistance-segments',
     '.instruction-copy',
-    '.hint-button',
+    '.assistance-segments button',
+    '.tactic-card',
+    '.tactic-explanation',
+    '.completion-dialog[open]',
     '.training-board',
     '.training-panel',
     '.computer-board',
@@ -35,7 +40,7 @@
   }
   if (document.documentElement.scrollWidth > innerWidth + 1) issues.push('La page déborde');
   const board = document.querySelector('.training-board, .computer-board');
-  const reveal = document.querySelector('.hint-button');
+  const reveal = document.querySelector('.assistance-segments button:last-child');
   return {
     width: innerWidth,
     theme: document.documentElement.dataset.theme,

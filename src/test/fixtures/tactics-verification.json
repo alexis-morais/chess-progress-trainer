@@ -1,0 +1,5142 @@
+{
+  "engine": "Stockfish.js 18 Lite Single-Threaded",
+  "settings": {
+    "depth": 18,
+    "movetime": 1500,
+    "multiPV": 3,
+    "skill": 20,
+    "hashMB": 32
+  },
+  "checkedAt": "2026-08-31T01:15:18.624Z",
+  "puzzles": [
+    {
+      "id": "italian-tactic-1",
+      "fingerprint": "acc5c7badff439484ede340ee8639eee88480393f3b29d0d006503eb3050dd80",
+      "checked": [
+        {
+          "fen": "r1bqk2r/pppp1ppp/7n/3N2N1/2Q1P3/4b3/P4PPP/R4RK1 w kq - 0 14",
+          "san": "Nxc7+",
+          "uci": "d5c7",
+          "playerMove": true,
+          "bestmove": "d5c7",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": 387,
+              "pv": [
+                "d5c7",
+                "e8f8",
+                "f2e3",
+                "d7d5",
+                "c4c5",
+                "d8e7",
+                "g5e6",
+                "c8e6",
+                "c7e6",
+                "f8e8",
+                "e6g7",
+                "e8d7",
+                "c5d5",
+                "d7c7",
+                "a1c1",
+                "c7b8",
+                "f1f3",
+                "h6g4",
+                "h2h3",
+                "e7e5",
+                "h3g4",
+                "e5g7",
+                "d5f7",
+                "g7f7",
+                "f3f7"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": 3,
+              "pv": [
+                "g5f7",
+                "h6f7",
+                "d5c7",
+                "d8c7",
+                "c4c7",
+                "e3b6",
+                "c7c4",
+                "d7d6",
+                "a1d1",
+                "c8d7",
+                "e4e5",
+                "e8g8",
+                "d1d6",
+                "d7c6",
+                "f1e1",
+                "g8h8",
+                "d6c6",
+                "b7c6",
+                "e5e6"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -128,
+              "pv": [
+                "f2e3",
+                "e8g8",
+                "d5c7",
+                "d7d5",
+                "e4d5",
+                "d8g5",
+                "c7a8",
+                "c8h3",
+                "f1f2",
+                "f8a8",
+                "c4f4",
+                "g5g6",
+                "a1c1",
+                "h3f5",
+                "c1c7",
+                "g6b6",
+                "f2d2",
+                "a8d8",
+                "h2h3",
+                "g8f8",
+                "d5d6",
+                "f5e6",
+                "g2g4"
+              ]
+            }
+          ]
+        },
+        {
+          "fen": "r1bqk2r/ppNp1ppp/7n/6N1/2Q1P3/4b3/P4PPP/R4RK1 b kq - 0 14",
+          "san": "Qxc7",
+          "uci": "d8c7",
+          "playerMove": false,
+          "bestmove": "e8f8",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -391,
+              "pv": [
+                "e8f8",
+                "f2e3",
+                "d7d5",
+                "c4c5",
+                "d8e7",
+                "c5e7",
+                "f8e7",
+                "c7a8",
+                "f7f6",
+                "g5f3",
+                "d5e4",
+                "f3d4",
+                "h6g4",
+                "a8c7",
+                "e7d6",
+                "a1c1",
+                "g4e3",
+                "f1e1",
+                "d6e5",
+                "e1e3",
+                "e5d4"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -431,
+              "pv": [
+                "d8c7",
+                "c4c7",
+                "e3d4",
+                "a1c1",
+                "e8g8",
+                "c7d6",
+                "d4b6",
+                "g5h7",
+                "f8e8",
+                "h7g5",
+                "h6g4",
+                "d6d5",
+                "e8f8",
+                "d5f5",
+                "g4f6",
+                "e4e5",
+                "d7d5",
+                "f5f4",
+                "f6e4",
+                "g5e4",
+                "d5e4",
+                "f4e4"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -507,
+              "pv": [
+                "e8e7",
+                "f2e3",
+                "f7f6",
+                "c7a8",
+                "d8a5",
+                "g5f3",
+                "d7d5",
+                "e4d5",
+                "h6f5",
+                "c4c7",
+                "a5c7",
+                "a8c7",
+                "c8d7",
+                "e3e4",
+                "e7d6",
+                "e4f5"
+              ]
+            }
+          ]
+        },
+        {
+          "fen": "r1b1k2r/ppqp1ppp/7n/6N1/2Q1P3/4b3/P4PPP/R4RK1 w kq - 0 15",
+          "san": "Qxc7",
+          "uci": "c4c7",
+          "playerMove": true,
+          "bestmove": "c4c7",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": 427,
+              "pv": [
+                "c4c7",
+                "e3d4",
+                "a1d1",
+                "d4f6",
+                "c7f4",
+                "d7d5",
+                "f1e1",
+                "d5d4",
+                "h2h3",
+                "e8g8",
+                "g5f3",
+                "c8e6",
+                "f3d4",
+                "a8c8",
+                "f4f3",
+                "f6e7",
+                "d4e6",
+                "f7e6",
+                "f3b3",
+                "e7c5"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -541,
+              "pv": [
+                "c4d5",
+                "e3g5",
+                "d5g5",
+                "e8g8",
+                "f1d1",
+                "c7d8",
+                "g5d2",
+                "f8e8",
+                "a1c1",
+                "g8h8",
+                "h2h3",
+                "b7b6",
+                "a2a4",
+                "c8b7",
+                "d2d7",
+                "d8d7",
+                "d1d7",
+                "b7e4"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -560,
+              "pv": [
+                "c4b5",
+                "e3b6",
+                "a1c1",
+                "c7f4",
+                "g5h3",
+                "f4f6",
+                "e4e5",
+                "f6e7",
+                "h3f4",
+                "e8g8",
+                "f4d5",
+                "e7d8",
+                "d5b6",
+                "a7b6",
+                "f2f4",
+                "d7d5"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "italian-tactic-2",
+      "fingerprint": "b99ea68ede5d5068a9e0c42dbb9705eb87a33d0a9a43752d637b0a3ffc3b2897",
+      "checked": [
+        {
+          "fen": "r1bk1b1r/ppp1qBpp/2np1n2/4p1N1/4P3/2N5/PPPP1PPP/R1BQ1RK1 b - - 1 7",
+          "san": "h6",
+          "uci": "h7h6",
+          "playerMove": true,
+          "bestmove": "h7h6",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": 253,
+              "pv": [
+                "h7h6",
+                "f7g6",
+                "h6g5",
+                "d2d3",
+                "h8h6",
+                "g6f5",
+                "c8f5",
+                "e4f5",
+                "e7d7",
+                "c1g5",
+                "h6h8",
+                "c3d5",
+                "d7f7",
+                "c2c4",
+                "f8e7",
+                "f2f4",
+                "f6d5",
+                "c4d5",
+                "f7d5",
+                "d1g4",
+                "e7f6"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -111,
+              "pv": [
+                "c6d4",
+                "f7c4",
+                "d8e8",
+                "c3b5",
+                "d4b5",
+                "c4b5",
+                "c7c6",
+                "b5e2",
+                "h7h6",
+                "e2h5",
+                "e8d7",
+                "g5f7",
+                "h8g8",
+                "f2f4",
+                "f6h5",
+                "d1h5"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -184,
+              "pv": [
+                "g7g6",
+                "f7c4",
+                "d8e8",
+                "g5f7",
+                "h8g8",
+                "d2d3",
+                "g8g7",
+                "f7g5",
+                "h7h6",
+                "g5f3",
+                "c8g4"
+              ]
+            }
+          ]
+        },
+        {
+          "fen": "r1bk1b1r/ppp1qBp1/2np1n1p/4p1N1/4P3/2N5/PPPP1PPP/R1BQ1RK1 w - - 0 8",
+          "san": "Bg6",
+          "uci": "f7g6",
+          "playerMove": false,
+          "bestmove": "f7g6",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -256,
+              "pv": [
+                "f7g6",
+                "h6g5",
+                "d2d3",
+                "h8h6",
+                "g6f5",
+                "c8f5",
+                "e4f5",
+                "e7d7",
+                "c1g5",
+                "h6h8",
+                "g5f6",
+                "g7f6",
+                "d1f3",
+                "d7h7",
+                "h2h3",
+                "d8c8",
+                "f3g4"
+              ]
+            },
+            {
+              "depth": 17,
+              "type": "cp",
+              "value": -257,
+              "pv": [
+                "d2d3",
+                "h6g5",
+                "f7g6",
+                "h8h6",
+                "g6f5",
+                "c8f5",
+                "e4f5",
+                "e7d7",
+                "c1g5",
+                "h6h8",
+                "g5f6",
+                "g7f6",
+                "d1f3",
+                "d7h7",
+                "h2h3",
+                "d8c8",
+                "a2a4"
+              ]
+            },
+            {
+              "depth": 17,
+              "type": "cp",
+              "value": -288,
+              "pv": [
+                "f7c4",
+                "h6g5",
+                "d2d3",
+                "g5g4",
+                "f2f4",
+                "e7e8",
+                "f4e5",
+                "d6e5",
+                "d3d4",
+                "c6d4",
+                "c1g5",
+                "e8h5",
+                "h2h4",
+                "g4h3",
+                "d1h5",
+                "h8h5",
+                "g5f6",
+                "g7f6",
+                "f1f6"
+              ]
+            }
+          ]
+        },
+        {
+          "fen": "r1bk1b1r/ppp1q1p1/2np1nBp/4p1N1/4P3/2N5/PPPP1PPP/R1BQ1RK1 b - - 1 8",
+          "san": "hxg5",
+          "uci": "h6g5",
+          "playerMove": true,
+          "bestmove": "h6g5",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": 254,
+              "pv": [
+                "h6g5",
+                "d2d3",
+                "h8h6",
+                "g6f5",
+                "c8f5",
+                "e4f5",
+                "h6h8",
+                "c1g5",
+                "e7d7",
+                "c3d5",
+                "d7f5",
+                "f2f4",
+                "d8c8",
+                "g5f6",
+                "g7f6",
+                "f4e5",
+                "f5e5",
+                "d5f4",
+                "e5g5"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -139,
+              "pv": [
+                "c8g4",
+                "g5f7",
+                "e7f7",
+                "d1g4",
+                "c6d4",
+                "g6f7",
+                "f6g4",
+                "f7b3",
+                "f8e7",
+                "f2f3",
+                "g4f6",
+                "d2d3",
+                "c7c6",
+                "c1e3",
+                "f6d7",
+                "e3d4",
+                "e5d4",
+                "c3e2",
+                "e7f6",
+                "f3f4",
+                "a7a5",
+                "a2a4",
+                "h8e8",
+                "e2g3",
+                "d8c7"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -202,
+              "pv": [
+                "c8e6",
+                "g5e6",
+                "e7e6",
+                "d2d3",
+                "c6e7",
+                "g6h5",
+                "g7g5",
+                "h5e2",
+                "e7g6",
+                "a2a4",
+                "a7a6",
+                "a4a5",
+                "g6f4",
+                "a1a4"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "scotch-tactic-1",
+      "fingerprint": "ae813e45753267e26473bd3c7b88c2f3e0415c1d5bf712e6eb7e7c8862f2ab59",
+      "checked": [
+        {
+          "fen": "r1b1kb1r/ppp2ppp/3p1q1n/6N1/2BQPP2/5n2/PPP3PP/RNB2RK1 w kq - 1 9",
+          "san": "Nxf3",
+          "uci": "g5f3",
+          "playerMove": true,
+          "bestmove": "g5f3",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": 432,
+              "pv": [
+                "g5f3",
+                "f6d4",
+                "f3d4",
+                "c8d7",
+                "b1d2",
+                "e8c8",
+                "c2c3",
+                "d8e8",
+                "f1e1",
+                "g7g6",
+                "a2a4",
+                "f8g7",
+                "d2f3",
+                "e8e7",
+                "c4b5",
+                "h8e8",
+                "e4e5"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -453,
+              "pv": [
+                "g1h1",
+                "f6d4",
+                "c4b5",
+                "c7c6",
+                "g5f3",
+                "d4c5",
+                "b5d3",
+                "c8d7",
+                "f4f5",
+                "h6g4",
+                "h2h3"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -569,
+              "pv": [
+                "f1f3",
+                "f6d4",
+                "c1e3",
+                "d4c4",
+                "b1c3",
+                "f7f6",
+                "c3d5",
+                "f6g5",
+                "e3f2",
+                "c7c6",
+                "d5c7",
+                "e8d8",
+                "c7a8",
+                "c4c2",
+                "f4g5",
+                "c2b2",
+                "f2a7"
+              ]
+            }
+          ]
+        },
+        {
+          "fen": "r1b1kb1r/ppp2ppp/3p1q1n/8/2BQPP2/5N2/PPP3PP/RNB2RK1 b kq - 0 9",
+          "san": "Qxd4+",
+          "uci": "f6d4",
+          "playerMove": false,
+          "bestmove": "f6d4",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -430,
+              "pv": [
+                "f6d4",
+                "f3d4",
+                "g7g6",
+                "c2c3",
+                "c8d7",
+                "b1d2",
+                "f8g7",
+                "d2f3",
+                "e8c8",
+                "c1d2",
+                "c7c5",
+                "d4b5",
+                "d6d5",
+                "e4d5",
+                "d7b5",
+                "c4b5",
+                "d8d5"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -464,
+              "pv": [
+                "d6d5",
+                "d4f6",
+                "g7f6",
+                "c4d5",
+                "c8d7",
+                "b1c3",
+                "f6f5",
+                "d5b7",
+                "a8b8",
+                "b7d5",
+                "h8g8",
+                "g1h1",
+                "h6g4",
+                "h2h3"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -478,
+              "pv": [
+                "c8g4",
+                "d4f6",
+                "g7f6",
+                "c4b5",
+                "c7c6",
+                "b5d3",
+                "e8c8",
+                "h2h3",
+                "g4f3",
+                "f1f3",
+                "d6d5",
+                "e4d5",
+                "d8d5",
+                "g1f1",
+                "d5d3",
+                "c2d3",
+                "h6f5",
+                "g2g4"
+              ]
+            }
+          ]
+        },
+        {
+          "fen": "r1b1kb1r/ppp2ppp/3p3n/8/2BqPP2/5N2/PPP3PP/RNB2RK1 w kq - 0 10",
+          "san": "Nxd4",
+          "uci": "f3d4",
+          "playerMove": true,
+          "bestmove": "f3d4",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": 436,
+              "pv": [
+                "f3d4",
+                "c8d7",
+                "b1d2",
+                "e8c8",
+                "d2b3",
+                "g7g6",
+                "c4d3",
+                "f8g7",
+                "d4f3",
+                "h8e8",
+                "c1d2",
+                "f7f5",
+                "e4e5",
+                "d6e5",
+                "f4e5"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -520,
+              "pv": [
+                "g1h1",
+                "d4c4",
+                "f1e1",
+                "h6g4",
+                "b1c3",
+                "b7b6",
+                "c3d5",
+                "c4c6",
+                "f4f5",
+                "f7f6",
+                "f3d4",
+                "c6b7",
+                "d4b5"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -536,
+              "pv": [
+                "c1e3",
+                "d4e3",
+                "g1h1",
+                "e3c5",
+                "c4b3",
+                "c7c6",
+                "f4f5",
+                "b7b5",
+                "b1c3",
+                "c5b6",
+                "e4e5",
+                "d6d5",
+                "e5e6",
+                "f7e6",
+                "a1e1",
+                "h6f5"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "scotch-tactic-2",
+      "fingerprint": "a2e7a4d9dbf618306435faf759638ff80eda53c102ab837e81c59b496f5baf13",
+      "checked": [
+        {
+          "fen": "r1b2k1r/ppp2p1p/2np4/2b5/4n2q/6N1/PPPQ1PPP/RNB1KB1R w KQ - 0 10",
+          "san": "Qh6+",
+          "uci": "d2h6",
+          "playerMove": true,
+          "bestmove": "d2h6",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": 451,
+              "pv": [
+                "d2h6",
+                "h4h6",
+                "c1h6",
+                "f8e7",
+                "g3e4",
+                "c5d4",
+                "b1c3",
+                "c8e6",
+                "a1d1",
+                "h8g8",
+                "e4g3",
+                "e7d8",
+                "h6e3",
+                "d4e5",
+                "f1e2"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -54,
+              "pv": [
+                "g3e4",
+                "h4e4",
+                "e1d1",
+                "h7h5",
+                "f2f3",
+                "e4g6",
+                "f1d3",
+                "c8f5",
+                "d3f5",
+                "g6f5",
+                "b1c3",
+                "a8e8",
+                "c3e4",
+                "f5g6",
+                "b2b3",
+                "c5d4",
+                "c2c3"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -439,
+              "pv": [
+                "b1c3",
+                "c5f2",
+                "d2f2",
+                "e4f2",
+                "e1f2",
+                "c6b4",
+                "f1e2",
+                "b4c2",
+                "c3b5",
+                "c8e6",
+                "a1b1",
+                "e6a2",
+                "f2g1",
+                "a2b1"
+              ]
+            }
+          ]
+        },
+        {
+          "fen": "r1b2k1r/ppp2p1p/2np3Q/2b5/4n2q/6N1/PPP2PPP/RNB1KB1R b KQ - 1 10",
+          "san": "Qxh6",
+          "uci": "h4h6",
+          "playerMove": false,
+          "bestmove": "h4h6",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -452,
+              "pv": [
+                "h4h6",
+                "c1h6",
+                "f8e7",
+                "g3e4",
+                "c5d4",
+                "c2c3",
+                "d4b6",
+                "b1d2",
+                "f7f5",
+                "e4g3",
+                "h8g8",
+                "h2h4",
+                "e7e6",
+                "d2f3",
+                "c6e5",
+                "f1e2",
+                "e5f3",
+                "e2f3"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -508,
+              "pv": [
+                "f8e8",
+                "h6h4",
+                "c5f2",
+                "e1d1",
+                "d6d5",
+                "b1c3",
+                "c8e6",
+                "c3e4",
+                "d5e4",
+                "h4e4",
+                "e8d7",
+                "e4f4",
+                "f2g3",
+                "h2g3",
+                "a8g8",
+                "c1e3",
+                "d7c8",
+                "f4f2"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -539,
+              "pv": [
+                "f8g8",
+                "h6h4",
+                "c5f2",
+                "e1d1",
+                "d6d5",
+                "b1c3",
+                "h7h5",
+                "c3e4",
+                "d5e4",
+                "h4g5",
+                "g8f8",
+                "c1e3",
+                "f2e3",
+                "g5e3",
+                "h5h4",
+                "g3e4",
+                "h8h5",
+                "f1d3",
+                "c8g4",
+                "d1d2",
+                "f7f5",
+                "e3c5",
+                "f8g7",
+                "c5c3",
+                "g7g6"
+              ]
+            }
+          ]
+        },
+        {
+          "fen": "r1b2k1r/ppp2p1p/2np3q/2b5/4n3/6N1/PPP2PPP/RNB1KB1R w KQ - 0 11",
+          "san": "Bxh6+",
+          "uci": "c1h6",
+          "playerMove": true,
+          "bestmove": "c1h6",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": 449,
+              "pv": [
+                "c1h6",
+                "f8e8",
+                "g3e4",
+                "c5d4",
+                "b1c3",
+                "d6d5",
+                "e4g3",
+                "c8e6",
+                "a1d1",
+                "d4e5",
+                "f1b5",
+                "d5d4",
+                "b5c6",
+                "b7c6",
+                "c3e4",
+                "f7f5",
+                "e4c5",
+                "e8f7"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -701,
+              "pv": [
+                "b1c3",
+                "c5f2",
+                "e1d1",
+                "e4c3",
+                "b2c3",
+                "h6h4",
+                "f1e2",
+                "f2g3",
+                "h1f1",
+                "g3h2",
+                "a1b1",
+                "c8g4",
+                "b1b7",
+                "g4e2",
+                "d1e2"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -707,
+              "pv": [
+                "c1e3",
+                "c5e3",
+                "g3e4",
+                "e3d4",
+                "b1c3",
+                "h8g8",
+                "f1e2",
+                "g8g2",
+                "h2h4",
+                "d4c3",
+                "e4c3",
+                "c8f5",
+                "c3d5"
+              ]
+            }
+          ]
+        },
+        {
+          "fen": "r1b2k1r/ppp2p1p/2np3B/2b5/4n3/6N1/PPP2PPP/RN2KB1R b KQ - 0 11",
+          "san": "Ke7",
+          "uci": "f8e7",
+          "playerMove": false,
+          "bestmove": "f8e8",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -451,
+              "pv": [
+                "f8e8",
+                "g3e4",
+                "c5d4",
+                "b1c3",
+                "f7f5",
+                "e4g3",
+                "d4c3",
+                "b2c3",
+                "c8e6",
+                "f1e2",
+                "h8g8",
+                "e1c1",
+                "c6e5",
+                "d1d4",
+                "b7b5",
+                "e2b5",
+                "e8e7"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -459,
+              "pv": [
+                "f8e7",
+                "g3e4",
+                "c8f5",
+                "b1c3",
+                "c5d4",
+                "e1c1",
+                "a8g8",
+                "f2f3",
+                "e7d8",
+                "g2g3",
+                "d4b6",
+                "h6f4",
+                "c6d4",
+                "f4e3",
+                "f5e4",
+                "c3e4",
+                "h7h5"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -480,
+              "pv": [
+                "f8g8",
+                "g3e4",
+                "c5d4",
+                "b1c3",
+                "d4g7",
+                "h6g7",
+                "g8g7",
+                "e1c1",
+                "h8e8",
+                "h2h4",
+                "g7h8",
+                "e4g3",
+                "c8d7",
+                "c3d5",
+                "c6e7",
+                "d5c7"
+              ]
+            }
+          ]
+        },
+        {
+          "fen": "r1b4r/ppp1kp1p/2np3B/2b5/4n3/6N1/PPP2PPP/RN2KB1R w KQ - 1 12",
+          "san": "Nxe4",
+          "uci": "g3e4",
+          "playerMove": true,
+          "bestmove": "g3e4",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": 444,
+              "pv": [
+                "g3e4",
+                "c8f5",
+                "e4c5",
+                "d6c5",
+                "b1a3",
+                "h8d8",
+                "f2f3",
+                "d8d6",
+                "h6f4",
+                "a8e8",
+                "e1f2",
+                "e8d8",
+                "f4d6",
+                "d8d6",
+                "h2h4",
+                "e7f6"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -44,
+              "pv": [
+                "h6f8",
+                "e7f8",
+                "g3e4",
+                "c8f5",
+                "e4c5",
+                "d6c5",
+                "b1a3",
+                "a8e8",
+                "e1d2",
+                "e8d8",
+                "d2c3"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -67,
+              "pv": [
+                "h6e3",
+                "e4g3",
+                "h2g3",
+                "c5e3",
+                "f2e3",
+                "c8e6",
+                "f1e2",
+                "c6b4",
+                "b1a3",
+                "b4d5",
+                "e1d2",
+                "h8g8",
+                "e2f3",
+                "g8g3",
+                "a3b5",
+                "c7c6",
+                "b5d4",
+                "g3g5"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vienna-tactic-1",
+      "fingerprint": "d4c550f5a02c460dffe20385295157b4ab69c384713b2d6f6076628ead826fa7",
+      "checked": [
+        {
+          "fen": "rnb3k1/pppp2pp/8/7B/1bPP4/8/Pq2p1PP/R4QK1 w - - 0 18",
+          "san": "Qf7+",
+          "uci": "f1f7",
+          "playerMove": true,
+          "bestmove": "f1f7",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "mate",
+              "value": 3,
+              "pv": ["f1f7", "g8h8", "f7e8", "b4f8", "e8f8"]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -409,
+              "pv": [
+                "h5e2",
+                "b2d4",
+                "g1h1",
+                "d7d6",
+                "e2d3",
+                "b8c6",
+                "f1b1",
+                "g7g6",
+                "d3g6",
+                "g8g7",
+                "g6h7"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -532,
+              "pv": [
+                "f1b1",
+                "b2b1",
+                "a1b1",
+                "e2e1q",
+                "b1e1",
+                "b4e1",
+                "h5f3",
+                "e1h4",
+                "g2g4",
+                "g8f8",
+                "f3b7",
+                "c8b7",
+                "d4d5",
+                "d7d6",
+                "c4c5",
+                "d6c5",
+                "a2a4"
+              ]
+            }
+          ]
+        },
+        {
+          "fen": "rnb3k1/pppp1Qpp/8/7B/1bPP4/8/Pq2p1PP/R5K1 b - - 1 18",
+          "san": "Kh8",
+          "uci": "g8h8",
+          "playerMove": false,
+          "bestmove": "g8h8",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "mate",
+              "value": -2,
+              "pv": ["g8h8", "f7e8", "b4f8", "e8f8"]
+            }
+          ]
+        },
+        {
+          "fen": "rnb4k/pppp1Qpp/8/7B/1bPP4/8/Pq2p1PP/R5K1 w - - 2 19",
+          "san": "Qe8+",
+          "uci": "f7e8",
+          "playerMove": true,
+          "bestmove": "f7e8",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "mate",
+              "value": 2,
+              "pv": ["f7e8", "b4f8", "e8f8"]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -473,
+              "pv": [
+                "a1e1",
+                "b2d4",
+                "g1h1",
+                "d4f6",
+                "f7f6",
+                "g7f6",
+                "e1e2",
+                "b8c6",
+                "e2e8",
+                "h8g7",
+                "h5f3",
+                "d7d5",
+                "f3d5",
+                "c6e7",
+                "g2g4",
+                "a7a5",
+                "d5f3",
+                "a8a6",
+                "g4g5",
+                "f6g5"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -577,
+              "pv": [
+                "h5e2",
+                "b2d4",
+                "f7f2",
+                "d4f2",
+                "g1f2",
+                "b8c6",
+                "e2f3",
+                "b4c5",
+                "f2e2",
+                "c6e5",
+                "a1e1",
+                "d7d6",
+                "e2d1",
+                "c7c6",
+                "d1d2",
+                "c8f5",
+                "d2c3"
+              ]
+            }
+          ]
+        },
+        {
+          "fen": "rnb1Q2k/pppp2pp/8/7B/1bPP4/8/Pq2p1PP/R5K1 b - - 3 19",
+          "san": "Bf8",
+          "uci": "b4f8",
+          "playerMove": false,
+          "bestmove": "b4f8",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "mate",
+              "value": -1,
+              "pv": ["b4f8", "e8f8"]
+            }
+          ]
+        },
+        {
+          "fen": "rnb1Qb1k/pppp2pp/8/7B/2PP4/8/Pq2p1PP/R5K1 w - - 4 20",
+          "san": "Qxf8#",
+          "uci": "e8f8",
+          "playerMove": true,
+          "bestmove": "e8f8",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "mate",
+              "value": 1,
+              "pv": ["e8f8"]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -490,
+              "pv": [
+                "h2h3",
+                "b2d4",
+                "g1h2",
+                "d4d6",
+                "g2g3",
+                "b8c6",
+                "e8e2",
+                "b7b6",
+                "a2a4",
+                "c8b7",
+                "a1f1",
+                "d6e7",
+                "e2d1",
+                "c6e5",
+                "f1f5",
+                "b7f3",
+                "d1b3"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -501,
+              "pv": [
+                "a1e1",
+                "b2d4",
+                "g1h1",
+                "d4f2",
+                "e1g1",
+                "b8c6",
+                "h5f3",
+                "f2c5",
+                "e8e2",
+                "b7b6",
+                "f3e4",
+                "c8b7",
+                "e4h7",
+                "h8h7",
+                "e2e4",
+                "h7g8",
+                "g1e1",
+                "c6e5",
+                "e4b7",
+                "a8e8",
+                "b7e4",
+                "e8e6",
+                "h2h3",
+                "e6f6",
+                "e4d5",
+                "c5d5"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vienna-tactic-2",
+      "fingerprint": "20abf3da9f28e2b05b7426fd3447990f3ae78a62839e8d016629601561edf554",
+      "checked": [
+        {
+          "fen": "r1bq1rk1/3p2pp/5b2/1Bp2Q2/4P3/8/PPP2PPP/R3K2R w KQ - 1 15",
+          "san": "Qd5+",
+          "uci": "f5d5",
+          "playerMove": true,
+          "bestmove": "f5d5",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": 309,
+              "pv": [
+                "f5d5",
+                "g8h8",
+                "d5a8",
+                "f6b2",
+                "e1g1",
+                "b2a1",
+                "f1a1",
+                "d7d6",
+                "a8d5",
+                "d8f6",
+                "a1f1",
+                "f8d8",
+                "d5d3",
+                "c8e6",
+                "a2a4",
+                "h7h6",
+                "a4a5",
+                "d6d5",
+                "e4d5",
+                "d8d5",
+                "d3e4",
+                "e6g8"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -172,
+              "pv": [
+                "e1g1",
+                "g8h8",
+                "f5c5",
+                "f6b2",
+                "a1d1",
+                "b2a3",
+                "c5d5",
+                "a8b8",
+                "b5d7",
+                "c8a6",
+                "c2c4",
+                "d8e7",
+                "e4e5",
+                "a6b7",
+                "d5d3",
+                "a3c5",
+                "e5e6"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -203,
+              "pv": [
+                "f5c5",
+                "f6b2",
+                "a1b1",
+                "d8a5",
+                "e1e2",
+                "b2a3",
+                "b5c4",
+                "g8h8",
+                "c5a5",
+                "a8a5",
+                "f2f3",
+                "a5a4",
+                "c4b5",
+                "a4a7",
+                "b1b3",
+                "d7d6",
+                "h1b1",
+                "c8e6",
+                "b3c3",
+                "e6a2",
+                "b1a1"
+              ]
+            }
+          ]
+        },
+        {
+          "fen": "r1bq1rk1/3p2pp/5b2/1BpQ4/4P3/8/PPP2PPP/R3K2R b KQ - 2 15",
+          "san": "Kh8",
+          "uci": "g8h8",
+          "playerMove": false,
+          "bestmove": "g8h8",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -302,
+              "pv": [
+                "g8h8",
+                "d5a8",
+                "f6b2",
+                "e1g1",
+                "b2a1",
+                "f1a1",
+                "h7h6",
+                "a8d5",
+                "d8b6",
+                "a2a4",
+                "c8b7",
+                "d5e5",
+                "c5c4",
+                "a1f1",
+                "b6g6",
+                "f2f3",
+                "g6b6",
+                "g1h1",
+                "f8c8",
+                "c2c3"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -405,
+              "pv": [
+                "f8f7",
+                "d5a8",
+                "f6b2",
+                "e1g1",
+                "b2a1",
+                "f1a1",
+                "d8f6",
+                "a1f1",
+                "f7f8",
+                "a8d5",
+                "g8h8",
+                "d5c5",
+                "c8b7",
+                "b5d3",
+                "f8a8",
+                "f1b1",
+                "a8a2",
+                "h2h3",
+                "a2a1",
+                "b1a1",
+                "f6a1",
+                "g1h2"
+              ]
+            }
+          ]
+        },
+        {
+          "fen": "r1bq1r1k/3p2pp/5b2/1BpQ4/4P3/8/PPP2PPP/R3K2R w KQ - 3 16",
+          "san": "Qxa8",
+          "uci": "d5a8",
+          "playerMove": true,
+          "bestmove": "d5a8",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": 314,
+              "pv": [
+                "d5a8",
+                "f6b2",
+                "e1g1",
+                "b2a1",
+                "f1a1",
+                "d7d6",
+                "a8d5",
+                "d8f6",
+                "a1f1",
+                "h7h6",
+                "a2a4",
+                "f8d8",
+                "f1d1",
+                "c8e6",
+                "d5d2",
+                "d6d5",
+                "h2h3",
+                "e6g8",
+                "e4d5",
+                "d8d5",
+                "d2e1",
+                "d5e5"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -200,
+              "pv": [
+                "c2c3",
+                "a8b8",
+                "a2a4",
+                "c8b7",
+                "d5c5",
+                "b7e4",
+                "e1g1",
+                "d7d6",
+                "c5e3",
+                "e4a8",
+                "a1d1",
+                "d8c7",
+                "d1d2",
+                "c7b7",
+                "f2f4",
+                "h7h6",
+                "f1f2",
+                "f6d8",
+                "f2e2"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -208,
+              "pv": [
+                "e4e5",
+                "d8a5",
+                "c2c3",
+                "a5b5",
+                "d5a8",
+                "f6g5",
+                "a1d1",
+                "f8e8",
+                "a8e4",
+                "c8b7",
+                "e4e2",
+                "b5e2",
+                "e1e2",
+                "b7g2",
+                "h1e1",
+                "e8e5",
+                "e2d3"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "queens-gambit-tactic-1",
+      "fingerprint": "d972c2598c9c275e0c41a22717f43ec914ce6762d5d0151878d597b768162214",
+      "checked": [
+        {
+          "fen": "r3r1k1/ppq2pp1/2p1b3/6b1/3PQ3/4P3/PPB2PP1/R3K2R w KQ - 0 18",
+          "san": "Rh8+",
+          "uci": "h1h8",
+          "playerMove": true,
+          "bestmove": "h1h8",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "mate",
+              "value": 2,
+              "pv": ["h1h8", "g8h8", "e4h7"]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -220,
+              "pv": [
+                "e4h7",
+                "g8f8",
+                "e1c1",
+                "f8e7",
+                "h7g7",
+                "g5f6",
+                "g7h7",
+                "e8h8",
+                "h7e4",
+                "a8g8",
+                "h1h8",
+                "f6h8"
+              ]
+            },
+            {
+              "depth": 17,
+              "type": "cp",
+              "value": -235,
+              "pv": [
+                "h1h5",
+                "c7a5",
+                "b2b4",
+                "a5b4",
+                "e1d1",
+                "f7f5",
+                "e4d3",
+                "g5f6",
+                "a1b1",
+                "b4c4",
+                "d3c4",
+                "e6c4",
+                "b1b7",
+                "e8e7",
+                "b7e7",
+                "f6e7",
+                "h5f5",
+                "c6c5"
+              ]
+            }
+          ]
+        },
+        {
+          "fen": "r3r1kR/ppq2pp1/2p1b3/6b1/3PQ3/4P3/PPB2PP1/R3K3 b Q - 1 18",
+          "san": "Kxh8",
+          "uci": "g8h8",
+          "playerMove": false,
+          "bestmove": "g8h8",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "mate",
+              "value": -1,
+              "pv": ["g8h8", "e4h7"]
+            }
+          ]
+        },
+        {
+          "fen": "r3r2k/ppq2pp1/2p1b3/6b1/3PQ3/4P3/PPB2PP1/R3K3 w Q - 0 19",
+          "san": "Qh7#",
+          "uci": "e4h7",
+          "playerMove": true,
+          "bestmove": "e4h7",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "mate",
+              "value": 1,
+              "pv": ["e4h7"]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -413,
+              "pv": [
+                "e1c1",
+                "h8g8",
+                "f2f4",
+                "g5f6",
+                "e4f3",
+                "e6d5",
+                "f3h3",
+                "g8f8",
+                "d1h1",
+                "f8e7",
+                "e3e4",
+                "d5e4",
+                "h3h2",
+                "e4c2"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -435,
+              "pv": [
+                "f2f4",
+                "g7g6",
+                "e1c1",
+                "e6f5",
+                "e4f5",
+                "g6f5",
+                "f4g5",
+                "h8g7",
+                "e3e4",
+                "e8e4",
+                "d4d5",
+                "a8h8",
+                "c1b1",
+                "c7e5",
+                "d5c6",
+                "e4e1",
+                "c6b7",
+                "e1d1",
+                "c2d1",
+                "e5e4",
+                "b1a1"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "queens-gambit-tactic-2",
+      "fingerprint": "a8b906942e55ad6bc623fb56dc38da587cbe27c1768b332d264a66a944efddc6",
+      "checked": [
+        {
+          "fen": "r2qkbnr/ppp1p3/5p2/6pp/2pnP3/5BPP/PP3P2/RNBQ1RK1 w kq - 0 12",
+          "san": "Bxh5+",
+          "uci": "f3h5",
+          "playerMove": true,
+          "bestmove": "f3h5",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": 331,
+              "pv": [
+                "f3h5",
+                "h8h5",
+                "d1h5",
+                "e8d7",
+                "c1e3",
+                "c7c5",
+                "e3d4",
+                "c5d4",
+                "b1a3",
+                "g8h6",
+                "a1c1",
+                "a8c8",
+                "c1c4",
+                "c8c4",
+                "a3c4",
+                "d8c7",
+                "c4a3"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": 71,
+              "pv": ["b1c3"]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": 15,
+              "pv": [
+                "e4e5",
+                "d4f3",
+                "d1f3",
+                "c7c6",
+                "f1d1",
+                "d8c8",
+                "f3e4",
+                "c8e6",
+                "e4g6",
+                "e6f7",
+                "g6c2",
+                "f8g7",
+                "b1c3",
+                "h5h4",
+                "g3g4",
+                "f6f5",
+                "c1g5",
+                "f5g4",
+                "h3g4",
+                "g7e5",
+                "c2e2",
+                "e5c3",
+                "b2c3"
+              ]
+            }
+          ]
+        },
+        {
+          "fen": "r2qkbnr/ppp1p3/5p2/6pB/2pnP3/6PP/PP3P2/RNBQ1RK1 b kq - 0 12",
+          "san": "Rxh5",
+          "uci": "h8h5",
+          "playerMove": false,
+          "bestmove": "h8h5",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -321,
+              "pv": [
+                "h8h5",
+                "d1h5",
+                "e8d7",
+                "c1e3",
+                "c7c5",
+                "e3d4",
+                "c5d4",
+                "f1c1",
+                "a8c8",
+                "b1a3",
+                "g8h6",
+                "c1c4",
+                "c8c4",
+                "a3c4",
+                "d8c7",
+                "c4d2",
+                "c7c2",
+                "d2b3",
+                "c2b2",
+                "a1c1",
+                "e7e6",
+                "h5g6",
+                "d7e7"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "mate",
+              "value": -7,
+              "pv": [
+                "e8d7",
+                "d1d4",
+                "d7c6",
+                "d4c4",
+                "c6b6",
+                "c1e3",
+                "b6a5",
+                "h5e2",
+                "d8d5",
+                "c4d5",
+                "c7c5",
+                "d5c5",
+                "a5a4",
+                "c5b5"
+              ]
+            }
+          ]
+        },
+        {
+          "fen": "r2qkbn1/ppp1p3/5p2/6pr/2pnP3/6PP/PP3P2/RNBQ1RK1 w q - 0 13",
+          "san": "Qxh5+",
+          "uci": "d1h5",
+          "playerMove": true,
+          "bestmove": "d1h5",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": 327,
+              "pv": [
+                "d1h5",
+                "e8d7",
+                "c1e3",
+                "c7c5",
+                "e3d4",
+                "c5d4",
+                "b1a3",
+                "g8h6",
+                "a1c1",
+                "e7e5",
+                "c1c4",
+                "d8e8",
+                "h5f3",
+                "e8g6",
+                "a3b5",
+                "h6f7",
+                "f1d1"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -167,
+              "pv": [
+                "c1e3",
+                "h5h3",
+                "d1d4",
+                "d8d4",
+                "e3d4",
+                "e8c8",
+                "d4e3",
+                "h3h7",
+                "b1a3",
+                "e7e6",
+                "a3c4",
+                "g8e7",
+                "a1c1",
+                "e7c6",
+                "g1g2",
+                "a7a6",
+                "a2a3",
+                "f8e7"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -388,
+              "pv": [
+                "d1g4",
+                "h5h6",
+                "f1d1",
+                "e7e5",
+                "c1e3",
+                "g8e7",
+                "b1a3",
+                "d8c8",
+                "g1g2",
+                "b7b5",
+                "e3d4",
+                "e5d4"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "london-tactic-1",
+      "fingerprint": "721e001c8f2fa59f7930f9f6d88bcc3cfe9a2967037a9d115a4c4bfc6dd82434",
+      "checked": [
+        {
+          "fen": "r1b2rk1/ppp2p1p/2n3p1/3P2qn/3Pp3/P3P2P/1P1NBPP1/RN1Q1RK1 b - - 0 15",
+          "san": "Bxh3",
+          "uci": "c8h3",
+          "playerMove": true,
+          "bestmove": "c8h3",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": 237,
+              "pv": [
+                "c8h3",
+                "g2g4",
+                "c6d4",
+                "e3d4",
+                "f7f5",
+                "d5d6",
+                "h3f1",
+                "d2f1",
+                "h5f4",
+                "b1c3",
+                "c7d6",
+                "f1g3",
+                "d6d5",
+                "d1b3",
+                "a8d8",
+                "c3d5",
+                "f4d5",
+                "e2c4",
+                "f5f4",
+                "g3e4",
+                "g5g4",
+                "g1f1",
+                "g4h5",
+                "e4c3",
+                "h5h1",
+                "f1e2",
+                "h1a1",
+                "c4d5",
+                "d8d5",
+                "b3d5",
+                "g8h8"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -133,
+              "pv": [
+                "c6d4",
+                "e2g4",
+                "h5g3",
+                "f2g3",
+                "g5e3",
+                "f1f2",
+                "c8g4",
+                "h3g4",
+                "e3d3",
+                "d1f1",
+                "d3f1",
+                "f2f1",
+                "e4e3",
+                "d2f3",
+                "d4b3",
+                "b1c3",
+                "b3a1",
+                "f1a1",
+                "f8e8",
+                "g1f1",
+                "c7c6",
+                "f1e2",
+                "c6d5",
+                "c3d5"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -194,
+              "pv": [
+                "h5f6",
+                "d2e4",
+                "f6e4",
+                "d5c6",
+                "b7c6",
+                "e2f3",
+                "f8e8",
+                "d1c2",
+                "c8f5",
+                "c2c6",
+                "a8d8",
+                "b1c3",
+                "e4c3",
+                "b2c3",
+                "f5h3"
+              ]
+            }
+          ]
+        },
+        {
+          "fen": "r4rk1/ppp2p1p/2n3p1/3P2qn/3Pp3/P3P2b/1P1NBPP1/RN1Q1RK1 w - - 0 16",
+          "san": "Bg4",
+          "uci": "e2g4",
+          "playerMove": false,
+          "bestmove": "g2g4",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -240,
+              "pv": [
+                "g2g4",
+                "c6d4",
+                "e3d4",
+                "f7f5",
+                "d5d6",
+                "h5f4",
+                "f1e1",
+                "c7d6",
+                "d1b3",
+                "d6d5",
+                "b3g3",
+                "f5g4",
+                "b1c3",
+                "a8c8",
+                "e2b5",
+                "h7h5",
+                "b5d7",
+                "h5h4",
+                "d2e4",
+                "d5e4",
+                "c3e4",
+                "h4g3",
+                "e4g5",
+                "g3f2",
+                "g1f2",
+                "c8c2",
+                "f2g1"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -272,
+              "pv": [
+                "e2g4",
+                "h3g4",
+                "d2e4",
+                "g5f5",
+                "f2f3",
+                "f5e4",
+                "f3e4",
+                "g4d1",
+                "d5c6",
+                "d1g4",
+                "c6b7",
+                "a8b8",
+                "b1c3",
+                "b8b7",
+                "b2b4",
+                "c7c6",
+                "a1c1",
+                "b7d7",
+                "c3a4",
+                "h5g3",
+                "f1f2"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -396,
+              "pv": [
+                "e2f3",
+                "e4f3",
+                "d1f3",
+                "h3g4",
+                "f3e4",
+                "h5f6",
+                "f2f4",
+                "g5d5",
+                "e4d5",
+                "f6d5",
+                "d2c4",
+                "f7f6",
+                "e3e4",
+                "d5b6",
+                "d4d5",
+                "c6d4",
+                "c4b6",
+                "a7b6"
+              ]
+            }
+          ]
+        },
+        {
+          "fen": "r4rk1/ppp2p1p/2n3p1/3P2qn/3Pp1B1/P3P2b/1P1N1PP1/RN1Q1RK1 b - - 1 16",
+          "san": "Bxg4",
+          "uci": "h3g4",
+          "playerMove": true,
+          "bestmove": "h3g4",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": 268,
+              "pv": [
+                "h3g4",
+                "d2e4",
+                "g5f5",
+                "d1c2",
+                "f5d5",
+                "f2f3",
+                "g4f5",
+                "b1c3",
+                "d5d8",
+                "a1e1",
+                "h5g7",
+                "c2d2",
+                "g7e8",
+                "d2e2",
+                "f5e4",
+                "f3e4",
+                "c6e7",
+                "e4e5"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -13,
+              "pv": [
+                "h3g2",
+                "g1g2",
+                "h5f6",
+                "d2e4",
+                "f6e4",
+                "d5c6",
+                "f7f5",
+                "c6b7",
+                "a8e8",
+                "b1c3",
+                "e4c3",
+                "b2c3",
+                "f5g4",
+                "d1b3",
+                "g8h8",
+                "a1b1",
+                "g5h4",
+                "b3d5",
+                "f8f5",
+                "d5c6",
+                "e8b8",
+                "g2g1",
+                "g4g3",
+                "c6g2",
+                "f5h5",
+                "g2g3"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -105,
+              "pv": [
+                "g5g4",
+                "d1g4",
+                "h3g4",
+                "d5c6",
+                "f8b8",
+                "b2b4",
+                "a7a5",
+                "b4a5",
+                "f7f5",
+                "c6b7",
+                "b8b7",
+                "b1c3",
+                "a8a5",
+                "d2c4",
+                "a5a6",
+                "a3a4",
+                "h5f6",
+                "f1b1",
+                "b7b1",
+                "a1b1",
+                "g8g7"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "london-tactic-2",
+      "fingerprint": "fe95b3e2943b7736e7889ffbd237412d9f124c883818ac0b56a8905e87acd1e8",
+      "checked": [
+        {
+          "fen": "r1bq1rk1/pppnp1bp/3p1p1B/6Qp/3P4/5N2/PPP1PPP1/RN2KB2 w Q - 0 10",
+          "san": "Qxg7#",
+          "uci": "g5g7",
+          "playerMove": true,
+          "bestmove": "g5g7",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "mate",
+              "value": 1,
+              "pv": ["g5g7"]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -85,
+              "pv": [
+                "g5d5",
+                "f8f7",
+                "d5h5",
+                "g7h6",
+                "h5h6",
+                "d8f8",
+                "h6h2",
+                "c7c5",
+                "e2e4",
+                "g8h8",
+                "b1c3",
+                "c5d4",
+                "f3d4",
+                "d7e5",
+                "e1c1",
+                "c8d7",
+                "f1e2"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -112,
+              "pv": [
+                "g5g3",
+                "f8f7",
+                "e2e4",
+                "d7b6",
+                "f1d3",
+                "d6d5",
+                "b1c3",
+                "d5e4",
+                "c3e4",
+                "c8g4",
+                "h6e3",
+                "b6d5",
+                "e1c1",
+                "e7e6"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "french-tactic-1",
+      "fingerprint": "19f8cb69cd3e75830a56c415ec102bfe766b0f1c2235f4ceea63d0953f4bc9ce",
+      "checked": [
+        {
+          "fen": "r4rk1/pp1bnppp/2n1p3/3pP3/3P2P1/P1N2N2/1q2BP1P/R2Q1RK1 w - - 0 14",
+          "san": "Na4",
+          "uci": "c3a4",
+          "playerMove": true,
+          "bestmove": "c3a4",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": 342,
+              "pv": [
+                "c3a4",
+                "b2a1",
+                "d1a1",
+                "b7b6",
+                "a4b2",
+                "c6a5",
+                "f1b1",
+                "a8c8",
+                "b2d3",
+                "d7a4",
+                "e2d1",
+                "a4d1",
+                "b1d1",
+                "c8c2",
+                "a1b1",
+                "f8c8",
+                "d1c1",
+                "c2c4",
+                "g1h1",
+                "h7h6",
+                "f3g1",
+                "c4c1",
+                "d3c1"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -20,
+              "pv": [
+                "d1d3",
+                "b2b6",
+                "a1b1",
+                "b6d8",
+                "h2h4",
+                "b7b6",
+                "f3g5",
+                "e7g6",
+                "f2f4",
+                "h7h6",
+                "f4f5",
+                "h6g5",
+                "f5g6",
+                "f7g6",
+                "d3g6",
+                "c6d4",
+                "h4g5"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -103,
+              "pv": [
+                "d1e1",
+                "e7g6",
+                "a1b1",
+                "b2a3",
+                "b1b7",
+                "a3e7",
+                "e2b5",
+                "f8c8",
+                "e1e3",
+                "e7d8",
+                "c3a4",
+                "a7a6",
+                "b5d3",
+                "c6a5"
+              ]
+            }
+          ]
+        },
+        {
+          "fen": "r4rk1/pp1bnppp/2n1p3/3pP3/N2P2P1/P4N2/1q2BP1P/R2Q1RK1 b - - 1 14",
+          "san": "Qxa1",
+          "uci": "b2a1",
+          "playerMove": false,
+          "bestmove": "b2a1",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -346,
+              "pv": [
+                "b2a1",
+                "d1a1",
+                "b7b6",
+                "a4c3",
+                "e7g6",
+                "e2b5",
+                "a7a6",
+                "b5c6",
+                "d7c6",
+                "a1c1",
+                "c6b5",
+                "c3b5",
+                "a6b5",
+                "c1e3",
+                "h7h6",
+                "h2h4",
+                "f8c8",
+                "h4h5",
+                "g6e7",
+                "f3d2"
+              ]
+            },
+            {
+              "depth": 17,
+              "type": "cp",
+              "value": -368,
+              "pv": [
+                "b2e2",
+                "d1e2",
+                "b7b6",
+                "e2e3",
+                "f7f6",
+                "e5f6",
+                "f8f6",
+                "f3h4",
+                "e7g6",
+                "h4g6",
+                "f6g6",
+                "f2f3",
+                "e6e5",
+                "a4b6",
+                "a7b6",
+                "e3b3",
+                "h7h5",
+                "b3d5",
+                "g8h7",
+                "d4e5",
+                "h5g4"
+              ]
+            },
+            {
+              "depth": 17,
+              "type": "cp",
+              "value": -425,
+              "pv": [
+                "f7f5",
+                "a4b2",
+                "f5g4",
+                "f3h4",
+                "f8f4",
+                "b2d3",
+                "f4d4",
+                "g1h1",
+                "h7h5",
+                "f2f3",
+                "d4c4",
+                "a1c1",
+                "c4c1",
+                "d3c1",
+                "a8c8",
+                "f3g4",
+                "c6e5",
+                "g4h5"
+              ]
+            }
+          ]
+        },
+        {
+          "fen": "r4rk1/pp1bnppp/2n1p3/3pP3/N2P2P1/P4N2/4BP1P/q2Q1RK1 w - - 0 15",
+          "san": "Qxa1",
+          "uci": "d1a1",
+          "playerMove": true,
+          "bestmove": "d1a1",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": 348,
+              "pv": [
+                "d1a1",
+                "b7b6",
+                "a4c3",
+                "e7g6",
+                "e2b5",
+                "f7f5",
+                "e5f6",
+                "f8f6",
+                "b5c6",
+                "d7c6",
+                "a1e1",
+                "a8c8",
+                "f3e5",
+                "c6e8",
+                "e5g6",
+                "f6g6",
+                "f2f3"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -361,
+              "pv": [
+                "d1d3",
+                "a1a2",
+                "a4c5",
+                "e7g6",
+                "d3e3",
+                "d7c8",
+                "e2d3",
+                "b7b6",
+                "d3b1",
+                "a2b2",
+                "c5a4",
+                "b2b5",
+                "a4c3",
+                "b5a5",
+                "f3g5",
+                "f7f6"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -459,
+              "pv": [
+                "d1d2",
+                "a1a3",
+                "a4c5",
+                "a3b4",
+                "d2e3",
+                "c6d4",
+                "f3d4",
+                "b4c5",
+                "f1c1",
+                "c5b6",
+                "e2d3",
+                "b6d8",
+                "h2h4",
+                "g8h8",
+                "h4h5",
+                "e7g8",
+                "f2f4",
+                "a8b8"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "french-tactic-2",
+      "fingerprint": "a511c872d975b9bf0755f1e934a12408eb215898f85f21e6d0566474604309bc",
+      "checked": [
+        {
+          "fen": "2rq2k1/p3brpp/1pn1p3/3pPp1P/3P1Q2/P6R/1P2NPP1/2RK1B2 b - - 0 19",
+          "san": "Bg5",
+          "uci": "e7g5",
+          "playerMove": true,
+          "bestmove": "e7g5",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": 249,
+              "pv": [
+                "e7g5",
+                "h3c3",
+                "g5f4",
+                "e2f4",
+                "c6e7",
+                "f1b5",
+                "c8c3",
+                "c1c3",
+                "d8b8",
+                "f4e6",
+                "f5f4",
+                "b5d7",
+                "f4f3",
+                "g2g4",
+                "g8h8",
+                "e6g5",
+                "f7f8",
+                "g5e6",
+                "b6b5",
+                "d1d2",
+                "f8g8",
+                "b2b4",
+                "b8b6",
+                "d2e3"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -50,
+              "pv": [
+                "f7f8",
+                "f4d2",
+                "d8d7",
+                "h3c3",
+                "c6a5",
+                "e2f4",
+                "d7a4",
+                "d1e1",
+                "a5b3",
+                "c3b3",
+                "c8c1",
+                "d2c1",
+                "a4b3",
+                "f4e6",
+                "f8b8",
+                "c1c7",
+                "e7b4",
+                "a3b4",
+                "b3b4",
+                "e1e2",
+                "b4b2",
+                "e2e1"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -52,
+              "pv": [
+                "b6b5",
+                "f4d2",
+                "b5b4",
+                "e2f4",
+                "e7g5",
+                "a3b4",
+                "g5f4",
+                "d2f4",
+                "c6b4",
+                "c1c8",
+                "d8c8",
+                "h3c3",
+                "f7c7",
+                "f4d2",
+                "a7a5",
+                "f1e2"
+              ]
+            }
+          ]
+        },
+        {
+          "fen": "2rq2k1/p4rpp/1pn1p3/3pPpbP/3P1Q2/P6R/1P2NPP1/2RK1B2 w - - 1 20",
+          "san": "Qh2",
+          "uci": "f4h2",
+          "playerMove": false,
+          "bestmove": "f4h2",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -269,
+              "pv": [
+                "f4h2",
+                "g5c1",
+                "e2c1",
+                "c6d4",
+                "h2f4",
+                "d4c6",
+                "f1a6",
+                "c8c7",
+                "c1e2",
+                "g8h8",
+                "f4g3",
+                "f7e7",
+                "h5h6",
+                "g7g6",
+                "g3f4"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -279,
+              "pv": [
+                "f4g3",
+                "g5c1",
+                "e2c1",
+                "c6d4",
+                "g3f4",
+                "f7c7",
+                "c1a2",
+                "d4c6",
+                "f1a6",
+                "c8b8",
+                "a2c3",
+                "b6b5",
+                "c3b5",
+                "c7d7",
+                "h5h6",
+                "b8b6",
+                "h6g7",
+                "b6a6",
+                "f4h6",
+                "d7g7",
+                "h6e6",
+                "g8h8",
+                "b5d4",
+                "c6d4",
+                "e6a6"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -287,
+              "pv": [
+                "h3c3",
+                "g5f4",
+                "e2f4",
+                "f7c7",
+                "f1a6",
+                "c6e7",
+                "a6c8",
+                "c7c8",
+                "c3c8",
+                "e7c8",
+                "h5h6",
+                "g7h6",
+                "c1c6",
+                "d8d7",
+                "c6e6",
+                "c8e7",
+                "e6d6",
+                "d7a4",
+                "d1c1"
+              ]
+            }
+          ]
+        },
+        {
+          "fen": "2rq2k1/p4rpp/1pn1p3/3pPpbP/3P4/P6R/1P2NPPQ/2RK1B2 b - - 2 20",
+          "san": "Bxc1",
+          "uci": "g5c1",
+          "playerMove": true,
+          "bestmove": "g5c1",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": 262,
+              "pv": [
+                "g5c1",
+                "e2c1",
+                "c6d4",
+                "h2f4",
+                "f7c7",
+                "c1a2",
+                "d4c6",
+                "f1a6",
+                "c8b8",
+                "a2c3",
+                "b6b5",
+                "b2b4",
+                "b8b6",
+                "a6b5",
+                "a7a5",
+                "h5h6",
+                "a5b4",
+                "a3b4",
+                "d5d4",
+                "h3d3",
+                "d8f8",
+                "b5c6",
+                "b6c6",
+                "c3b5",
+                "c6c1",
+                "f4c1",
+                "c7c1",
+                "d1c1",
+                "f8b4"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": 96,
+              "pv": [
+                "c6d4",
+                "f2f4",
+                "c8c1",
+                "d1c1",
+                "d8c7",
+                "h3c3",
+                "d4e2",
+                "f1e2",
+                "c7e5",
+                "g2g3",
+                "g5h6",
+                "c1b1",
+                "e5d6",
+                "e2a6",
+                "f7c7",
+                "h2c2",
+                "c7c3",
+                "c2c3",
+                "g8f7"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": 36,
+              "pv": [
+                "f7c7",
+                "f2f4",
+                "g5e7",
+                "h5h6",
+                "g7g6",
+                "h2g1",
+                "b6b5",
+                "g2g4",
+                "d8f8",
+                "h3c3",
+                "b5b4",
+                "a3b4",
+                "e7b4",
+                "c3c2",
+                "a7a5",
+                "g4g5",
+                "a5a4",
+                "g1e3",
+                "a4a3",
+                "b2a3",
+                "b4a3"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "scandinavian-tactic-1",
+      "fingerprint": "db302e5cf2127b73fd22e3b46c60af689edd5e5b90f17c5ce8ecc2524003670d",
+      "checked": [
+        {
+          "fen": "r2qk2r/ppp2ppp/2n3b1/2bB4/6P1/2P2Q2/P4P1P/R1B1K1NR w KQkq - 0 13",
+          "san": "Bxc6+",
+          "uci": "d5c6",
+          "playerMove": true,
+          "bestmove": "d5c6",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": 264,
+              "pv": [
+                "d5c6",
+                "b7c6",
+                "f3c6",
+                "e8f8",
+                "c6c5",
+                "f8g8",
+                "g1e2",
+                "h7h5",
+                "c1e3",
+                "h5g4",
+                "c5c6",
+                "g6d3",
+                "a1d1",
+                "a8b8",
+                "h1g1",
+                "h8h4",
+                "c3c4",
+                "h4h2",
+                "g1g4",
+                "d8c8",
+                "g4d4",
+                "b8b6",
+                "c6f3",
+                "b6f6",
+                "f3g4",
+                "h2h1",
+                "e1d2",
+                "c8g4",
+                "d4g4",
+                "h1d1",
+                "d2d1"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -246,
+              "pv": [
+                "f3e2",
+                "e8f8",
+                "d5c6",
+                "b7c6",
+                "g1f3",
+                "g6d3",
+                "e2e5",
+                "c5d6",
+                "e5e3",
+                "d8e8",
+                "e1d2",
+                "e8e3",
+                "d2e3",
+                "d3c4",
+                "h1e1",
+                "h7h5",
+                "e3d4",
+                "c4d5"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -264,
+              "pv": [
+                "c1f4",
+                "d8e7",
+                "g1e2",
+                "e8c8",
+                "d5c6",
+                "b7c6",
+                "e1g1",
+                "g6e4",
+                "f3h3",
+                "h8e8",
+                "g4g5",
+                "c8b7",
+                "f1e1",
+                "e4d5",
+                "c3c4",
+                "d5c4",
+                "h3c3",
+                "c4e2",
+                "a2a4",
+                "e7e4",
+                "c3c5",
+                "e4f4"
+              ]
+            }
+          ]
+        },
+        {
+          "fen": "r2qk2r/ppp2ppp/2B3b1/2b5/6P1/2P2Q2/P4P1P/R1B1K1NR b KQkq - 0 13",
+          "san": "bxc6",
+          "uci": "b7c6",
+          "playerMove": false,
+          "bestmove": "e8f8",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -263,
+              "pv": [
+                "e8f8",
+                "c6b7",
+                "a8b8",
+                "g1e2",
+                "h7h5",
+                "e2f4",
+                "d8e8",
+                "c1e3",
+                "g6c2",
+                "b7c6",
+                "e8e5",
+                "e1g1",
+                "h8h6",
+                "f3d5",
+                "c5d6",
+                "d5e5",
+                "d6e5",
+                "f4h5"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -267,
+              "pv": [
+                "b7c6",
+                "f3c6",
+                "e8f8",
+                "c6c5",
+                "f8g8",
+                "g1e2",
+                "h7h5",
+                "e1g1",
+                "d8d7",
+                "c5d4",
+                "d7c6",
+                "e2f4",
+                "g6e4",
+                "g4g5",
+                "h5h4",
+                "h2h3",
+                "a8e8",
+                "f2f3",
+                "e4f3"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -338,
+              "pv": [
+                "e8e7",
+                "c6b7",
+                "a8b8",
+                "g1e2",
+                "h7h5",
+                "e1g1",
+                "h5g4",
+                "f3c6",
+                "d8d6",
+                "c1f4",
+                "d6c6",
+                "b7c6",
+                "e7f6",
+                "e2d4",
+                "c5d6",
+                "f4g3",
+                "b8b2",
+                "a2a4"
+              ]
+            }
+          ]
+        },
+        {
+          "fen": "r2qk2r/p1p2ppp/2p3b1/2b5/6P1/2P2Q2/P4P1P/R1B1K1NR w KQkq - 0 14",
+          "san": "Qxc6+",
+          "uci": "f3c6",
+          "playerMove": true,
+          "bestmove": "f3c6",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": 266,
+              "pv": [
+                "f3c6",
+                "e8f8",
+                "c6c5",
+                "f8g8",
+                "c1e3",
+                "h7h5",
+                "g1e2",
+                "d8f6",
+                "a1d1",
+                "a8e8",
+                "c5c7",
+                "g6e4",
+                "d1d6",
+                "f6f3",
+                "h1g1",
+                "h5g4",
+                "d6d8",
+                "g8h7",
+                "d8e8",
+                "h8e8"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -217,
+              "pv": [
+                "g1e2",
+                "e8g8",
+                "e1g1",
+                "d8d3",
+                "f3d3",
+                "g6d3",
+                "f1e1",
+                "a8e8",
+                "c1e3",
+                "c5e3",
+                "f2e3",
+                "e8e3",
+                "e2d4",
+                "e3e4",
+                "e1e4",
+                "d3e4",
+                "a1e1",
+                "e4d5",
+                "g4g5",
+                "f8b8"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -253,
+              "pv": ["c1g5", "d8d5", "f3d5", "c6d5", "g1e2", "e8d7", "g5e3", "c5d6", "h2h4", "h8e8"]
+            }
+          ]
+        },
+        {
+          "fen": "r2qk2r/p1p2ppp/2Q3b1/2b5/6P1/2P5/P4P1P/R1B1K1NR b KQkq - 0 14",
+          "san": "Kf8",
+          "uci": "e8f8",
+          "playerMove": false,
+          "bestmove": "e8f8",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -271,
+              "pv": [
+                "e8f8",
+                "c6c5",
+                "f8g8",
+                "g1e2",
+                "d8d3",
+                "c1e3",
+                "h7h5",
+                "e2f4",
+                "d3e4",
+                "h1g1",
+                "h5g4",
+                "c5b4",
+                "g4g3",
+                "b4e4",
+                "g3f2",
+                "e1f2",
+                "g6e4",
+                "h2h3",
+                "h8h4",
+                "a1e1",
+                "a8b8",
+                "f2g3",
+                "h4h6",
+                "e3d4",
+                "c7c5",
+                "d4c5"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -345,
+              "pv": [
+                "e8e7",
+                "c6c5",
+                "d8d6",
+                "c5d6",
+                "c7d6",
+                "g1e2",
+                "h7h5",
+                "e2f4",
+                "g6e4",
+                "e1g1",
+                "e4f3",
+                "f1e1",
+                "e7d7",
+                "g4h5",
+                "f3h5",
+                "f4h5",
+                "h8h5",
+                "c1e3",
+                "a8e8",
+                "e1d1",
+                "e8e6",
+                "g1f1"
+              ]
+            },
+            {
+              "depth": 17,
+              "type": "cp",
+              "value": -439,
+              "pv": [
+                "d8d7",
+                "c6a8",
+                "e8e7",
+                "a8h8",
+                "d7g4",
+                "h8g7",
+                "g4e4",
+                "c1e3",
+                "c5d6",
+                "g7d4",
+                "e4h1",
+                "e1d2",
+                "c7c5",
+                "d4c4",
+                "h1b7",
+                "a1d1",
+                "g6h5",
+                "c4h4",
+                "e7f8"
+              ]
+            }
+          ]
+        },
+        {
+          "fen": "r2q1k1r/p1p2ppp/2Q3b1/2b5/6P1/2P5/P4P1P/R1B1K1NR w KQ - 1 15",
+          "san": "Qxc5+",
+          "uci": "c6c5",
+          "playerMove": true,
+          "bestmove": "c6c5",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": 282,
+              "pv": [
+                "c6c5",
+                "f8g8",
+                "g1e2",
+                "h7h5",
+                "e1g1",
+                "d8d7",
+                "c5d4",
+                "d7e6",
+                "e2g3",
+                "a8e8",
+                "g4h5",
+                "c7c5",
+                "d4h4",
+                "h8h5",
+                "g3h5",
+                "g6h5",
+                "h4h5"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -31,
+              "pv": [
+                "g1e2",
+                "c5d6",
+                "c1f4",
+                "d6f4",
+                "e2f4",
+                "d8e7",
+                "e1f1",
+                "g6e4",
+                "f4d5",
+                "e4d5",
+                "c6d5",
+                "a8d8",
+                "d5f3",
+                "h7h5",
+                "a1e1",
+                "h5g4",
+                "f3g4"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -145,
+              "pv": [
+                "h2h4",
+                "d8e8",
+                "c6e8",
+                "a8e8",
+                "c1e3",
+                "h7h5",
+                "g4g5",
+                "c5e3",
+                "f2e3",
+                "e8e3",
+                "e1f2",
+                "e3c3",
+                "g1e2",
+                "c3a3",
+                "h1c1",
+                "f8g8",
+                "e2f4"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "scandinavian-tactic-2",
+      "fingerprint": "2cc452db580278b76920ee8d11712afcde611f6f7e7767de74e9d33f0cd596c5",
+      "checked": [
+        {
+          "fen": "Nk3b1r/pb2pppp/5n2/1p2N3/1q6/8/P1QP1PPP/4KB1R w K - 4 17",
+          "san": "Qc7+",
+          "uci": "c2c7",
+          "playerMove": true,
+          "bestmove": "c2c7",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "mate",
+              "value": 3,
+              "pv": ["c2c7", "b8a8", "c7d8", "b7c8", "d8c8"]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": 31,
+              "pv": [
+                "e5f7",
+                "b7a8",
+                "f7h8",
+                "a8d5",
+                "f1e2",
+                "d5g2",
+                "h1g1",
+                "g2d5",
+                "g1g5",
+                "a7a6",
+                "c2d3",
+                "b4d6",
+                "d3e3",
+                "d5a2",
+                "e2f3",
+                "e7e6"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": 0,
+              "pv": [
+                "a8c7",
+                "b4d6",
+                "e5f7",
+                "d6c7",
+                "c2c7",
+                "b8c7",
+                "f7h8",
+                "c7b6",
+                "h8f7",
+                "b7d5",
+                "f7e5",
+                "d5a2",
+                "f1d3",
+                "e7e6",
+                "e1e2",
+                "a7a5",
+                "h1c1",
+                "a2d5",
+                "c1b1",
+                "f8b4",
+                "b1c1"
+              ]
+            }
+          ]
+        },
+        {
+          "fen": "Nk3b1r/pbQ1pppp/5n2/1p2N3/1q6/8/P2P1PPP/4KB1R b K - 5 17",
+          "san": "Kxa8",
+          "uci": "b8a8",
+          "playerMove": false,
+          "bestmove": "b8a8",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "mate",
+              "value": -2,
+              "pv": ["b8a8", "c7d8", "b7c8", "d8c8"]
+            }
+          ]
+        },
+        {
+          "fen": "k4b1r/pbQ1pppp/5n2/1p2N3/1q6/8/P2P1PPP/4KB1R w K - 0 18",
+          "san": "Qd8+",
+          "uci": "c7d8",
+          "playerMove": true,
+          "bestmove": "c7d8",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "mate",
+              "value": 2,
+              "pv": ["c7d8", "b7c8", "d8c8"]
+            },
+            {
+              "depth": 17,
+              "type": "cp",
+              "value": -315,
+              "pv": [
+                "e5f7",
+                "b4b1",
+                "e1e2",
+                "b1e4",
+                "e2d1",
+                "e4d4",
+                "f2f3",
+                "e7e5",
+                "a2a3",
+                "f8a3",
+                "f7h8",
+                "a3b4",
+                "c7c1",
+                "e5e4",
+                "d1c2",
+                "f6d5",
+                "f1e2",
+                "a7a5",
+                "f3e4",
+                "d4e4",
+                "e2d3"
+              ]
+            },
+            {
+              "depth": 17,
+              "type": "cp",
+              "value": -368,
+              "pv": [
+                "f2f3",
+                "b4d6",
+                "c7d6",
+                "e7d6",
+                "e5f7",
+                "h8g8",
+                "f1b5",
+                "d6d5",
+                "g2g4",
+                "f8c5",
+                "g4g5",
+                "f6h5",
+                "e1d1",
+                "h5f4",
+                "d2d4",
+                "c5b4"
+              ]
+            }
+          ]
+        },
+        {
+          "fen": "k2Q1b1r/pb2pppp/5n2/1p2N3/1q6/8/P2P1PPP/4KB1R b K - 1 18",
+          "san": "Bc8",
+          "uci": "b7c8",
+          "playerMove": false,
+          "bestmove": "b7c8",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "mate",
+              "value": -1,
+              "pv": ["b7c8", "d8c8"]
+            }
+          ]
+        },
+        {
+          "fen": "k1bQ1b1r/p3pppp/5n2/1p2N3/1q6/8/P2P1PPP/4KB1R w K - 2 19",
+          "san": "Qxc8#",
+          "uci": "d8c8",
+          "playerMove": true,
+          "bestmove": "d8c8",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "mate",
+              "value": 1,
+              "pv": ["d8c8"]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -51,
+              "pv": [
+                "e5f7",
+                "b4b1",
+                "e1e2",
+                "b1e4",
+                "e2d1",
+                "a8b7",
+                "f7h8",
+                "e4b1",
+                "d1e2",
+                "c8e6",
+                "f2f3",
+                "f6d7",
+                "e2f2",
+                "b1c1",
+                "g2g4",
+                "g7g5",
+                "f1b5",
+                "c1h1",
+                "b5d7",
+                "h1h2",
+                "f2e3",
+                "h2g1",
+                "e3d3"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -96,
+              "pv": [
+                "f1d3",
+                "b4c5",
+                "e1g1",
+                "e7e6",
+                "a2a4",
+                "h8g8",
+                "d3e4",
+                "f6e4",
+                "d2d4",
+                "f8d6",
+                "d8g8",
+                "c5c7",
+                "a4b5",
+                "e4c3",
+                "g8g7",
+                "c3b5",
+                "e5f7",
+                "d6h2",
+                "g1h1",
+                "c8b7"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "caro-kann-tactic-1",
+      "fingerprint": "cca0b9ad9f697e6a0a4fc9b03ac59c9375766e974cc74f7e843bdd774225329a",
+      "checked": [
+        {
+          "fen": "r2q1rk1/pp3pp1/2n2p1p/2b4b/2BP4/3Q1N1P/PP3PP1/RN3RK1 w - - 1 14",
+          "san": "dxc5",
+          "uci": "d4c5",
+          "playerMove": true,
+          "bestmove": "d4c5",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": 353,
+              "pv": [
+                "d4c5",
+                "d8d3",
+                "c4d3",
+                "h5f3",
+                "g2f3",
+                "c6d4",
+                "b1c3",
+                "f8c8",
+                "a1d1",
+                "c8c5",
+                "d3e4",
+                "a8d8",
+                "f3f4",
+                "c5c4",
+                "e4g2",
+                "f6f5",
+                "g1h1",
+                "d8c8"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": 83,
+              "pv": [
+                "g2g4",
+                "c5d4",
+                "f3d4",
+                "c6e5",
+                "d3c3",
+                "d8d4",
+                "c3d4",
+                "e5f3",
+                "g1g2",
+                "f3d4",
+                "g4h5",
+                "d4c2",
+                "b1c3",
+                "c2a1",
+                "f1a1",
+                "f8e8",
+                "c4d5",
+                "a8d8",
+                "d5f3",
+                "e8e5"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -67,
+              "pv": [
+                "b1c3",
+                "c6d4",
+                "f3d4",
+                "c5d4",
+                "g2g4",
+                "d4c3",
+                "b2c3",
+                "d8d3",
+                "c4d3",
+                "h5g6",
+                "d3g6",
+                "f7g6",
+                "f1d1",
+                "f8d8",
+                "a2a4",
+                "a8c8",
+                "d1d8",
+                "c8d8",
+                "a4a5"
+              ]
+            }
+          ]
+        },
+        {
+          "fen": "r2q1rk1/pp3pp1/2n2p1p/2P4b/2B5/3Q1N1P/PP3PP1/RN3RK1 b - - 0 14",
+          "san": "Qxd3",
+          "uci": "d8d3",
+          "playerMove": false,
+          "bestmove": "d8d3",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -365,
+              "pv": [
+                "d8d3",
+                "c4d3",
+                "h5f3",
+                "g2f3",
+                "c6d4",
+                "b1c3",
+                "a8c8",
+                "a1d1",
+                "f6f5",
+                "d3e2",
+                "f8d8",
+                "g1h1",
+                "b7b6",
+                "e2a6",
+                "c8c5",
+                "f1e1",
+                "c5a5"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -368,
+              "pv": [
+                "d8a5",
+                "g2g4",
+                "a8d8",
+                "d3c3",
+                "h5g6",
+                "c3a5",
+                "c6a5",
+                "c4e2",
+                "g6d3",
+                "b1c3",
+                "a5c4",
+                "e2d3",
+                "d8d3",
+                "g1g2",
+                "c4b2",
+                "a1b1",
+                "b2c4",
+                "f1c1",
+                "f8e8",
+                "b1b7",
+                "f6f5",
+                "g4f5",
+                "d3f3",
+                "g2f3",
+                "e8e5",
+                "b7b8",
+                "g8h7"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -376,
+              "pv": [
+                "d8e7",
+                "b1c3",
+                "a8d8",
+                "d3e3",
+                "h5f3",
+                "e3e7",
+                "c6e7",
+                "g2f3",
+                "d8d2",
+                "b2b3",
+                "d2c2",
+                "c3e4",
+                "e7c6",
+                "a1d1",
+                "c6e5",
+                "c4d5",
+                "e5f3",
+                "g1g2",
+                "f6f5",
+                "g2f3",
+                "f5e4",
+                "d5e4"
+              ]
+            }
+          ]
+        },
+        {
+          "fen": "r4rk1/pp3pp1/2n2p1p/2P4b/2B5/3q1N1P/PP3PP1/RN3RK1 w - - 0 15",
+          "san": "Bxd3",
+          "uci": "c4d3",
+          "playerMove": true,
+          "bestmove": "c4d3",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": 363,
+              "pv": [
+                "c4d3",
+                "h5f3",
+                "g2f3",
+                "a8c8",
+                "d3e4",
+                "c6d4",
+                "b1c3",
+                "c8c5",
+                "a1d1",
+                "d4e6",
+                "d1d5",
+                "c5d5",
+                "c3d5",
+                "g7g6",
+                "f1d1",
+                "b7b5",
+                "d5c3",
+                "f6f5",
+                "e4d5",
+                "f8d8",
+                "d5b3"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -431,
+              "pv": [
+                "b1d2",
+                "d3f5",
+                "a1c1",
+                "h5f3",
+                "d2f3",
+                "a8d8",
+                "f1e1",
+                "g8h8",
+                "c4b5",
+                "f5c8",
+                "b5c6",
+                "c8c6"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -464,
+              "pv": [
+                "f1c1",
+                "d3f5",
+                "b1d2",
+                "a8d8",
+                "a2a4",
+                "g8h8",
+                "b2b4",
+                "c6e5",
+                "f3e5",
+                "f6e5",
+                "d2f1",
+                "f5c8"
+              ]
+            }
+          ]
+        },
+        {
+          "fen": "r4rk1/pp3pp1/2n2p1p/2P4b/8/3B1N1P/PP3PP1/RN3RK1 b - - 0 15",
+          "san": "Bxf3",
+          "uci": "h5f3",
+          "playerMove": false,
+          "bestmove": "h5f3",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -370,
+              "pv": [
+                "h5f3",
+                "g2f3",
+                "a8c8",
+                "f1d1",
+                "c6e5",
+                "d3e2",
+                "c8c5",
+                "b1c3",
+                "e5g6",
+                "d1d2",
+                "c5g5",
+                "g1h2",
+                "g6f4",
+                "e2f1",
+                "g5f5",
+                "a1d1",
+                "f4e6",
+                "h2h1",
+                "f5f3",
+                "f1g2",
+                "f3f4",
+                "g2b7"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -389,
+              "pv": [
+                "a8e8",
+                "f1d1",
+                "h5f3",
+                "g2f3",
+                "e8e5",
+                "d3e4",
+                "e5c5",
+                "b1c3",
+                "f8c8",
+                "d1d6",
+                "c6d8",
+                "a1d1",
+                "d8e6",
+                "d6d7",
+                "f6f5",
+                "e4b7"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -392,
+              "pv": [
+                "f8e8",
+                "b1c3",
+                "h5f3",
+                "g2f3",
+                "e8e5",
+                "a1d1",
+                "e5c5",
+                "d3e4",
+                "a8c8",
+                "d1d2",
+                "f6f5",
+                "e4c6",
+                "c8c6",
+                "f1d1",
+                "a7a5",
+                "g1f1",
+                "b7b5",
+                "c3e2"
+              ]
+            }
+          ]
+        },
+        {
+          "fen": "r4rk1/pp3pp1/2n2p1p/2P5/8/3B1b1P/PP3PP1/RN3RK1 w - - 0 16",
+          "san": "gxf3",
+          "uci": "g2f3",
+          "playerMove": true,
+          "bestmove": "g2f3",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": 364,
+              "pv": [
+                "g2f3",
+                "a8c8",
+                "d3f5",
+                "c8c7",
+                "f1d1",
+                "c6e7",
+                "f5c2",
+                "c7c5",
+                "b1c3",
+                "f8c8",
+                "c2b3",
+                "c5g5",
+                "g1h2"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": 38,
+              "pv": [
+                "b1c3",
+                "f8d8",
+                "d3b5",
+                "a7a6",
+                "b5a4",
+                "f3h5",
+                "f2f3",
+                "d8d2",
+                "f1f2",
+                "d2d4",
+                "a4c6",
+                "b7c6",
+                "c3e2",
+                "d4b4",
+                "b2b3"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": 32,
+              "pv": [
+                "d3c4",
+                "c6e5",
+                "b1a3",
+                "f3c6",
+                "f1d1",
+                "a7a6",
+                "d1d6",
+                "f8e8",
+                "c4f1",
+                "e8e7",
+                "a1d1"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "caro-kann-tactic-2",
+      "fingerprint": "d24ca99d605c8cd732d064f997a0792f9a9a480a1387d7b2b9d72d83dd74f2de",
+      "checked": [
+        {
+          "fen": "r3kb1r/pb3p2/4p2p/1p2P1p1/2p1N3/6B1/PP3PPP/R2R2K1 w kq - 1 16",
+          "san": "Nf6+",
+          "uci": "e4f6",
+          "playerMove": true,
+          "bestmove": "e4f6",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "mate",
+              "value": 2,
+              "pv": ["e4f6", "e8e7", "d1d7"]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -61,
+              "pv": [
+                "e4d6",
+                "f8d6",
+                "d1d6",
+                "b7d5",
+                "f2f3",
+                "a7a5",
+                "a2a3",
+                "e8g8",
+                "g3e1",
+                "f8b8",
+                "h2h4",
+                "g8h7",
+                "a1d1"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -187,
+              "pv": [
+                "e4c3",
+                "a7a6",
+                "f2f3",
+                "h6h5",
+                "d1d2",
+                "f8e7",
+                "a1d1",
+                "a8d8",
+                "d2d8",
+                "e7d8",
+                "g3f2",
+                "g5g4",
+                "f3g4",
+                "h8g8",
+                "d1d4",
+                "g8g4",
+                "d4g4",
+                "h5g4",
+                "f2c5",
+                "e8d7"
+              ]
+            }
+          ]
+        },
+        {
+          "fen": "r3kb1r/pb3p2/4pN1p/1p2P1p1/2p5/6B1/PP3PPP/R2R2K1 b kq - 2 16",
+          "san": "Ke7",
+          "uci": "e8e7",
+          "playerMove": false,
+          "bestmove": "e8e7",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "mate",
+              "value": -1,
+              "pv": ["e8e7", "d1d7"]
+            }
+          ]
+        },
+        {
+          "fen": "r4b1r/pb2kp2/4pN1p/1p2P1p1/2p5/6B1/PP3PPP/R2R2K1 w - - 3 17",
+          "san": "Rd7#",
+          "uci": "d1d7",
+          "playerMove": true,
+          "bestmove": "d1d7",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "mate",
+              "value": 1,
+              "pv": ["d1d7"]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": 179,
+              "pv": [
+                "f2f4",
+                "a8d8",
+                "g3e1",
+                "d8d1",
+                "a1d1",
+                "b7d5",
+                "f4f5",
+                "e7d8",
+                "e1a5",
+                "d8c8",
+                "f6d5",
+                "e6d5",
+                "d1d5",
+                "c8b7",
+                "d5d7",
+                "b7a6",
+                "a5e1",
+                "f8c5",
+                "g1f1",
+                "h8e8",
+                "d7f7",
+                "e8e5",
+                "e1c3",
+                "e5e3",
+                "f7f6",
+                "c5b6",
+                "f6h6"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": 113,
+              "pv": [
+                "f2f3",
+                "b7d5",
+                "g3f2",
+                "a7a5",
+                "f3f4",
+                "a8c8",
+                "f4f5",
+                "b5b4",
+                "f6d5",
+                "e6d5",
+                "d1d5",
+                "c4c3",
+                "b2c3",
+                "b4c3",
+                "a1c1",
+                "e7e8",
+                "d5a5",
+                "c3c2",
+                "f2e1",
+                "f8e7"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sicilian-tactic-1",
+      "fingerprint": "d3643700d837f945b30716048f4eb6a522946b3c1360cb111303c1032f46c904",
+      "checked": [
+        {
+          "fen": "2rq1rk1/3bnpBp/p1n1p1p1/3pP3/3P4/2p2N2/PPBQ1PPP/R4RK1 w - - 0 16",
+          "san": "Qh6",
+          "uci": "d2h6",
+          "playerMove": true,
+          "bestmove": "d2h6",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": 615,
+              "pv": [
+                "d2h6",
+                "e7f5",
+                "c2f5",
+                "c6d4",
+                "f3d4",
+                "f7f6",
+                "f5e6",
+                "d7e6",
+                "d4e6",
+                "d8d7",
+                "g7f8",
+                "c3b2",
+                "a1b1",
+                "f6e5",
+                "e6c5",
+                "d7a7",
+                "f8d6",
+                "c8d8",
+                "h6d2",
+                "d8d6",
+                "d2b2",
+                "a7c5",
+                "b2b8",
+                "g8g7"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -169,
+              "pv": [
+                "b2c3",
+                "g8g7",
+                "h2h4",
+                "h7h6",
+                "h4h5",
+                "g6h5",
+                "g2g3",
+                "f7f5",
+                "g1g2",
+                "c6a5",
+                "f1h1",
+                "a5c4",
+                "d2c1",
+                "d7e8",
+                "a1b1",
+                "e7g8",
+                "f3g1",
+                "d8g5",
+                "c1d1",
+                "f5f4",
+                "b1b7",
+                "g8e7"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -250,
+              "pv": [
+                "d2f4",
+                "g8g7",
+                "b2c3",
+                "e7g8",
+                "h2h4",
+                "c6e7",
+                "h4h5",
+                "h7h6",
+                "f4d2",
+                "g6h5",
+                "a1b1",
+                "d7c6",
+                "g2g3",
+                "c6b5",
+                "f1e1",
+                "e7g6"
+              ]
+            }
+          ]
+        },
+        {
+          "fen": "2rq1rk1/3bnpBp/p1n1p1pQ/3pP3/3P4/2p2N2/PPB2PPP/R4RK1 b - - 1 16",
+          "san": "Nf5",
+          "uci": "e7f5",
+          "playerMove": false,
+          "bestmove": "e7f5",
+          "lines": [
+            {
+              "depth": 17,
+              "type": "cp",
+              "value": -651,
+              "pv": [
+                "e7f5",
+                "c2f5",
+                "c6d4",
+                "f3d4",
+                "f7f6",
+                "f5e6",
+                "d7e6",
+                "d4e6",
+                "d8d7",
+                "g7f8",
+                "f6e5",
+                "b2c3",
+                "c8e8",
+                "e6c5",
+                "d7f7",
+                "c5d3"
+              ]
+            },
+            {
+              "depth": 16,
+              "type": "cp",
+              "value": -871,
+              "pv": [
+                "f7f6",
+                "e5f6",
+                "e7f5",
+                "c2f5",
+                "d8f6",
+                "g7f6",
+                "f8f6",
+                "f3g5",
+                "f6f7",
+                "g5f7",
+                "g8f7",
+                "h6h7",
+                "f7e8",
+                "f5g6",
+                "e8d8",
+                "h7h6"
+              ]
+            },
+            {
+              "depth": 16,
+              "type": "mate",
+              "value": -4,
+              "pv": ["c6d4", "f3g5", "d4e2", "g1h1", "e2g3", "f2g3", "f8e8", "h6h7"]
+            }
+          ]
+        },
+        {
+          "fen": "2rq1rk1/3b1pBp/p1n1p1pQ/3pPn2/3P4/2p2N2/PPB2PPP/R4RK1 w - - 2 17",
+          "san": "Bxf5",
+          "uci": "c2f5",
+          "playerMove": true,
+          "bestmove": "c2f5",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": 607,
+              "pv": [
+                "c2f5",
+                "c6d4",
+                "f3d4",
+                "f7f6",
+                "f5g6",
+                "h7g6",
+                "b2c3",
+                "d8e7",
+                "h6h8",
+                "g8f7",
+                "h8h7",
+                "f6e5",
+                "g7e5",
+                "f7e8",
+                "h7g6",
+                "f8f7",
+                "g6g3",
+                "e7a3",
+                "f1e1",
+                "c8c3",
+                "g3g8",
+                "e8e7"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -251,
+              "pv": [
+                "h6f4",
+                "g8g7",
+                "b2c3",
+                "c6a5",
+                "g2g4",
+                "f5h4",
+                "f4f6",
+                "d8f6",
+                "e5f6",
+                "g7f6",
+                "f3h4",
+                "c8c3",
+                "c2d1",
+                "d7b5",
+                "f1e1",
+                "f8c8",
+                "h4f3",
+                "g6g5",
+                "a1b1"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -274,
+              "pv": [
+                "g7f8",
+                "f5h6",
+                "f8h6",
+                "c3b2",
+                "a1b1",
+                "d8b6",
+                "f1d1",
+                "c6a5",
+                "c2b3",
+                "a5c4",
+                "f3e1",
+                "d7c6",
+                "e1d3",
+                "b6d4",
+                "d3b2",
+                "d4e4",
+                "b1c1",
+                "c6b5"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sicilian-tactic-2",
+      "fingerprint": "47cefb1eed825bd44cf42a67406f6c3f705d6f6883823ecfa5b57c69a7754b6a",
+      "checked": [
+        {
+          "fen": "1r2k1r1/p2b1p1p/5p2/1BP1p3/P2p4/5P2/2P2P1P/R3K2R w KQ - 3 18",
+          "san": "c6",
+          "uci": "c5c6",
+          "playerMove": true,
+          "bestmove": "c5c6",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": 321,
+              "pv": [
+                "c5c6",
+                "d7c6",
+                "b5c6",
+                "e8e7",
+                "c6e4",
+                "e7e6",
+                "e4h7",
+                "g8h8",
+                "h7d3",
+                "h8h4",
+                "e1d2",
+                "b8c8",
+                "a1b1",
+                "f6f5",
+                "d3e2",
+                "c8c7",
+                "h2h3",
+                "e5e4",
+                "h1e1",
+                "h4f4",
+                "b1b3",
+                "e6d6",
+                "f3e4",
+                "f5e4"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -13,
+              "pv": [
+                "e1e2",
+                "e8e7",
+                "c2c3",
+                "a7a6",
+                "b5d7",
+                "e7d7",
+                "c3d4",
+                "e5d4",
+                "h1d1",
+                "g8e8",
+                "e2d3",
+                "d7c6",
+                "d3d4",
+                "b8b4",
+                "d4c3",
+                "c6c5"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -21,
+              "pv": [
+                "c2c3",
+                "a7a6",
+                "b5a6",
+                "d4c3",
+                "e1e2",
+                "b8b2",
+                "e2e3",
+                "g8g2",
+                "a6b5",
+                "d7b5",
+                "a4b5",
+                "g2f2",
+                "c5c6",
+                "f2e2",
+                "e3d3"
+              ]
+            }
+          ]
+        },
+        {
+          "fen": "1r2k1r1/p2b1p1p/2P2p2/1B2p3/P2p4/5P2/2P2P1P/R3K2R b KQ - 0 18",
+          "san": "Bxc6",
+          "uci": "d7c6",
+          "playerMove": false,
+          "bestmove": "d7c6",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -318,
+              "pv": [
+                "d7c6",
+                "b5c6",
+                "e8e7",
+                "c6e4",
+                "e7e6",
+                "e1d2",
+                "f6f5",
+                "e4d3",
+                "e6f6",
+                "h1g1",
+                "g8e8",
+                "a1b1",
+                "b8c8",
+                "b1b4",
+                "e8g8",
+                "g1g3",
+                "g8e8",
+                "h2h4",
+                "e5e4",
+                "f3e4",
+                "f5e4",
+                "d3a6"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -400,
+              "pv": [
+                "d7c8",
+                "c6c7",
+                "b8b5",
+                "a4b5",
+                "e8e7",
+                "a1a7",
+                "e7d6",
+                "e1d2",
+                "d6c5",
+                "h1b1",
+                "c5b6",
+                "a7a8",
+                "g8f8",
+                "h2h4",
+                "h7h5",
+                "c2c4",
+                "d4c3",
+                "d2c3",
+                "b6b7",
+                "a8a6",
+                "b7c7",
+                "a6c6",
+                "c7b7",
+                "c6f6"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -412,
+              "pv": [
+                "e8e7",
+                "c6d7",
+                "f6f5",
+                "b5d3",
+                "f5f4",
+                "e1e2",
+                "e7d7",
+                "h1g1",
+                "d7e6",
+                "g1g8",
+                "b8g8",
+                "a1b1",
+                "g8g2",
+                "b1b7",
+                "f7f5",
+                "b7a7",
+                "g2h2",
+                "a7a6",
+                "e6f7",
+                "d3f5"
+              ]
+            }
+          ]
+        },
+        {
+          "fen": "1r2k1r1/p4p1p/2b2p2/1B2p3/P2p4/5P2/2P2P1P/R3K2R w KQ - 0 19",
+          "san": "Bxc6+",
+          "uci": "b5c6",
+          "playerMove": true,
+          "bestmove": "b5c6",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": 315,
+              "pv": [
+                "b5c6",
+                "e8e7",
+                "c6e4",
+                "h7h5",
+                "e1e2",
+                "e7e6",
+                "e4d3",
+                "f6f5",
+                "h1b1",
+                "b8e8",
+                "b1b7",
+                "e6f6",
+                "b7a7",
+                "e5e4",
+                "f3e4",
+                "f5e4",
+                "d3c4",
+                "g8g2",
+                "c4b3",
+                "g2h2",
+                "a7f7",
+                "f6g6"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -169,
+              "pv": [
+                "e1d2",
+                "b8b6",
+                "d2e2",
+                "f6f5",
+                "h1c1",
+                "e8e7",
+                "c2c3",
+                "d4c3",
+                "c1c3",
+                "g8c8",
+                "c3c6",
+                "b6c6",
+                "b5c6",
+                "c8c6",
+                "a4a5",
+                "f5f4",
+                "a1b1"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -178,
+              "pv": ["e1e2", "b8c8", "b5d3", "g8g5", "a4a5", "e8e7", "h2h4", "g5h5", "a5a6", "c6d7"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kings-indian-tactic-1",
+      "fingerprint": "0dabdcb5a4cf5386354b51b931cd1053f5425d78a06d7d8c3881a37ebce0c517",
+      "checked": [
+        {
+          "fen": "r2qnrk1/1pp3bp/3p4/p1nPpb2/2P5/2N1BN1P/PPB2P2/R2QK1R1 b Q - 1 14",
+          "san": "Bxc2",
+          "uci": "f5c2",
+          "playerMove": true,
+          "bestmove": "f5c2",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": 313,
+              "pv": [
+                "f5c2",
+                "d1c2",
+                "f8f3",
+                "e1c1",
+                "g8h8",
+                "c1b1",
+                "b7b6",
+                "g1g2",
+                "d8d7",
+                "g2g5",
+                "f3f7",
+                "d1g1",
+                "e8f6",
+                "a2a3",
+                "a8g8",
+                "b1a2",
+                "g8f8",
+                "c2e2"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -53,
+              "pv": [
+                "d8f6",
+                "f3g5",
+                "a5a4",
+                "e3c5",
+                "d6c5",
+                "c3e4",
+                "f6g6",
+                "h3h4",
+                "a4a3",
+                "h4h5",
+                "a3b2",
+                "h5g6"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -101,
+              "pv": [
+                "g8h8",
+                "c2f5",
+                "f8f5",
+                "f3g5",
+                "e5e4",
+                "c3e4",
+                "c5e4",
+                "g5e4",
+                "d8e7",
+                "d1d3",
+                "e8f6",
+                "e4g5"
+              ]
+            }
+          ]
+        },
+        {
+          "fen": "r2qnrk1/1pp3bp/3p4/p1nPp3/2P5/2N1BN1P/PPb2P2/R2QK1R1 w Q - 0 15",
+          "san": "Qxc2",
+          "uci": "d1c2",
+          "playerMove": false,
+          "bestmove": "d1c2",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -319,
+              "pv": [
+                "d1c2",
+                "f8f3",
+                "e1e2",
+                "f3f7",
+                "e3c5",
+                "d6c5",
+                "c3e4",
+                "d8h4",
+                "g1g4",
+                "h4h3",
+                "a1g1",
+                "f7f4",
+                "g4f4",
+                "e5f4",
+                "e4c5",
+                "f4f3",
+                "e2e3",
+                "g8h8"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -383,
+              "pv": [
+                "d1d2",
+                "c2g6",
+                "f3g5",
+                "c5d3",
+                "e1f1",
+                "d3f4",
+                "c3e2",
+                "f4e2",
+                "d2e2",
+                "d8f6",
+                "g5e6",
+                "f8f7",
+                "a2a3"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -390,
+              "pv": [
+                "d1e2",
+                "c2d3",
+                "e2d1",
+                "d8f6",
+                "f3g5",
+                "d3g6",
+                "h3h4",
+                "c5d3",
+                "e1d2",
+                "d3f2",
+                "d1f1",
+                "f6f5",
+                "a1c1",
+                "g8h8",
+                "h4h5",
+                "g6h5",
+                "g5e6",
+                "f8f7"
+              ]
+            }
+          ]
+        },
+        {
+          "fen": "r2qnrk1/1pp3bp/3p4/p1nPp3/2P5/2N1BN1P/PPQ2P2/R3K1R1 b Q - 0 15",
+          "san": "Rxf3",
+          "uci": "f8f3",
+          "playerMove": true,
+          "bestmove": "f8f3",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": 312,
+              "pv": [
+                "f8f3",
+                "e1e2",
+                "f3h3",
+                "g1g4",
+                "d8d7",
+                "a1g1",
+                "g8h8",
+                "e3c5",
+                "d6c5",
+                "c3e4",
+                "b7b6",
+                "a2a4",
+                "h3h6",
+                "g1g3",
+                "c7c6",
+                "c2d2",
+                "c6d5",
+                "g4g7",
+                "e8g7",
+                "d2h6",
+                "d5e4"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -160,
+              "pv": [
+                "d8f6",
+                "f3g5",
+                "f6f5",
+                "c2f5",
+                "f8f5",
+                "e3c5",
+                "d6c5",
+                "g5e6",
+                "g8f7",
+                "c3e4",
+                "g7h6",
+                "g1g4",
+                "a8c8",
+                "g4h4",
+                "e8f6",
+                "h4h6",
+                "f6e4",
+                "h6h7",
+                "f7f6",
+                "h7h6",
+                "f6f7",
+                "h6h4",
+                "e4g5",
+                "e6g5",
+                "f5g5"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -168,
+              "pv": [
+                "d8d7",
+                "f3g5",
+                "d7f5",
+                "c2f5",
+                "f8f5",
+                "e3c5",
+                "d6c5",
+                "g5e6",
+                "f5f7",
+                "c3e4",
+                "b7b6",
+                "e4g5",
+                "f7f6",
+                "g1g3",
+                "g7h6",
+                "g5e4",
+                "f6g6",
+                "g3g6",
+                "h7g6"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kings-indian-tactic-2",
+      "fingerprint": "82446f685f456904dea71dba8357d1353259b735ce15a360471b947a143a7b4b",
+      "checked": [
+        {
+          "fen": "r1bqr1k1/ppp2pbp/5npB/4p3/2P1P3/2NB4/PP1Q1PPP/R3K2R b KQ - 1 11",
+          "san": "Bxh6",
+          "uci": "g7h6",
+          "playerMove": true,
+          "bestmove": "g7h6",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": 386,
+              "pv": [
+                "g7h6",
+                "d2h6",
+                "d8d3",
+                "f2f3",
+                "d3c4",
+                "h2h4",
+                "c4b4",
+                "e1c1",
+                "b4f8",
+                "h6g5",
+                "g8g7",
+                "g2g4",
+                "h7h5",
+                "g5d2",
+                "c7c6",
+                "g4g5",
+                "f6g8",
+                "f3f4",
+                "g7h7",
+                "f4e5"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": 37,
+              "pv": [
+                "c7c6",
+                "h6e3",
+                "f6g4",
+                "e3g5",
+                "g7f6",
+                "g5f6",
+                "g4f6",
+                "e1g1",
+                "f6h5",
+                "f1d1",
+                "c8g4",
+                "d3e2",
+                "d8d2",
+                "d1d2",
+                "g4e2",
+                "c3e2"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": 35,
+              "pv": ["c8e6", "h6g7", "g8g7", "a1d1", "c7c6", "b2b3", "f6h5", "g2g3", "d8a5"]
+            }
+          ]
+        },
+        {
+          "fen": "r1bqr1k1/ppp2p1p/5npb/4p3/2P1P3/2NB4/PP1Q1PPP/R3K2R w KQ - 0 12",
+          "san": "Qxh6",
+          "uci": "d2h6",
+          "playerMove": false,
+          "bestmove": "d2h6",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -406,
+              "pv": [
+                "d2h6",
+                "d8d3",
+                "h2h4",
+                "f6g4",
+                "h6c1",
+                "d3d4",
+                "c1c2",
+                "c8e6",
+                "h4h5",
+                "d4c5",
+                "a1d1",
+                "a8d8",
+                "d1d8",
+                "e8d8",
+                "c3d5",
+                "e6d5",
+                "e4d5",
+                "g4f6",
+                "h5g6",
+                "f7g6",
+                "e1g1"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -495,
+              "pv": [
+                "d2c2",
+                "c7c6",
+                "e1g1",
+                "d8c7",
+                "a1d1",
+                "c8e6",
+                "g1h1",
+                "e8d8",
+                "d3e2",
+                "d8d1",
+                "f1d1"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": -510,
+              "pv": [
+                "d2d1",
+                "c7c6",
+                "d3e2",
+                "d8e7",
+                "d1c2",
+                "f6d7",
+                "h2h4",
+                "d7f8",
+                "h4h5",
+                "h6g5",
+                "h5g6",
+                "h7g6"
+              ]
+            }
+          ]
+        },
+        {
+          "fen": "r1bqr1k1/ppp2p1p/5npQ/4p3/2P1P3/2NB4/PP3PPP/R3K2R b KQ - 0 12",
+          "san": "Qxd3",
+          "uci": "d8d3",
+          "playerMove": true,
+          "bestmove": "d8d3",
+          "lines": [
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": 386,
+              "pv": [
+                "d8d3",
+                "h2h4",
+                "f6g4",
+                "h6c1",
+                "d3d4",
+                "c1c2",
+                "g4f6",
+                "h4h5",
+                "c8e6",
+                "c2c1",
+                "d4d8",
+                "c1h6",
+                "d8e7",
+                "e1c1"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": 40,
+              "pv": [
+                "c7c6",
+                "a1d1",
+                "d8a5",
+                "e1g1",
+                "c8e6",
+                "d1d2",
+                "a5c5",
+                "b2b3",
+                "c5a5",
+                "f1c1",
+                "a5a3",
+                "c3e2",
+                "f6g4",
+                "h6h4",
+                "g8g7"
+              ]
+            },
+            {
+              "depth": 18,
+              "type": "cp",
+              "value": 35,
+              "pv": ["c8e6", "a1d1", "c7c6", "e1g1", "d8b6", "d1d2", "b6c5", "b2b3", "e8d8"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

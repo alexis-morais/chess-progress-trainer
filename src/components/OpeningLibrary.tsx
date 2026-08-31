@@ -1,19 +1,15 @@
-import {
-  ArrowRight,
-  ArrowLeft,
-  Check,
-  ChevronDown,
-  Flag,
-  Lightbulb,
-  MousePointer2,
-} from 'lucide-react';
+import { ArrowLeft, ChevronDown, Flag, Lightbulb, MousePointer2 } from 'lucide-react';
 import { OpeningPreview } from './OpeningPreview';
+import { VariationCard } from './VariationCard';
+import { TacticCards } from './TacticCards';
+import type { Tactic } from '../tactics/model';
 import { Chess } from 'chess.js';
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import type { Opening, Variation, LessonMode } from '../data/openings';
-import { frenchSan, sideName, lessonModes, learnerMoveCount } from '../data/openings';
+import { sideName } from '../data/openings';
 
 type Props = {
+  focusOpening?: string | null;
   onHome: () => void;
   openings: Opening[];
   expanded: string | null;
@@ -22,6 +18,7 @@ type Props = {
   onMode: (mode: LessonMode) => void;
   onExpand: (id: string) => void;
   onSelect: (id: string) => void;
+  onTactic: (puzzle: Tactic) => void;
   onStart: (opening: Opening, variation: Variation, mode: LessonMode) => void;
 };
 
@@ -35,7 +32,20 @@ export function OpeningLibrary({
   onExpand,
   onSelect,
   onStart,
+  onTactic,
+  focusOpening,
 }: Props) {
+  useEffect(() => {
+    if (!focusOpening) return;
+    const frame = requestAnimationFrame(() => {
+      const trigger = document.querySelector<HTMLButtonElement>(
+        `#opening-${focusOpening} .opening-card-trigger`,
+      );
+      trigger?.focus({ preventScroll: true });
+      trigger?.scrollIntoView({ block: 'start', behavior: 'instant' });
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [focusOpening]);
   const previews = useMemo(
     () =>
       Object.fromEntries(
@@ -69,8 +79,12 @@ export function OpeningLibrary({
         </h1>
         <p>Entraîne-toi aux ouvertures, coup après coup.</p>
         <div className="intro-facts">
-          <span>10 ouvertures</span>
-          <i /> <span>60 variantes guidées</span>
+          <span>{openings.length} ouvertures</span>
+          <i />{' '}
+          <span>
+            {openings.reduce((total, opening) => total + opening.variations.length, 0)} variantes
+            guidées
+          </span>
           <i />
           <span>2 niveaux pour chacune</span>
         </div>
@@ -90,18 +104,24 @@ export function OpeningLibrary({
                 <span className={`side-dot ${side === 'b' ? 'black' : ''}`} />
                 Jouer avec les {sideName(side)}
               </h3>
-              <span>5 ouvertures · 30 variantes</span>
+              <span>
+                {openings.filter((opening) => opening.side === side).length} ouvertures ·{' '}
+                {openings
+                  .filter((opening) => opening.side === side)
+                  .reduce((total, opening) => total + opening.variations.length, 0)}{' '}
+                variantes
+              </span>
             </div>
             <div className="opening-grid">
               {openings
                 .filter((opening) => opening.side === side)
                 .map((opening, index) => {
                   const isExpanded = expanded === opening.id;
-                  const chosen = opening.variations.find((variation) => variation.id === selected);
                   return (
                     <article
                       className={`opening-card ${isExpanded ? 'expanded' : ''}`}
                       key={opening.id}
+                      id={`opening-${opening.id}`}
                     >
                       <button
                         className="opening-card-trigger"
@@ -112,7 +132,14 @@ export function OpeningLibrary({
                         <OpeningPreview fen={previews[opening.id]} black={side === 'b'} />
                         <div className="opening-card-copy">
                           <span className="card-index">
-                            OUVERTURE {String(index + 1 + (side === 'b' ? 5 : 0)).padStart(2, '0')}
+                            OUVERTURE{' '}
+                            {String(
+                              index +
+                                1 +
+                                (side === 'b'
+                                  ? openings.filter((opening) => opening.side === 'w').length
+                                  : 0),
+                            ).padStart(2, '0')}
                           </span>
                           <h3>{opening.name}</h3>
                           <p>{opening.description}</p>
@@ -121,7 +148,7 @@ export function OpeningLibrary({
                               <span className={`side-dot ${opening.side === 'b' ? 'black' : ''}`} />
                               Vous jouez : {sideName(opening.side)}
                             </span>
-                            <span>6 variantes</span>
+                            <span>{opening.variations.length} variantes</span>
                           </div>
                         </div>
                         <ChevronDown className="expand-icon" size={19} />
@@ -130,90 +157,31 @@ export function OpeningLibrary({
                         <div className="variant-picker" id={`variants-${opening.id}`}>
                           <div className="variant-picker-heading">
                             <span className="step-number">02</span>
-                            <h4>Sélectionne une variante</h4>
+                            <div>
+                              <span className="eyebrow">APPRENDRE</span>
+                              <h4>Sélectionne une variante</h4>
+                            </div>
                           </div>
                           <div className="variant-grid">
-                            {opening.variations.map((variation) => {
-                              return (
-                                <button
-                                  className={`variant-option ${selected === variation.id ? 'selected' : ''}`}
-                                  key={variation.id}
-                                  aria-pressed={selected === variation.id}
-                                  onClick={() => onSelect(variation.id)}
-                                >
-                                  <span>
-                                    <strong>{variation.name}</strong>
-                                    <small>
-                                      {learnerMoveCount(side, variation.moves.length)} coups
-                                      essentiels · {variation.eco}
-                                    </small>
-                                  </span>
-                                  <span className="radio-indicator">
-                                    {selected === variation.id && <Check size={12} />}
-                                  </span>
-                                </button>
-                              );
-                            })}
+                            {opening.variations.map((variation) => (
+                              <VariationCard
+                                key={variation.id}
+                                opening={opening}
+                                variation={variation}
+                                selected={selected === variation.id}
+                                mode={mode}
+                                onSelect={() => onSelect(variation.id)}
+                                onMode={onMode}
+                                onStart={(chosenMode) => onStart(opening, variation, chosenMode)}
+                              />
+                            ))}
                           </div>
-                          {chosen ? (
-                            <div className="variant-detail">
-                              <p>{chosen.description}</p>
-                              <div className="line-preview" aria-label="Début de la variante">
-                                {chosen.moves.slice(0, 6).map((move, i) => (
-                                  <span key={i}>
-                                    {i % 2 === 0 ? `${i / 2 + 1}. ` : ''}
-                                    {frenchSan(move.san)}
-                                  </span>
-                                ))}
-                              </div>
-                              <fieldset className="mode-picker">
-                                <legend>
-                                  <span className="step-number">03</span>Choisis ton niveau
-                                </legend>
-                                {lessonModes.map((option) => (
-                                  <label
-                                    key={option.id}
-                                    className={`mode-option ${mode === option.id ? 'selected' : ''}`}
-                                  >
-                                    <input
-                                      type="radio"
-                                      name="lesson-mode"
-                                      value={option.id}
-                                      checked={mode === option.id}
-                                      onChange={() => onMode(option.id)}
-                                    />
-                                    <span>
-                                      <strong>{option.name}</strong>
-                                      <small>{option.description}</small>
-                                      <em>
-                                        {learnerMoveCount(
-                                          side,
-                                          chosen.moves.length +
-                                            (option.id === 'extended'
-                                              ? chosen.extension.length
-                                              : 0),
-                                        )}{' '}
-                                        coups à jouer
-                                      </em>
-                                    </span>
-                                  </label>
-                                ))}
-                              </fieldset>
-                              <button
-                                className="button primary start-button"
-                                disabled={!mode}
-                                onClick={() => {
-                                  if (mode) onStart(opening, chosen, mode);
-                                }}
-                              >
-                                Commencer l’entraînement <ArrowRight size={17} />
-                              </button>
-                            </div>
-                          ) : (
+                          {!selected && (
                             <p className="selection-prompt">
                               Choisis une ligne pour commencer ton entraînement.
                             </p>
                           )}
+                          <TacticCards openingId={opening.id} onStart={onTactic} />
                         </div>
                       )}
                     </article>
@@ -231,17 +199,16 @@ export function OpeningLibrary({
         <div className="how-grid">
           <div>
             <MousePointer2 size={21} />
-            <h3>Pars d’un indice</h3>
+            <h3>Réfléchis à ton rythme</h3>
             <p>
-              Un indice gratuit avant chacun de tes coups. Ton adversaire suit toujours la ligne
-              prévue.
+              Aucune aide imposée. Demande un indice gratuit si tu souhaites une piste de réflexion.
             </p>
           </div>
           <div>
             <Lightbulb size={21} />
             <h3>Comprends chaque coup</h3>
             <p>
-              « Voir le coup » révèle la flèche et compte une aide. Une explication suit chaque
+              « Solution » révèle le coup exact et compte une aide. Une explication suit chaque
               réussite.
             </p>
           </div>

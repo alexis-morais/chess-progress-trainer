@@ -75,7 +75,7 @@ describe('Parcours complet de l’interface avec le véritable échiquier React'
     expect(screen.getByTestId('errors')).toHaveTextContent('1');
     expect(screen.getByTestId('progress')).toHaveTextContent('0 / 7');
     expect(screen.getByRole('button', { name: 'd2, pion blanc' })).toBeInTheDocument();
-    const hint = screen.getByRole('button', { name: 'Voir le coup' });
+    const hint = screen.getByRole('button', { name: 'Solution' });
     fireEvent.click(hint);
     fireEvent.click(hint);
     expect(screen.getByTestId('hints')).toHaveTextContent('1');
@@ -104,7 +104,7 @@ describe('Parcours complet de l’interface avec le véritable échiquier React'
       'data-square',
       'h1',
     );
-    expect(screen.getByRole('button', { name: 'Voir le coup' })).toBeDisabled();
+    expect(screen.getByRole('button', { name: 'Solution' })).toBeDisabled();
     waitComputer(COMPUTER_DELAY);
     expect(screen.getByRole('button', { name: 'e4, pion blanc' })).toBeInTheDocument();
     expect(screen.getByTestId('progress')).toHaveTextContent('0 / 6');
@@ -126,7 +126,7 @@ describe('Parcours complet de l’interface avec le véritable échiquier React'
     waitComputer();
     expect(screen.getByRole('dialog')).toBeVisible();
     expect(screen.getByText('🎉 Variante terminée !')).toBeVisible();
-    expect(screen.getByRole('button', { name: 'Voir le coup' })).toBeDisabled();
+    expect(screen.getByRole('button', { name: 'Solution' })).toBeDisabled();
     expect(screen.getByRole('button', { name: 'd2, fou blanc' })).toHaveAttribute(
       'aria-disabled',
       'true',

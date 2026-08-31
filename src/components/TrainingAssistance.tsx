@@ -1,57 +1,65 @@
 import { Eye, Lightbulb } from 'lucide-react';
+import { useId } from 'react';
 import { playerGuidance } from '../trainer/hints';
-import { isComplete, type CompiledLesson, type TrainerState } from '../trainer/model';
+import { isComplete, type ScriptedExercise, type TrainerState } from '../trainer/model';
 
 export function TrainingAssistance({
   lesson,
   state,
+  onHint,
   onReveal,
 }: {
-  lesson: CompiledLesson;
+  lesson: ScriptedExercise;
   state: TrainerState;
+  onHint: () => void;
   onReveal: () => void;
 }) {
   const guidance = playerGuidance(lesson, state);
   const complete = isComplete(lesson, state);
+  const id = useId();
   return (
     <section className="training-assistance" aria-label="Aide à ton prochain coup">
-      <div className="instruction-copy" aria-live="polite" aria-atomic="true">
-        <span className="instruction-label">
-          <Lightbulb size={15} aria-hidden="true" />
-          {guidance
-            ? `Indice · Coup ${state.completed + 1} / ${lesson.total}`
-            : complete
-              ? 'Séance terminée'
-              : 'À l’ordinateur'}
+      <div className="assistance-heading">
+        <div className="assistance-segments" role="group" aria-label="Assistance facultative">
+          <button
+            disabled={!guidance}
+            aria-pressed={state.hintVisible}
+            aria-controls={`${id}-hint`}
+            onClick={onHint}
+            title="Une piste de réflexion, gratuite"
+          >
+            <Lightbulb size={17} aria-hidden="true" /> Indice
+          </button>
+          <button
+            disabled={!guidance}
+            aria-pressed={state.solutionVisible}
+            aria-controls={`${id}-solution`}
+            onClick={onReveal}
+            title="Le coup exact, une aide comptée par coup"
+          >
+            <Eye size={17} aria-hidden="true" /> Solution
+          </button>
+        </div>
+        <span className="assistance-turn">
+          {complete
+            ? 'Séance terminée'
+            : guidance
+              ? `Coup ${state.completed + 1} / ${lesson.total} · À toi de jouer`
+              : 'Réponse de l’ordinateur…'}
         </span>
-        {guidance ? (
-          <p data-testid="pedagogical-hint">{guidance.hint}</p>
-        ) : (
-          <p>
-            {complete
-              ? 'Tous tes coups sont complétés.'
-              : 'Observe la réponse de l’ordinateur, ton indice arrive ensuite.'}
-          </p>
-        )}
-        {guidance && state.hintVisible && (
-          <p className="hint-description" data-testid="exact-move">
-            {guidance.exact}
-          </p>
-        )}
       </div>
-      <div className="assistance-controls">
-        <button
-          className="button primary hint-button"
-          disabled={!guidance}
-          aria-pressed={state.hintVisible}
-          aria-describedby="reveal-cost"
-          onClick={onReveal}
-        >
-          <Eye size={17} aria-hidden="true" /> Voir le coup
-        </button>
-        <span id="reveal-cost">
-          {state.hintVisible ? 'Flèche affichée · 1 aide comptée' : 'Compte 1 aide par coup'}
-        </span>
+      <div className="instruction-copy" aria-live="polite" aria-atomic="true">
+        <div id={`${id}-hint`}>
+          {guidance && state.hintVisible && <p data-testid="pedagogical-hint">{guidance.hint}</p>}
+        </div>
+        <div id={`${id}-solution`}>
+          {guidance && state.solutionVisible && (
+            <p className="hint-description" data-testid="exact-move">
+              {guidance.exact}
+              <small>Flèche affichée · 1 aide comptée pour ce coup</small>
+            </p>
+          )}
+        </div>
       </div>
     </section>
   );

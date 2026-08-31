@@ -12,6 +12,11 @@ afterEach(() => {
   vi.unstubAllGlobals();
 });
 Object.defineProperty(window, 'scrollTo', { value: () => {}, writable: true });
+Object.defineProperty(HTMLElement.prototype, 'scrollIntoView', {
+  value: () => {},
+  writable: true,
+  configurable: true,
+});
 Object.defineProperty(HTMLElement.prototype, 'getBoundingClientRect', {
   value: () => ({
     width: 80,

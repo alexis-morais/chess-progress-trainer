@@ -11,7 +11,7 @@ export const lessonModes: { id: LessonMode; name: string; description: string }[
   {
     id: 'extended',
     name: 'Version étendue',
-    description: 'Continue plus loin pour découvrir les plans, stratégies et tactiques typiques.',
+    description: 'Découvre ses plans et idées plus en profondeur.',
   },
 ];
 export const modeName = (mode: LessonMode) => lessonModes.find((item) => item.id === mode)!.name;

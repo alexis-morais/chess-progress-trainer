@@ -56,28 +56,28 @@ describe('Moteur pédagogique indépendant de Stockfish', () => {
     expect(cleared.errors).toBe(1);
   });
   it('ne compte qu’une aide par décision, même après une erreur', () => {
-    let state = reduceTrainer(white, initialState(), { type: 'hint' });
-    state = reduceTrainer(white, state, { type: 'hint' });
+    let state = reduceTrainer(white, initialState(), { type: 'solution' });
+    state = reduceTrainer(white, state, { type: 'solution' });
     state = reduceTrainer(white, state, { type: 'attempt', from: 'd2', to: 'd4' });
-    state = reduceTrainer(white, state, { type: 'hint' });
+    state = reduceTrainer(white, state, { type: 'solution' });
     expect(state.hints).toBe(1);
-    expect(state.hintVisible).toBe(true);
+    expect(state.solutionVisible).toBe(true);
     state = reduceTrainer(white, state, { type: 'attempt', from: 'e2', to: 'e4' });
-    expect(state.hintVisible).toBe(false);
+    expect(state.solutionVisible).toBe(false);
     expect(state.completed).toBe(1);
     state = reduceTrainer(white, state, { type: 'computer', expectedPly: 1 });
-    state = reduceTrainer(white, state, { type: 'hint' });
+    state = reduceTrainer(white, state, { type: 'solution' });
     expect(state.hints).toBe(2);
   });
   it('ignore les clics, les aides et les messages retardés pendant le tour adverse', () => {
     const state = initialState();
-    expect(reduceTrainer(black, state, { type: 'hint' })).toBe(state);
+    expect(reduceTrainer(black, state, { type: 'solution' })).toBe(state);
     expect(reduceTrainer(black, state, { type: 'attempt', from: 'e7', to: 'e6' })).toBe(state);
     expect(reduceTrainer(black, state, { type: 'computer', expectedPly: 9 })).toBe(state);
     expect(reduceTrainer(white, state, { type: 'computer', expectedPly: 0 })).toBe(state);
   });
   it('remet absolument tous les compteurs et la position à zéro', () => {
-    let state = reduceTrainer(white, initialState(), { type: 'hint' });
+    let state = reduceTrainer(white, initialState(), { type: 'solution' });
     state = reduceTrainer(white, state, { type: 'attempt', from: 'e2', to: 'e5' });
     state = reduceTrainer(white, state, { type: 'attempt', from: 'e2', to: 'e4' });
     expect(reduceTrainer(white, state, { type: 'reset' })).toEqual(initialState());
@@ -113,7 +113,7 @@ describe('Moteur pédagogique indépendant de Stockfish', () => {
       expect(state.completed).toBe(lesson.total);
       expect(state.errors).toBe(0);
       expect(isPlayerTurn(lesson, state)).toBe(false);
-      expect(reduceTrainer(lesson, state, { type: 'hint' })).toBe(state);
+      expect(reduceTrainer(lesson, state, { type: 'solution' })).toBe(state);
       expect(reduceTrainer(lesson, state, { type: 'attempt', from: 'e2', to: 'e4' })).toBe(state);
       expect(reduceTrainer(lesson, state, { type: 'computer', expectedPly: state.ply })).toBe(
         state,
