@@ -1,5 +1,15 @@
 # Audit local de sécurité — 31 août 2026
 
+## Finition produit : accueil, tactile et calibration
+
+L’audit des dépendances a été relancé : **0 vulnérabilité connue** (11 dépendances d’exécution, 208 de développement, 219 au total). Aucune dépendance ajoutée, aucun changement du lockfile. Les nouveaux dessins utilisent les SVG et pièces locaux déjà licenciés. Aucun service, compte, appel distant ou secret n’a été ajouté.
+
+Le contrôle final des secrets n’a trouvé aucun résultat positif : 223 fichiers examinés, huit commits accessibles et 272 blobs historiques. Les essais de calibration restent locaux et sont identifiés séparément des mesures de la politique livrée.
+
+La calibration s’exécute uniquement dans les scripts locaux, avec le moteur WASM du projet. Ses FEN et coups passent par chess.js ; les résultats restent des fichiers locaux. Elle n’est pas chargée ou exécutée par la page d’accueil. La sélection de coups modifiée ne s’applique qu’à la Partie libre ; les limites et validations du protocole UCI n’ont pas changé.
+
+Le build vérifie toujours l’intégrité des ressources Stockfish, distribue les sources GPL et applique la CSP. Le timeout CI de 20 secondes et la limite de deux processus de test sont conservés. Les sections suivantes gardent le détail des audits antérieurs et ne décrivent pas de nouvelles modifications de sécurité.
+
 ## Complément mobile et difficulté 1–25
 
 Nouvel audit des dépendances : **aucune vulnérabilité connue** (11 dépendances d’exécution, 208 de développement, 219 au total). Le détecteur de secrets ne relève aucun résultat positif dans les sources et les 7 commits locaux accessibles, soit 215 blobs texte historiques. Aucun commit n’a été créé par cette mise à jour.

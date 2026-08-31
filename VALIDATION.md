@@ -1,4 +1,34 @@
-# Contrôle de l’évolution locale — 31 août 2026
+# Validation finale de la finition produit — 31 août 2026
+
+- **1 269 / 1 269 tests, 27 fichiers, en local et en configuration CI.** Les 997 tests de la version précédente sont conservés/adaptés ; 272 cas supplémentaires contrôlent notamment le rendu enregistré, la protection matérielle, le Maximum, les parties longues et la provenance des mesures. Aucun test désactivé. Le replay des nouvelles parties évite seulement de reconstruire tout l’historique à chaque demi-coup, sans réduire les coups ou assertions vérifiés.
+- **CI inchangée** : 5 secondes par test en local, 20 secondes en CI, deux workers. Les commandes `pnpm test` et `CI=true pnpm test` ont réellement terminé avec succès. Cela teste la configuration CI localement ; aucun workflow distant n’a été déclenché.
+- **Build de production réussi** : TypeScript, ressources Stockfish locales vérifiées, archive source GPL, Vite, durcissement CSP et base `/chess-progress-trainer/`. Le mode de navigation par fragment est conservé.
+- **Audit des dépendances : zéro vulnérabilité connue**, 219 dépendances au total (11 d’exécution, 208 de développement). Aucun ajout de dépendance ni changement du lockfile. Détection de secrets sans résultat positif dans les sources et les huit commits accessibles, 272 blobs historiques.
+- **Calibration finale : 40 cas / 39 positions distinctes, 25 profils, 80 000 décisions échantillonnées et 180 parties longues**. 95 fins réglementaires, 85 arbitrages au plafond. Les 90 parties historiques restent aussi rejouées par les tests. Les essais intermédiaires sont archivés séparément ; les profils inchangés ne perdent aucune mesure.
+- **Raccord retenu 15–16 : 61,1 % des points au 16 sur 18 parties**, contre un saut excessif à 97,2 % avec le réglage rejeté. CPL des niveaux 14–17 : 21,1 / 17,6 / 12,2 / 9,7. Toutes les inversions entre voisins restent visibles dans [DIFFICULTY.md](DIFFICULTY.md) et [le rapport généré](calibration/QUALITY.md).
+- **Aucun commit, push ou déploiement.**
+
+## Vérification dans le navigateur
+
+Prévisualisation de production sous Chromium : accueil en clair/sombre à **320 × 568, 375 × 812, 390 × 844, 430 × 932, 820 × 1180 et 1440 × 1000**. Aucun débordement horizontal ou texte coupé sur les cartes contrôlées ; à 320 px, les deux cartes finissent à 559,5 px et restent dans le premier écran. Les flèches déclenchent la même navigation que les cartes. Le desktop conserve sa composition.
+
+La finition tactile retient **142 %**, après comparaison à 135 % et 150 %, au lieu de 125 %. Décalage selon la case, environ **49 px à 390 px**, contre environ 40 px auparavant ; halo, origine, cible courante, points et anneaux conservés. Huit scénarios rejoués dans les deux thèmes : pion blanc/noir, capture noire, deux roques, prise en passant, sous-promotion en cavalier et refus pédagogique. Les autres promotions, annulations, gestes souris et commandes clavier restent couverts par les tests.
+
+Partie libre contrôlée avec le Worker réel aux niveaux **1, 3, 8, 15, 16 et 25**, y compris les Noirs au premier coup. Le Maximum affiche « Stockfish non affaibli » ; un changement de thème a répondu en environ 268 ms pendant son démarrage/réflexion. Ce temps inclut l’automatisation et n’est pas un benchmark universel. La mémorisation du niveau a été vérifiée ; le sélecteur est remis sur 8 pour le prochain essai. La migration des anciennes difficultés est vérifiée par les tests automatisés.
+
+Le bilan d’une partie de contrôle du niveau 8 a été généré : classification, commentaire prudent, meilleure variante, flèche sur la position d’origine, navigation et courbe disponibles sans débordement. Le bilan reste indépendant de l’affaiblissement du jeu. Ouverture italienne essentielle contrôlée : indice gratuit, solution comptée, mauvais coup refusé avec croix rouge, bon coup, explication et réponse scriptée. Française étendue contrôlée avec les Noirs en bas. Tactique française « Deux pièces alignées » terminée (2/2), avec son écran de réussite. Stockfish d’évaluation actif, aucune erreur ni alerte importante dans les consoles de production et du banc tactile.
+
+Mesures détaillées : [qa/product-finish-validation.json](qa/product-finish-validation.json), avec empreinte des composants et passage final horodaté. Le banc tactile n’est pas une entrée du site publié.
+
+## Limites explicites
+
+- Les gestes tactiles sont simulés dans un navigateur de bureau. Défilement natif, zoom, interruption de geste et confort sous un vrai pouce restent à confirmer sur téléphone physique.
+- Safari et Firefox sont ciblés par le build, mais n’ont pas été exécutés ici.
+- Les Elo sont des estimations pédagogiques, sans certification humaine. Le hasard natif, le matériel et les petites séries expliquent une part de la variance. Les moyennes et taux du corpus ne sont pas des garanties pour toutes les parties.
+
+---
+
+# Historique des validations antérieures
 
 ## Mise à jour mobile Focus et difficulté 1–25
 

@@ -162,6 +162,40 @@ describe('Sélection commune et clavier', () => {
 });
 
 describe('Pointer Events souris et tactiles', () => {
+  it('ne prévient le déplacement du pointeur que pendant un vrai drag de pièce', () => {
+    render(<FreeBoard />);
+    const p = pointer('touch');
+    p.down('e2');
+    expect(
+      fireEvent.pointerMove(p.root, { ...p.data('e2'), clientX: p.point('e2').clientX + 4 }),
+    ).toBe(true);
+    expect(screen.queryByTestId('drag-piece')).toBeNull();
+    expect(p.move('e4')).toBe(false);
+    expect(document.body.style.overflow).toBe('');
+    p.up('e4');
+    expect(fireEvent.pointerMove(document.body, p.data('e5'))).toBe(true);
+  });
+  it('la source reste fixe et la destination suit le doigt, y compris hors plateau', () => {
+    render(<FreeBoard />);
+    const p = pointer('touch');
+    p.down('e2');
+    p.move('e3');
+    expect(square('e2')).toHaveAttribute('data-drag-source', 'true');
+    expect(square('e3')).toHaveAttribute('data-drag-target', 'true');
+    p.move('d4');
+    expect(square('e3')).not.toHaveAttribute('data-drag-target');
+    expect(square('d4')).toHaveAttribute('data-drag-target', 'true');
+    expect(square('e2')).toHaveAttribute('data-drag-source', 'true');
+    expect(marks()).toEqual(['e3', 'e4']);
+    fireEvent.pointerMove(p.root, { ...p.data('d4'), clientX: 0, clientY: 0 });
+    expect(document.querySelector('[data-drag-target]')).toBeNull();
+    expect(screen.getByTestId('drag-piece').style.transform).toContain(
+      'translate3d(13.5px, 13.5px',
+    );
+    fireEvent.pointerCancel(p.root, p.data('d4'));
+    expect(screen.queryByTestId('drag-halo')).toBeNull();
+    expect(document.querySelector('[data-drag-source]')).toBeNull();
+  });
   it.each(['mouse', 'touch'])(
     '%s : marqueurs dès le contact, pendant le drag, snap et aucun clic parasite',
     (type) => {
@@ -175,12 +209,18 @@ describe('Pointer Events souris et tactiles', () => {
       expect(marks()).toEqual(['e3', 'e4']);
       const ghost = screen.getByTestId('drag-piece');
       expect(ghost).toHaveAttribute('data-phase', 'dragging');
-      expect(ghost.style.transform).toContain(type === 'touch' ? 'scale(1.25)' : 'scale(1.04)');
-      if (type === 'touch') expect(ghost.style.transform).toContain('257.5px'); // Center y=325, half-size 25, lift 42.5.
+      expect(ghost.style.transform).toContain(type === 'touch' ? 'scale(1.42)' : 'scale(1.04)');
+      if (type === 'touch') expect(ghost.style.transform).toContain('247.5px'); // Center y=325, half-size 25, lift 52.5.
+      expect(square('e2')).toHaveAttribute('data-drag-source', 'true');
+      expect(square('e4')).toHaveAttribute('data-drag-target', 'true');
+      if (type === 'touch') expect(screen.getByTestId('drag-halo')).toBeInTheDocument();
+      else expect(screen.queryByTestId('drag-halo')).not.toBeInTheDocument();
       expect(p.root).toHaveAttribute('data-dragging', 'true');
       p.up('e4');
       expect(ghost).toHaveAttribute('data-phase', 'settling');
       expect(ghost.style.transform).toContain('scale(1)');
+      expect(square('e2')).not.toHaveAttribute('data-drag-source');
+      expect(square('e4')).not.toHaveAttribute('data-drag-target');
       fireEvent.click(square('e4'), { detail: 1 });
       expect(observe).toHaveBeenCalledTimes(1);
       expect(marks()).toEqual([]);
@@ -263,7 +303,7 @@ describe('Pointer Events souris et tactiles', () => {
     p.down('e7');
     expect(marks()).toEqual(['e5', 'e6']);
     p.move('e5');
-    expect(screen.getByTestId('drag-piece').style.transform).toContain('257.5px');
+    expect(screen.getByTestId('drag-piece').style.transform).toContain('247.5px');
     p.up('e5');
     expect(square('e5')).toHaveAttribute('aria-label', 'e5, pion noir');
   });

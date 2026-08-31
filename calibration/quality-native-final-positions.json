@@ -1,0 +1,7219 @@
+{
+  "version": 2,
+  "seed": 20260901,
+  "createdAt": "2026-08-31T20:49:34.777Z",
+  "policyHash": "6478c6692c0f101c36a9a1637ed938987f6e6d6140ea63ab8d31f42b2343f324",
+  "profiles": [
+    {
+      "id": 16,
+      "name": "Niveau 16",
+      "category": "Expert",
+      "elo": 2000,
+      "settings": {
+        "skill": 20,
+        "depth": 15,
+        "movetime": 770,
+        "nodes": 130000,
+        "elo": 2750
+      }
+    },
+    {
+      "id": 17,
+      "name": "Niveau 17",
+      "category": "Expert",
+      "elo": 2100,
+      "settings": {
+        "skill": 20,
+        "depth": 15,
+        "movetime": 840,
+        "nodes": 148000,
+        "elo": 2820
+      }
+    },
+    {
+      "id": 18,
+      "name": "Niveau 18",
+      "category": "Expert",
+      "elo": 2200,
+      "settings": {
+        "skill": 20,
+        "depth": 16,
+        "movetime": 910,
+        "nodes": 166000,
+        "elo": 2920
+      }
+    }
+  ],
+  "positions": [
+    {
+      "id": "capture-dame",
+      "kind": "Dame gratuite",
+      "phase": "tactics",
+      "fen": "4k3/ppp2ppp/8/3q4/8/8/PPP2PPP/3QK3 w - - 0 1",
+      "reference": {
+        "move": "d1d5",
+        "score": {
+          "cp": 800,
+          "depth": 18
+        },
+        "pv": [
+          "d1d5",
+          "b7b6",
+          "d5e5",
+          "e8d8",
+          "e5g7",
+          "h7h6"
+        ]
+      }
+    },
+    {
+      "id": "capture-tour",
+      "kind": "Tour gratuite",
+      "phase": "tactics",
+      "fen": "4k3/ppp2ppp/8/3r4/8/8/PPP2PPP/3QK3 w - - 0 1",
+      "reference": {
+        "move": "d1d5",
+        "score": {
+          "cp": 861,
+          "depth": 17
+        },
+        "pv": [
+          "d1d5",
+          "c7c6",
+          "d5f5",
+          "e8e7",
+          "f5e5",
+          "e7d7"
+        ]
+      }
+    },
+    {
+      "id": "mat-un",
+      "kind": "Mat en un",
+      "phase": "tactics",
+      "fen": "6k1/5ppp/8/8/8/8/5PPP/3R2K1 w - - 0 1",
+      "reference": {
+        "move": "d1d8",
+        "score": {
+          "mate": 1,
+          "winner": "w",
+          "depth": 18
+        },
+        "pv": [
+          "d1d8"
+        ]
+      }
+    },
+    {
+      "id": "mat-deux",
+      "kind": "Mat en deux",
+      "phase": "tactics",
+      "fen": "r3r1k1/ppq2pp1/2p1b3/6b1/3PQ3/4P3/PPB2PP1/R3K2R w KQ - 0 18",
+      "reference": {
+        "move": "h1h8",
+        "score": {
+          "mate": 2,
+          "winner": "w",
+          "depth": 18
+        },
+        "pv": [
+          "h1h8",
+          "g8h8",
+          "e4h7"
+        ]
+      }
+    },
+    {
+      "id": "fourchette",
+      "kind": "Fourchette",
+      "phase": "tactics",
+      "fen": "r3k3/ppp2ppp/8/3N4/8/8/PPP2PPP/4K3 w - - 0 1",
+      "reference": {
+        "move": "d5c7",
+        "score": {
+          "cp": 386,
+          "depth": 17
+        },
+        "pv": [
+          "d5c7",
+          "e8d7",
+          "c7a8",
+          "d7c8",
+          "e1d2",
+          "c8b8"
+        ]
+      }
+    },
+    {
+      "id": "dame-attaquee",
+      "kind": "Dame attaquée",
+      "phase": "tactics",
+      "fen": "rnbqkbnr/ppp1pppp/8/8/3pQ3/8/PPP2PPP/RNB1KBNR w KQkq - 0 4",
+      "reference": {
+        "move": "g1f3",
+        "score": {
+          "cp": -171,
+          "depth": 18
+        },
+        "pv": [
+          "g1f3",
+          "b8c6",
+          "f1b5",
+          "c8d7",
+          "e1g1",
+          "a7a6"
+        ]
+      }
+    },
+    {
+      "id": "defense-mat",
+      "kind": "Défense contre un mat",
+      "phase": "tactics",
+      "fen": "rnb1k1nr/pppp1ppp/8/2b1p3/4P2q/5N2/PPPP1PPP/RNBQKB1R w KQkq - 3 4",
+      "reference": {
+        "move": "f3h4",
+        "score": {
+          "cp": 633,
+          "depth": 18
+        },
+        "pv": [
+          "f3h4",
+          "d7d5",
+          "e4d5",
+          "c5e7",
+          "g2g3",
+          "a7a5"
+        ]
+      }
+    },
+    {
+      "id": "piece-attaquee",
+      "kind": "Pièce attaquée",
+      "phase": "tactics",
+      "fen": "r1bqkbnr/pppp1ppp/8/4p3/3nP3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 3 4",
+      "reference": {
+        "move": "f3d4",
+        "score": {
+          "cp": 22,
+          "depth": 18
+        },
+        "pv": [
+          "f3d4",
+          "e5d4",
+          "d2d3",
+          "d7d5",
+          "f1e2",
+          "f8c5"
+        ]
+      }
+    },
+    {
+      "id": "italian-tactic-1",
+      "kind": "Fourchette et gain de dame",
+      "phase": "tactics",
+      "fen": "r1bqk2r/pppp1ppp/7n/3N2N1/2Q1P3/4b3/P4PPP/R4RK1 w kq - 0 14",
+      "reference": {
+        "move": "d5c7",
+        "score": {
+          "cp": 411,
+          "depth": 18
+        },
+        "pv": [
+          "d5c7",
+          "e8f8",
+          "f2e3",
+          "d8g5",
+          "c7a8",
+          "g5e3"
+        ]
+      }
+    },
+    {
+      "id": "scotch-tactic-1",
+      "kind": "Défense tactique et échange",
+      "phase": "tactics",
+      "fen": "r1b1kb1r/ppp2ppp/3p1q1n/6N1/2BQPP2/5n2/PPP3PP/RNB2RK1 w kq - 1 9",
+      "reference": {
+        "move": "g5f3",
+        "score": {
+          "cp": 439,
+          "depth": 17
+        },
+        "pv": [
+          "g5f3",
+          "f6d4",
+          "f3d4",
+          "d6d5",
+          "e4d5",
+          "f8c5"
+        ]
+      }
+    },
+    {
+      "id": "vienna-tactic-1",
+      "kind": "Réseau de mat",
+      "phase": "tactics",
+      "fen": "rnb3k1/pppp2pp/8/7B/1bPP4/8/Pq2p1PP/R4QK1 w - - 0 18",
+      "reference": {
+        "move": "f1f7",
+        "score": {
+          "mate": 3,
+          "winner": "w",
+          "depth": 18
+        },
+        "pv": [
+          "f1f7",
+          "g8h8",
+          "f7e8",
+          "b4f8",
+          "e8f8"
+        ]
+      }
+    },
+    {
+      "id": "queens-gambit-tactic-1",
+      "kind": "Attraction et mat",
+      "phase": "tactics",
+      "fen": "r3r1k1/ppq2pp1/2p1b3/6b1/3PQ3/4P3/PPB2PP1/R3K2R w KQ - 0 18",
+      "reference": {
+        "move": "h1h8",
+        "score": {
+          "mate": 2,
+          "winner": "w",
+          "depth": 18
+        },
+        "pv": [
+          "h1h8",
+          "g8h8",
+          "e4h7"
+        ]
+      }
+    },
+    {
+      "id": "london-tactic-1",
+      "kind": "Clouage et attaque du roi",
+      "phase": "tactics",
+      "fen": "r1b2rk1/ppp2p1p/2n3p1/3P2qn/3Pp3/P3P2P/1P1NBPP1/RN1Q1RK1 b - - 0 15",
+      "reference": {
+        "move": "c8h3",
+        "score": {
+          "cp": -223,
+          "depth": 16
+        },
+        "pv": [
+          "c8h3",
+          "g2g4",
+          "c6d4",
+          "e3d4",
+          "f7f5",
+          "b1c3"
+        ]
+      }
+    },
+    {
+      "id": "french-tactic-1",
+      "kind": "Piège de dame",
+      "phase": "tactics",
+      "fen": "r4rk1/pp1bnppp/2n1p3/3pP3/3P2P1/P1N2N2/1q2BP1P/R2Q1RK1 w - - 0 14",
+      "reference": {
+        "move": "c3a4",
+        "score": {
+          "cp": 364,
+          "depth": 15
+        },
+        "pv": [
+          "c3a4",
+          "b2a1",
+          "d1a1",
+          "b7b6",
+          "f3e1",
+          "c6a5"
+        ]
+      }
+    },
+    {
+      "id": "scandinavian-tactic-1",
+      "kind": "Échange avec échec et attaque double",
+      "phase": "tactics",
+      "fen": "r2qk2r/ppp2ppp/2n3b1/2bB4/6P1/2P2Q2/P4P1P/R1B1K1NR w KQkq - 0 13",
+      "reference": {
+        "move": "d5c6",
+        "score": {
+          "cp": 271,
+          "depth": 18
+        },
+        "pv": [
+          "d5c6",
+          "e8f8",
+          "c6b7",
+          "d8e7",
+          "g1e2",
+          "a8e8"
+        ]
+      }
+    },
+    {
+      "id": "caro-kann-tactic-1",
+      "kind": "Échanges et pièce non protégée",
+      "phase": "tactics",
+      "fen": "r2q1rk1/pp3pp1/2n2p1p/2b4b/2BP4/3Q1N1P/PP3PP1/RN3RK1 w - - 1 14",
+      "reference": {
+        "move": "d4c5",
+        "score": {
+          "cp": 358,
+          "depth": 18
+        },
+        "pv": [
+          "d4c5",
+          "d8d3",
+          "c4d3",
+          "h5f3",
+          "g2f3",
+          "a8c8"
+        ]
+      }
+    },
+    {
+      "id": "partie-1-2",
+      "kind": "Partie enregistrée",
+      "phase": "opening",
+      "fen": "rnbqk2r/pp2bppp/2p1pn2/2Pp4/3P4/2N2N2/PP2PPPP/R1BQKB1R w KQkq - 0 6",
+      "source": {
+        "opening": [
+          "d4",
+          "d5",
+          "c4",
+          "e6",
+          "Nc3",
+          "Nf6",
+          "Nf3",
+          "Be7"
+        ],
+        "moves": [
+          "c4c5",
+          "c7c6"
+        ]
+      },
+      "reference": {
+        "move": "c1f4",
+        "score": {
+          "cp": 18,
+          "depth": 15
+        },
+        "pv": [
+          "c1f4",
+          "b7b6",
+          "b2b4",
+          "a7a5",
+          "a2a3",
+          "e8g8"
+        ]
+      }
+    },
+    {
+      "id": "partie-1-8",
+      "kind": "Partie enregistrée",
+      "phase": "opening",
+      "fen": "r1bq1rk1/p2nbppp/1pp1pn2/2Pp4/3P1B2/2NBPN2/PP3PPP/R2QK2R w KQ - 0 9",
+      "source": {
+        "opening": [
+          "d4",
+          "d5",
+          "c4",
+          "e6",
+          "Nc3",
+          "Nf6",
+          "Nf3",
+          "Be7"
+        ],
+        "moves": [
+          "c4c5",
+          "c7c6",
+          "c1f4",
+          "e8g8",
+          "e2e3",
+          "b8d7",
+          "f1d3",
+          "b7b6"
+        ]
+      },
+      "reference": {
+        "move": "b2b4",
+        "score": {
+          "cp": 40,
+          "depth": 17
+        },
+        "pv": [
+          "b2b4",
+          "a7a5",
+          "a2a3",
+          "c8a6",
+          "e1g1",
+          "d8c8"
+        ]
+      }
+    },
+    {
+      "id": "partie-1-20",
+      "kind": "Partie enregistrée",
+      "phase": "post-opening",
+      "fen": "r1b2rk1/p3bp1p/1q2p1p1/3pN2n/3p2P1/2NBP2P/PP2QP2/R3K2R w KQ - 0 15",
+      "source": {
+        "opening": [
+          "d4",
+          "d5",
+          "c4",
+          "e6",
+          "Nc3",
+          "Nf6",
+          "Nf3",
+          "Be7"
+        ],
+        "moves": [
+          "c4c5",
+          "c7c6",
+          "c1f4",
+          "e8g8",
+          "e2e3",
+          "b8d7",
+          "f1d3",
+          "b7b6",
+          "c5b6",
+          "d8b6",
+          "d1e2",
+          "f6h5",
+          "f4e5",
+          "g7g6",
+          "h2h3",
+          "d7e5",
+          "f3e5",
+          "c6c5",
+          "g2g4",
+          "c5d4"
+        ]
+      },
+      "reference": {
+        "move": "g4h5",
+        "score": {
+          "cp": -181,
+          "depth": 18
+        },
+        "pv": [
+          "g4h5",
+          "d4c3",
+          "h5g6",
+          "f7g6",
+          "d3g6",
+          "h7g6"
+        ]
+      }
+    },
+    {
+      "id": "partie-1-40",
+      "kind": "Partie enregistrée",
+      "phase": "middlegame",
+      "fen": "3r1r1k/p4p1P/5b2/1N1p4/4p3/5N2/PP3K2/R2R1b2 w - - 0 25",
+      "source": {
+        "opening": [
+          "d4",
+          "d5",
+          "c4",
+          "e6",
+          "Nc3",
+          "Nf6",
+          "Nf3",
+          "Be7"
+        ],
+        "moves": [
+          "c4c5",
+          "c7c6",
+          "c1f4",
+          "e8g8",
+          "e2e3",
+          "b8d7",
+          "f1d3",
+          "b7b6",
+          "c5b6",
+          "d8b6",
+          "d1e2",
+          "f6h5",
+          "f4e5",
+          "g7g6",
+          "h2h3",
+          "d7e5",
+          "f3e5",
+          "c6c5",
+          "g2g4",
+          "c5d4",
+          "c3b5",
+          "e7f6",
+          "e5f3",
+          "e6e5",
+          "g4h5",
+          "d4e3",
+          "e1g1",
+          "c8h3",
+          "h5g6",
+          "e5e4",
+          "f1d1",
+          "e3f2",
+          "e2f2",
+          "b6f2",
+          "g1f2",
+          "a8d8",
+          "g6h7",
+          "g8h8",
+          "d3f1",
+          "h3f1"
+        ]
+      },
+      "reference": {
+        "move": "d1f1",
+        "score": {
+          "cp": -69,
+          "depth": 16
+        },
+        "pv": [
+          "d1f1",
+          "e4f3",
+          "f2f3",
+          "d5d4",
+          "a1d1",
+          "d4d3"
+        ]
+      }
+    },
+    {
+      "id": "partie-1-60",
+      "kind": "Partie enregistrée",
+      "phase": "middlegame",
+      "fen": "8/p4p2/5k2/3r4/4p3/8/PP2K1R1/8 w - - 6 35",
+      "source": {
+        "opening": [
+          "d4",
+          "d5",
+          "c4",
+          "e6",
+          "Nc3",
+          "Nf6",
+          "Nf3",
+          "Be7"
+        ],
+        "moves": [
+          "c4c5",
+          "c7c6",
+          "c1f4",
+          "e8g8",
+          "e2e3",
+          "b8d7",
+          "f1d3",
+          "b7b6",
+          "c5b6",
+          "d8b6",
+          "d1e2",
+          "f6h5",
+          "f4e5",
+          "g7g6",
+          "h2h3",
+          "d7e5",
+          "f3e5",
+          "c6c5",
+          "g2g4",
+          "c5d4",
+          "c3b5",
+          "e7f6",
+          "e5f3",
+          "e6e5",
+          "g4h5",
+          "d4e3",
+          "e1g1",
+          "c8h3",
+          "h5g6",
+          "e5e4",
+          "f1d1",
+          "e3f2",
+          "e2f2",
+          "b6f2",
+          "g1f2",
+          "a8d8",
+          "g6h7",
+          "g8h8",
+          "d3f1",
+          "h3f1",
+          "f2f1",
+          "d5d4",
+          "f3d4",
+          "d8d5",
+          "a1b1",
+          "f6d4",
+          "f1e2",
+          "f8d8",
+          "b5d4",
+          "d5d4",
+          "d1d4",
+          "d8d4",
+          "b1f1",
+          "h8h7",
+          "f1f4",
+          "h7g7",
+          "f4f2",
+          "d4d5",
+          "f2g2",
+          "g7f6"
+        ]
+      },
+      "reference": {
+        "move": "e2e3",
+        "score": {
+          "cp": -302,
+          "depth": 18
+        },
+        "pv": [
+          "e2e3",
+          "f6e5",
+          "g2g7",
+          "d5d3",
+          "e3e2",
+          "f7f5"
+        ]
+      }
+    },
+    {
+      "id": "partie-2-2",
+      "kind": "Partie enregistrée",
+      "phase": "opening",
+      "fen": "r1bqkb1r/pp2pppp/2np1n2/8/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq - 3 6",
+      "source": {
+        "opening": [
+          "e4",
+          "c5",
+          "Nf3",
+          "d6",
+          "d4",
+          "cxd4",
+          "Nxd4",
+          "Nf6"
+        ],
+        "moves": [
+          "b1c3",
+          "b8c6"
+        ]
+      },
+      "reference": {
+        "move": "c1g5",
+        "score": {
+          "cp": 50,
+          "depth": 16
+        },
+        "pv": [
+          "c1g5",
+          "e7e6",
+          "d1d3",
+          "c6d4",
+          "d3d4",
+          "f8e7"
+        ]
+      }
+    },
+    {
+      "id": "partie-2-8",
+      "kind": "Partie enregistrée",
+      "phase": "opening",
+      "fen": "r2qkb1r/pp1bpp1p/3p1np1/8/3nP1P1/P1N4P/1PP2P2/R1BQKB1R w KQkq - 0 9",
+      "source": {
+        "opening": [
+          "e4",
+          "c5",
+          "Nf3",
+          "d6",
+          "d4",
+          "cxd4",
+          "Nxd4",
+          "Nf6"
+        ],
+        "moves": [
+          "b1c3",
+          "b8c6",
+          "a2a3",
+          "g7g6",
+          "h2h3",
+          "c8d7",
+          "g2g4",
+          "c6d4"
+        ]
+      },
+      "reference": {
+        "move": "d1d4",
+        "score": {
+          "cp": -5,
+          "depth": 17
+        },
+        "pv": [
+          "d1d4",
+          "f8g7",
+          "c1e3",
+          "e8g8",
+          "d4d2",
+          "d7c6"
+        ]
+      }
+    },
+    {
+      "id": "partie-2-20",
+      "kind": "Partie enregistrée",
+      "phase": "post-opening",
+      "fen": "2r1k1nr/1p1bppb1/1p1p2pp/6P1/4P2P/P1N2P2/1PP5/R1B1KBR1 w Qk - 2 15",
+      "source": {
+        "opening": [
+          "e4",
+          "c5",
+          "Nf3",
+          "d6",
+          "d4",
+          "cxd4",
+          "Nxd4",
+          "Nf6"
+        ],
+        "moves": [
+          "b1c3",
+          "b8c6",
+          "a2a3",
+          "g7g6",
+          "h2h3",
+          "c8d7",
+          "g2g4",
+          "c6d4",
+          "d1d4",
+          "d8b6",
+          "d4b6",
+          "a7b6",
+          "g4g5",
+          "f6g8",
+          "h3h4",
+          "f8g7",
+          "f2f3",
+          "h7h6",
+          "h1g1",
+          "a8c8"
+        ]
+      },
+      "reference": {
+        "move": "c1d2",
+        "score": {
+          "cp": 29,
+          "depth": 17
+        },
+        "pv": [
+          "c1d2",
+          "g7d4",
+          "g1g3",
+          "h6g5",
+          "h4g5",
+          "d4e5"
+        ]
+      }
+    },
+    {
+      "id": "partie-2-40",
+      "kind": "Partie enregistrée",
+      "phase": "middlegame",
+      "fen": "6n1/3kp3/1p1p2p1/1Np1bp1r/4P3/P4P1p/1PPK4/3R3R w - - 0 25",
+      "source": {
+        "opening": [
+          "e4",
+          "c5",
+          "Nf3",
+          "d6",
+          "d4",
+          "cxd4",
+          "Nxd4",
+          "Nf6"
+        ],
+        "moves": [
+          "b1c3",
+          "b8c6",
+          "a2a3",
+          "g7g6",
+          "h2h3",
+          "c8d7",
+          "g2g4",
+          "c6d4",
+          "d1d4",
+          "d8b6",
+          "d4b6",
+          "a7b6",
+          "g4g5",
+          "f6g8",
+          "h3h4",
+          "f8g7",
+          "f2f3",
+          "h7h6",
+          "h1g1",
+          "a8c8",
+          "c1e3",
+          "h6g5",
+          "c3b5",
+          "g5h4",
+          "e1c1",
+          "h8h5",
+          "b5a7",
+          "c8c5",
+          "e3c5",
+          "b6c5",
+          "f1b5",
+          "g7e5",
+          "b5d7",
+          "e8d7",
+          "a7b5",
+          "b7b6",
+          "g1h1",
+          "h4h3",
+          "c1d2",
+          "f7f5"
+        ]
+      },
+      "reference": {
+        "move": "e4f5",
+        "score": {
+          "cp": -224,
+          "depth": 17
+        },
+        "pv": [
+          "e4f5",
+          "g6f5",
+          "b5c3",
+          "h3h2",
+          "c3e2",
+          "g8f6"
+        ]
+      }
+    },
+    {
+      "id": "partie-2-60",
+      "kind": "Partie enregistrée",
+      "phase": "middlegame",
+      "fen": "8/3kp3/1p1p4/2p2r2/P5p1/8/1PP2K1p/7R w - - 1 35",
+      "source": {
+        "opening": [
+          "e4",
+          "c5",
+          "Nf3",
+          "d6",
+          "d4",
+          "cxd4",
+          "Nxd4",
+          "Nf6"
+        ],
+        "moves": [
+          "b1c3",
+          "b8c6",
+          "a2a3",
+          "g7g6",
+          "h2h3",
+          "c8d7",
+          "g2g4",
+          "c6d4",
+          "d1d4",
+          "d8b6",
+          "d4b6",
+          "a7b6",
+          "g4g5",
+          "f6g8",
+          "h3h4",
+          "f8g7",
+          "f2f3",
+          "h7h6",
+          "h1g1",
+          "a8c8",
+          "c1e3",
+          "h6g5",
+          "c3b5",
+          "g5h4",
+          "e1c1",
+          "h8h5",
+          "b5a7",
+          "c8c5",
+          "e3c5",
+          "b6c5",
+          "f1b5",
+          "g7e5",
+          "b5d7",
+          "e8d7",
+          "a7b5",
+          "b7b6",
+          "g1h1",
+          "h4h3",
+          "c1d2",
+          "f7f5",
+          "d2e3",
+          "h3h2",
+          "a3a4",
+          "f5e4",
+          "b5a3",
+          "g8f6",
+          "f3e4",
+          "g6g5",
+          "a3c4",
+          "g5g4",
+          "e3f2",
+          "f6e4",
+          "f2e3",
+          "e4g3",
+          "c4e5",
+          "h5e5",
+          "e3f2",
+          "g3h1",
+          "d1h1",
+          "e5f5"
+        ]
+      },
+      "reference": {
+        "move": "f2g3",
+        "score": {
+          "cp": -486,
+          "depth": 18
+        },
+        "pv": [
+          "f2g3",
+          "f5f3",
+          "g3g2",
+          "f3e3",
+          "h1h2",
+          "g4g3"
+        ]
+      }
+    },
+    {
+      "id": "partie-3-2",
+      "kind": "Partie enregistrée",
+      "phase": "opening",
+      "fen": "r1bqkb1r/pp1npppp/3p1n2/1B6/3NP3/8/PPP2PPP/RNBQK2R w KQkq - 3 6",
+      "source": {
+        "opening": [
+          "e4",
+          "c5",
+          "Nf3",
+          "d6",
+          "d4",
+          "cxd4",
+          "Nxd4",
+          "Nf6"
+        ],
+        "moves": [
+          "f1b5",
+          "b8d7"
+        ]
+      },
+      "reference": {
+        "move": "e1g1",
+        "score": {
+          "cp": 30,
+          "depth": 16
+        },
+        "pv": [
+          "e1g1",
+          "a7a6",
+          "b5d3",
+          "d7c5",
+          "b1c3",
+          "g7g6"
+        ]
+      }
+    },
+    {
+      "id": "partie-3-8",
+      "kind": "Partie enregistrée",
+      "phase": "opening",
+      "fen": "r1bqk2r/1p1nppbp/p2p1np1/8/2PNP3/3B4/PP3PPP/RNBQ1RK1 w kq - 2 9",
+      "source": {
+        "opening": [
+          "e4",
+          "c5",
+          "Nf3",
+          "d6",
+          "d4",
+          "cxd4",
+          "Nxd4",
+          "Nf6"
+        ],
+        "moves": [
+          "f1b5",
+          "b8d7",
+          "b5d3",
+          "a7a6",
+          "c2c4",
+          "g7g6",
+          "e1g1",
+          "f8g7"
+        ]
+      },
+      "reference": {
+        "move": "b1c3",
+        "score": {
+          "cp": 48,
+          "depth": 17
+        },
+        "pv": [
+          "b1c3",
+          "b7b6",
+          "c1e3",
+          "c8b7",
+          "f2f3",
+          "a8c8"
+        ]
+      }
+    },
+    {
+      "id": "partie-3-20",
+      "kind": "Partie enregistrée",
+      "phase": "post-opening",
+      "fen": "r1bq1rk1/3nppbp/1pnp2p1/p7/2P1PP2/1NN5/PP4PP/R1BQRB1K w - - 0 15",
+      "source": {
+        "opening": [
+          "e4",
+          "c5",
+          "Nf3",
+          "d6",
+          "d4",
+          "cxd4",
+          "Nxd4",
+          "Nf6"
+        ],
+        "moves": [
+          "f1b5",
+          "b8d7",
+          "b5d3",
+          "a7a6",
+          "c2c4",
+          "g7g6",
+          "e1g1",
+          "f8g7",
+          "f1e1",
+          "f6g4",
+          "d4b3",
+          "g4e5",
+          "f2f4",
+          "e5c6",
+          "d3f1",
+          "a6a5",
+          "g1h1",
+          "e8g8",
+          "b1c3",
+          "b7b6"
+        ]
+      },
+      "reference": {
+        "move": "c1e3",
+        "score": {
+          "cp": 13,
+          "depth": 16
+        },
+        "pv": [
+          "c1e3",
+          "c8b7",
+          "a1b1",
+          "a5a4",
+          "b3d4",
+          "c6d4"
+        ]
+      }
+    },
+    {
+      "id": "partie-3-40",
+      "kind": "Partie enregistrée",
+      "phase": "middlegame",
+      "fen": "3q1rk1/1b1n1p1p/1p4p1/4p3/2P1P3/4N3/P5PP/R2Q1BK1 w - - 0 25",
+      "source": {
+        "opening": [
+          "e4",
+          "c5",
+          "Nf3",
+          "d6",
+          "d4",
+          "cxd4",
+          "Nxd4",
+          "Nf6"
+        ],
+        "moves": [
+          "f1b5",
+          "b8d7",
+          "b5d3",
+          "a7a6",
+          "c2c4",
+          "g7g6",
+          "e1g1",
+          "f8g7",
+          "f1e1",
+          "f6g4",
+          "d4b3",
+          "g4e5",
+          "f2f4",
+          "e5c6",
+          "d3f1",
+          "a6a5",
+          "g1h1",
+          "e8g8",
+          "b1c3",
+          "b7b6",
+          "c1e3",
+          "c8b7",
+          "h1g1",
+          "a5a4",
+          "b3d4",
+          "a4a3",
+          "b2a3",
+          "a8a3",
+          "c3d5",
+          "c6d4",
+          "e3d4",
+          "e7e6",
+          "e1e3",
+          "a3e3",
+          "d5e3",
+          "e6e5",
+          "f4e5",
+          "g7e5",
+          "d4e5",
+          "d6e5"
+        ]
+      },
+      "reference": {
+        "move": "e3d5",
+        "score": {
+          "cp": -59,
+          "depth": 17
+        },
+        "pv": [
+          "e3d5",
+          "d8h4",
+          "g2g3",
+          "h4g5",
+          "d1e1",
+          "b7d5"
+        ]
+      }
+    },
+    {
+      "id": "partie-3-60",
+      "kind": "Partie enregistrée",
+      "phase": "middlegame",
+      "fen": "6k1/5p2/3R2p1/2n1p1qp/2P1P3/7b/6P1/4QBK1 w - - 0 35",
+      "source": {
+        "opening": [
+          "e4",
+          "c5",
+          "Nf3",
+          "d6",
+          "d4",
+          "cxd4",
+          "Nxd4",
+          "Nf6"
+        ],
+        "moves": [
+          "f1b5",
+          "b8d7",
+          "b5d3",
+          "a7a6",
+          "c2c4",
+          "g7g6",
+          "e1g1",
+          "f8g7",
+          "f1e1",
+          "f6g4",
+          "d4b3",
+          "g4e5",
+          "f2f4",
+          "e5c6",
+          "d3f1",
+          "a6a5",
+          "g1h1",
+          "e8g8",
+          "b1c3",
+          "b7b6",
+          "c1e3",
+          "c8b7",
+          "h1g1",
+          "a5a4",
+          "b3d4",
+          "a4a3",
+          "b2a3",
+          "a8a3",
+          "c3d5",
+          "c6d4",
+          "e3d4",
+          "e7e6",
+          "e1e3",
+          "a3e3",
+          "d5e3",
+          "e6e5",
+          "f4e5",
+          "g7e5",
+          "d4e5",
+          "d6e5",
+          "e3d5",
+          "d8g5",
+          "d1e1",
+          "f8a8",
+          "h2h3",
+          "d7c5",
+          "a2a4",
+          "a8a4",
+          "a1a4",
+          "b7d5",
+          "a4b4",
+          "d5e6",
+          "b4b6",
+          "e6d7",
+          "b6d6",
+          "d7e6",
+          "d6d1",
+          "h7h5",
+          "d1d6",
+          "e6h3"
+        ]
+      },
+      "reference": {
+        "move": "d6d5",
+        "score": {
+          "cp": 160,
+          "depth": 17
+        },
+        "pv": [
+          "d6d5",
+          "c5a4",
+          "e1d2",
+          "g5d2",
+          "d5d2",
+          "h3e6"
+        ]
+      }
+    },
+    {
+      "id": "partie-4-2",
+      "kind": "Partie enregistrée",
+      "phase": "opening",
+      "fen": "r1bqk2r/pppp1ppp/2n2n2/4p3/1PB1P3/2P2N2/P2P1bPP/RNBQK2R w KQkq - 0 6",
+      "source": {
+        "opening": [
+          "e4",
+          "e5",
+          "Nf3",
+          "Nc6",
+          "Bc4",
+          "Bc5",
+          "c3",
+          "Nf6"
+        ],
+        "moves": [
+          "b2b4",
+          "c5f2"
+        ]
+      },
+      "reference": {
+        "move": "e1f2",
+        "score": {
+          "cp": 105,
+          "depth": 18
+        },
+        "pv": [
+          "e1f2",
+          "f6e4",
+          "f2e1",
+          "d7d5",
+          "d2d3",
+          "e4f6"
+        ]
+      }
+    },
+    {
+      "id": "partie-4-8",
+      "kind": "Partie enregistrée",
+      "phase": "opening",
+      "fen": "r1bqk2r/1pp1nppp/5n2/pP1Bp3/4P3/2P2N2/P2P1KPP/RNBQ3R w kq - 1 9",
+      "source": {
+        "opening": [
+          "e4",
+          "e5",
+          "Nf3",
+          "Nc6",
+          "Bc4",
+          "Bc5",
+          "c3",
+          "Nf6"
+        ],
+        "moves": [
+          "b2b4",
+          "c5f2",
+          "e1f2",
+          "a7a5",
+          "b4b5",
+          "d7d5",
+          "c4d5",
+          "c6e7"
+        ]
+      },
+      "reference": {
+        "move": "h1e1",
+        "score": {
+          "cp": 272,
+          "depth": 16
+        },
+        "pv": [
+          "h1e1",
+          "e7d5",
+          "e4d5",
+          "e8g8",
+          "d2d3",
+          "d8d5"
+        ]
+      }
+    },
+    {
+      "id": "partie-4-20",
+      "kind": "Partie enregistrée",
+      "phase": "post-opening",
+      "fen": "r1b2rk1/1p3ppp/8/pPp1N3/1nPq4/8/P5PP/RNBQ1RK1 w - - 0 15",
+      "source": {
+        "opening": [
+          "e4",
+          "e5",
+          "Nf3",
+          "Nc6",
+          "Bc4",
+          "Bc5",
+          "c3",
+          "Nf6"
+        ],
+        "moves": [
+          "b2b4",
+          "c5f2",
+          "e1f2",
+          "a7a5",
+          "b4b5",
+          "d7d5",
+          "c4d5",
+          "c6e7",
+          "f3e5",
+          "f6d5",
+          "e4d5",
+          "e7d5",
+          "d2d4",
+          "e8g8",
+          "h1f1",
+          "c7c5",
+          "c3c4",
+          "d5b4",
+          "f2g1",
+          "d8d4"
+        ]
+      },
+      "reference": {
+        "move": "d1d4",
+        "score": {
+          "cp": 283,
+          "depth": 18
+        },
+        "pv": [
+          "d1d4",
+          "c5d4",
+          "a2a3",
+          "b4c2",
+          "a1a2",
+          "c2e3"
+        ]
+      }
+    },
+    {
+      "id": "partie-4-40",
+      "kind": "Partie enregistrée",
+      "phase": "middlegame",
+      "fen": "1r2r1k1/3b2pp/1P3p2/pP6/1n6/N1Bp3P/P4RP1/3R2K1 w - - 1 25",
+      "source": {
+        "opening": [
+          "e4",
+          "e5",
+          "Nf3",
+          "Nc6",
+          "Bc4",
+          "Bc5",
+          "c3",
+          "Nf6"
+        ],
+        "moves": [
+          "b2b4",
+          "c5f2",
+          "e1f2",
+          "a7a5",
+          "b4b5",
+          "d7d5",
+          "c4d5",
+          "c6e7",
+          "f3e5",
+          "f6d5",
+          "e4d5",
+          "e7d5",
+          "d2d4",
+          "e8g8",
+          "h1f1",
+          "c7c5",
+          "c3c4",
+          "d5b4",
+          "f2g1",
+          "d8d4",
+          "d1d4",
+          "c5d4",
+          "b1a3",
+          "b7b6",
+          "c1b2",
+          "d4d3",
+          "f1f2",
+          "f7f6",
+          "e5c6",
+          "f8e8",
+          "b2c3",
+          "c8g4",
+          "h2h3",
+          "g4d7",
+          "a1d1",
+          "b4c6",
+          "c4c5",
+          "c6b4",
+          "c5b6",
+          "a8b8"
+        ]
+      },
+      "reference": {
+        "move": "c3b4",
+        "score": {
+          "cp": -12,
+          "depth": 18
+        },
+        "pv": [
+          "c3b4",
+          "a5b4",
+          "d1d3",
+          "d7e6",
+          "a3c2",
+          "b8b6"
+        ]
+      }
+    },
+    {
+      "id": "partie-4-60",
+      "kind": "Partie enregistrée",
+      "phase": "middlegame",
+      "fen": "1r4k1/1P1b2pp/4Rp2/N7/1R6/3n3P/P4KP1/8 w - - 1 35",
+      "source": {
+        "opening": [
+          "e4",
+          "e5",
+          "Nf3",
+          "Nc6",
+          "Bc4",
+          "Bc5",
+          "c3",
+          "Nf6"
+        ],
+        "moves": [
+          "b2b4",
+          "c5f2",
+          "e1f2",
+          "a7a5",
+          "b4b5",
+          "d7d5",
+          "c4d5",
+          "c6e7",
+          "f3e5",
+          "f6d5",
+          "e4d5",
+          "e7d5",
+          "d2d4",
+          "e8g8",
+          "h1f1",
+          "c7c5",
+          "c3c4",
+          "d5b4",
+          "f2g1",
+          "d8d4",
+          "d1d4",
+          "c5d4",
+          "b1a3",
+          "b7b6",
+          "c1b2",
+          "d4d3",
+          "f1f2",
+          "f7f6",
+          "e5c6",
+          "f8e8",
+          "b2c3",
+          "c8g4",
+          "h2h3",
+          "g4d7",
+          "a1d1",
+          "b4c6",
+          "c4c5",
+          "c6b4",
+          "c5b6",
+          "a8b8",
+          "f2b2",
+          "e8e6",
+          "a3c4",
+          "d7b5",
+          "c4a5",
+          "b5a4",
+          "d1d2",
+          "b4d5",
+          "d2d3",
+          "d5c3",
+          "b6b7",
+          "c3e4",
+          "b2b4",
+          "a4e8",
+          "d3e3",
+          "e4c5",
+          "g1f2",
+          "e8d7",
+          "e3e6",
+          "c5d3"
+        ]
+      },
+      "reference": {
+        "move": "f2e3",
+        "score": {
+          "cp": -20,
+          "depth": 18
+        },
+        "pv": [
+          "f2e3",
+          "d3b4",
+          "e6d6",
+          "d7b5",
+          "e3d4",
+          "b5a6"
+        ]
+      }
+    },
+    {
+      "id": "finale-roi-pions",
+      "kind": "Finale de pions",
+      "phase": "endgame",
+      "fen": "8/5pk1/6p1/3K4/4P3/5P2/8/8 w - - 0 42",
+      "reference": {
+        "move": "d5e5",
+        "score": {
+          "cp": 371,
+          "depth": 18
+        },
+        "pv": [
+          "d5e5",
+          "f7f6",
+          "e5e6",
+          "g6g5",
+          "e6e7",
+          "g7g6"
+        ]
+      }
+    },
+    {
+      "id": "finale-tours",
+      "kind": "Finale de tours",
+      "phase": "endgame",
+      "fen": "6k1/5pp1/7p/8/4P3/6P1/5P1P/4R1K1 b - - 0 40",
+      "reference": {
+        "move": "f7f6",
+        "score": {
+          "cp": 648,
+          "depth": 17
+        },
+        "pv": [
+          "f7f6",
+          "g1f1",
+          "f6f5",
+          "e4e5",
+          "f5f4",
+          "g3f4"
+        ]
+      }
+    },
+    {
+      "id": "finale-tours-equilibree",
+      "kind": "Tours et pions",
+      "phase": "endgame",
+      "fen": "8/5pk1/4r1p1/7p/4P3/5KP1/5P1P/4R3 w - - 0 41",
+      "reference": {
+        "move": "e1b1",
+        "score": {
+          "cp": 18,
+          "depth": 17
+        },
+        "pv": [
+          "e1b1",
+          "e6f6",
+          "f3e3",
+          "f6c6",
+          "h2h4",
+          "c6c3"
+        ]
+      }
+    },
+    {
+      "id": "finale-cavalier",
+      "kind": "Cavalier et pions",
+      "phase": "endgame",
+      "fen": "8/5pk1/6p1/3n3p/4P3/3N1KP1/5P1P/8 b - - 0 37",
+      "reference": {
+        "move": "d5c3",
+        "score": {
+          "cp": 125,
+          "depth": 18
+        },
+        "pv": [
+          "d5c3",
+          "f3e3",
+          "g7f6",
+          "f2f3",
+          "f6e6",
+          "d3c5"
+        ]
+      }
+    }
+  ],
+  "referenceSettings": {
+    "skill": 20,
+    "depth": 18,
+    "movetime": 850,
+    "nodes": 350000
+  },
+  "rows": [
+    {
+      "position": "capture-dame",
+      "phase": "tactics",
+      "kind": "Dame gratuite",
+      "level": 16,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "d1d5",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": true
+        }
+      ]
+    },
+    {
+      "position": "capture-dame",
+      "phase": "tactics",
+      "kind": "Dame gratuite",
+      "level": 17,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "d1d5",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": true
+        }
+      ]
+    },
+    {
+      "position": "capture-dame",
+      "phase": "tactics",
+      "kind": "Dame gratuite",
+      "level": 18,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "d1d5",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": true
+        }
+      ]
+    },
+    {
+      "position": "capture-tour",
+      "phase": "tactics",
+      "kind": "Tour gratuite",
+      "level": 16,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "d1d5",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": true
+        }
+      ]
+    },
+    {
+      "position": "capture-tour",
+      "phase": "tactics",
+      "kind": "Tour gratuite",
+      "level": 17,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "d1d5",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": true
+        }
+      ]
+    },
+    {
+      "position": "capture-tour",
+      "phase": "tactics",
+      "kind": "Tour gratuite",
+      "level": 18,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "d1d5",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": true
+        }
+      ]
+    },
+    {
+      "position": "mat-un",
+      "phase": "tactics",
+      "kind": "Mat en un",
+      "level": 16,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 1,
+      "preservesMateRate": 1,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "d1d8",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": true,
+          "preservesMate": true,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "mat-un",
+      "phase": "tactics",
+      "kind": "Mat en un",
+      "level": 17,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 1,
+      "preservesMateRate": 1,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "d1d8",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": true,
+          "preservesMate": true,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "mat-un",
+      "phase": "tactics",
+      "kind": "Mat en un",
+      "level": 18,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 1,
+      "preservesMateRate": 1,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "d1d8",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": true,
+          "preservesMate": true,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "mat-deux",
+      "phase": "tactics",
+      "kind": "Mat en deux",
+      "level": 16,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 1,
+      "meanExposure": 500,
+      "choices": [
+        {
+          "move": "h1h8",
+          "loss": 0,
+          "exposure": 500,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": true,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "mat-deux",
+      "phase": "tactics",
+      "kind": "Mat en deux",
+      "level": 17,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 1,
+      "meanExposure": 500,
+      "choices": [
+        {
+          "move": "h1h8",
+          "loss": 0,
+          "exposure": 500,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": true,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "mat-deux",
+      "phase": "tactics",
+      "kind": "Mat en deux",
+      "level": 18,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 1,
+      "meanExposure": 500,
+      "choices": [
+        {
+          "move": "h1h8",
+          "loss": 0,
+          "exposure": 500,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": true,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "fourchette",
+      "phase": "tactics",
+      "kind": "Fourchette",
+      "level": 16,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "d5c7",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": true
+        }
+      ]
+    },
+    {
+      "position": "fourchette",
+      "phase": "tactics",
+      "kind": "Fourchette",
+      "level": 17,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "d5c7",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": true
+        }
+      ]
+    },
+    {
+      "position": "fourchette",
+      "phase": "tactics",
+      "kind": "Fourchette",
+      "level": 18,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "d5c7",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": true
+        }
+      ]
+    },
+    {
+      "position": "dame-attaquee",
+      "phase": "tactics",
+      "kind": "Dame attaquée",
+      "level": 16,
+      "samples": 8,
+      "meanLoss": 28.25,
+      "inaccuracyRate": 0.625,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.375,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "f1c4",
+          "loss": 42,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "f1b5",
+          "loss": 58,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "g1f3",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "dame-attaquee",
+      "phase": "tactics",
+      "kind": "Dame attaquée",
+      "level": 17,
+      "samples": 8,
+      "meanLoss": 19,
+      "inaccuracyRate": 0.25,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.75,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "g1f3",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "f1c4",
+          "loss": 42,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "c2c3",
+          "loss": 26,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "f1b5",
+          "loss": 58,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "dame-attaquee",
+      "phase": "tactics",
+      "kind": "Dame attaquée",
+      "level": 18,
+      "samples": 8,
+      "meanLoss": 19,
+      "inaccuracyRate": 0.25,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.75,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "g1f3",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "f1c4",
+          "loss": 42,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "c2c3",
+          "loss": 26,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "f1b5",
+          "loss": 58,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "defense-mat",
+      "phase": "tactics",
+      "kind": "Défense contre un mat",
+      "level": 16,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "f3h4",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": true
+        }
+      ]
+    },
+    {
+      "position": "defense-mat",
+      "phase": "tactics",
+      "kind": "Défense contre un mat",
+      "level": 17,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "f3h4",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": true
+        }
+      ]
+    },
+    {
+      "position": "defense-mat",
+      "phase": "tactics",
+      "kind": "Défense contre un mat",
+      "level": 18,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "f3h4",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": true
+        }
+      ]
+    },
+    {
+      "position": "piece-attaquee",
+      "phase": "tactics",
+      "kind": "Pièce attaquée",
+      "level": 16,
+      "samples": 8,
+      "meanLoss": 2,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 2.5,
+      "choices": [
+        {
+          "move": "b1c3",
+          "loss": 13,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "f1e2",
+          "loss": 0,
+          "exposure": 10,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "d2d3",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "f3d4",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": true
+        },
+        {
+          "move": "c2c3",
+          "loss": 3,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "piece-attaquee",
+      "phase": "tactics",
+      "kind": "Pièce attaquée",
+      "level": 17,
+      "samples": 8,
+      "meanLoss": 0.375,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 2.5,
+      "choices": [
+        {
+          "move": "d2d3",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "c2c3",
+          "loss": 3,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "f1e2",
+          "loss": 0,
+          "exposure": 10,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "f3d4",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": true
+        }
+      ]
+    },
+    {
+      "position": "piece-attaquee",
+      "phase": "tactics",
+      "kind": "Pièce attaquée",
+      "level": 18,
+      "samples": 8,
+      "meanLoss": 0.375,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 2.5,
+      "choices": [
+        {
+          "move": "d2d3",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "c2c3",
+          "loss": 3,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "f3d4",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": true
+        },
+        {
+          "move": "f1e2",
+          "loss": 0,
+          "exposure": 10,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "italian-tactic-1",
+      "phase": "tactics",
+      "kind": "Fourchette et gain de dame",
+      "level": 16,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "d5c7",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": true
+        }
+      ]
+    },
+    {
+      "position": "italian-tactic-1",
+      "phase": "tactics",
+      "kind": "Fourchette et gain de dame",
+      "level": 17,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "d5c7",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": true
+        }
+      ]
+    },
+    {
+      "position": "italian-tactic-1",
+      "phase": "tactics",
+      "kind": "Fourchette et gain de dame",
+      "level": 18,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "d5c7",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": true
+        }
+      ]
+    },
+    {
+      "position": "scotch-tactic-1",
+      "phase": "tactics",
+      "kind": "Défense tactique et échange",
+      "level": 16,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "g5f3",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": true
+        }
+      ]
+    },
+    {
+      "position": "scotch-tactic-1",
+      "phase": "tactics",
+      "kind": "Défense tactique et échange",
+      "level": 17,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "g5f3",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": true
+        }
+      ]
+    },
+    {
+      "position": "scotch-tactic-1",
+      "phase": "tactics",
+      "kind": "Défense tactique et échange",
+      "level": 18,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "g5f3",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": true
+        }
+      ]
+    },
+    {
+      "position": "vienna-tactic-1",
+      "phase": "tactics",
+      "kind": "Réseau de mat",
+      "level": 16,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 1,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "f1f7",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": true,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "vienna-tactic-1",
+      "phase": "tactics",
+      "kind": "Réseau de mat",
+      "level": 17,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 1,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "f1f7",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": true,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "vienna-tactic-1",
+      "phase": "tactics",
+      "kind": "Réseau de mat",
+      "level": 18,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 1,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "f1f7",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": true,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "queens-gambit-tactic-1",
+      "phase": "tactics",
+      "kind": "Attraction et mat",
+      "level": 16,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 1,
+      "meanExposure": 500,
+      "choices": [
+        {
+          "move": "h1h8",
+          "loss": 0,
+          "exposure": 500,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": true,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "queens-gambit-tactic-1",
+      "phase": "tactics",
+      "kind": "Attraction et mat",
+      "level": 17,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 1,
+      "meanExposure": 500,
+      "choices": [
+        {
+          "move": "h1h8",
+          "loss": 0,
+          "exposure": 500,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": true,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "queens-gambit-tactic-1",
+      "phase": "tactics",
+      "kind": "Attraction et mat",
+      "level": 18,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 1,
+      "meanExposure": 500,
+      "choices": [
+        {
+          "move": "h1h8",
+          "loss": 0,
+          "exposure": 500,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": true,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "london-tactic-1",
+      "phase": "tactics",
+      "kind": "Clouage et attaque du roi",
+      "level": 16,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 120,
+      "choices": [
+        {
+          "move": "c8h3",
+          "loss": 0,
+          "exposure": 120,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": true
+        }
+      ]
+    },
+    {
+      "position": "london-tactic-1",
+      "phase": "tactics",
+      "kind": "Clouage et attaque du roi",
+      "level": 17,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 120,
+      "choices": [
+        {
+          "move": "c8h3",
+          "loss": 0,
+          "exposure": 120,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": true
+        }
+      ]
+    },
+    {
+      "position": "london-tactic-1",
+      "phase": "tactics",
+      "kind": "Clouage et attaque du roi",
+      "level": 18,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 120,
+      "choices": [
+        {
+          "move": "c8h3",
+          "loss": 0,
+          "exposure": 120,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": true
+        }
+      ]
+    },
+    {
+      "position": "french-tactic-1",
+      "phase": "tactics",
+      "kind": "Piège de dame",
+      "level": 16,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "c3a4",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "french-tactic-1",
+      "phase": "tactics",
+      "kind": "Piège de dame",
+      "level": 17,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "c3a4",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "french-tactic-1",
+      "phase": "tactics",
+      "kind": "Piège de dame",
+      "level": 18,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "c3a4",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "scandinavian-tactic-1",
+      "phase": "tactics",
+      "kind": "Échange avec échec et attaque double",
+      "level": 16,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "d5c6",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": true
+        }
+      ]
+    },
+    {
+      "position": "scandinavian-tactic-1",
+      "phase": "tactics",
+      "kind": "Échange avec échec et attaque double",
+      "level": 17,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "d5c6",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": true
+        }
+      ]
+    },
+    {
+      "position": "scandinavian-tactic-1",
+      "phase": "tactics",
+      "kind": "Échange avec échec et attaque double",
+      "level": 18,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "d5c6",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": true
+        }
+      ]
+    },
+    {
+      "position": "caro-kann-tactic-1",
+      "phase": "tactics",
+      "kind": "Échanges et pièce non protégée",
+      "level": 16,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "d4c5",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": true
+        }
+      ]
+    },
+    {
+      "position": "caro-kann-tactic-1",
+      "phase": "tactics",
+      "kind": "Échanges et pièce non protégée",
+      "level": 17,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "d4c5",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": true
+        }
+      ]
+    },
+    {
+      "position": "caro-kann-tactic-1",
+      "phase": "tactics",
+      "kind": "Échanges et pièce non protégée",
+      "level": 18,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "d4c5",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": true
+        }
+      ]
+    },
+    {
+      "position": "partie-1-2",
+      "phase": "opening",
+      "kind": "Partie enregistrée",
+      "level": 16,
+      "samples": 8,
+      "meanLoss": 23.125,
+      "inaccuracyRate": 0.375,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.625,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "a2a3",
+          "loss": 11,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "d1c2",
+          "loss": 59,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "a1b1",
+          "loss": 39,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "c1g5",
+          "loss": 15,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "c1f4",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "partie-1-2",
+      "phase": "opening",
+      "kind": "Partie enregistrée",
+      "level": 17,
+      "samples": 8,
+      "meanLoss": 12,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "a2a3",
+          "loss": 11,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "c1g5",
+          "loss": 15,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "partie-1-2",
+      "phase": "opening",
+      "kind": "Partie enregistrée",
+      "level": 18,
+      "samples": 8,
+      "meanLoss": 8.375,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "c1f4",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "c1g5",
+          "loss": 15,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "a2a3",
+          "loss": 11,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "partie-1-8",
+      "phase": "opening",
+      "kind": "Partie enregistrée",
+      "level": 16,
+      "samples": 8,
+      "meanLoss": 16.875,
+      "inaccuracyRate": 0.125,
+      "errorRate": 0.125,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.75,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "b2b4",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "c5b6",
+          "loss": 55,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": true
+        },
+        {
+          "move": "d1a4",
+          "loss": 80,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "partie-1-8",
+      "phase": "opening",
+      "kind": "Partie enregistrée",
+      "level": 17,
+      "samples": 8,
+      "meanLoss": 36.875,
+      "inaccuracyRate": 0.125,
+      "errorRate": 0.375,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.5,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "d1a4",
+          "loss": 80,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "b2b4",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "c5b6",
+          "loss": 55,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": true
+        }
+      ]
+    },
+    {
+      "position": "partie-1-8",
+      "phase": "opening",
+      "kind": "Partie enregistrée",
+      "level": 18,
+      "samples": 8,
+      "meanLoss": 16.875,
+      "inaccuracyRate": 0.125,
+      "errorRate": 0.125,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.75,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "b2b4",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "d1a4",
+          "loss": 80,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "c5b6",
+          "loss": 55,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": true
+        }
+      ]
+    },
+    {
+      "position": "partie-1-20",
+      "phase": "post-opening",
+      "kind": "Partie enregistrée",
+      "level": 16,
+      "samples": 8,
+      "meanLoss": 7,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "c3b5",
+          "loss": 14,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "g4h5",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": true
+        }
+      ]
+    },
+    {
+      "position": "partie-1-20",
+      "phase": "post-opening",
+      "kind": "Partie enregistrée",
+      "level": 17,
+      "samples": 8,
+      "meanLoss": 15,
+      "inaccuracyRate": 0,
+      "errorRate": 0.125,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.875,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "g4h5",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": true
+        },
+        {
+          "move": "c3d1",
+          "loss": 120,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "partie-1-20",
+      "phase": "post-opening",
+      "kind": "Partie enregistrée",
+      "level": 18,
+      "samples": 8,
+      "meanLoss": 1.75,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "g4h5",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": true
+        },
+        {
+          "move": "c3b5",
+          "loss": 14,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "partie-1-40",
+      "phase": "middlegame",
+      "kind": "Partie enregistrée",
+      "level": 16,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "d1f1",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": true
+        },
+        {
+          "move": "f2f1",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": true
+        }
+      ]
+    },
+    {
+      "position": "partie-1-40",
+      "phase": "middlegame",
+      "kind": "Partie enregistrée",
+      "level": 17,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "d1f1",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": true
+        }
+      ]
+    },
+    {
+      "position": "partie-1-40",
+      "phase": "middlegame",
+      "kind": "Partie enregistrée",
+      "level": 18,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "d1f1",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": true
+        },
+        {
+          "move": "f2f1",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": true
+        }
+      ]
+    },
+    {
+      "position": "partie-1-60",
+      "phase": "middlegame",
+      "kind": "Partie enregistrée",
+      "level": 16,
+      "samples": 8,
+      "meanLoss": 65.5,
+      "inaccuracyRate": 0.875,
+      "errorRate": 0.125,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "g2g8",
+          "loss": 34,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "g2g4",
+          "loss": 69,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "b2b3",
+          "loss": 79,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "g2g1",
+          "loss": 78,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "g2h2",
+          "loss": 82,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "partie-1-60",
+      "phase": "middlegame",
+      "kind": "Partie enregistrée",
+      "level": 17,
+      "samples": 8,
+      "meanLoss": 67.625,
+      "inaccuracyRate": 0.625,
+      "errorRate": 0.375,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "g2g4",
+          "loss": 69,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "g2f2",
+          "loss": 102,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "g2h2",
+          "loss": 82,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "g2g8",
+          "loss": 34,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "partie-1-60",
+      "phase": "middlegame",
+      "kind": "Partie enregistrée",
+      "level": 18,
+      "samples": 8,
+      "meanLoss": 64.75,
+      "inaccuracyRate": 0.25,
+      "errorRate": 0.5,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.25,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "g2g8",
+          "loss": 34,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "b2b4",
+          "loss": 82,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "e2e3",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "a2a4",
+          "loss": 143,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "g2h2",
+          "loss": 82,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "partie-2-2",
+      "phase": "opening",
+      "kind": "Partie enregistrée",
+      "level": 16,
+      "samples": 8,
+      "meanLoss": 28.625,
+      "inaccuracyRate": 0,
+      "errorRate": 0.25,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.75,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 25,
+      "choices": [
+        {
+          "move": "c1g5",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "c3d5",
+          "loss": 93,
+          "exposure": 100,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "f1b5",
+          "loss": 25,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "f1c4",
+          "loss": 9,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "partie-2-2",
+      "phase": "opening",
+      "kind": "Partie enregistrée",
+      "level": 17,
+      "samples": 8,
+      "meanLoss": 17.875,
+      "inaccuracyRate": 0,
+      "errorRate": 0.125,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.875,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 12.5,
+      "choices": [
+        {
+          "move": "c1g5",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "c3d5",
+          "loss": 93,
+          "exposure": 100,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "f1b5",
+          "loss": 25,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "partie-2-2",
+      "phase": "opening",
+      "kind": "Partie enregistrée",
+      "level": 18,
+      "samples": 8,
+      "meanLoss": 3.25,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "f1e2",
+          "loss": 26,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "c1g5",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "partie-2-8",
+      "phase": "opening",
+      "kind": "Partie enregistrée",
+      "level": 16,
+      "samples": 8,
+      "meanLoss": 27.5,
+      "inaccuracyRate": 0,
+      "errorRate": 0.25,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.75,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "d1d4",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": true
+        },
+        {
+          "move": "g4g5",
+          "loss": 110,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "partie-2-8",
+      "phase": "opening",
+      "kind": "Partie enregistrée",
+      "level": 17,
+      "samples": 8,
+      "meanLoss": 27.5,
+      "inaccuracyRate": 0,
+      "errorRate": 0.25,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.75,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "g4g5",
+          "loss": 110,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "d1d4",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": true
+        }
+      ]
+    },
+    {
+      "position": "partie-2-8",
+      "phase": "opening",
+      "kind": "Partie enregistrée",
+      "level": 18,
+      "samples": 8,
+      "meanLoss": 13.75,
+      "inaccuracyRate": 0,
+      "errorRate": 0.125,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.875,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "d1d4",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": true
+        },
+        {
+          "move": "g4g5",
+          "loss": 110,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "partie-2-20",
+      "phase": "post-opening",
+      "kind": "Partie enregistrée",
+      "level": 16,
+      "samples": 8,
+      "meanLoss": 24.5,
+      "inaccuracyRate": 0.125,
+      "errorRate": 0.125,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.75,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 12.5,
+      "choices": [
+        {
+          "move": "c1d2",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "c3d5",
+          "loss": 124,
+          "exposure": 100,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "e1f2",
+          "loss": 72,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "partie-2-20",
+      "phase": "post-opening",
+      "kind": "Partie enregistrée",
+      "level": 17,
+      "samples": 8,
+      "meanLoss": 25.25,
+      "inaccuracyRate": 0,
+      "errorRate": 0.25,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.75,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "c1d2",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "a1b1",
+          "loss": 101,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "partie-2-20",
+      "phase": "post-opening",
+      "kind": "Partie enregistrée",
+      "level": 18,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "c1d2",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "partie-2-40",
+      "phase": "middlegame",
+      "kind": "Partie enregistrée",
+      "level": 16,
+      "samples": 8,
+      "meanLoss": 27.75,
+      "inaccuracyRate": 0.5,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.5,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 37.5,
+      "choices": [
+        {
+          "move": "b5c3",
+          "loss": 57,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "e4f5",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": true
+        },
+        {
+          "move": "d2e3",
+          "loss": 55,
+          "exposure": 100,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "partie-2-40",
+      "phase": "middlegame",
+      "kind": "Partie enregistrée",
+      "level": 17,
+      "samples": 8,
+      "meanLoss": 20.75,
+      "inaccuracyRate": 0.375,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.625,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 25,
+      "choices": [
+        {
+          "move": "d1e1",
+          "loss": 54,
+          "exposure": 100,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "b5c3",
+          "loss": 57,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "d2e3",
+          "loss": 55,
+          "exposure": 100,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "e4f5",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": true
+        }
+      ]
+    },
+    {
+      "position": "partie-2-40",
+      "phase": "middlegame",
+      "kind": "Partie enregistrée",
+      "level": 18,
+      "samples": 8,
+      "meanLoss": 20.75,
+      "inaccuracyRate": 0.375,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.625,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 25,
+      "choices": [
+        {
+          "move": "e4f5",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": true
+        },
+        {
+          "move": "d1e1",
+          "loss": 54,
+          "exposure": 100,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "d2e3",
+          "loss": 55,
+          "exposure": 100,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "b5c3",
+          "loss": 57,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "partie-2-60",
+      "phase": "middlegame",
+      "kind": "Partie enregistrée",
+      "level": 16,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "f2g2",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "f2g3",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "partie-2-60",
+      "phase": "middlegame",
+      "kind": "Partie enregistrée",
+      "level": 17,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "f2g2",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "f2g3",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "partie-2-60",
+      "phase": "middlegame",
+      "kind": "Partie enregistrée",
+      "level": 18,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "f2g3",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "f2g2",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "partie-3-2",
+      "phase": "opening",
+      "kind": "Partie enregistrée",
+      "level": 16,
+      "samples": 8,
+      "meanLoss": 6.5,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 25,
+      "choices": [
+        {
+          "move": "b1c3",
+          "loss": 11,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "e1g1",
+          "loss": 0,
+          "exposure": 100,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "b5d3",
+          "loss": 4,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "partie-3-2",
+      "phase": "opening",
+      "kind": "Partie enregistrée",
+      "level": 17,
+      "samples": 8,
+      "meanLoss": 4.875,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 37.5,
+      "choices": [
+        {
+          "move": "e1g1",
+          "loss": 0,
+          "exposure": 100,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "b1c3",
+          "loss": 11,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "b5d3",
+          "loss": 4,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "d1e2",
+          "loss": 16,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "partie-3-2",
+      "phase": "opening",
+      "kind": "Partie enregistrée",
+      "level": 18,
+      "samples": 8,
+      "meanLoss": 5.625,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 25,
+      "choices": [
+        {
+          "move": "b1c3",
+          "loss": 11,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "e1g1",
+          "loss": 0,
+          "exposure": 100,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "b5d3",
+          "loss": 4,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "partie-3-8",
+      "phase": "opening",
+      "kind": "Partie enregistrée",
+      "level": 16,
+      "samples": 8,
+      "meanLoss": 4.375,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "h2h3",
+          "loss": 13,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "b1c3",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "c1e3",
+          "loss": 9,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "partie-3-8",
+      "phase": "opening",
+      "kind": "Partie enregistrée",
+      "level": 17,
+      "samples": 8,
+      "meanLoss": 2.75,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "b1c3",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "c1e3",
+          "loss": 9,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "h2h3",
+          "loss": 13,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "partie-3-8",
+      "phase": "opening",
+      "kind": "Partie enregistrée",
+      "level": 18,
+      "samples": 8,
+      "meanLoss": 7.875,
+      "inaccuracyRate": 0.125,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.875,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "b1c3",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "h2h3",
+          "loss": 13,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "b2b3",
+          "loss": 37,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "partie-3-20",
+      "phase": "post-opening",
+      "kind": "Partie enregistrée",
+      "level": 16,
+      "samples": 8,
+      "meanLoss": 71.875,
+      "inaccuracyRate": 0.875,
+      "errorRate": 0.125,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "c1d2",
+          "loss": 66,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "a1b1",
+          "loss": 72,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "a2a3",
+          "loss": 95,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "partie-3-20",
+      "phase": "post-opening",
+      "kind": "Partie enregistrée",
+      "level": 17,
+      "samples": 8,
+      "meanLoss": 34.25,
+      "inaccuracyRate": 0.5,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.5,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "c1e3",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "b3d2",
+          "loss": 70,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "c1d2",
+          "loss": 66,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "a1b1",
+          "loss": 72,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "partie-3-20",
+      "phase": "post-opening",
+      "kind": "Partie enregistrée",
+      "level": 18,
+      "samples": 8,
+      "meanLoss": 34.5,
+      "inaccuracyRate": 0.5,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.5,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "c1d2",
+          "loss": 66,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "c1e3",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "a1b1",
+          "loss": 72,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "partie-3-40",
+      "phase": "middlegame",
+      "kind": "Partie enregistrée",
+      "level": 16,
+      "samples": 8,
+      "meanLoss": 5.625,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 25,
+      "choices": [
+        {
+          "move": "e3d5",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "d1f3",
+          "loss": 25,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "e3g4",
+          "loss": 20,
+          "exposure": 100,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "d1d6",
+          "loss": 0,
+          "exposure": 100,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "partie-3-40",
+      "phase": "middlegame",
+      "kind": "Partie enregistrée",
+      "level": 17,
+      "samples": 8,
+      "meanLoss": 6.25,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 25,
+      "choices": [
+        {
+          "move": "e3d5",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "d1f3",
+          "loss": 25,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "d1d6",
+          "loss": 0,
+          "exposure": 100,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "partie-3-40",
+      "phase": "middlegame",
+      "kind": "Partie enregistrée",
+      "level": 18,
+      "samples": 8,
+      "meanLoss": 8.75,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 37.5,
+      "choices": [
+        {
+          "move": "e3d5",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "e3g4",
+          "loss": 20,
+          "exposure": 100,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "d1f3",
+          "loss": 25,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "d1d6",
+          "loss": 0,
+          "exposure": 100,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "partie-3-60",
+      "phase": "middlegame",
+      "kind": "Partie enregistrée",
+      "level": 16,
+      "samples": 8,
+      "meanLoss": 18.125,
+      "inaccuracyRate": 0,
+      "errorRate": 0.125,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.875,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "d6d5",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "d6d2",
+          "loss": 145,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "partie-3-60",
+      "phase": "middlegame",
+      "kind": "Partie enregistrée",
+      "level": 17,
+      "samples": 8,
+      "meanLoss": 8.625,
+      "inaccuracyRate": 0.125,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.875,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 12.5,
+      "choices": [
+        {
+          "move": "d6d5",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "e1d2",
+          "loss": 69,
+          "exposure": 100,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "partie-3-60",
+      "phase": "middlegame",
+      "kind": "Partie enregistrée",
+      "level": 18,
+      "samples": 8,
+      "meanLoss": 28,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0.125,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.875,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "d6d5",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "d6c6",
+          "loss": 224,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "partie-4-2",
+      "phase": "opening",
+      "kind": "Partie enregistrée",
+      "level": 16,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "e1f2",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": true
+        }
+      ]
+    },
+    {
+      "position": "partie-4-2",
+      "phase": "opening",
+      "kind": "Partie enregistrée",
+      "level": 17,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "e1f2",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": true
+        }
+      ]
+    },
+    {
+      "position": "partie-4-2",
+      "phase": "opening",
+      "kind": "Partie enregistrée",
+      "level": 18,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "e1f2",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": true
+        }
+      ]
+    },
+    {
+      "position": "partie-4-8",
+      "phase": "opening",
+      "kind": "Partie enregistrée",
+      "level": 16,
+      "samples": 8,
+      "meanLoss": 34,
+      "inaccuracyRate": 0.375,
+      "errorRate": 0.125,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.5,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 21.25,
+      "choices": [
+        {
+          "move": "d5b3",
+          "loss": 85,
+          "exposure": 100,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "d2d3",
+          "loss": 13,
+          "exposure": 10,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "d2d4",
+          "loss": 58,
+          "exposure": 10,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "h1e1",
+          "loss": 0,
+          "exposure": 10,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "partie-4-8",
+      "phase": "opening",
+      "kind": "Partie enregistrée",
+      "level": 17,
+      "samples": 8,
+      "meanLoss": 10.5,
+      "inaccuracyRate": 0.125,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.875,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 10,
+      "choices": [
+        {
+          "move": "h1e1",
+          "loss": 0,
+          "exposure": 10,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "d2d3",
+          "loss": 13,
+          "exposure": 10,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "d2d4",
+          "loss": 58,
+          "exposure": 10,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "partie-4-8",
+      "phase": "opening",
+      "kind": "Partie enregistrée",
+      "level": 18,
+      "samples": 8,
+      "meanLoss": 14.5,
+      "inaccuracyRate": 0.25,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.75,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 10,
+      "choices": [
+        {
+          "move": "h1e1",
+          "loss": 0,
+          "exposure": 10,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "d2d4",
+          "loss": 58,
+          "exposure": 10,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "partie-4-20",
+      "phase": "post-opening",
+      "kind": "Partie enregistrée",
+      "level": 16,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "d1d4",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": true
+        }
+      ]
+    },
+    {
+      "position": "partie-4-20",
+      "phase": "post-opening",
+      "kind": "Partie enregistrée",
+      "level": 17,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "d1d4",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": true
+        }
+      ]
+    },
+    {
+      "position": "partie-4-20",
+      "phase": "post-opening",
+      "kind": "Partie enregistrée",
+      "level": 18,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "d1d4",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": true
+        }
+      ]
+    },
+    {
+      "position": "partie-4-40",
+      "phase": "middlegame",
+      "kind": "Partie enregistrée",
+      "level": 16,
+      "samples": 8,
+      "meanLoss": 14.75,
+      "inaccuracyRate": 0.25,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.75,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 77.5,
+      "choices": [
+        {
+          "move": "c3b4",
+          "loss": 0,
+          "exposure": 10,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": true
+        },
+        {
+          "move": "f2d2",
+          "loss": 47,
+          "exposure": 100,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "f2b2",
+          "loss": 0,
+          "exposure": 100,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "c3d2",
+          "loss": 24,
+          "exposure": 100,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "partie-4-40",
+      "phase": "middlegame",
+      "kind": "Partie enregistrée",
+      "level": 17,
+      "samples": 8,
+      "meanLoss": 18,
+      "inaccuracyRate": 0.125,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.875,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 66.25,
+      "choices": [
+        {
+          "move": "c3d2",
+          "loss": 24,
+          "exposure": 100,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "c3b4",
+          "loss": 0,
+          "exposure": 10,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": true
+        },
+        {
+          "move": "f2b2",
+          "loss": 0,
+          "exposure": 100,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "d1b1",
+          "loss": 72,
+          "exposure": 100,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "partie-4-40",
+      "phase": "middlegame",
+      "kind": "Partie enregistrée",
+      "level": 18,
+      "samples": 8,
+      "meanLoss": 6,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 77.5,
+      "choices": [
+        {
+          "move": "f2b2",
+          "loss": 0,
+          "exposure": 100,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "c3d2",
+          "loss": 24,
+          "exposure": 100,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "c3b4",
+          "loss": 0,
+          "exposure": 10,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": true
+        }
+      ]
+    },
+    {
+      "position": "partie-4-60",
+      "phase": "middlegame",
+      "kind": "Partie enregistrée",
+      "level": 16,
+      "samples": 8,
+      "meanLoss": 8.625,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 500,
+      "choices": [
+        {
+          "move": "f2e3",
+          "loss": 0,
+          "exposure": 500,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "f2e2",
+          "loss": 15,
+          "exposure": 500,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "f2g1",
+          "loss": 24,
+          "exposure": 500,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "partie-4-60",
+      "phase": "middlegame",
+      "kind": "Partie enregistrée",
+      "level": 17,
+      "samples": 8,
+      "meanLoss": 5.875,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 500,
+      "choices": [
+        {
+          "move": "f2e3",
+          "loss": 0,
+          "exposure": 500,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "f2e2",
+          "loss": 15,
+          "exposure": 500,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "f2g3",
+          "loss": 17,
+          "exposure": 500,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "partie-4-60",
+      "phase": "middlegame",
+      "kind": "Partie enregistrée",
+      "level": 18,
+      "samples": 8,
+      "meanLoss": 12.625,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 500,
+      "choices": [
+        {
+          "move": "f2e2",
+          "loss": 15,
+          "exposure": 500,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "f2e3",
+          "loss": 0,
+          "exposure": 500,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "f2g3",
+          "loss": 17,
+          "exposure": 500,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "f2g1",
+          "loss": 24,
+          "exposure": 500,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "finale-roi-pions",
+      "phase": "endgame",
+      "kind": "Finale de pions",
+      "level": 16,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "d5e5",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "finale-roi-pions",
+      "phase": "endgame",
+      "kind": "Finale de pions",
+      "level": 17,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "d5e5",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "finale-roi-pions",
+      "phase": "endgame",
+      "kind": "Finale de pions",
+      "level": 18,
+      "samples": 8,
+      "meanLoss": 0,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "d5e5",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "finale-tours",
+      "phase": "endgame",
+      "kind": "Finale de tours",
+      "level": 16,
+      "samples": 8,
+      "meanLoss": 65.25,
+      "inaccuracyRate": 0.625,
+      "errorRate": 0.375,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 12.5,
+      "choices": [
+        {
+          "move": "f7f5",
+          "loss": 122,
+          "exposure": 100,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "g7g5",
+          "loss": 41,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "g8h7",
+          "loss": 68,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "h6h5",
+          "loss": 84,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "finale-tours",
+      "phase": "endgame",
+      "kind": "Finale de tours",
+      "level": 17,
+      "samples": 8,
+      "meanLoss": 53,
+      "inaccuracyRate": 0.5,
+      "errorRate": 0.25,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.25,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 12.5,
+      "choices": [
+        {
+          "move": "f7f5",
+          "loss": 122,
+          "exposure": 100,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "f7f6",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "g8h7",
+          "loss": 68,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "g7g5",
+          "loss": 41,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "h6h5",
+          "loss": 84,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "finale-tours",
+      "phase": "endgame",
+      "kind": "Finale de tours",
+      "level": 18,
+      "samples": 8,
+      "meanLoss": 41.75,
+      "inaccuracyRate": 0.25,
+      "errorRate": 0.375,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.375,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "f7f6",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "g7g5",
+          "loss": 41,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "h6h5",
+          "loss": 84,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": false,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "finale-tours-equilibree",
+      "phase": "endgame",
+      "kind": "Tours et pions",
+      "level": 16,
+      "samples": 8,
+      "meanLoss": 2.25,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "e1e3",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "e1e2",
+          "loss": 6,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "e1b1",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "finale-tours-equilibree",
+      "phase": "endgame",
+      "kind": "Tours et pions",
+      "level": 17,
+      "samples": 8,
+      "meanLoss": 2.875,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "e1e3",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "e1b1",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "e1e2",
+          "loss": 6,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "e1d1",
+          "loss": 11,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "f3e3",
+          "loss": 3,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "finale-tours-equilibree",
+      "phase": "endgame",
+      "kind": "Tours et pions",
+      "level": 18,
+      "samples": 8,
+      "meanLoss": 6.875,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "f3g2",
+          "loss": 11,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "e1b1",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "e1e3",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "e1e2",
+          "loss": 6,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "e1a1",
+          "loss": 11,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "f3e3",
+          "loss": 3,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "e4e5",
+          "loss": 18,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "finale-cavalier",
+      "phase": "endgame",
+      "kind": "Cavalier et pions",
+      "level": 16,
+      "samples": 8,
+      "meanLoss": 3.5,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "d5c7",
+          "loss": 2,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "d5e7",
+          "loss": 11,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "d5f6",
+          "loss": 1,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "d5b6",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "finale-cavalier",
+      "phase": "endgame",
+      "kind": "Cavalier et pions",
+      "level": 17,
+      "samples": 8,
+      "meanLoss": 0.375,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "d5c3",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "d5f6",
+          "loss": 1,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "d5b6",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "d5c7",
+          "loss": 2,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    },
+    {
+      "position": "finale-cavalier",
+      "phase": "endgame",
+      "kind": "Cavalier et pions",
+      "level": 18,
+      "samples": 8,
+      "meanLoss": 0.75,
+      "inaccuracyRate": 0,
+      "errorRate": 0,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 1,
+      "mateRate": 0,
+      "preservesMateRate": 0,
+      "meanExposure": 0,
+      "choices": [
+        {
+          "move": "d5c7",
+          "loss": 2,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "d5b6",
+          "loss": 0,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        },
+        {
+          "move": "d5f6",
+          "loss": 1,
+          "exposure": 0,
+          "offered": false,
+          "queenOffered": false,
+          "tactical": true,
+          "mate": false,
+          "preservesMate": false,
+          "capture": false
+        }
+      ]
+    }
+  ],
+  "summary": [
+    {
+      "level": 16,
+      "meanLoss": 12.15,
+      "inaccuracyRate": 0.11875,
+      "errorRate": 0.040625,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.840625,
+      "mateRate": 0.025,
+      "preservesMateRate": 0.1,
+      "meanExposure": 46.46875,
+      "phases": {
+        "tactics": {
+          "meanLoss": 1.890625,
+          "inaccuracyRate": 0.0390625,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.9609375,
+          "mateRate": 0.0625,
+          "preservesMateRate": 0.25,
+          "meanExposure": 70.15625
+        },
+        "opening": {
+          "meanLoss": 17.625,
+          "inaccuracyRate": 0.109375,
+          "errorRate": 0.09375,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.796875,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 8.90625
+        },
+        "post-opening": {
+          "meanLoss": 25.84375,
+          "inaccuracyRate": 0.25,
+          "errorRate": 0.0625,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.6875,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 3.125
+        },
+        "middlegame": {
+          "meanLoss": 17.546875,
+          "inaccuracyRate": 0.203125,
+          "errorRate": 0.03125,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.765625,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 80
+        },
+        "endgame": {
+          "meanLoss": 17.75,
+          "inaccuracyRate": 0.15625,
+          "errorRate": 0.09375,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.75,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 3.125
+        }
+      }
+    },
+    {
+      "level": 17,
+      "meanLoss": 9.740625,
+      "inaccuracyRate": 0.06875,
+      "errorRate": 0.04375,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.8875,
+      "mateRate": 0.025,
+      "preservesMateRate": 0.1,
+      "meanExposure": 45.59375,
+      "phases": {
+        "tactics": {
+          "meanLoss": 1.2109375,
+          "inaccuracyRate": 0.015625,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.984375,
+          "mateRate": 0.0625,
+          "preservesMateRate": 0.25,
+          "meanExposure": 70.15625
+        },
+        "opening": {
+          "meanLoss": 14.046875,
+          "inaccuracyRate": 0.03125,
+          "errorRate": 0.09375,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.875,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 7.5
+        },
+        "post-opening": {
+          "meanLoss": 18.625,
+          "inaccuracyRate": 0.125,
+          "errorRate": 0.09375,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.78125,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 0
+        },
+        "middlegame": {
+          "meanLoss": 15.890625,
+          "inaccuracyRate": 0.15625,
+          "errorRate": 0.046875,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.796875,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 78.59375
+        },
+        "endgame": {
+          "meanLoss": 14.0625,
+          "inaccuracyRate": 0.125,
+          "errorRate": 0.0625,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.8125,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 3.125
+        }
+      }
+    },
+    {
+      "level": 18,
+      "meanLoss": 7.903125,
+      "inaccuracyRate": 0.053125,
+      "errorRate": 0.028125,
+      "blunderRate": 0.003125,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.915625,
+      "mateRate": 0.025,
+      "preservesMateRate": 0.1,
+      "meanExposure": 44.9375,
+      "phases": {
+        "tactics": {
+          "meanLoss": 1.2109375,
+          "inaccuracyRate": 0.015625,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.984375,
+          "mateRate": 0.0625,
+          "preservesMateRate": 0.25,
+          "meanExposure": 70.15625
+        },
+        "opening": {
+          "meanLoss": 8.78125,
+          "inaccuracyRate": 0.0625,
+          "errorRate": 0.03125,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.90625,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 4.375
+        },
+        "post-opening": {
+          "meanLoss": 9.0625,
+          "inaccuracyRate": 0.125,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.875,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 0
+        },
+        "middlegame": {
+          "meanLoss": 17.609375,
+          "inaccuracyRate": 0.078125,
+          "errorRate": 0.0625,
+          "blunderRate": 0.015625,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.84375,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 80
+        },
+        "endgame": {
+          "meanLoss": 12.34375,
+          "inaccuracyRate": 0.0625,
+          "errorRate": 0.09375,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.84375,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 0
+        }
+      }
+    }
+  ],
+  "openingHabits": [
+    {
+      "level": 16,
+      "samples": 8,
+      "naturalRate": 1,
+      "edgePawnRate": 0,
+      "edgeKnightRate": 0,
+      "choices": {
+        "e2e4": 3,
+        "g1f3": 3,
+        "b1c3": 1,
+        "c2c4": 1
+      }
+    },
+    {
+      "level": 17,
+      "samples": 8,
+      "naturalRate": 1,
+      "edgePawnRate": 0,
+      "edgeKnightRate": 0,
+      "choices": {
+        "c2c4": 3,
+        "d2d4": 2,
+        "e2e4": 1,
+        "g1f3": 2
+      }
+    },
+    {
+      "level": 18,
+      "samples": 8,
+      "naturalRate": 1,
+      "edgePawnRate": 0,
+      "edgeKnightRate": 0,
+      "choices": {
+        "e2e4": 5,
+        "d2d4": 1,
+        "e2e3": 1,
+        "c2c4": 1
+      }
+    }
+  ],
+  "completedAt": "2026-08-31T20:52:07.067Z"
+}

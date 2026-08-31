@@ -18,29 +18,59 @@ export type LevelProfile = {
   id: Difficulty;
   name: string;
   category: string;
-  elo: number;
+  elo: number | null;
   settings: SearchSettings;
-  selection?: { errorRate: number; targetLoss: number; maxLoss: number };
+  selection?: { bands: readonly number[]; hangingRate: number };
 };
 const estimates = [
-  250, 400, 550, 700, 850, 1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000, 2100,
-  2200, 2300, 2400, 2500, 2600, 2700, 2900, 3200,
+  250,
+  400,
+  550,
+  700,
+  850,
+  1000,
+  1100,
+  1200,
+  1300,
+  1400,
+  1500,
+  1600,
+  1700,
+  1800,
+  1900,
+  2000,
+  2100,
+  2200,
+  2300,
+  2400,
+  2500,
+  2600,
+  2700,
+  2900,
+  null,
 ];
-// Below Stockfish's native minimum (1320), choose among evaluated alternatives.
-// Levels 10–11 bridge to native weakening: the initial native 1400 trial regressed.
-// Separate profiles make the progression auditable and adjustable after calibration.
+// Probability budgets for losses 0–20 / 20–60 / 60–130 / 130–250 / 250–500 / >500 cp.
+// Missing bands fall back toward better moves, never toward larger errors.
 const learnerProfiles = [
-  [0.9, 330, 1000],
-  [0.87, 300, 900],
-  [0.84, 270, 800],
-  [0.79, 240, 740],
-  [0.74, 210, 670],
-  [0.68, 185, 600],
-  [0.62, 160, 530],
-  [0.55, 140, 460],
-  [0.48, 120, 400],
-  [0.41, 100, 340],
-  [0.34, 80, 280],
+  [0.08, 0.13, 0.2, 0.24, 0.22, 0.13],
+  [0.11, 0.16, 0.23, 0.245, 0.17, 0.085],
+  [0.14, 0.2, 0.25, 0.25, 0.115, 0.045],
+  [0.16, 0.24, 0.27, 0.23, 0.075, 0.025],
+  [0.18, 0.27, 0.29, 0.195, 0.052, 0.013],
+  [0.2, 0.3, 0.3, 0.161, 0.032, 0.007],
+  [0.23, 0.32, 0.28, 0.145, 0.021, 0.004],
+  [0.26, 0.35, 0.26, 0.115, 0.013, 0.002],
+  [0.32, 0.36, 0.22, 0.091, 0.0075, 0.0015],
+  [0.39, 0.355, 0.18, 0.068, 0.006, 0.001],
+  [0.46, 0.335, 0.15, 0.05, 0.0045, 0.0005],
+  [0.53, 0.305, 0.13, 0.032, 0.0028, 0.0002],
+  [0.6, 0.28, 0.1, 0.0188, 0.0011, 0.0001],
+  [0.67, 0.25, 0.067, 0.0123, 0.00065, 0.00005],
+  [0.74, 0.21, 0.043, 0.0068, 0.00018, 0.00002],
+];
+const hangingRates = [
+  0.2, 0.15, 0.1, 0.06, 0.035, 0.018, 0.012, 0.008, 0.005, 0.003, 0.002, 0.001, 0.0005, 0.0003,
+  0.0001,
 ];
 export const difficulties: LevelProfile[] = estimates.map((elo, index) => {
   const id = (index + 1) as Difficulty;
@@ -67,25 +97,26 @@ export const difficulties: LevelProfile[] = estimates.map((elo, index) => {
     category,
     elo,
     settings: learner
-      ? { skill: 20, depth: 8, movetime: 220, multiPV: 20, nodes: 12000 }
+      ? { skill: 20, depth: 10, movetime: 350 + id * 20, multiPV: 12, nodes: 30000 + id * 6000 }
       : {
           skill: 20,
-          depth: id === 25 ? 22 : 12 + Math.floor((id - 10) / 2),
-          movetime: id === 25 ? 1800 : 350 + (id - 10) * 70,
-          nodes: id === 25 ? 450000 : 22000 + (id - 10) * 18000,
-          // Native UCI Elo is calibrated at a different time control. Browser match
-          // calibration needs a stronger native target at the custom/native boundary.
-          ...(id < 25 ? { elo: id === 24 ? 3150 : elo + 300 } : {}),
+          depth: id === 25 ? 26 : 12 + Math.floor((id - 10) / 2),
+          movetime: id === 25 ? 4500 : 350 + (id - 10) * 70,
+          nodes: id === 25 ? 1800000 : 22000 + (id - 10) * 18000,
+          // UCI targets are technical settings, not the displayed human estimates.
+          // A measured intermediate target bridges the custom/native boundary; the next
+          // two targets extend that ramp instead of jumping directly to the strongest range.
+          ...(id < 25
+            ? { elo: [2750, 2820, 2920, 3020, 3060, 3095, 3130, 3160, 3190][id - 16] }
+            : {}),
         },
-    ...(learner
-      ? { selection: { errorRate: learner[0], targetLoss: learner[1], maxLoss: learner[2] } }
-      : {}),
+    ...(learner ? { selection: { bands: learner, hangingRate: hangingRates[index] } } : {}),
   };
 });
 export const difficultyInfo = (id: Difficulty) => difficulties[id - 1];
 export const difficultyLabel = (id: Difficulty) => {
   const level = difficultyInfo(id);
-  return `${level.name} · ${level.category} · ≈ ${level.elo} Elo`;
+  return `${level.name} · ${level.category}${level.elo === null ? ' · Stockfish non affaibli' : ` · ≈ ${level.elo} Elo`}`;
 };
 export function validLevel(value: unknown): value is Difficulty {
   return typeof value === 'number' && Number.isInteger(value) && value >= 1 && value <= 25;

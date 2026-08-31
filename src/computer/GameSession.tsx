@@ -101,7 +101,8 @@ export function GameSession({
           <div>
             <strong>Ordinateur · {difficulty.name}</strong>
             <span>
-              {sideName(otherSide(record.player))} · {difficulty.category} · ≈ {difficulty.elo} Elo
+              {sideName(otherSide(record.player))} · {difficulty.category} ·{' '}
+              {difficulty.elo === null ? 'Stockfish non affaibli' : `≈ ${difficulty.elo} Elo`}
             </span>
           </div>
         </div>

@@ -1,4 +1,6 @@
 .mobile-path-caption,
+.mobile-path-art,
+.mobile-path-meta,
 .focus-title,
 .compact-feedback {
   display: none;
@@ -102,7 +104,7 @@ body {
     gap: 10px;
     margin: 0;
     min-height: min(
-      540px,
+      440px,
       calc(100svh - 192px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px))
     );
   }
@@ -115,9 +117,103 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: center;
-    gap: 12px;
+    justify-content: flex-start;
+    gap: 10px;
     box-shadow: 0 8px 26px #182d2510;
+  }
+  .mobile-path-art {
+    display: block;
+    width: calc(100% + 4px);
+    aspect-ratio: 1;
+    margin: 48px -2px 8px;
+    pointer-events: none;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+  .mobile-path-art svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+  .art-board-frame {
+    fill: var(--surface-soft);
+    stroke: var(--border);
+  }
+  .art-square-dark {
+    fill: var(--accent);
+    opacity: 0.22;
+  }
+  .art-square-light {
+    fill: var(--surface);
+    opacity: 0.9;
+  }
+  .art-destination {
+    fill: var(--accent);
+    opacity: 0.35;
+  }
+  .art-route {
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .art-orbit {
+    stroke: var(--accent);
+    stroke-opacity: 0.2;
+    stroke-width: 1;
+  }
+  .art-orbit.inner {
+    stroke-dasharray: 2 6;
+    stroke-opacity: 0.28;
+  }
+  .art-grid {
+    stroke: var(--accent);
+    stroke-opacity: 0.24;
+  }
+  .art-piece-shadow {
+    fill: var(--accent);
+    opacity: 0.13;
+  }
+  .art-engine-node {
+    fill: var(--surface-soft);
+    stroke: var(--accent);
+    stroke-opacity: 0.35;
+  }
+  .art-eval-track {
+    stroke: var(--border);
+    stroke-width: 4;
+    stroke-linecap: round;
+  }
+  .art-eval-value {
+    stroke: var(--accent);
+    stroke-opacity: 0.7;
+    stroke-width: 4;
+    stroke-linecap: round;
+  }
+  .home-page .mobile-path-meta {
+    display: grid;
+    gap: 4px;
+    margin-top: auto;
+    padding-top: 12px;
+    width: 100%;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 1.45;
+  }
+  .mobile-path-meta b {
+    color: var(--text);
+    font-weight: 600;
+  }
+  .home-page .pathway-card:active {
+    transform: scale(0.985);
+  }
+  .home-page .pathway-top > svg {
+    transition: transform 180ms ease;
+  }
+  .home-page .pathway-card:is(:hover, :focus-visible) .pathway-top > svg {
+    transform: translate(2px, -2px);
   }
   .home-page .pathway-top {
     position: absolute;
@@ -389,5 +485,9 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .hint-nudge {
     animation: none;
+  }
+  .home-page .pathway-card:active,
+  .home-page .pathway-card:is(:hover, :focus-visible) .pathway-top > svg {
+    transform: none;
   }
 }

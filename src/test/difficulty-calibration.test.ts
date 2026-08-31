@@ -7,6 +7,7 @@ import { difficulties } from '../computer/difficulty';
 import { playUci, positionResult } from '../computer/game';
 
 const report = JSON.parse(readFileSync(resolve('calibration/difficulty-results.json'), 'utf8'));
+const current = JSON.parse(readFileSync(resolve('calibration/quality-results.json'), 'utf8'));
 type Metrics = { level: number; meanLoss: number; tacticalRate: number; blunderRate: number };
 type Match = {
   lower: number;
@@ -22,13 +23,15 @@ type Match = {
 const levels = report.summary.levels as Metrics[];
 const average = (list: number[]) => list.reduce((a, b) => a + b, 0) / list.length;
 
-describe('Calibration réelle conservée : tendances, sans résultat de partie imposé', () => {
+describe('Calibration historique conservée et nouvelle politique vérifiée', () => {
   it('mesure le protocole et les profils actuels, sans essai rapide ni cible expérimentale', () => {
     const hash = createHash('sha256');
-    for (const file of ['chooseMove.ts', 'difficulty.ts', 'ComputerEngine.ts'])
+    for (const file of ['chooseMove.ts', 'difficulty.ts', 'ComputerEngine.ts', 'material.ts'])
       hash.update(readFileSync(resolve('src/computer', file)));
-    expect(report.policyHash).toBe(hash.digest('hex'));
-    expect(report.profiles).toEqual(difficulties);
+    expect(current.policyHash).toBe(hash.digest('hex'));
+    expect(current.profiles).toEqual(difficulties);
+    expect(current.completedAt).toBeTruthy();
+    expect(current.rows).toHaveLength(1000);
     expect(report.quick).toBe(false);
     expect(report.nativeTrial).toBeNull();
     expect(report.completedAt).toBeTruthy();

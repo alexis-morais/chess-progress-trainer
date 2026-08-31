@@ -15,13 +15,14 @@ export function DifficultySelector({
       <div className="difficulty-current" aria-live="polite">
         <strong>{profile.name}</strong>
         <span>
-          {profile.category} <b>≈ {profile.elo} Elo</b>
+          {profile.category}{' '}
+          <b>{profile.elo === null ? 'Stockfish non affaibli' : `≈ ${profile.elo} Elo`}</b>
         </span>
       </div>
       <input
         type="range"
         aria-label="Niveau de l’ordinateur"
-        aria-valuetext={`${profile.name}, ${profile.category}, force estimée ${profile.elo} Elo`}
+        aria-valuetext={`${profile.name}, ${profile.category}, ${profile.elo === null ? 'Stockfish non affaibli' : `force estimée ${profile.elo} Elo`}`}
         min="1"
         max="25"
         step="1"

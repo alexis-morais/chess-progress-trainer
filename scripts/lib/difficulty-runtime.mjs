@@ -12,7 +12,7 @@ export async function difficultyRuntime() {
   await build({
     stdin: {
       contents:
-        "export * from './src/computer/ComputerEngine'; export * from './src/computer/chooseMove'; export * from './src/computer/difficulty'; export * from './src/computer/game';",
+        "export * from './src/computer/ComputerEngine'; export * from './src/computer/chooseMove'; export * from './src/computer/difficulty'; export * from './src/computer/game'; export * from './src/computer/material';",
       resolveDir: process.cwd(),
       loader: 'ts',
     },

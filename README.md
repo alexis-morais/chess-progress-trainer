@@ -71,7 +71,7 @@ Dans les ouvertures, les tactiques et la partie libre, **cliquer/toucher une pi�
 
 **Légal ne signifie pas solution de l’exercice.** Tous les coups légaux de la pièce sont indiqués, mais seul le coup pédagogique prévu est accepté dans les ouvertures et tactiques. Indice reste facultatif et gratuit ; Solution révèle toujours sa flèche et compte une aide. En partie libre, tous les coups légaux sont autorisés.
 
-Pendant le drag, les marqueurs restent visibles. À la souris, la pièce suit le curseur. Au toucher, après un seuil de 10 px, elle grandit à **125 %** et s’élève d’environ **40 px au-dessus du doigt** sur téléphone ; la case soulignée sous le contact reste la destination. Le snap/retour dure 140 ms ; les coups par clic et automatiques sont animés sur 170 ms. La préférence de réduction des animations est respectée. Les quatre promotions restent proposées dans une fenêtre accessible.
+Pendant le drag, les marqueurs restent visibles. À la souris, la pièce suit le curseur. Au toucher, après un seuil de 10 px, elle grandit à **142 %** et s’élève de **44 à 54 px au-dessus du doigt** aux largeurs mobiles testées. Un halo doux, une case source persistante et une case cible mobile accompagnent le geste. La case sous le contact reste la destination, indépendamment de la pièce soulevée. Le snap/retour dure 140 ms ; les coups par clic et automatiques sont animés sur 170 ms. La préférence de réduction des animations est respectée. Les quatre promotions restent proposées dans une fenêtre accessible.
 
 Sur téléphone, le plateau utilise la largeur disponible avec 8 px de marge de chaque côté : **374 px sur un écran de 390 px**. La barre d’évaluation du trainer passe sous le plateau. Les grands plateaux et panneaux latéraux desktop sont conservés. Seuls les gestes démarrés sur une pièce jouable réservent le déplacement à un doigt ; le défilement reste disponible sur les cases vides et hors plateau.
 
@@ -99,9 +99,9 @@ La dernière partie **terminée**, puis son bilan, sont sauvegardés dans `local
 
 ### Niveaux et temps de calcul
 
-La force est affichée comme **Niveau X · catégorie · ≈ Elo**, avec la mention « Force estimée — peut différer d’un classement humain réel ». Les huit raccourcis placent le curseur sur 3, 8, 14, 18, 20, 22, 24 ou 25. Le dernier choix est mémorisé ; une valeur invalide revient au niveau 6. Les anciens bilans restent lisibles grâce à une migration des trois noms historiques.
+Pour les niveaux 1–24, la force est affichée comme **Niveau X · catégorie · ≈ Elo**, avec la mention « Force estimée — peut différer d’un classement humain réel ». Le Maximum n’affiche aucun Elo humain. Les huit raccourcis placent le curseur sur 3, 8, 14, 18, 20, 22, 24 ou 25. Le dernier choix est mémorisé ; une valeur invalide revient au niveau 6. Les anciens bilans restent lisibles grâce à une migration des trois noms historiques.
 
-Les niveaux 1–11 choisissent parmi plusieurs coups réellement évalués, avec des erreurs progressivement plus rares et des habitudes de développement simples. Les niveaux 12–24 utilisent la limitation native de Stockfish ; 25 utilise sa force maximale raisonnable (1,8 seconde au plus). Un délai visuel de 250 ms précède la réflexion. Le **bilan reste fort**, indépendamment du niveau joué : Skill 20, profondeur 14 ou 350 ms. Voir [DIFFICULTY.md](DIFFICULTY.md) pour les 25 profils, leurs limites et la calibration réelle.
+Les niveaux 1–15 choisissent parmi 12 coups réellement évalués, selon six budgets de gravité et une protection contre les pertes immédiates de pièces. Les niveaux 16–24 utilisent la limitation native calibrée de Stockfish. Le niveau 25, « Maximum — Stockfish non affaibli », joue toujours le meilleur coup trouvé, sans Elo imposé : jusqu’à 4,5 secondes, profondeur 26 ou 1,8 million de nœuds. Un délai visuel de 250 ms précède la réflexion. Le **bilan reste fort**, indépendamment du niveau joué : Skill 20, profondeur 14 ou 350 ms. Voir [DIFFICULTY.md](DIFFICULTY.md) pour les 25 profils, leurs limites et la calibration réelle.
 
 ### Méthode du bilan
 
@@ -189,7 +189,7 @@ Ne pas ouvrir `dist/index.html` en double-cliquant : les Workers/WASM doivent ê
 
 ### Tests et runners GitHub Actions
 
-Les **770 tests précédents sont conservés et adaptés**, avec 227 cas supplémentaires, soit **997 tests** dans 22 fichiers. Les contrôles supplémentaires couvrent les 25 profils, le curseur, la persistance/migration, les messages MultiPV, la séparation du bilan fort, le feedback Focus et les 90 matchs de calibration. Aucun test n’est supprimé ou désactivé.
+Les **997 tests précédents sont conservés et adaptés**. Les nouveaux contrôles couvrent les cartes mobiles, le drag tactile, les budgets d’erreur, la protection matérielle, le Maximum sans affaiblissement et les mesures de calibration. Les 90 parties historiques restent rejouées, en plus des 180 parties de validation actuelles. Aucun test n’est supprimé ou désactivé. Le nombre total et les résultats des dernières exécutions sont consignés dans [VALIDATION.md](VALIDATION.md).
 
 Dans `vite.config.ts`, le délai maximum par test est de **20 secondes en CI**, contre **5 secondes en local**. GitHub définit automatiquement `CI=true` : le workflow existant bénéficie donc du délai adapté aux runners partagés. Aucun test n’est désactivé et les échecs réels restent bloquants. Pour reproduire cette configuration localement : `CI=true pnpm test`. Ce réglage ne modifie pas les délais de l’application ni les recherches Stockfish. La concurrence est limitée à deux processus pour éviter que les rendus du plateau ne se disputent le CPU. `pnpm test` utilise directement cette limite, sans augmenter les 5 secondes locales.
 
@@ -242,7 +242,7 @@ Documentation officielle : [déploiement avec GitHub Actions](https://docs.githu
 
 ## Tests et compatibilité
 
-Les **997 tests** préservent les 120 lignes et leurs préfixes, les 16 variantes historiques, les 20 tactiques, les règles d’échecs, le bilan, le graphique, le stockage, les thèmes et le clavier. Ils couvrent maintenant 25 niveaux et la calibration enregistrée. Les tests UI utilisent les vrais composants de plateau avec Worker simulé ; le vrai moteur est aussi exécuté dans le navigateur de production et dans les bancs de calibration/tactiques séparés.
+La suite complète préserve les 120 lignes et leurs préfixes, les 16 variantes historiques, les 20 tactiques, les règles d’échecs, le bilan, le graphique, le stockage, les thèmes et le clavier. Elle couvre aussi les 25 niveaux et la calibration enregistrée. Les tests UI utilisent les vrais composants de plateau avec Worker simulé ; le vrai moteur est également exécuté dans le navigateur de production et dans les bancs de calibration/tactiques séparés. Les mesures de rendu réelles sont conservées avec l’empreinte des composants contrôlés.
 
 La compilation cible Chrome 107+, Firefox 104+ et Safari 16+. Le moteur amont vise les navigateurs modernes avec WebAssembly (notamment iOS 16+). La version de production est à vérifier sur HTTP(S), à l’URL avec son sous-répertoire. Si un appareil refuse le WASM, l’exercice reste accessible.
 

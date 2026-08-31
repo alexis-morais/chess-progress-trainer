@@ -9,6 +9,8 @@
     '.pathway-top',
     '.pathway-facts',
     '.pathway-cta',
+    '.mobile-path-art',
+    '.mobile-path-meta',
     '.opening-card',
     '.opening-card-copy',
     '.variant-option',

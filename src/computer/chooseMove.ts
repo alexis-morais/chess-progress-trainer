@@ -1,14 +1,8 @@
 import { Chess } from 'chess.js';
 import { playUci, uci } from './game';
 import { difficultyInfo } from './difficulty';
-import type {
-  Candidate,
-  Difficulty,
-  EngineScore,
-  PositionAnalysis,
-  SearchEngine,
-  SearchInput,
-} from './types';
+import { materialExposure } from './material';
+import type { Difficulty, EngineScore, PositionAnalysis, SearchEngine, SearchInput } from './types';
 
 export function seededRandom(seed: number): () => number {
   let state = seed >>> 0;
@@ -35,13 +29,7 @@ const choiceScore = (score: EngineScore, side: 'w' | 'b') =>
 export function plausibility(input: SearchInput, token: string): number {
   const board = new Chess(input.fen);
   const move = playUci(board, token);
-  if (
-    input.history.length >= 20 ||
-    Number(input.fen.split(' ')[5]) > 10 ||
-    move.san.includes('+') ||
-    move.captured
-  )
-    return 1;
+  if (move.san.includes('+') || move.captured) return 1;
   let weight = 1;
   if (move.piece === 'q') weight *= 0.25;
   if (move.piece === 'r' && !move.flags.includes('k') && !move.flags.includes('q')) weight *= 0.18;
@@ -50,6 +38,8 @@ export function plausibility(input: SearchInput, token: string): number {
     weight *= /^[de]/.test(move.from) ? 2 : /^[ah]/.test(move.from) ? 0.25 : 0.7;
   if (['n', 'b'].includes(move.piece) && ['1', '8'].includes(move.from[1])) weight *= 2;
   if (move.piece === 'n' && /^[ah]/.test(move.to)) weight *= 0.45;
+  const openingWeight = Math.max(0, Math.min(1, (16 - Number(input.fen.split(' ')[5])) / 12));
+  weight = 1 + (weight - 1) * openingWeight;
   const ownPrevious = input.history.at(-2);
   if (ownPrevious?.slice(2, 4) === move.from) weight *= 0.25;
   if (ownPrevious === `${move.to}${move.from}`) weight *= 0.15;
@@ -78,47 +68,42 @@ export function prepareCandidateSelection(
   if (candidates.length < 2) return () => analysis.bestMove;
   const side = board.turn();
   const best = Math.max(...candidates.map((candidate) => choiceScore(candidate.score, side)));
-  const options: { candidate: Candidate; loss: number }[] = candidates.map((candidate) => ({
+  const options = candidates.map((candidate) => ({
     candidate,
     loss: Math.max(0, best - choiceScore(candidate.score, side)),
+    exposure: materialExposure(input.fen, candidate.move),
   }));
-  const mistakes = options.filter(({ loss }) => loss > 12);
-  const minimumLoss = Math.min(...mistakes.map((item) => item.loss));
-  // A soft tail avoids an abrupt skill jump when one tactic crosses a hard loss cutoff.
-  const fullMove = Number(input.fen.split(' ')[5]);
-  const quietOpening =
-    fullMove <= 6 &&
-    Math.abs(best) < 150 &&
-    !board.inCheck() &&
-    board.board().flat().filter(Boolean).length >= 28;
-  const openingScale = quietOpening ? (fullMove <= 2 ? 0.25 : 0.65) : 1;
-  const errorRate = profile.errorRate * Math.min(1, profile.maxLoss / minimumLoss) * openingScale;
-  const goodWeights = options
-    .filter(({ loss }) => loss <= 20)
-    .map(({ candidate }) => ({
-      move: candidate.move,
-      weight: plausibility(input, candidate.move),
-    }));
-  const mistakeWeights = mistakes.map(({ candidate, loss }) => ({
-    move: candidate.move,
-    weight:
-      Math.exp(-Math.abs(loss - profile.targetLoss) / Math.max(80, profile.targetLoss)) *
-      plausibility(input, candidate.move) *
-      queenSafety(input, candidate.move),
-  }));
-  return (random = Math.random) =>
-    weighted(!mistakes.length || random() >= errorRate ? goodWeights : mistakeWeights, random) ??
-    analysis.bestMove;
-}
-function queenSafety(input: SearchInput, token: string) {
-  const board = new Chess(input.fen),
-    move = playUci(board, token);
-  if (move.piece !== 'q' || move.captured === 'q') return 1;
-  return board
-    .moves({ verbose: true })
-    .some((reply) => reply.to === move.to && reply.captured === 'q')
-    ? 0.04
-    : 1;
+  const limits = [20, 60, 130, 250, 500, Infinity];
+  const safest = Math.min(...options.map((o) => o.exposure));
+  const buckets = limits.map((max, index) =>
+    options
+      .filter((o) => o.loss <= max && (index === 0 || o.loss > limits[index - 1]))
+      .map((o) => ({
+        move: o.candidate.move,
+        weight: plausibility(input, o.candidate.move),
+        // A sound sacrifice (near the best evaluation) is not a free gift.
+        risk: o.loss > 35 ? Math.max(0, o.exposure - safest) : 0,
+      })),
+  );
+  return (random = Math.random) => {
+    let draw = random(),
+      band = 0;
+    for (; band < profile.bands.length - 1; band++) {
+      draw -= profile.bands[band];
+      if (draw < 0) break;
+    }
+    const oversight = random(),
+      habit = random();
+    for (; band >= 0; band--) {
+      const allowed = buckets[band].filter(
+        (o) =>
+          (o.risk < 200 || oversight < profile.hangingRate / (o.risk >= 700 ? 5 : 1)) &&
+          (o.weight >= 1 || habit < o.weight),
+      );
+      if (allowed.length) return weighted(allowed, random) ?? analysis.bestMove;
+    }
+    return analysis.bestMove;
+  };
 }
 function weighted(options: { move: string; weight: number }[], random: () => number) {
   let choice =

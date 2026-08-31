@@ -67,7 +67,24 @@
   filter: drop-shadow(0 7px 5px #102a254d);
 }
 .drag-piece .chess-piece {
+  position: relative;
+  z-index: 1;
   filter: none;
+}
+.drag-halo {
+  position: absolute;
+  width: 82%;
+  height: 27%;
+  left: 9%;
+  bottom: -9%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, #153e304d 0%, #31564724 48%, #173b2700 74%);
+  box-shadow: 0 0 7px 2px #e4ebd522;
+  opacity: 1;
+  transition: opacity 100ms ease;
+}
+.drag-piece[data-phase='settling'] .drag-halo {
+  opacity: 0;
 }
 .interactive-board[data-motion='true'] .move-badge,
 .interactive-board[data-settling='true'] .move-badge {
@@ -82,5 +99,8 @@
 @media (prefers-reduced-motion: reduce) {
   .drag-piece {
     transition-duration: 0ms !important;
+  }
+  .drag-halo {
+    transition: none;
   }
 }

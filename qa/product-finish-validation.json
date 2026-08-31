@@ -1,0 +1,612 @@
+{
+  "date": "2026-08-31",
+  "browser": "Chromium intégré, dimensions simulées",
+  "home": [
+    {
+      "cards": [
+        {
+          "arrowHit": true,
+          "artVisible": true,
+          "bottom": 559.5,
+          "inside": true,
+          "textClipped": false
+        },
+        {
+          "arrowHit": true,
+          "artVisible": true,
+          "bottom": 559.5,
+          "inside": true,
+          "textClipped": false
+        }
+      ],
+      "height": 568,
+      "overflow": false,
+      "theme": "light",
+      "width": 320
+    },
+    {
+      "cards": [
+        {
+          "arrowHit": true,
+          "artVisible": true,
+          "bottom": 559.5,
+          "inside": true,
+          "textClipped": false
+        },
+        {
+          "arrowHit": true,
+          "artVisible": true,
+          "bottom": 559.5,
+          "inside": true,
+          "textClipped": false
+        }
+      ],
+      "height": 568,
+      "overflow": false,
+      "theme": "dark",
+      "width": 320
+    },
+    {
+      "cards": [
+        {
+          "arrowHit": true,
+          "artVisible": true,
+          "bottom": 615.5,
+          "inside": true,
+          "textClipped": false
+        },
+        {
+          "arrowHit": true,
+          "artVisible": true,
+          "bottom": 615.5,
+          "inside": true,
+          "textClipped": false
+        }
+      ],
+      "height": 812,
+      "overflow": false,
+      "theme": "light",
+      "width": 375
+    },
+    {
+      "cards": [
+        {
+          "arrowHit": true,
+          "artVisible": true,
+          "bottom": 615.5,
+          "inside": true,
+          "textClipped": false
+        },
+        {
+          "arrowHit": true,
+          "artVisible": true,
+          "bottom": 615.5,
+          "inside": true,
+          "textClipped": false
+        }
+      ],
+      "height": 812,
+      "overflow": false,
+      "theme": "dark",
+      "width": 375
+    },
+    {
+      "cards": [
+        {
+          "arrowHit": true,
+          "artVisible": true,
+          "bottom": 615.5,
+          "inside": true,
+          "textClipped": false
+        },
+        {
+          "arrowHit": true,
+          "artVisible": true,
+          "bottom": 615.5,
+          "inside": true,
+          "textClipped": false
+        }
+      ],
+      "height": 844,
+      "overflow": false,
+      "theme": "light",
+      "width": 390
+    },
+    {
+      "cards": [
+        {
+          "arrowHit": true,
+          "artVisible": true,
+          "bottom": 615.5,
+          "inside": true,
+          "textClipped": false
+        },
+        {
+          "arrowHit": true,
+          "artVisible": true,
+          "bottom": 615.5,
+          "inside": true,
+          "textClipped": false
+        }
+      ],
+      "height": 844,
+      "overflow": false,
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "cards": [
+        {
+          "arrowHit": true,
+          "artVisible": true,
+          "bottom": 615.5,
+          "inside": true,
+          "textClipped": false
+        },
+        {
+          "arrowHit": true,
+          "artVisible": true,
+          "bottom": 615.5,
+          "inside": true,
+          "textClipped": false
+        }
+      ],
+      "height": 932,
+      "overflow": false,
+      "theme": "light",
+      "width": 430
+    },
+    {
+      "cards": [
+        {
+          "arrowHit": true,
+          "artVisible": true,
+          "bottom": 615.5,
+          "inside": true,
+          "textClipped": false
+        },
+        {
+          "arrowHit": true,
+          "artVisible": true,
+          "bottom": 615.5,
+          "inside": true,
+          "textClipped": false
+        }
+      ],
+      "height": 932,
+      "overflow": false,
+      "theme": "dark",
+      "width": 430
+    },
+    {
+      "cards": [
+        {
+          "arrowHit": true,
+          "artVisible": false,
+          "bottom": 910.8984375,
+          "inside": true,
+          "textClipped": false
+        },
+        {
+          "arrowHit": true,
+          "artVisible": false,
+          "bottom": 910.8984375,
+          "inside": true,
+          "textClipped": false
+        }
+      ],
+      "height": 1180,
+      "overflow": false,
+      "theme": "light",
+      "width": 820
+    },
+    {
+      "cards": [
+        {
+          "arrowHit": true,
+          "artVisible": false,
+          "bottom": 910.8984375,
+          "inside": true,
+          "textClipped": false
+        },
+        {
+          "arrowHit": true,
+          "artVisible": false,
+          "bottom": 910.8984375,
+          "inside": true,
+          "textClipped": false
+        }
+      ],
+      "height": 1180,
+      "overflow": false,
+      "theme": "dark",
+      "width": 820
+    },
+    {
+      "cards": [
+        {
+          "arrowHit": true,
+          "artVisible": false,
+          "bottom": 937.6953125,
+          "inside": true,
+          "textClipped": false
+        },
+        {
+          "arrowHit": true,
+          "artVisible": false,
+          "bottom": 937.6953125,
+          "inside": true,
+          "textClipped": false
+        }
+      ],
+      "height": 1000,
+      "overflow": false,
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "cards": [
+        {
+          "arrowHit": true,
+          "artVisible": false,
+          "bottom": 937.6953125,
+          "inside": true,
+          "textClipped": false
+        },
+        {
+          "arrowHit": true,
+          "artVisible": false,
+          "bottom": 937.6953125,
+          "inside": true,
+          "textClipped": false
+        }
+      ],
+      "height": 1000,
+      "overflow": false,
+      "theme": "dark",
+      "width": 1440
+    }
+  ],
+  "freeplay": [
+    {
+      "boardWidth": 304,
+      "height": 568,
+      "overflow": false,
+      "panelWidth": 288,
+      "width": 320
+    },
+    {
+      "boardWidth": 359,
+      "height": 812,
+      "overflow": false,
+      "panelWidth": 343,
+      "width": 375
+    },
+    {
+      "boardWidth": 374,
+      "height": 844,
+      "overflow": false,
+      "panelWidth": 358,
+      "width": 390
+    },
+    {
+      "boardWidth": 414,
+      "height": 932,
+      "overflow": false,
+      "panelWidth": 398,
+      "width": 430
+    },
+    {
+      "boardWidth": 740,
+      "height": 1180,
+      "overflow": false,
+      "panelWidth": 740,
+      "width": 820
+    },
+    {
+      "boardWidth": 830,
+      "height": 1000,
+      "overflow": false,
+      "panelWidth": 340,
+      "width": 1440
+    }
+  ],
+  "touch": {
+    "scaleBefore": 1.25,
+    "scaleAfter": 1.42,
+    "compared": [1.35, 1.5, 1.42],
+    "liftAt390": 48.825,
+    "halo": true,
+    "source": true,
+    "target": true,
+    "edgeGhostLeftAt320": 3,
+    "scenarios": [
+      "Pion blanc",
+      "Pion noir",
+      "Capture noire",
+      "Petit roque",
+      "Grand roque",
+      "En passant",
+      "Promotion cavalier",
+      "Refus pédagogique"
+    ],
+    "limitation": "PointerEvent synthétiques pour le tactile ; arbitrage du défilement à vérifier sur téléphone physique."
+  },
+  "engine": {
+    "levels": [3, 8, 16, 25],
+    "maximumThemeReactionMs": 284,
+    "review": true,
+    "restoredLevel": 8,
+    "restoredReview": true,
+    "native16": {
+      "played": "1. e4 e5 2. Cf3",
+      "review": true,
+      "bestMoveArrow": "e7-e5",
+      "localWorker": true
+    }
+  },
+  "limitations": ["Pas de téléphone physique.", "Safari et Firefox ciblés au build, non exécutés."],
+  "files": [
+    "src/components/HomePage.tsx",
+    "src/components/PathwayArtwork.tsx",
+    "src/ui/mobile.css",
+    "src/styles.css",
+    "src/ui/theme.css",
+    "src/board/InteractiveBoard.tsx",
+    "src/board/useBoardPointer.ts",
+    "src/board/board.css"
+  ],
+  "uiHash": "5b565f6d5684bab8ae2e43294694b64e508f87985914e46d1d51d70093466872",
+  "production": {
+    "base": "/chess-progress-trainer/",
+    "csp": true,
+    "mobileCardHeight": 440,
+    "consoleErrors": 0
+  },
+  "finalRun": {
+    "checkedAt": "2026-08-31T21:11:13.637Z",
+    "policyHash": "6478c6692c0f101c36a9a1637ed938987f6e6d6140ea63ab8d31f42b2343f324",
+    "engine": [
+      {
+        "level": 8,
+        "player": "w",
+        "moves": "e4 Cf6 Cf3 e5",
+        "review": true
+      },
+      {
+        "level": 15,
+        "player": "b",
+        "moves": "e4 e5 d4"
+      },
+      {
+        "level": 16,
+        "moves": "1.e3e52.Cf3",
+        "overflow": false,
+        "player": "b"
+      },
+      {
+        "level": 25,
+        "maximumLabel": true,
+        "moves": "1.e4",
+        "overflow": false,
+        "player": "b"
+      },
+      {
+        "level": 3,
+        "moves": "1.d3",
+        "overflow": false,
+        "player": "b"
+      },
+      {
+        "level": 1,
+        "moves": "1.c3",
+        "overflow": false,
+        "player": "b"
+      }
+    ],
+    "maximumThemeReactionMs": 268,
+    "maximumPersistence": true,
+    "openingEssential": {
+      "before": "TON ENTRAÎNEMENT\nC54\nOuverture italienne\n\nGiuoco Piano\n\nLigne essentielle\nTu joues les Blancs\nProgression\n0 / 7\n\nCoup 1 / 7 · À toi de jouer\n\nÀ toi de trouver\n\nObserve la position et essaie le coup. Si tu hésites, choisis un indice ou la solution.\n\nErreurs\n0\nAides utilisées\n0\nRecommencer\nRetour aux variantes\nLes coups joués\n0",
+      "solution": "Indice\nSolution\nCoup 1 / 7 · À toi de jouer\n\nCherche à prendre davantage de contrôle au centre.\n\nPion : e2 → e4",
+      "wrong": {
+        "badge": "✕",
+        "panel": "TON ENTRAÎNEMENT\nC54\nOuverture italienne\n\nGiuoco Piano\n\nLigne essentielle\nTu joues les Blancs\nProgression\n0 / 7\n\nCoup 1 / 7 · À toi de jouer\n\nEssaie encore\n\nCoup légal, mais il sort de la ligne travaillée.\n\nErreurs\n1\nAides utilisées\n1\nRecommencer\nRetour aux variantes\nLes coups joués\n0",
+        "pawnStillOnE2": "e2, pion blanc"
+      },
+      "after": {
+        "assistance": "Indice\nSolution\nCoup 2 / 7 · À toi de jouer",
+        "overflow": false,
+        "panel": "TON ENTRAÎNEMENT\nC54\nOuverture italienne\n\nGiuoco Piano\n\nLigne essentielle\nTu joues les Blancs\nProgression\n1 / 7\n\nCoup 2 / 7 · À toi de jouer\n\n✓ Bon coup !\n\nTu occupes le centre et libères le passage du fou et de la dame.\n\nErreurs\n1\nAides utilisées\n1\nRecommencer\nRetour aux variantes\nLes coups joués\n2"
+      }
+    },
+    "openingExtendedBlack": {
+      "boardWidth": 374,
+      "mode": "Défense française\nVariante d’avance · Version étendue · Noirs\nIndice\nSolution\nCoup 1 / 10 · À toi de jouer\n\nCherche à prendre davantage de contrôle au centre.\n\nPion : e7 → e6\n\n+0.4\n±\n1\n2\n3\n4\n5\n6\n7\nh\n8\ng\nf\ne\nd\nc\nb\na\nToi\nNoirs\nÀ toi de jouer\nStockfish 18 Lite\nAnalyse locale active\n\nGlisse une pièce ou touche sa case, puis sa destination.\nAu clavier : flèches pour naviguer, Entrée",
+      "orientation": "Échiquier, Noirs en bas",
+      "solution": "Pion : e7 → e6Flèche affichée · 1 aide comptée pour ce coup"
+    },
+    "tacticCompleted": true,
+    "touch": [
+      {
+        "scenario": "Pion blanc",
+        "theme": "light",
+        "halo": true,
+        "markers": 2,
+        "overflow": false,
+        "source": "e2",
+        "target": "e4",
+        "transform": "width: 46.5px; height: 46.5px; transform: translate3d(195px, 383.175px, 0px) scale(1.42); transition: none;",
+        "result": "Joué : e4"
+      },
+      {
+        "scenario": "Pion noir",
+        "theme": "light",
+        "halo": true,
+        "markers": 2,
+        "overflow": false,
+        "source": "e7",
+        "target": "e5",
+        "transform": "width: 46.5px; height: 46.5px; transform: translate3d(148.5px, 383.175px, 0px) scale(1.42); transition: none;",
+        "result": "Joué : e5"
+      },
+      {
+        "scenario": "Capture noire",
+        "theme": "light",
+        "halo": true,
+        "markers": 2,
+        "overflow": false,
+        "source": "d5",
+        "target": "e4",
+        "transform": "width: 46.5px; height: 46.5px; transform: translate3d(148.5px, 336.675px, 0px) scale(1.42); transition: none;",
+        "result": "Joué : dxe4"
+      },
+      {
+        "scenario": "Petit roque",
+        "theme": "light",
+        "halo": true,
+        "markers": 7,
+        "overflow": false,
+        "source": "e1",
+        "target": "g1",
+        "transform": "width: 46.5px; height: 46.5px; transform: translate3d(288px, 522.675px, 0px) scale(1.42); transition: none;",
+        "result": "Joué : O-O"
+      },
+      {
+        "scenario": "Grand roque",
+        "theme": "light",
+        "halo": true,
+        "markers": 7,
+        "overflow": false,
+        "source": "e1",
+        "target": "c1",
+        "transform": "width: 46.5px; height: 46.5px; transform: translate3d(102px, 522.675px, 0px) scale(1.42); transition: none;",
+        "result": "Joué : O-O-O"
+      },
+      {
+        "scenario": "En passant",
+        "theme": "light",
+        "halo": true,
+        "markers": 2,
+        "overflow": false,
+        "source": "e5",
+        "target": "d6",
+        "transform": "width: 46.5px; height: 46.5px; transform: translate3d(148.5px, 290.175px, 0px) scale(1.42); transition: none;",
+        "result": "Joué : exd6"
+      },
+      {
+        "scenario": "Promotion",
+        "theme": "light",
+        "halo": true,
+        "markers": 1,
+        "overflow": false,
+        "source": "a7",
+        "target": "a8",
+        "transform": "width: 46.5px; height: 46.5px; transform: translate3d(12.765px, 197.175px, 0px) scale(1.42); transition: none;",
+        "result": "Joué : a8=N"
+      },
+      {
+        "scenario": "Refus pédagogique",
+        "theme": "light",
+        "halo": true,
+        "markers": 2,
+        "overflow": false,
+        "source": "e2",
+        "target": "e3",
+        "transform": "width: 46.5px; height: 46.5px; transform: translate3d(195px, 429.675px, 0px) scale(1.42); transition: none;",
+        "result": "Coup légal refusé par l’exercice"
+      },
+      {
+        "scenario": "Pion blanc",
+        "theme": "dark",
+        "halo": true,
+        "markers": 2,
+        "overflow": false,
+        "source": "e2",
+        "target": "e4",
+        "transform": "width: 46.5px; height: 46.5px; transform: translate3d(195px, 383.175px, 0px) scale(1.42); transition: none;",
+        "result": "Joué : e4"
+      },
+      {
+        "scenario": "Pion noir",
+        "theme": "dark",
+        "halo": true,
+        "markers": 2,
+        "overflow": false,
+        "source": "e7",
+        "target": "e5",
+        "transform": "width: 46.5px; height: 46.5px; transform: translate3d(148.5px, 383.175px, 0px) scale(1.42); transition: none;",
+        "result": "Joué : e5"
+      },
+      {
+        "scenario": "Capture noire",
+        "theme": "dark",
+        "halo": true,
+        "markers": 2,
+        "overflow": false,
+        "source": "d5",
+        "target": "e4",
+        "transform": "width: 46.5px; height: 46.5px; transform: translate3d(148.5px, 336.675px, 0px) scale(1.42); transition: none;",
+        "result": "Joué : dxe4"
+      },
+      {
+        "scenario": "Petit roque",
+        "theme": "dark",
+        "halo": true,
+        "markers": 7,
+        "overflow": false,
+        "source": "e1",
+        "target": "g1",
+        "transform": "width: 46.5px; height: 46.5px; transform: translate3d(288px, 522.675px, 0px) scale(1.42); transition: none;",
+        "result": "Joué : O-O"
+      },
+      {
+        "scenario": "Grand roque",
+        "theme": "dark",
+        "halo": true,
+        "markers": 7,
+        "overflow": false,
+        "source": "e1",
+        "target": "c1",
+        "transform": "width: 46.5px; height: 46.5px; transform: translate3d(102px, 522.675px, 0px) scale(1.42); transition: none;",
+        "result": "Joué : O-O-O"
+      },
+      {
+        "scenario": "En passant",
+        "theme": "dark",
+        "halo": true,
+        "markers": 2,
+        "overflow": false,
+        "source": "e5",
+        "target": "d6",
+        "transform": "width: 46.5px; height: 46.5px; transform: translate3d(148.5px, 290.175px, 0px) scale(1.42); transition: none;",
+        "result": "Joué : exd6"
+      },
+      {
+        "scenario": "Promotion",
+        "theme": "dark",
+        "halo": true,
+        "markers": 1,
+        "overflow": false,
+        "source": "a7",
+        "target": "a8",
+        "transform": "width: 46.5px; height: 46.5px; transform: translate3d(12.765px, 197.175px, 0px) scale(1.42); transition: none;",
+        "result": "Joué : a8=N"
+      },
+      {
+        "scenario": "Refus pédagogique",
+        "theme": "dark",
+        "halo": true,
+        "markers": 2,
+        "overflow": false,
+        "source": "e2",
+        "target": "e3",
+        "transform": "width: 46.5px; height: 46.5px; transform: translate3d(195px, 429.675px, 0px) scale(1.42); transition: none;",
+        "result": "Coup légal refusé par l’exercice"
+      }
+    ],
+    "consoleErrors": 0,
+    "consoleWarnings": 0,
+    "migration": "Contrôlée par les tests automatisés, pas par injection dans le stockage du navigateur."
+  }
+}

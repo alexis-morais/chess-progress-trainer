@@ -40,7 +40,7 @@ describe('Partie libre : règles et état', () => {
       Array.from({ length: 25 }, (_, i) => i + 1),
     );
     for (let i = 1; i < difficulties.length; i++) {
-      expect(difficulties[i].elo).toBeGreaterThan(difficulties[i - 1].elo);
+      if (i < 24) expect(difficulties[i].elo).toBeGreaterThan(difficulties[i - 1].elo!);
       expect(difficulties[i].settings.movetime).toBeGreaterThanOrEqual(
         difficulties[i - 1].settings.movetime,
       );
@@ -48,7 +48,8 @@ describe('Partie libre : règles et état', () => {
         difficulties[i - 1].settings.depth,
       );
     }
-    expect(difficulties.at(-1)?.settings).toMatchObject({ skill: 20, depth: 22, movetime: 1800 });
+    expect(difficulties.at(-1)?.elo).toBeNull();
+    expect(difficulties.at(-1)?.settings).toMatchObject({ skill: 20, depth: 26, movetime: 4500 });
   });
   it('refuse les coups illégaux, le mauvais camp et les réponses périmées', () => {
     const start = createGame('w', 25);

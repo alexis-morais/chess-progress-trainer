@@ -207,14 +207,17 @@ export function InteractiveBoard({
                 const style: CSSProperties = {};
                 if (last?.from === sq) style.backgroundColor = '#bfcc77';
                 if (last?.to === sq) style.backgroundColor = '#cdd989';
-                if (selected === sq) {
-                  style.backgroundColor = '#aebf94';
-                  style.boxShadow = 'inset 0 0 0 3px #f4df89';
-                }
-                if (pointer.over === sq) style.boxShadow = 'inset 0 0 0 3px #fcf5dcbd';
                 if (mark?.square === sq) {
                   style.backgroundColor = mark.good ? '#a8d8a4' : '#e5a4a0';
                   style.boxShadow = `inset 0 0 0 3px ${mark.good ? '#39804d' : '#b33b44'}`;
+                }
+                if (selected === sq) {
+                  style.backgroundColor = '#afc3a4';
+                  style.boxShadow = 'inset 0 0 0 2px #efe4b0';
+                }
+                if (pointer.over === sq) {
+                  style.backgroundColor = '#bfd0b1';
+                  style.boxShadow = 'inset 0 0 0 2px #34594b, inset 0 0 0 4px #fcf5dc';
                 }
                 const destination = destinations.get(sq);
                 const pieceName = piece
@@ -225,6 +228,11 @@ export function InteractiveBoard({
                     className="accessible-square"
                     style={style}
                     data-key-square={sq}
+                    data-drag-source={
+                      (pointer.visual?.phase === 'dragging' && pointer.visual.source === sq) ||
+                      undefined
+                    }
+                    data-drag-target={pointer.over === sq || undefined}
                     data-draggable={(interactive && piece?.color === player) || undefined}
                     role="button"
                     tabIndex={interactive ? 0 : -1}
@@ -300,6 +308,9 @@ export function InteractiveBoard({
                 transition: settling ? `transform ${SNAP_MS}ms cubic-bezier(.2,.7,.3,1)` : 'none',
               }}
             >
+              {pointer.visual.type === 'touch' && (
+                <span className="drag-halo" data-testid="drag-halo" />
+              )}
               <img
                 src={pieceUrl(pointer.visual.piece)}
                 className="chess-piece"

@@ -10,6 +10,7 @@ import {
 import { pieceUrl } from '../ui/pieces';
 import type { MouseEvent } from 'react';
 import { openings } from '../data/openings';
+import { PathwayArtwork } from './PathwayArtwork';
 
 function openPathway(event: MouseEvent<HTMLAnchorElement>, navigate: () => void) {
   if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey)
@@ -111,12 +112,21 @@ export function HomePage({
             <span>01 / APPRENDRE</span>
             <MoveUpRight size={20} data-testid="openings-card-arrow" aria-hidden="true" />
           </div>
+          <PathwayArtwork kind="openings" />
           <h2 id="openings-path-title">OUVERTURES</h2>
           <p id="openings-path-description">
             Construis un répertoire solide. Découvre les bons coups, leurs idées et les occasions
             tactiques.
           </p>
           <p className="mobile-path-caption">Apprendre & comprendre</p>
+          <div className="mobile-path-meta">
+            <span>
+              <b>10</b> ouvertures
+            </span>
+            <span>
+              <b>20</b> tactiques
+            </span>
+          </div>
           <div className="pathway-facts">
             <span>
               <strong>{openings.length}</strong> ouvertures
@@ -149,11 +159,19 @@ export function HomePage({
             <span>02 / JOUER</span>
             <MoveUpRight size={20} data-testid="computer-card-arrow" aria-hidden="true" />
           </div>
+          <PathwayArtwork kind="freeplay" />
           <h2 id="computer-path-title">ENTRAÎNEMENT LIBRE</h2>
           <p id="computer-path-description">
             Fais tes propres choix face à Stockfish. Reviens sur chaque décision avec un bilan de ta
             partie.
           </p>
+          <p className="mobile-path-caption">Jouer & analyser</p>
+          <div className="mobile-path-meta">
+            <span>
+              <b>25</b> niveaux
+            </span>
+            <span>Analyse après partie</span>
+          </div>
           <div className="pathway-facts">
             <span>
               <strong>25</strong> niveaux

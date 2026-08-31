@@ -25,8 +25,31 @@ import { REVIEW_SETTINGS, type PositionAnalysis, type SearchEngine } from '../co
 import { matedGame, exampleAnalyses } from './fixtures/computer';
 
 const expectedElo = [
-  250, 400, 550, 700, 850, 1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000, 2100,
-  2200, 2300, 2400, 2500, 2600, 2700, 2900, 3200,
+  250,
+  400,
+  550,
+  700,
+  850,
+  1000,
+  1100,
+  1200,
+  1300,
+  1400,
+  1500,
+  1600,
+  1700,
+  1800,
+  1900,
+  2000,
+  2100,
+  2200,
+  2300,
+  2400,
+  2500,
+  2600,
+  2700,
+  2900,
+  null,
 ];
 const input = { fen: new Chess().fen(), history: [] as string[] };
 const analysis: PositionAnalysis = {
@@ -49,10 +72,13 @@ describe('Force 1–25 : profils et mémorisation', () => {
     expect(profile.id).toBeLessThanOrEqual(25);
     expect(profile.settings.skill).toBe(20);
     expect(profile.settings.depth).toBeGreaterThanOrEqual(8);
-    expect(profile.settings.movetime).toBeLessThanOrEqual(1800);
+    expect(profile.settings.movetime).toBeLessThanOrEqual(4500);
     expect(profile.settings.multiPV ?? 1).toBeLessThanOrEqual(20);
-    if (profile.id <= 11) expect(profile.selection?.errorRate).toBeGreaterThan(0);
-    else if (profile.id < 25) {
+    if (profile.id <= 15) {
+      expect(profile.selection?.bands).toHaveLength(6);
+      expect(profile.selection!.bands.reduce((a, b) => a + b, 0)).toBeCloseTo(1);
+      expect(profile.selection?.hangingRate).toBeGreaterThan(0);
+    } else if (profile.id < 25) {
       expect(profile.settings.elo).toBeGreaterThanOrEqual(1320);
       expect(profile.settings.elo).toBeLessThanOrEqual(3190);
     } else expect(profile.settings.elo).toBeUndefined();
@@ -206,7 +232,10 @@ describe('Sélection évaluée, variée et plausible', () => {
       dispose: vi.fn(),
     } satisfies SearchEngine;
     for (const level of [12, 16, 20, 23, 24, 25] as const) {
-      expect(await searchForLevel(engine, input, level)).toBe('e2e4');
+      const move = await searchForLevel(engine, input, level);
+      if (difficultyInfo(level).selection)
+        expect(analysis.candidates!.map((c) => c.move)).toContain(move);
+      else expect(move).toBe('e2e4');
       expect(engine.search).toHaveBeenLastCalledWith(
         input,
         difficultyInfo(level).settings,
@@ -238,6 +267,28 @@ class WorkerStub {
   }
 }
 describe('Options UCI et transition entre recherches', () => {
+  it('le Maximum retire explicitement une limite native utilisée auparavant', async () => {
+    const worker = new WorkerStub(),
+      engine = new ComputerEngine(vi.fn(), () => worker);
+    worker.ready();
+    const limited = engine.search(input, difficultyInfo(20).settings);
+    worker.emit('readyok');
+    worker.emit('info depth 10 score cp 20 pv e2e4\nbestmove e2e4');
+    await limited;
+    worker.postMessage.mockClear();
+    const maximum = engine.search(input, difficultyInfo(25).settings);
+    expect(worker.postMessage).toHaveBeenCalledWith('setoption name UCI_LimitStrength value false');
+    expect(worker.postMessage).toHaveBeenCalledWith('setoption name Skill Level value 20');
+    expect(worker.postMessage).toHaveBeenCalledWith('setoption name MultiPV value 1');
+    expect(
+      worker.postMessage.mock.calls.some(([command]) => command.includes('name UCI_Elo')),
+    ).toBe(false);
+    worker.emit('readyok');
+    expect(worker.postMessage).toHaveBeenCalledWith('go depth 26 movetime 4500 nodes 1800000');
+    worker.emit('info depth 20 score cp 24 pv d2d4\nbestmove d2d4');
+    expect((await maximum).bestMove).toBe('d2d4');
+    engine.dispose();
+  });
   it('réinitialise force et MultiPV avant une analyse forte et ignore les candidats périmés', async () => {
     const worker = new WorkerStub(),
       engine = new ComputerEngine(vi.fn(), () => worker);

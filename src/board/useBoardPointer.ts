@@ -3,8 +3,9 @@ import { Chess, type Square } from 'chess.js';
 import { squareAtPoint, squareCenter, type Orientation } from './geometry';
 
 export const SNAP_MS = 140;
+export const TOUCH_DRAG_SCALE = 1.42;
 export const dragThreshold = (type: string) => (type === 'touch' ? 10 : 5);
-export const touchLift = (size: number) => Math.min(64, Math.max(36, size * 0.85));
+export const touchLift = (size: number) => Math.min(96, Math.max(44, size * 1.05));
 const reducedMotion = () =>
   window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
 type Gesture = {
@@ -77,7 +78,12 @@ export function useBoardPointer(options: Options) {
     latest.current.root.current?.querySelector('[data-board-surface]')?.getBoundingClientRect();
   function moveVisual(x: number, y: number, value: DragVisual) {
     const touch = value.type === 'touch';
-    const transform = `translate3d(${x - value.size / 2}px, ${y - value.size / 2 - (touch ? touchLift(value.size) : 0)}px, 0) scale(${touch ? 1.25 : 1.04})`;
+    if (touch) {
+      const margin = (value.size * TOUCH_DRAG_SCALE) / 2 + 3;
+      x = Math.max(margin, Math.min(window.innerWidth - margin, x));
+      y = Math.max(margin + touchLift(value.size), y);
+    }
+    const transform = `translate3d(${x - value.size / 2}px, ${y - value.size / 2 - (touch ? touchLift(value.size) : 0)}px, 0) scale(${touch ? TOUCH_DRAG_SCALE : 1.04})`;
     value.transform = transform;
     if (ghost.current) ghost.current.style.transform = transform;
   }

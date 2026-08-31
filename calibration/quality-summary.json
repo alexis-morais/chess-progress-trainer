@@ -1,0 +1,3026 @@
+{
+  "version": 2,
+  "policyHash": "6478c6692c0f101c36a9a1637ed938987f6e6d6140ea63ab8d31f42b2343f324",
+  "completedAt": "2026-08-31T20:56:41.246Z",
+  "seed": 20260901,
+  "sources": [
+    "quality-results.json",
+    "quality-games.json",
+    "quality-neighbors.json",
+    "quality-native-final-adjacent.json"
+  ],
+  "nativeRevisions": [
+    {
+      "baseline": "calibration/quality-pass3-positions.json",
+      "snapshot": "calibration/policy-pass3.json",
+      "updates": [
+        "calibration/quality-native-final-positions.json"
+      ],
+      "kind": "positions",
+      "changedLevels": [
+        16,
+        17,
+        18
+      ]
+    },
+    {
+      "baseline": "calibration/quality-pass3-games.json",
+      "snapshot": "calibration/policy-pass3.json",
+      "updates": [
+        "calibration/quality-native-final-main-15-16.json",
+        "calibration/quality-native-final-main-16-19.json"
+      ],
+      "kind": "games",
+      "changedLevels": [
+        16,
+        17,
+        18
+      ]
+    },
+    {
+      "baseline": "calibration/quality-pass3-neighbors.json",
+      "snapshot": "calibration/policy-pass3.json",
+      "updates": [
+        "calibration/quality-native-final-neighbor-15-16.json"
+      ],
+      "kind": "games",
+      "changedLevels": [
+        16,
+        17,
+        18
+      ]
+    }
+  ],
+  "positions": 40,
+  "distinctPositions": 39,
+  "decisions": 80000,
+  "games": 180,
+  "naturalEnds": 95,
+  "higherScore": 0.7212643678160919,
+  "levels": [
+    {
+      "level": 1,
+      "meanLoss": 140.5638671875,
+      "inaccuracyRate": 0.166015625,
+      "errorRate": 0.1484375,
+      "blunderRate": 0.2,
+      "offeredRate": 0.020703125,
+      "queenOfferedRate": 0.000390625,
+      "tacticalRate": 0.4861328125,
+      "mateRate": 0.0232421875,
+      "preservesMateRate": 0.0900390625,
+      "meanExposure": 56.76953125,
+      "phases": {
+        "tactics": {
+          "meanLoss": 196.46337890625,
+          "inaccuracyRate": 0.07958984375,
+          "errorRate": 0.0283203125,
+          "blunderRate": 0.26904296875,
+          "offeredRate": 0.03173828125,
+          "queenOfferedRate": 0.00048828125,
+          "tacticalRate": 0.623046875,
+          "mateRate": 0.05810546875,
+          "preservesMateRate": 0.22509765625,
+          "meanExposure": 73.5400390625
+        },
+        "opening": {
+          "meanLoss": 76.408203125,
+          "inaccuracyRate": 0.380859375,
+          "errorRate": 0.2373046875,
+          "blunderRate": 0.0732421875,
+          "offeredRate": 0.009765625,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.3115234375,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 16.552734375
+        },
+        "post-opening": {
+          "meanLoss": 105.46875,
+          "inaccuracyRate": 0.15625,
+          "errorRate": 0.259765625,
+          "blunderRate": 0.248046875,
+          "offeredRate": 0.029296875,
+          "queenOfferedRate": 0.001953125,
+          "tacticalRate": 0.3359375,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 19.6484375
+        },
+        "middlegame": {
+          "meanLoss": 129.654296875,
+          "inaccuracyRate": 0.16015625,
+          "errorRate": 0.3154296875,
+          "blunderRate": 0.1591796875,
+          "offeredRate": 0.009765625,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.365234375,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 108.41796875
+        },
+        "endgame": {
+          "meanLoss": 102.19140625,
+          "inaccuracyRate": 0.103515625,
+          "errorRate": 0.005859375,
+          "blunderRate": 0.2109375,
+          "offeredRate": 0.01171875,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.6796875,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 3.9453125
+        }
+      }
+    },
+    {
+      "level": 2,
+      "meanLoss": 114.614453125,
+      "inaccuracyRate": 0.15546875,
+      "errorRate": 0.153515625,
+      "blunderRate": 0.165625,
+      "offeredRate": 0.0169921875,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.5255859375,
+      "mateRate": 0.0240234375,
+      "preservesMateRate": 0.0923828125,
+      "meanExposure": 53.65234375,
+      "phases": {
+        "tactics": {
+          "meanLoss": 148.8994140625,
+          "inaccuracyRate": 0.0693359375,
+          "errorRate": 0.0283203125,
+          "blunderRate": 0.2236328125,
+          "offeredRate": 0.02099609375,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.6787109375,
+          "mateRate": 0.06005859375,
+          "preservesMateRate": 0.23095703125,
+          "meanExposure": 68.8916015625
+        },
+        "opening": {
+          "meanLoss": 67.8955078125,
+          "inaccuracyRate": 0.3671875,
+          "errorRate": 0.2431640625,
+          "blunderRate": 0.046875,
+          "offeredRate": 0.0107421875,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.34375,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 15.0390625
+        },
+        "post-opening": {
+          "meanLoss": 101.353515625,
+          "inaccuracyRate": 0.12890625,
+          "errorRate": 0.275390625,
+          "blunderRate": 0.236328125,
+          "offeredRate": 0.041015625,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.359375,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 20.859375
+        },
+        "middlegame": {
+          "meanLoss": 112.0576171875,
+          "inaccuracyRate": 0.1494140625,
+          "errorRate": 0.3212890625,
+          "blunderRate": 0.126953125,
+          "offeredRate": 0.0078125,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.40234375,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 103.662109375
+        },
+        "endgame": {
+          "meanLoss": 89.287109375,
+          "inaccuracyRate": 0.115234375,
+          "errorRate": 0.017578125,
+          "blunderRate": 0.177734375,
+          "offeredRate": 0.0078125,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.689453125,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 2.6953125
+        }
+      }
+    },
+    {
+      "level": 3,
+      "meanLoss": 92.51875,
+      "inaccuracyRate": 0.150390625,
+      "errorRate": 0.1658203125,
+      "blunderRate": 0.13515625,
+      "offeredRate": 0.012109375,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.5494140625,
+      "mateRate": 0.0236328125,
+      "preservesMateRate": 0.095703125,
+      "meanExposure": 54.1015625,
+      "phases": {
+        "tactics": {
+          "meanLoss": 105.26025390625,
+          "inaccuracyRate": 0.052734375,
+          "errorRate": 0.0400390625,
+          "blunderRate": 0.17041015625,
+          "offeredRate": 0.02197265625,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.73681640625,
+          "mateRate": 0.05908203125,
+          "preservesMateRate": 0.2392578125,
+          "meanExposure": 72.9345703125
+        },
+        "opening": {
+          "meanLoss": 64.8046875,
+          "inaccuracyRate": 0.3623046875,
+          "errorRate": 0.275390625,
+          "blunderRate": 0.0322265625,
+          "offeredRate": 0.0048828125,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.333984375,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 15.439453125
+        },
+        "post-opening": {
+          "meanLoss": 92.166015625,
+          "inaccuracyRate": 0.12890625,
+          "errorRate": 0.3046875,
+          "blunderRate": 0.19921875,
+          "offeredRate": 0.009765625,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.3671875,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 10.9375
+        },
+        "middlegame": {
+          "meanLoss": 95.158203125,
+          "inaccuracyRate": 0.1630859375,
+          "errorRate": 0.31640625,
+          "blunderRate": 0.109375,
+          "offeredRate": 0.0048828125,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.4111328125,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 102.91015625
+        },
+        "endgame": {
+          "meanLoss": 92.0546875,
+          "inaccuracyRate": 0.11328125,
+          "errorRate": 0.009765625,
+          "blunderRate": 0.1875,
+          "offeredRate": 0.00390625,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.689453125,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 1.640625
+        }
+      }
+    },
+    {
+      "level": 4,
+      "meanLoss": 66.6638671875,
+      "inaccuracyRate": 0.1509765625,
+      "errorRate": 0.1533203125,
+      "blunderRate": 0.0986328125,
+      "offeredRate": 0.0021484375,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.598046875,
+      "mateRate": 0.024609375,
+      "preservesMateRate": 0.098828125,
+      "meanExposure": 51.40234375,
+      "phases": {
+        "tactics": {
+          "meanLoss": 51.6171875,
+          "inaccuracyRate": 0.04833984375,
+          "errorRate": 0.046875,
+          "blunderRate": 0.10400390625,
+          "offeredRate": 0.0009765625,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.80078125,
+          "mateRate": 0.0615234375,
+          "preservesMateRate": 0.2470703125,
+          "meanExposure": 69.2919921875
+        },
+        "opening": {
+          "meanLoss": 61.044921875,
+          "inaccuracyRate": 0.373046875,
+          "errorRate": 0.236328125,
+          "blunderRate": 0.0283203125,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.3671875,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 13.7890625
+        },
+        "post-opening": {
+          "meanLoss": 105.9296875,
+          "inaccuracyRate": 0.111328125,
+          "errorRate": 0.279296875,
+          "blunderRate": 0.22265625,
+          "offeredRate": 0.01171875,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.38671875,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 11.9140625
+        },
+        "middlegame": {
+          "meanLoss": 75.177734375,
+          "inaccuracyRate": 0.1806640625,
+          "errorRate": 0.28125,
+          "blunderRate": 0.0654296875,
+          "offeredRate": 0.001953125,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.47265625,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 98.076171875
+        },
+        "endgame": {
+          "meanLoss": 81.794921875,
+          "inaccuracyRate": 0.09765625,
+          "errorRate": 0.03125,
+          "blunderRate": 0.16015625,
+          "offeredRate": 0.001953125,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.7109375,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 1.2109375
+        }
+      }
+    },
+    {
+      "level": 5,
+      "meanLoss": 60.1802734375,
+      "inaccuracyRate": 0.1658203125,
+      "errorRate": 0.16640625,
+      "blunderRate": 0.0767578125,
+      "offeredRate": 0.01484375,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.591796875,
+      "mateRate": 0.0248046875,
+      "preservesMateRate": 0.098828125,
+      "meanExposure": 50.05859375,
+      "phases": {
+        "tactics": {
+          "meanLoss": 38.853515625,
+          "inaccuracyRate": 0.0625,
+          "errorRate": 0.03759765625,
+          "blunderRate": 0.0751953125,
+          "offeredRate": 0.0009765625,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.82470703125,
+          "mateRate": 0.06201171875,
+          "preservesMateRate": 0.2470703125,
+          "meanExposure": 69.296875
+        },
+        "opening": {
+          "meanLoss": 58.3525390625,
+          "inaccuracyRate": 0.404296875,
+          "errorRate": 0.2568359375,
+          "blunderRate": 0.0107421875,
+          "offeredRate": 0.0009765625,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.33203125,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 12.36328125
+        },
+        "post-opening": {
+          "meanLoss": 95.939453125,
+          "inaccuracyRate": 0.115234375,
+          "errorRate": 0.296875,
+          "blunderRate": 0.18359375,
+          "offeredRate": 0.00390625,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.404296875,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 11.015625
+        },
+        "middlegame": {
+          "meanLoss": 80.1787109375,
+          "inaccuracyRate": 0.1865234375,
+          "errorRate": 0.341796875,
+          "blunderRate": 0.0595703125,
+          "offeredRate": 0.0693359375,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.412109375,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 93.4375
+        },
+        "endgame": {
+          "meanLoss": 73.38671875,
+          "inaccuracyRate": 0.111328125,
+          "errorRate": 0.01953125,
+          "blunderRate": 0.142578125,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.7265625,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 0.78125
+        }
+      }
+    },
+    {
+      "level": 6,
+      "meanLoss": 50.5060546875,
+      "inaccuracyRate": 0.166796875,
+      "errorRate": 0.149609375,
+      "blunderRate": 0.0599609375,
+      "offeredRate": 0.0123046875,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.6244140625,
+      "mateRate": 0.025,
+      "preservesMateRate": 0.0994140625,
+      "meanExposure": 49.693359375,
+      "phases": {
+        "tactics": {
+          "meanLoss": 26.640625,
+          "inaccuracyRate": 0.056640625,
+          "errorRate": 0.03173828125,
+          "blunderRate": 0.05419921875,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.857421875,
+          "mateRate": 0.0625,
+          "preservesMateRate": 0.24853515625,
+          "meanExposure": 69.74609375
+        },
+        "opening": {
+          "meanLoss": 54.568359375,
+          "inaccuracyRate": 0.4091796875,
+          "errorRate": 0.2333984375,
+          "blunderRate": 0.005859375,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.35546875,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 11.494140625
+        },
+        "post-opening": {
+          "meanLoss": 98.505859375,
+          "inaccuracyRate": 0.12109375,
+          "errorRate": 0.29296875,
+          "blunderRate": 0.1796875,
+          "offeredRate": 0.001953125,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.40625,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 7.8125
+        },
+        "middlegame": {
+          "meanLoss": 60.2529296875,
+          "inaccuracyRate": 0.185546875,
+          "errorRate": 0.294921875,
+          "blunderRate": 0.0283203125,
+          "offeredRate": 0.060546875,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.4912109375,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 93.28125
+        },
+        "endgame": {
+          "meanLoss": 70.349609375,
+          "inaccuracyRate": 0.130859375,
+          "errorRate": 0.01953125,
+          "blunderRate": 0.134765625,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.71484375,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 0.5859375
+        }
+      }
+    },
+    {
+      "level": 7,
+      "meanLoss": 47.3873046875,
+      "inaccuracyRate": 0.1669921875,
+      "errorRate": 0.1470703125,
+      "blunderRate": 0.0552734375,
+      "offeredRate": 0.010546875,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.6322265625,
+      "mateRate": 0.024609375,
+      "preservesMateRate": 0.099609375,
+      "meanExposure": 50.09375,
+      "phases": {
+        "tactics": {
+          "meanLoss": 26.04736328125,
+          "inaccuracyRate": 0.07177734375,
+          "errorRate": 0.02685546875,
+          "blunderRate": 0.05224609375,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.84912109375,
+          "mateRate": 0.0615234375,
+          "preservesMateRate": 0.2490234375,
+          "meanExposure": 70.05859375
+        },
+        "opening": {
+          "meanLoss": 53.1728515625,
+          "inaccuracyRate": 0.4052734375,
+          "errorRate": 0.232421875,
+          "blunderRate": 0.005859375,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.3642578125,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 13.173828125
+        },
+        "post-opening": {
+          "meanLoss": 86.630859375,
+          "inaccuracyRate": 0.130859375,
+          "errorRate": 0.28515625,
+          "blunderRate": 0.171875,
+          "offeredRate": 0.001953125,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.412109375,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 6.09375
+        },
+        "middlegame": {
+          "meanLoss": 58.4384765625,
+          "inaccuracyRate": 0.1767578125,
+          "errorRate": 0.2841796875,
+          "blunderRate": 0.0263671875,
+          "offeredRate": 0.0517578125,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.5126953125,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 93.837890625
+        },
+        "endgame": {
+          "meanLoss": 59.830078125,
+          "inaccuracyRate": 0.087890625,
+          "errorRate": 0.044921875,
+          "blunderRate": 0.107421875,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.759765625,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 0.5859375
+        }
+      }
+    },
+    {
+      "level": 8,
+      "meanLoss": 42.0564453125,
+      "inaccuracyRate": 0.150390625,
+      "errorRate": 0.148046875,
+      "blunderRate": 0.045703125,
+      "offeredRate": 0.0099609375,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.656640625,
+      "mateRate": 0.025,
+      "preservesMateRate": 0.1,
+      "meanExposure": 50.125,
+      "phases": {
+        "tactics": {
+          "meanLoss": 16.666015625,
+          "inaccuracyRate": 0.04150390625,
+          "errorRate": 0.0244140625,
+          "blunderRate": 0.03857421875,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.8955078125,
+          "mateRate": 0.0625,
+          "preservesMateRate": 0.25,
+          "meanExposure": 70.048828125
+        },
+        "opening": {
+          "meanLoss": 46.84375,
+          "inaccuracyRate": 0.34765625,
+          "errorRate": 0.23046875,
+          "blunderRate": 0.001953125,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.423828125,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 10.29296875
+        },
+        "post-opening": {
+          "meanLoss": 81.99609375,
+          "inaccuracyRate": 0.107421875,
+          "errorRate": 0.31640625,
+          "blunderRate": 0.12890625,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.447265625,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 4.8828125
+        },
+        "middlegame": {
+          "meanLoss": 59.908203125,
+          "inaccuracyRate": 0.2138671875,
+          "errorRate": 0.28515625,
+          "blunderRate": 0.0302734375,
+          "offeredRate": 0.0498046875,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.470703125,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 96.9140625
+        },
+        "endgame": {
+          "meanLoss": 58.400390625,
+          "inaccuracyRate": 0.107421875,
+          "errorRate": 0.03515625,
+          "blunderRate": 0.109375,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.748046875,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 1.7578125
+        }
+      }
+    },
+    {
+      "level": 9,
+      "meanLoss": 36.8466796875,
+      "inaccuracyRate": 0.1642578125,
+      "errorRate": 0.1232421875,
+      "blunderRate": 0.034375,
+      "offeredRate": 0.0064453125,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.6787109375,
+      "mateRate": 0.025,
+      "preservesMateRate": 0.0998046875,
+      "meanExposure": 49.240234375,
+      "phases": {
+        "tactics": {
+          "meanLoss": 14.30859375,
+          "inaccuracyRate": 0.0439453125,
+          "errorRate": 0.02001953125,
+          "blunderRate": 0.0283203125,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.90771484375,
+          "mateRate": 0.0625,
+          "preservesMateRate": 0.24951171875,
+          "meanExposure": 69.9755859375
+        },
+        "opening": {
+          "meanLoss": 45.984375,
+          "inaccuracyRate": 0.41796875,
+          "errorRate": 0.1787109375,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.40625,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 10.37109375
+        },
+        "post-opening": {
+          "meanLoss": 70.583984375,
+          "inaccuracyRate": 0.107421875,
+          "errorRate": 0.28125,
+          "blunderRate": 0.099609375,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.51171875,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 2.9296875
+        },
+        "middlegame": {
+          "meanLoss": 48.2470703125,
+          "inaccuracyRate": 0.2099609375,
+          "errorRate": 0.2353515625,
+          "blunderRate": 0.01953125,
+          "offeredRate": 0.0322265625,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.53515625,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 93.6328125
+        },
+        "endgame": {
+          "meanLoss": 52.185546875,
+          "inaccuracyRate": 0.103515625,
+          "errorRate": 0.04296875,
+          "blunderRate": 0.091796875,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.76171875,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 1.5625
+        }
+      }
+    },
+    {
+      "level": 10,
+      "meanLoss": 33.9201171875,
+      "inaccuracyRate": 0.1595703125,
+      "errorRate": 0.1068359375,
+      "blunderRate": 0.032421875,
+      "offeredRate": 0.0052734375,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.7015625,
+      "mateRate": 0.025,
+      "preservesMateRate": 0.1,
+      "meanExposure": 49.310546875,
+      "phases": {
+        "tactics": {
+          "meanLoss": 11.52392578125,
+          "inaccuracyRate": 0.0390625,
+          "errorRate": 0.0146484375,
+          "blunderRate": 0.02490234375,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.92138671875,
+          "mateRate": 0.0625,
+          "preservesMateRate": 0.25,
+          "meanExposure": 70.05859375
+        },
+        "opening": {
+          "meanLoss": 42.6435546875,
+          "inaccuracyRate": 0.3984375,
+          "errorRate": 0.1611328125,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.4423828125,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 11.11328125
+        },
+        "post-opening": {
+          "meanLoss": 63.982421875,
+          "inaccuracyRate": 0.115234375,
+          "errorRate": 0.244140625,
+          "blunderRate": 0.09375,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.546875,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 3.90625
+        },
+        "middlegame": {
+          "meanLoss": 45.828125,
+          "inaccuracyRate": 0.2109375,
+          "errorRate": 0.201171875,
+          "blunderRate": 0.0205078125,
+          "offeredRate": 0.0263671875,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.5673828125,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 92.783203125
+        },
+        "endgame": {
+          "meanLoss": 52.1796875,
+          "inaccuracyRate": 0.10546875,
+          "errorRate": 0.041015625,
+          "blunderRate": 0.08984375,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.763671875,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 1.171875
+        }
+      }
+    },
+    {
+      "level": 11,
+      "meanLoss": 31.685546875,
+      "inaccuracyRate": 0.150390625,
+      "errorRate": 0.095703125,
+      "blunderRate": 0.032421875,
+      "offeredRate": 0.0044921875,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.7220703125,
+      "mateRate": 0.025,
+      "preservesMateRate": 0.1,
+      "meanExposure": 48.51171875,
+      "phases": {
+        "tactics": {
+          "meanLoss": 10.04052734375,
+          "inaccuracyRate": 0.03173828125,
+          "errorRate": 0.01220703125,
+          "blunderRate": 0.02197265625,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.93408203125,
+          "mateRate": 0.0625,
+          "preservesMateRate": 0.25,
+          "meanExposure": 70.0390625
+        },
+        "opening": {
+          "meanLoss": 40.96875,
+          "inaccuracyRate": 0.3740234375,
+          "errorRate": 0.14453125,
+          "blunderRate": 0.001953125,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.482421875,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 9.55078125
+        },
+        "post-opening": {
+          "meanLoss": 64.287109375,
+          "inaccuracyRate": 0.1015625,
+          "errorRate": 0.189453125,
+          "blunderRate": 0.119140625,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.58984375,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 2.1484375
+        },
+        "middlegame": {
+          "meanLoss": 42.24609375,
+          "inaccuracyRate": 0.2158203125,
+          "errorRate": 0.19140625,
+          "blunderRate": 0.0166015625,
+          "offeredRate": 0.0224609375,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.576171875,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 90.68359375
+        },
+        "endgame": {
+          "meanLoss": 45.9765625,
+          "inaccuracyRate": 0.095703125,
+          "errorRate": 0.046875,
+          "blunderRate": 0.080078125,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.77734375,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 2.34375
+        }
+      }
+    },
+    {
+      "level": 12,
+      "meanLoss": 27.0517578125,
+      "inaccuracyRate": 0.1478515625,
+      "errorRate": 0.074609375,
+      "blunderRate": 0.0271484375,
+      "offeredRate": 0.004296875,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.7515625,
+      "mateRate": 0.025,
+      "preservesMateRate": 0.1,
+      "meanExposure": 47.923828125,
+      "phases": {
+        "tactics": {
+          "meanLoss": 8.39794921875,
+          "inaccuracyRate": 0.0302734375,
+          "errorRate": 0.0087890625,
+          "blunderRate": 0.0166015625,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.9443359375,
+          "mateRate": 0.0625,
+          "preservesMateRate": 0.25,
+          "meanExposure": 70.0341796875
+        },
+        "opening": {
+          "meanLoss": 33.640625,
+          "inaccuracyRate": 0.33984375,
+          "errorRate": 0.119140625,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.5439453125,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 9.921875
+        },
+        "post-opening": {
+          "meanLoss": 61.96875,
+          "inaccuracyRate": 0.09765625,
+          "errorRate": 0.138671875,
+          "blunderRate": 0.126953125,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.63671875,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 2.9296875
+        },
+        "middlegame": {
+          "meanLoss": 35.5078125,
+          "inaccuracyRate": 0.2470703125,
+          "errorRate": 0.1416015625,
+          "blunderRate": 0.0087890625,
+          "offeredRate": 0.021484375,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.60546875,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 86.69921875
+        },
+        "endgame": {
+          "meanLoss": 36.66015625,
+          "inaccuracyRate": 0.0859375,
+          "errorRate": 0.05078125,
+          "blunderRate": 0.060546875,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.802734375,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 2.9296875
+        }
+      }
+    },
+    {
+      "level": 13,
+      "meanLoss": 23.473046875,
+      "inaccuracyRate": 0.140625,
+      "errorRate": 0.06796875,
+      "blunderRate": 0.0197265625,
+      "offeredRate": 0.003125,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.7728515625,
+      "mateRate": 0.025,
+      "preservesMateRate": 0.1,
+      "meanExposure": 47.15234375,
+      "phases": {
+        "tactics": {
+          "meanLoss": 5.158203125,
+          "inaccuracyRate": 0.029296875,
+          "errorRate": 0.00341796875,
+          "blunderRate": 0.00927734375,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.9580078125,
+          "mateRate": 0.0625,
+          "preservesMateRate": 0.25,
+          "meanExposure": 70.0244140625
+        },
+        "opening": {
+          "meanLoss": 31.5966796875,
+          "inaccuracyRate": 0.3251953125,
+          "errorRate": 0.095703125,
+          "blunderRate": 0.0009765625,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.580078125,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 8.232421875
+        },
+        "post-opening": {
+          "meanLoss": 43.3984375,
+          "inaccuracyRate": 0.076171875,
+          "errorRate": 0.125,
+          "blunderRate": 0.080078125,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.71875,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 1.3671875
+        },
+        "middlegame": {
+          "meanLoss": 32.451171875,
+          "inaccuracyRate": 0.2421875,
+          "errorRate": 0.1435546875,
+          "blunderRate": 0.00390625,
+          "offeredRate": 0.015625,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.6142578125,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 85.625
+        },
+        "endgame": {
+          "meanLoss": 42.603515625,
+          "inaccuracyRate": 0.078125,
+          "errorRate": 0.0625,
+          "blunderRate": 0.0703125,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.7890625,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 2.34375
+        }
+      }
+    },
+    {
+      "level": 14,
+      "meanLoss": 21.14453125,
+      "inaccuracyRate": 0.14375,
+      "errorRate": 0.06015625,
+      "blunderRate": 0.015234375,
+      "offeredRate": 0.0029296875,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.78359375,
+      "mateRate": 0.025,
+      "preservesMateRate": 0.1,
+      "meanExposure": 46.794921875,
+      "phases": {
+        "tactics": {
+          "meanLoss": 3.416015625,
+          "inaccuracyRate": 0.0185546875,
+          "errorRate": 0.0068359375,
+          "blunderRate": 0.00390625,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.970703125,
+          "mateRate": 0.0625,
+          "preservesMateRate": 0.25,
+          "meanExposure": 70.0537109375
+        },
+        "opening": {
+          "meanLoss": 29.2998046875,
+          "inaccuracyRate": 0.3203125,
+          "errorRate": 0.0693359375,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.6181640625,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 7.75390625
+        },
+        "post-opening": {
+          "meanLoss": 42.89453125,
+          "inaccuracyRate": 0.08984375,
+          "errorRate": 0.099609375,
+          "blunderRate": 0.08203125,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.728515625,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 0.390625
+        },
+        "middlegame": {
+          "meanLoss": 31.416015625,
+          "inaccuracyRate": 0.287109375,
+          "errorRate": 0.1240234375,
+          "blunderRate": 0.0048828125,
+          "offeredRate": 0.0146484375,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.58984375,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 84.6484375
+        },
+        "endgame": {
+          "meanLoss": 33.455078125,
+          "inaccuracyRate": 0.05859375,
+          "errorRate": 0.087890625,
+          "blunderRate": 0.044921875,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.80859375,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 2.5390625
+        }
+      }
+    },
+    {
+      "level": 15,
+      "meanLoss": 17.58984375,
+      "inaccuracyRate": 0.1298828125,
+      "errorRate": 0.048046875,
+      "blunderRate": 0.012109375,
+      "offeredRate": 0.0009765625,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.8123046875,
+      "mateRate": 0.025,
+      "preservesMateRate": 0.1,
+      "meanExposure": 45.708984375,
+      "phases": {
+        "tactics": {
+          "meanLoss": 2.93994140625,
+          "inaccuracyRate": 0.01611328125,
+          "errorRate": 0.00439453125,
+          "blunderRate": 0.00341796875,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.97607421875,
+          "mateRate": 0.0625,
+          "preservesMateRate": 0.25,
+          "meanExposure": 70.029296875
+        },
+        "opening": {
+          "meanLoss": 25.8037109375,
+          "inaccuracyRate": 0.3017578125,
+          "errorRate": 0.060546875,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.642578125,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 5.99609375
+        },
+        "post-opening": {
+          "meanLoss": 29.1796875,
+          "inaccuracyRate": 0.05078125,
+          "errorRate": 0.0703125,
+          "blunderRate": 0.05859375,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.8203125,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 0.390625
+        },
+        "middlegame": {
+          "meanLoss": 25.6591796875,
+          "inaccuracyRate": 0.263671875,
+          "errorRate": 0.0908203125,
+          "blunderRate": 0.001953125,
+          "offeredRate": 0.0048828125,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.650390625,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 80.732421875
+        },
+        "endgame": {
+          "meanLoss": 32.033203125,
+          "inaccuracyRate": 0.052734375,
+          "errorRate": 0.08984375,
+          "blunderRate": 0.044921875,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.8125,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 3.125
+        }
+      }
+    },
+    {
+      "level": 16,
+      "meanLoss": 12.15,
+      "inaccuracyRate": 0.11875,
+      "errorRate": 0.040625,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.840625,
+      "mateRate": 0.025,
+      "preservesMateRate": 0.1,
+      "meanExposure": 46.46875,
+      "phases": {
+        "tactics": {
+          "meanLoss": 1.890625,
+          "inaccuracyRate": 0.0390625,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.9609375,
+          "mateRate": 0.0625,
+          "preservesMateRate": 0.25,
+          "meanExposure": 70.15625
+        },
+        "opening": {
+          "meanLoss": 17.625,
+          "inaccuracyRate": 0.109375,
+          "errorRate": 0.09375,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.796875,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 8.90625
+        },
+        "post-opening": {
+          "meanLoss": 25.84375,
+          "inaccuracyRate": 0.25,
+          "errorRate": 0.0625,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.6875,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 3.125
+        },
+        "middlegame": {
+          "meanLoss": 17.546875,
+          "inaccuracyRate": 0.203125,
+          "errorRate": 0.03125,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.765625,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 80
+        },
+        "endgame": {
+          "meanLoss": 17.75,
+          "inaccuracyRate": 0.15625,
+          "errorRate": 0.09375,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.75,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 3.125
+        }
+      }
+    },
+    {
+      "level": 17,
+      "meanLoss": 9.740625,
+      "inaccuracyRate": 0.06875,
+      "errorRate": 0.04375,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.8875,
+      "mateRate": 0.025,
+      "preservesMateRate": 0.1,
+      "meanExposure": 45.59375,
+      "phases": {
+        "tactics": {
+          "meanLoss": 1.2109375,
+          "inaccuracyRate": 0.015625,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.984375,
+          "mateRate": 0.0625,
+          "preservesMateRate": 0.25,
+          "meanExposure": 70.15625
+        },
+        "opening": {
+          "meanLoss": 14.046875,
+          "inaccuracyRate": 0.03125,
+          "errorRate": 0.09375,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.875,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 7.5
+        },
+        "post-opening": {
+          "meanLoss": 18.625,
+          "inaccuracyRate": 0.125,
+          "errorRate": 0.09375,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.78125,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 0
+        },
+        "middlegame": {
+          "meanLoss": 15.890625,
+          "inaccuracyRate": 0.15625,
+          "errorRate": 0.046875,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.796875,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 78.59375
+        },
+        "endgame": {
+          "meanLoss": 14.0625,
+          "inaccuracyRate": 0.125,
+          "errorRate": 0.0625,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.8125,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 3.125
+        }
+      }
+    },
+    {
+      "level": 18,
+      "meanLoss": 7.903125,
+      "inaccuracyRate": 0.053125,
+      "errorRate": 0.028125,
+      "blunderRate": 0.003125,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.915625,
+      "mateRate": 0.025,
+      "preservesMateRate": 0.1,
+      "meanExposure": 44.9375,
+      "phases": {
+        "tactics": {
+          "meanLoss": 1.2109375,
+          "inaccuracyRate": 0.015625,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.984375,
+          "mateRate": 0.0625,
+          "preservesMateRate": 0.25,
+          "meanExposure": 70.15625
+        },
+        "opening": {
+          "meanLoss": 8.78125,
+          "inaccuracyRate": 0.0625,
+          "errorRate": 0.03125,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.90625,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 4.375
+        },
+        "post-opening": {
+          "meanLoss": 9.0625,
+          "inaccuracyRate": 0.125,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.875,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 0
+        },
+        "middlegame": {
+          "meanLoss": 17.609375,
+          "inaccuracyRate": 0.078125,
+          "errorRate": 0.0625,
+          "blunderRate": 0.015625,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.84375,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 80
+        },
+        "endgame": {
+          "meanLoss": 12.34375,
+          "inaccuracyRate": 0.0625,
+          "errorRate": 0.09375,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.84375,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 0
+        }
+      }
+    },
+    {
+      "level": 19,
+      "meanLoss": 8.759375,
+      "inaccuracyRate": 0.1,
+      "errorRate": 0.01875,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.884375,
+      "mateRate": 0.025,
+      "preservesMateRate": 0.1,
+      "meanExposure": 44.96875,
+      "phases": {
+        "tactics": {
+          "meanLoss": 1.375,
+          "inaccuracyRate": 0.0234375,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.9765625,
+          "mateRate": 0.0625,
+          "preservesMateRate": 0.25,
+          "meanExposure": 70.234375
+        },
+        "opening": {
+          "meanLoss": 10.484375,
+          "inaccuracyRate": 0.125,
+          "errorRate": 0.015625,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.875,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 7.5
+        },
+        "post-opening": {
+          "meanLoss": 23.84375,
+          "inaccuracyRate": 0.1875,
+          "errorRate": 0.125,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.6875,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 0
+        },
+        "middlegame": {
+          "meanLoss": 10.015625,
+          "inaccuracyRate": 0.15625,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.84375,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 76.875
+        },
+        "endgame": {
+          "meanLoss": 17.25,
+          "inaccuracyRate": 0.15625,
+          "errorRate": 0.03125,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.8125,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 0
+        }
+      }
+    },
+    {
+      "level": 20,
+      "meanLoss": 8.284375,
+      "inaccuracyRate": 0.075,
+      "errorRate": 0.015625,
+      "blunderRate": 0.003125,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.915625,
+      "mateRate": 0.025,
+      "preservesMateRate": 0.1,
+      "meanExposure": 45.3125,
+      "phases": {
+        "tactics": {
+          "meanLoss": 0.46875,
+          "inaccuracyRate": 0.0078125,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.9921875,
+          "mateRate": 0.0625,
+          "preservesMateRate": 0.25,
+          "meanExposure": 70.078125
+        },
+        "opening": {
+          "meanLoss": 9.921875,
+          "inaccuracyRate": 0.140625,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.90625,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 7.5
+        },
+        "post-opening": {
+          "meanLoss": 14.3125,
+          "inaccuracyRate": 0.09375,
+          "errorRate": 0.0625,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.84375,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 0
+        },
+        "middlegame": {
+          "meanLoss": 16.421875,
+          "inaccuracyRate": 0.125,
+          "errorRate": 0.03125,
+          "blunderRate": 0.015625,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.828125,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 78.90625
+        },
+        "endgame": {
+          "meanLoss": 13.96875,
+          "inaccuracyRate": 0.09375,
+          "errorRate": 0.03125,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.875,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 0
+        }
+      }
+    },
+    {
+      "level": 21,
+      "meanLoss": 7.99375,
+      "inaccuracyRate": 0.0625,
+      "errorRate": 0.03125,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.909375,
+      "mateRate": 0.025,
+      "preservesMateRate": 0.1,
+      "meanExposure": 47.125,
+      "phases": {
+        "tactics": {
+          "meanLoss": 0.71875,
+          "inaccuracyRate": 0.0078125,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.9921875,
+          "mateRate": 0.0625,
+          "preservesMateRate": 0.25,
+          "meanExposure": 70.078125
+        },
+        "opening": {
+          "meanLoss": 10.703125,
+          "inaccuracyRate": 0.078125,
+          "errorRate": 0.0625,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.875,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 16.875
+        },
+        "post-opening": {
+          "meanLoss": 10.40625,
+          "inaccuracyRate": 0.125,
+          "errorRate": 0.03125,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.84375,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 0
+        },
+        "middlegame": {
+          "meanLoss": 12.46875,
+          "inaccuracyRate": 0.09375,
+          "errorRate": 0.046875,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.859375,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 78.59375
+        },
+        "endgame": {
+          "meanLoss": 20.3125,
+          "inaccuracyRate": 0.125,
+          "errorRate": 0.0625,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.8125,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 0
+        }
+      }
+    },
+    {
+      "level": 22,
+      "meanLoss": 8.084375,
+      "inaccuracyRate": 0.040625,
+      "errorRate": 0.03125,
+      "blunderRate": 0.00625,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.925,
+      "mateRate": 0.025,
+      "preservesMateRate": 0.1,
+      "meanExposure": 45.65625,
+      "phases": {
+        "tactics": {
+          "meanLoss": 0.421875,
+          "inaccuracyRate": 0,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 1,
+          "mateRate": 0.0625,
+          "preservesMateRate": 0.25,
+          "meanExposure": 70.078125
+        },
+        "opening": {
+          "meanLoss": 5.46875,
+          "inaccuracyRate": 0.046875,
+          "errorRate": 0.015625,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.953125,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 10.625
+        },
+        "post-opening": {
+          "meanLoss": 7.84375,
+          "inaccuracyRate": 0.09375,
+          "errorRate": 0.03125,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.875,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 0
+        },
+        "middlegame": {
+          "meanLoss": 15.984375,
+          "inaccuracyRate": 0.078125,
+          "errorRate": 0.09375,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.828125,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 74.375
+        },
+        "endgame": {
+          "meanLoss": 28.40625,
+          "inaccuracyRate": 0.0625,
+          "errorRate": 0.0625,
+          "blunderRate": 0.0625,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.8125,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 6.25
+        }
+      }
+    },
+    {
+      "level": 23,
+      "meanLoss": 6.35625,
+      "inaccuracyRate": 0.05625,
+      "errorRate": 0.015625,
+      "blunderRate": 0,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.934375,
+      "mateRate": 0.025,
+      "preservesMateRate": 0.1,
+      "meanExposure": 43.15625,
+      "phases": {
+        "tactics": {
+          "meanLoss": 0.28125,
+          "inaccuracyRate": 0,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 1,
+          "mateRate": 0.0625,
+          "preservesMateRate": 0.25,
+          "meanExposure": 70.078125
+        },
+        "opening": {
+          "meanLoss": 10.828125,
+          "inaccuracyRate": 0.125,
+          "errorRate": 0.015625,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.890625,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 4.375
+        },
+        "post-opening": {
+          "meanLoss": 2.8125,
+          "inaccuracyRate": 0.0625,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.9375,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 0
+        },
+        "middlegame": {
+          "meanLoss": 9.609375,
+          "inaccuracyRate": 0.125,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.875,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 71.25
+        },
+        "endgame": {
+          "meanLoss": 18.75,
+          "inaccuracyRate": 0,
+          "errorRate": 0.125,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.875,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 0
+        }
+      }
+    },
+    {
+      "level": 24,
+      "meanLoss": 6.159375,
+      "inaccuracyRate": 0.046875,
+      "errorRate": 0.021875,
+      "blunderRate": 0.003125,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.9375,
+      "mateRate": 0.025,
+      "preservesMateRate": 0.1,
+      "meanExposure": 45.125,
+      "phases": {
+        "tactics": {
+          "meanLoss": 0.203125,
+          "inaccuracyRate": 0,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 1,
+          "mateRate": 0.0625,
+          "preservesMateRate": 0.25,
+          "meanExposure": 70.3125
+        },
+        "opening": {
+          "meanLoss": 4.9375,
+          "inaccuracyRate": 0.0625,
+          "errorRate": 0.015625,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.96875,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 10.625
+        },
+        "post-opening": {
+          "meanLoss": 8.75,
+          "inaccuracyRate": 0.03125,
+          "errorRate": 0.0625,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.90625,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 0
+        },
+        "middlegame": {
+          "meanLoss": 10.046875,
+          "inaccuracyRate": 0.125,
+          "errorRate": 0.03125,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.84375,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 72.8125
+        },
+        "endgame": {
+          "meanLoss": 22.0625,
+          "inaccuracyRate": 0.0625,
+          "errorRate": 0.0625,
+          "blunderRate": 0.03125,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.84375,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 3.125
+        }
+      }
+    },
+    {
+      "level": 25,
+      "meanLoss": 4.846875,
+      "inaccuracyRate": 0.034375,
+      "errorRate": 0.015625,
+      "blunderRate": 0.003125,
+      "offeredRate": 0,
+      "queenOfferedRate": 0,
+      "tacticalRate": 0.946875,
+      "mateRate": 0.025,
+      "preservesMateRate": 0.1,
+      "meanExposure": 45.84375,
+      "phases": {
+        "tactics": {
+          "meanLoss": 0,
+          "inaccuracyRate": 0,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 1,
+          "mateRate": 0.0625,
+          "preservesMateRate": 0.25,
+          "meanExposure": 70.234375
+        },
+        "opening": {
+          "meanLoss": 0.84375,
+          "inaccuracyRate": 0,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 1,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 12.1875
+        },
+        "post-opening": {
+          "meanLoss": 6.75,
+          "inaccuracyRate": 0,
+          "errorRate": 0.0625,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.9375,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 0
+        },
+        "middlegame": {
+          "meanLoss": 10.921875,
+          "inaccuracyRate": 0.15625,
+          "errorRate": 0.015625,
+          "blunderRate": 0,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.828125,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 75
+        },
+        "endgame": {
+          "meanLoss": 18.1875,
+          "inaccuracyRate": 0.03125,
+          "errorRate": 0.0625,
+          "blunderRate": 0.03125,
+          "offeredRate": 0,
+          "queenOfferedRate": 0,
+          "tacticalRate": 0.875,
+          "mateRate": 0,
+          "preservesMateRate": 0,
+          "meanExposure": 3.125
+        }
+      }
+    }
+  ],
+  "pairs": [
+    {
+      "lower": 1,
+      "higher": 3,
+      "games": 6,
+      "higherScore": 0.9166666666666666
+    },
+    {
+      "lower": 3,
+      "higher": 5,
+      "games": 6,
+      "higherScore": 0.8333333333333334
+    },
+    {
+      "lower": 5,
+      "higher": 6,
+      "games": 6,
+      "higherScore": 0.6666666666666666
+    },
+    {
+      "lower": 6,
+      "higher": 8,
+      "games": 6,
+      "higherScore": 1
+    },
+    {
+      "lower": 7,
+      "higher": 8,
+      "games": 6,
+      "higherScore": 1
+    },
+    {
+      "lower": 8,
+      "higher": 9,
+      "games": 6,
+      "higherScore": 0.5833333333333334
+    },
+    {
+      "lower": 9,
+      "higher": 10,
+      "games": 6,
+      "higherScore": 0.8333333333333334
+    },
+    {
+      "lower": 8,
+      "higher": 11,
+      "games": 6,
+      "higherScore": 1
+    },
+    {
+      "lower": 11,
+      "higher": 12,
+      "games": 6,
+      "higherScore": 0.6666666666666666
+    },
+    {
+      "lower": 12,
+      "higher": 15,
+      "games": 6,
+      "higherScore": 0.9166666666666666
+    },
+    {
+      "lower": 15,
+      "higher": 16,
+      "games": 6,
+      "higherScore": 0.8333333333333334
+    },
+    {
+      "lower": 16,
+      "higher": 19,
+      "games": 6,
+      "higherScore": 0.9166666666666666
+    },
+    {
+      "lower": 19,
+      "higher": 20,
+      "games": 6,
+      "higherScore": 0.9166666666666666
+    },
+    {
+      "lower": 20,
+      "higher": 21,
+      "games": 6,
+      "higherScore": 0.75
+    },
+    {
+      "lower": 21,
+      "higher": 22,
+      "games": 6,
+      "higherScore": 0.6666666666666666
+    },
+    {
+      "lower": 22,
+      "higher": 23,
+      "games": 6,
+      "higherScore": 0.5833333333333334
+    },
+    {
+      "lower": 23,
+      "higher": 24,
+      "games": 6,
+      "higherScore": 0.4166666666666667
+    },
+    {
+      "lower": 24,
+      "higher": 25,
+      "games": 6,
+      "higherScore": 1
+    },
+    {
+      "lower": 8,
+      "higher": "reference",
+      "games": 6,
+      "higherScore": 0.16666666666666666
+    }
+  ],
+  "neighborPairs": [
+    {
+      "lower": 7,
+      "higher": 8,
+      "games": 12,
+      "higherScore": 0.625
+    },
+    {
+      "lower": 8,
+      "higher": 9,
+      "games": 12,
+      "higherScore": 0.75
+    },
+    {
+      "lower": 9,
+      "higher": 10,
+      "games": 12,
+      "higherScore": 0.5833333333333334
+    },
+    {
+      "lower": 15,
+      "higher": 16,
+      "games": 12,
+      "higherScore": 0.5
+    }
+  ],
+  "adjacentPairs": [
+    {
+      "lower": 14,
+      "higher": 15,
+      "games": 6,
+      "higherScore": 0.4166666666666667
+    },
+    {
+      "lower": 16,
+      "higher": 17,
+      "games": 6,
+      "higherScore": 0.6666666666666666
+    },
+    {
+      "lower": 17,
+      "higher": 18,
+      "games": 6,
+      "higherScore": 0.4166666666666667
+    }
+  ],
+  "gameQuality": [
+    {
+      "level": 1,
+      "phases": {
+        "opening": {
+          "samples": 6,
+          "meanLoss": 44.833333333333336,
+          "inaccuracyRate": 0.3333333333333333,
+          "errorRate": 0.3333333333333333,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "post-opening": {
+          "samples": 6,
+          "meanLoss": 87.83333333333333,
+          "inaccuracyRate": 0.16666666666666666,
+          "errorRate": 0.5,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "middlegame": {
+          "samples": 13,
+          "meanLoss": 49.38461538461539,
+          "inaccuracyRate": 0.3076923076923077,
+          "errorRate": 0.3076923076923077,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "endgame": {
+          "samples": 2,
+          "meanLoss": 0,
+          "inaccuracyRate": 0,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0
+        }
+      }
+    },
+    {
+      "level": 2,
+      "phases": {
+        "opening": {
+          "samples": 0,
+          "meanLoss": 0,
+          "inaccuracyRate": 0,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "post-opening": {
+          "samples": 0,
+          "meanLoss": 0,
+          "inaccuracyRate": 0,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "middlegame": {
+          "samples": 0,
+          "meanLoss": 0,
+          "inaccuracyRate": 0,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "endgame": {
+          "samples": 0,
+          "meanLoss": 0,
+          "inaccuracyRate": 0,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0
+        }
+      }
+    },
+    {
+      "level": 3,
+      "phases": {
+        "opening": {
+          "samples": 12,
+          "meanLoss": 30.666666666666668,
+          "inaccuracyRate": 0.3333333333333333,
+          "errorRate": 0.08333333333333333,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "post-opening": {
+          "samples": 12,
+          "meanLoss": 67.91666666666667,
+          "inaccuracyRate": 0.5,
+          "errorRate": 0.08333333333333333,
+          "blunderRate": 0.08333333333333333,
+          "offeredRate": 0
+        },
+        "middlegame": {
+          "samples": 25,
+          "meanLoss": 64.72,
+          "inaccuracyRate": 0.12,
+          "errorRate": 0.28,
+          "blunderRate": 0.04,
+          "offeredRate": 0.08
+        },
+        "endgame": {
+          "samples": 6,
+          "meanLoss": 228.16666666666666,
+          "inaccuracyRate": 0.16666666666666666,
+          "errorRate": 0,
+          "blunderRate": 0.3333333333333333,
+          "offeredRate": 0
+        }
+      }
+    },
+    {
+      "level": 4,
+      "phases": {
+        "opening": {
+          "samples": 0,
+          "meanLoss": 0,
+          "inaccuracyRate": 0,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "post-opening": {
+          "samples": 0,
+          "meanLoss": 0,
+          "inaccuracyRate": 0,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "middlegame": {
+          "samples": 0,
+          "meanLoss": 0,
+          "inaccuracyRate": 0,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "endgame": {
+          "samples": 0,
+          "meanLoss": 0,
+          "inaccuracyRate": 0,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0
+        }
+      }
+    },
+    {
+      "level": 5,
+      "phases": {
+        "opening": {
+          "samples": 12,
+          "meanLoss": 35,
+          "inaccuracyRate": 0.4166666666666667,
+          "errorRate": 0.16666666666666666,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "post-opening": {
+          "samples": 12,
+          "meanLoss": 70.25,
+          "inaccuracyRate": 0.3333333333333333,
+          "errorRate": 0.25,
+          "blunderRate": 0.08333333333333333,
+          "offeredRate": 0
+        },
+        "middlegame": {
+          "samples": 26,
+          "meanLoss": 48.73076923076923,
+          "inaccuracyRate": 0.11538461538461539,
+          "errorRate": 0.3076923076923077,
+          "blunderRate": 0,
+          "offeredRate": 0.038461538461538464
+        },
+        "endgame": {
+          "samples": 12,
+          "meanLoss": 45.416666666666664,
+          "inaccuracyRate": 0.08333333333333333,
+          "errorRate": 0.08333333333333333,
+          "blunderRate": 0.08333333333333333,
+          "offeredRate": 0
+        }
+      }
+    },
+    {
+      "level": 6,
+      "phases": {
+        "opening": {
+          "samples": 12,
+          "meanLoss": 29,
+          "inaccuracyRate": 0.5,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "post-opening": {
+          "samples": 12,
+          "meanLoss": 45.583333333333336,
+          "inaccuracyRate": 0.3333333333333333,
+          "errorRate": 0.16666666666666666,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "middlegame": {
+          "samples": 25,
+          "meanLoss": 53.24,
+          "inaccuracyRate": 0.28,
+          "errorRate": 0.08,
+          "blunderRate": 0.08,
+          "offeredRate": 0
+        },
+        "endgame": {
+          "samples": 12,
+          "meanLoss": 131.33333333333334,
+          "inaccuracyRate": 0.08333333333333333,
+          "errorRate": 0,
+          "blunderRate": 0.16666666666666666,
+          "offeredRate": 0
+        }
+      }
+    },
+    {
+      "level": 7,
+      "phases": {
+        "opening": {
+          "samples": 18,
+          "meanLoss": 42.833333333333336,
+          "inaccuracyRate": 0.5,
+          "errorRate": 0.1111111111111111,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "post-opening": {
+          "samples": 18,
+          "meanLoss": 35.94444444444444,
+          "inaccuracyRate": 0.2777777777777778,
+          "errorRate": 0.16666666666666666,
+          "blunderRate": 0,
+          "offeredRate": 0.05555555555555555
+        },
+        "middlegame": {
+          "samples": 37,
+          "meanLoss": 60.729729729729726,
+          "inaccuracyRate": 0.2702702702702703,
+          "errorRate": 0.13513513513513514,
+          "blunderRate": 0.08108108108108109,
+          "offeredRate": 0.05405405405405406
+        },
+        "endgame": {
+          "samples": 27,
+          "meanLoss": 129.37037037037038,
+          "inaccuracyRate": 0.18518518518518517,
+          "errorRate": 0.14814814814814814,
+          "blunderRate": 0.2222222222222222,
+          "offeredRate": 0
+        }
+      }
+    },
+    {
+      "level": 8,
+      "phases": {
+        "opening": {
+          "samples": 252,
+          "meanLoss": 49.642857142857146,
+          "inaccuracyRate": 0.3492063492063492,
+          "errorRate": 0.21031746031746032,
+          "blunderRate": 0.015873015873015872,
+          "offeredRate": 0.003968253968253968
+        },
+        "post-opening": {
+          "samples": 648,
+          "meanLoss": 54.94753086419753,
+          "inaccuracyRate": 0.2700617283950617,
+          "errorRate": 0.2191358024691358,
+          "blunderRate": 0.038580246913580245,
+          "offeredRate": 0.006172839506172839
+        },
+        "middlegame": {
+          "samples": 1317,
+          "meanLoss": 77.30220197418375,
+          "inaccuracyRate": 0.1845102505694761,
+          "errorRate": 0.2012148823082764,
+          "blunderRate": 0.09567198177676538,
+          "offeredRate": 0.009111617312072893
+        },
+        "endgame": {
+          "samples": 843,
+          "meanLoss": 65.31553973902729,
+          "inaccuracyRate": 0.08422301304863583,
+          "errorRate": 0.06998813760379596,
+          "blunderRate": 0.09015421115065243,
+          "offeredRate": 0.004744958481613286
+        }
+      }
+    },
+    {
+      "level": 9,
+      "phases": {
+        "opening": {
+          "samples": 36,
+          "meanLoss": 32.69444444444444,
+          "inaccuracyRate": 0.3055555555555556,
+          "errorRate": 0.1111111111111111,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "post-opening": {
+          "samples": 36,
+          "meanLoss": 47.97222222222222,
+          "inaccuracyRate": 0.19444444444444445,
+          "errorRate": 0.2222222222222222,
+          "blunderRate": 0.027777777777777776,
+          "offeredRate": 0
+        },
+        "middlegame": {
+          "samples": 71,
+          "meanLoss": 84.7605633802817,
+          "inaccuracyRate": 0.23943661971830985,
+          "errorRate": 0.22535211267605634,
+          "blunderRate": 0.08450704225352113,
+          "offeredRate": 0.014084507042253521
+        },
+        "endgame": {
+          "samples": 45,
+          "meanLoss": 29.2,
+          "inaccuracyRate": 0.06666666666666667,
+          "errorRate": 0.06666666666666667,
+          "blunderRate": 0.044444444444444446,
+          "offeredRate": 0
+        }
+      }
+    },
+    {
+      "level": 10,
+      "phases": {
+        "opening": {
+          "samples": 18,
+          "meanLoss": 19,
+          "inaccuracyRate": 0.2222222222222222,
+          "errorRate": 0.05555555555555555,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "post-opening": {
+          "samples": 18,
+          "meanLoss": 37.05555555555556,
+          "inaccuracyRate": 0.2222222222222222,
+          "errorRate": 0.16666666666666666,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "middlegame": {
+          "samples": 40,
+          "meanLoss": 75.95,
+          "inaccuracyRate": 0.175,
+          "errorRate": 0.275,
+          "blunderRate": 0.075,
+          "offeredRate": 0.025
+        },
+        "endgame": {
+          "samples": 19,
+          "meanLoss": 17.94736842105263,
+          "inaccuracyRate": 0.10526315789473684,
+          "errorRate": 0.10526315789473684,
+          "blunderRate": 0,
+          "offeredRate": 0
+        }
+      }
+    },
+    {
+      "level": 11,
+      "phases": {
+        "opening": {
+          "samples": 12,
+          "meanLoss": 36.25,
+          "inaccuracyRate": 0.5,
+          "errorRate": 0.08333333333333333,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "post-opening": {
+          "samples": 12,
+          "meanLoss": 37.083333333333336,
+          "inaccuracyRate": 0.4166666666666667,
+          "errorRate": 0.08333333333333333,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "middlegame": {
+          "samples": 24,
+          "meanLoss": 45.375,
+          "inaccuracyRate": 0.125,
+          "errorRate": 0.041666666666666664,
+          "blunderRate": 0.08333333333333333,
+          "offeredRate": 0
+        },
+        "endgame": {
+          "samples": 14,
+          "meanLoss": 9.142857142857142,
+          "inaccuracyRate": 0.21428571428571427,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0
+        }
+      }
+    },
+    {
+      "level": 12,
+      "phases": {
+        "opening": {
+          "samples": 12,
+          "meanLoss": 31.25,
+          "inaccuracyRate": 0.3333333333333333,
+          "errorRate": 0.08333333333333333,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "post-opening": {
+          "samples": 12,
+          "meanLoss": 40.166666666666664,
+          "inaccuracyRate": 0.4166666666666667,
+          "errorRate": 0.08333333333333333,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "middlegame": {
+          "samples": 19,
+          "meanLoss": 155.78947368421052,
+          "inaccuracyRate": 0.15789473684210525,
+          "errorRate": 0.3157894736842105,
+          "blunderRate": 0.15789473684210525,
+          "offeredRate": 0
+        },
+        "endgame": {
+          "samples": 17,
+          "meanLoss": 28.705882352941178,
+          "inaccuracyRate": 0.058823529411764705,
+          "errorRate": 0.058823529411764705,
+          "blunderRate": 0.058823529411764705,
+          "offeredRate": 0
+        }
+      }
+    },
+    {
+      "level": 13,
+      "phases": {
+        "opening": {
+          "samples": 0,
+          "meanLoss": 0,
+          "inaccuracyRate": 0,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "post-opening": {
+          "samples": 0,
+          "meanLoss": 0,
+          "inaccuracyRate": 0,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "middlegame": {
+          "samples": 0,
+          "meanLoss": 0,
+          "inaccuracyRate": 0,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "endgame": {
+          "samples": 0,
+          "meanLoss": 0,
+          "inaccuracyRate": 0,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0
+        }
+      }
+    },
+    {
+      "level": 14,
+      "phases": {
+        "opening": {
+          "samples": 6,
+          "meanLoss": 11.166666666666666,
+          "inaccuracyRate": 0.16666666666666666,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "post-opening": {
+          "samples": 6,
+          "meanLoss": 42.666666666666664,
+          "inaccuracyRate": 0,
+          "errorRate": 0.3333333333333333,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "middlegame": {
+          "samples": 11,
+          "meanLoss": 8.636363636363637,
+          "inaccuracyRate": 0.18181818181818182,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "endgame": {
+          "samples": 13,
+          "meanLoss": 99.84615384615384,
+          "inaccuracyRate": 0,
+          "errorRate": 0,
+          "blunderRate": 0.07692307692307693,
+          "offeredRate": 0
+        }
+      }
+    },
+    {
+      "level": 15,
+      "phases": {
+        "opening": {
+          "samples": 30,
+          "meanLoss": 10.333333333333334,
+          "inaccuracyRate": 0.16666666666666666,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "post-opening": {
+          "samples": 30,
+          "meanLoss": 15.066666666666666,
+          "inaccuracyRate": 0.23333333333333334,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "middlegame": {
+          "samples": 52,
+          "meanLoss": 24.48076923076923,
+          "inaccuracyRate": 0.1346153846153846,
+          "errorRate": 0.057692307692307696,
+          "blunderRate": 0.038461538461538464,
+          "offeredRate": 0.019230769230769232
+        },
+        "endgame": {
+          "samples": 44,
+          "meanLoss": 11.477272727272727,
+          "inaccuracyRate": 0.06818181818181818,
+          "errorRate": 0,
+          "blunderRate": 0.022727272727272728,
+          "offeredRate": 0
+        }
+      }
+    },
+    {
+      "level": 16,
+      "phases": {
+        "opening": {
+          "samples": 30,
+          "meanLoss": 17.566666666666666,
+          "inaccuracyRate": 0.16666666666666666,
+          "errorRate": 0.03333333333333333,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "post-opening": {
+          "samples": 30,
+          "meanLoss": 30.633333333333333,
+          "inaccuracyRate": 0.3333333333333333,
+          "errorRate": 0.1,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "middlegame": {
+          "samples": 54,
+          "meanLoss": 18.27777777777778,
+          "inaccuracyRate": 0.1111111111111111,
+          "errorRate": 0.05555555555555555,
+          "blunderRate": 0.018518518518518517,
+          "offeredRate": 0
+        },
+        "endgame": {
+          "samples": 36,
+          "meanLoss": 15.13888888888889,
+          "inaccuracyRate": 0.1111111111111111,
+          "errorRate": 0.08333333333333333,
+          "blunderRate": 0,
+          "offeredRate": 0
+        }
+      }
+    },
+    {
+      "level": 17,
+      "phases": {
+        "opening": {
+          "samples": 12,
+          "meanLoss": 3.0833333333333335,
+          "inaccuracyRate": 0,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "post-opening": {
+          "samples": 12,
+          "meanLoss": 6.666666666666667,
+          "inaccuracyRate": 0,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "middlegame": {
+          "samples": 24,
+          "meanLoss": 8.166666666666666,
+          "inaccuracyRate": 0.08333333333333333,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "endgame": {
+          "samples": 17,
+          "meanLoss": 10.647058823529411,
+          "inaccuracyRate": 0.11764705882352941,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0
+        }
+      }
+    },
+    {
+      "level": 18,
+      "phases": {
+        "opening": {
+          "samples": 6,
+          "meanLoss": 3.8333333333333335,
+          "inaccuracyRate": 0,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "post-opening": {
+          "samples": 6,
+          "meanLoss": 9,
+          "inaccuracyRate": 0.16666666666666666,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "middlegame": {
+          "samples": 12,
+          "meanLoss": 18.333333333333332,
+          "inaccuracyRate": 0.08333333333333333,
+          "errorRate": 0.08333333333333333,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "endgame": {
+          "samples": 8,
+          "meanLoss": 45.5,
+          "inaccuracyRate": 0.375,
+          "errorRate": 0,
+          "blunderRate": 0.125,
+          "offeredRate": 0
+        }
+      }
+    },
+    {
+      "level": 19,
+      "phases": {
+        "opening": {
+          "samples": 12,
+          "meanLoss": 11.583333333333334,
+          "inaccuracyRate": 0,
+          "errorRate": 0.08333333333333333,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "post-opening": {
+          "samples": 12,
+          "meanLoss": 5.166666666666667,
+          "inaccuracyRate": 0.08333333333333333,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "middlegame": {
+          "samples": 17,
+          "meanLoss": 16.88235294117647,
+          "inaccuracyRate": 0.17647058823529413,
+          "errorRate": 0.058823529411764705,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "endgame": {
+          "samples": 11,
+          "meanLoss": 20.09090909090909,
+          "inaccuracyRate": 0.18181818181818182,
+          "errorRate": 0.09090909090909091,
+          "blunderRate": 0,
+          "offeredRate": 0
+        }
+      }
+    },
+    {
+      "level": 20,
+      "phases": {
+        "opening": {
+          "samples": 12,
+          "meanLoss": 18.25,
+          "inaccuracyRate": 0.16666666666666666,
+          "errorRate": 0.08333333333333333,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "post-opening": {
+          "samples": 12,
+          "meanLoss": 5.583333333333333,
+          "inaccuracyRate": 0,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "middlegame": {
+          "samples": 22,
+          "meanLoss": 16,
+          "inaccuracyRate": 0.045454545454545456,
+          "errorRate": 0.09090909090909091,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "endgame": {
+          "samples": 19,
+          "meanLoss": 36.1578947368421,
+          "inaccuracyRate": 0.05263157894736842,
+          "errorRate": 0,
+          "blunderRate": 0.05263157894736842,
+          "offeredRate": 0
+        }
+      }
+    },
+    {
+      "level": 21,
+      "phases": {
+        "opening": {
+          "samples": 12,
+          "meanLoss": 9.916666666666666,
+          "inaccuracyRate": 0.08333333333333333,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "post-opening": {
+          "samples": 12,
+          "meanLoss": 7.333333333333333,
+          "inaccuracyRate": 0.08333333333333333,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "middlegame": {
+          "samples": 25,
+          "meanLoss": 49.2,
+          "inaccuracyRate": 0.16,
+          "errorRate": 0.04,
+          "blunderRate": 0.08,
+          "offeredRate": 0
+        },
+        "endgame": {
+          "samples": 20,
+          "meanLoss": 30.85,
+          "inaccuracyRate": 0.1,
+          "errorRate": 0.05,
+          "blunderRate": 0.05,
+          "offeredRate": 0
+        }
+      }
+    },
+    {
+      "level": 22,
+      "phases": {
+        "opening": {
+          "samples": 12,
+          "meanLoss": 4.75,
+          "inaccuracyRate": 0.08333333333333333,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "post-opening": {
+          "samples": 12,
+          "meanLoss": 9.5,
+          "inaccuracyRate": 0.16666666666666666,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "middlegame": {
+          "samples": 25,
+          "meanLoss": 7.52,
+          "inaccuracyRate": 0.16,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "endgame": {
+          "samples": 16,
+          "meanLoss": 9.875,
+          "inaccuracyRate": 0.1875,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0
+        }
+      }
+    },
+    {
+      "level": 23,
+      "phases": {
+        "opening": {
+          "samples": 12,
+          "meanLoss": 14.5,
+          "inaccuracyRate": 0,
+          "errorRate": 0.08333333333333333,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "post-opening": {
+          "samples": 12,
+          "meanLoss": 16.416666666666668,
+          "inaccuracyRate": 0,
+          "errorRate": 0.08333333333333333,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "middlegame": {
+          "samples": 26,
+          "meanLoss": 12.307692307692308,
+          "inaccuracyRate": 0.19230769230769232,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "endgame": {
+          "samples": 19,
+          "meanLoss": 3.6842105263157894,
+          "inaccuracyRate": 0.10526315789473684,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0
+        }
+      }
+    },
+    {
+      "level": 24,
+      "phases": {
+        "opening": {
+          "samples": 12,
+          "meanLoss": 6.75,
+          "inaccuracyRate": 0,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "post-opening": {
+          "samples": 12,
+          "meanLoss": 7.083333333333333,
+          "inaccuracyRate": 0.08333333333333333,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "middlegame": {
+          "samples": 25,
+          "meanLoss": 14.12,
+          "inaccuracyRate": 0.16,
+          "errorRate": 0.04,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "endgame": {
+          "samples": 20,
+          "meanLoss": 9.05,
+          "inaccuracyRate": 0.05,
+          "errorRate": 0.05,
+          "blunderRate": 0,
+          "offeredRate": 0
+        }
+      }
+    },
+    {
+      "level": 25,
+      "phases": {
+        "opening": {
+          "samples": 6,
+          "meanLoss": 1.5,
+          "inaccuracyRate": 0,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "post-opening": {
+          "samples": 6,
+          "meanLoss": 0,
+          "inaccuracyRate": 0,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "middlegame": {
+          "samples": 12,
+          "meanLoss": 0.8333333333333334,
+          "inaccuracyRate": 0,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0
+        },
+        "endgame": {
+          "samples": 9,
+          "meanLoss": 0,
+          "inaccuracyRate": 0,
+          "errorRate": 0,
+          "blunderRate": 0,
+          "offeredRate": 0
+        }
+      }
+    }
+  ]
+}
