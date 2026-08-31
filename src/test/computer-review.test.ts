@@ -104,7 +104,7 @@ describe('Bilan : calcul séquentiel et navigation', () => {
     const search = vi.fn();
     await expect(
       analyzeGame(
-        createGame('w', 'expert'),
+        createGame('w', 25),
         { search, dispose: vi.fn() },
         new AbortController().signal,
         vi.fn(),
@@ -134,7 +134,7 @@ describe('Bilan : calcul séquentiel et navigation', () => {
     expect(() => buildReport(matedGame(), [])).toThrow('incomplète');
   });
   it('gère l’abandon sans coup, sans précision arbitraire', async () => {
-    const record = resign(createGame('b', 'beginner'));
+    const record = resign(createGame('b', 3));
     const report = await analyzeGame(
       record,
       { search: async (input) => legalAnalysis(input.fen), dispose() {} },

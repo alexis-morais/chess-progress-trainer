@@ -19,7 +19,7 @@ describe('Partie libre : règles et état', () => {
   it.each(['w', 'b'] as const)(
     'démarre pour les %s sans déplacer arbitrairement une pièce',
     (side) => {
-      const game = createGame(side, 'beginner');
+      const game = createGame(side, 3);
       expect(game.player).toBe(side);
       expect(game.moves).toEqual([]);
       expect(game.result).toBeNull();
@@ -33,20 +33,25 @@ describe('Partie libre : règles et état', () => {
     expect(resolveColor('random', () => 0.1)).toBe('w');
     expect(resolveColor('random', () => 0.9)).toBe('b');
     expect(resolveColor('w', () => 0.9)).toBe('w');
-    expect(createGame('random', 'expert', () => 0.9).player).toBe('b');
+    expect(createGame('random', 25, () => 0.9).player).toBe('b');
   });
-  it('propose trois puissances croissantes sans Elo annoncé', () => {
-    expect(difficulties.map((level) => level.name)).toEqual([
-      'Débutant',
-      'Intermédiaire',
-      'Expert',
-    ]);
-    expect(difficulties.map((level) => level.settings.skill)).toEqual([0, 7, 20]);
-    expect(difficulties.map((level) => level.settings.movetime)).toEqual([100, 350, 1200]);
-    expect(difficulties.map((level) => level.settings.depth)).toEqual([3, 8, 18]);
+  it('remplace les trois puissances par 25 profils progressifs à force estimée', () => {
+    expect(difficulties.map((level) => level.id)).toEqual(
+      Array.from({ length: 25 }, (_, i) => i + 1),
+    );
+    for (let i = 1; i < difficulties.length; i++) {
+      expect(difficulties[i].elo).toBeGreaterThan(difficulties[i - 1].elo);
+      expect(difficulties[i].settings.movetime).toBeGreaterThanOrEqual(
+        difficulties[i - 1].settings.movetime,
+      );
+      expect(difficulties[i].settings.depth).toBeGreaterThanOrEqual(
+        difficulties[i - 1].settings.depth,
+      );
+    }
+    expect(difficulties.at(-1)?.settings).toMatchObject({ skill: 20, depth: 22, movetime: 1800 });
   });
   it('refuse les coups illégaux, le mauvais camp et les réponses périmées', () => {
-    const start = createGame('w', 'expert');
+    const start = createGame('w', 25);
     for (const token of ['e2e5', 'e7e5', 'e1e2', 'nope', 'e2e4q'])
       expect(attemptMove(start, 'player', token)).toBe(start);
     const next = attemptMove(start, 'player', 'd2d4');
@@ -57,7 +62,7 @@ describe('Partie libre : règles et état', () => {
     expect(start.moves).toEqual([]);
   });
   it.each(['w', 'b'] as const)('détecte le mat et bloque ensuite la partie pour %s', (player) => {
-    let game = createGame(player, 'expert');
+    let game = createGame(player, 25);
     for (const [index, token] of ['f2f3', 'e7e5', 'g2g4', 'd8h4'].entries())
       game = attemptMove(
         game,
@@ -72,7 +77,7 @@ describe('Partie libre : règles et état', () => {
     expect(resign(game)).toBe(game);
   });
   it('détecte la répétition en conservant tout l’historique', () => {
-    let game = createGame('w', 'beginner');
+    let game = createGame('w', 3);
     for (const [i, token] of [
       'g1f3',
       'g8f6',
@@ -96,7 +101,7 @@ describe('Partie libre : règles et état', () => {
     expect(terminalScore(new Chess(fen))).toEqual({ cp: 0, depth: 0 });
   });
   it('termine par abandon et ne modifie pas les coups', () => {
-    const game = attemptMove(createGame('b', 'intermediate'), 'computer', 'd2d4');
+    const game = attemptMove(createGame('b', 8), 'computer', 'd2d4');
     const finished = resign(game);
     expect(finished.result).toEqual({ winner: 'w', reason: 'resignation' });
     expect(finished.moves).toEqual(game.moves);

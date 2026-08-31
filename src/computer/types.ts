@@ -1,34 +1,41 @@
 import type { Side } from '../data/openings';
 
-export type Difficulty = 'beginner' | 'intermediate' | 'expert';
+export type Difficulty =
+  | 1
+  | 2
+  | 3
+  | 4
+  | 5
+  | 6
+  | 7
+  | 8
+  | 9
+  | 10
+  | 11
+  | 12
+  | 13
+  | 14
+  | 15
+  | 16
+  | 17
+  | 18
+  | 19
+  | 20
+  | 21
+  | 22
+  | 23
+  | 24
+  | 25;
 export type ColorChoice = Side | 'random';
-export type SearchSettings = { skill: number; depth: number; movetime: number };
-export const difficulties: {
-  id: Difficulty;
-  name: string;
-  description: string;
-  settings: SearchSettings;
-}[] = [
-  {
-    id: 'beginner',
-    name: 'Débutant',
-    description: 'Réponses rapides et jeu volontairement imparfait.',
-    settings: { skill: 0, depth: 3, movetime: 100 },
-  },
-  {
-    id: 'intermediate',
-    name: 'Intermédiaire',
-    description: 'Un adversaire plus attentif, pour travailler tes réflexes.',
-    settings: { skill: 7, depth: 8, movetime: 350 },
-  },
-  {
-    id: 'expert',
-    name: 'Expert',
-    description: 'Toute la force disponible dans un temps de réflexion raisonnable.',
-    settings: { skill: 20, depth: 18, movetime: 1200 },
-  },
-];
-export const difficultyInfo = (id: Difficulty) => difficulties.find((item) => item.id === id)!;
+export type SearchSettings = {
+  skill: number;
+  depth: number;
+  movetime: number;
+  multiPV?: number;
+  elo?: number;
+  nodes?: number;
+};
+export { difficulties, difficultyInfo } from './difficulty';
 export const REVIEW_SETTINGS: SearchSettings = { skill: 20, depth: 14, movetime: 350 };
 export type GameResult = {
   winner: Side | null;
@@ -44,9 +51,15 @@ export type GameRecord = {
   result: GameResult | null;
 };
 export type EngineScore = ({ cp: number } | { mate: number; winner: Side }) & { depth: number };
-export type PositionAnalysis = { score: EngineScore; bestMove: string | null; pv: string[] };
+export type Candidate = { move: string; score: EngineScore; pv: string[] };
+export type PositionAnalysis = {
+  score: EngineScore;
+  bestMove: string | null;
+  pv: string[];
+  candidates?: Candidate[];
+};
 export type EngineStatus = 'loading' | 'ready' | 'thinking' | 'unavailable';
-export type SearchInput = { fen: string; history: string[] };
+export type SearchInput = { fen: string; history: string[]; startFen?: string };
 export interface SearchEngine {
   search(
     input: SearchInput,

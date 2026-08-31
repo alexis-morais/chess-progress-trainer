@@ -13,7 +13,9 @@ class FakeWorker {
     this.onmessage?.call(this as unknown as Worker, { data } as MessageEvent);
   }
   ready() {
-    this.emit('option name Skill Level type spin default 20 min 0 max 20\nuciok\nreadyok');
+    this.emit(
+      'option name Skill Level type spin default 20 min 0 max 20\noption name MultiPV type spin default 1 min 1 max 256\noption name UCI_LimitStrength type check default false\noption name UCI_Elo type spin default 1320 min 1320 max 3190\nuciok\nreadyok',
+    );
   }
 }
 const initial = { fen: new Chess().fen(), history: [] as string[] };
@@ -35,18 +37,25 @@ describe('Stockfish pour la partie libre : protocole indépendant', () => {
         `setoption name Skill Level value ${settings.skill}`,
       );
       expect(worker.postMessage).toHaveBeenCalledWith(
-        'setoption name UCI_LimitStrength value false',
+        `setoption name UCI_LimitStrength value ${settings.elo !== undefined}`,
       );
       expect(worker.postMessage).not.toHaveBeenCalledWith(expect.stringMatching(/^go /));
       worker.emit('readyok');
       expect(worker.postMessage).toHaveBeenLastCalledWith(
-        `go depth ${settings.depth} movetime ${settings.movetime}`,
+        `go depth ${settings.depth} movetime ${settings.movetime}${settings.nodes ? ` nodes ${settings.nodes}` : ''}`,
       );
       worker.emit('info depth 3 score cp 27 pv d2d4 d7d5 c2c4\nbestmove d2d4 ponder d7d5');
       await expect(result).resolves.toEqual({
         score: { cp: 27, depth: 3 },
         bestMove: 'd2d4',
         pv: ['d2d4', 'd7d5', 'c2c4'],
+        ...(settings.multiPV
+          ? {
+              candidates: [
+                { move: 'd2d4', score: { cp: 27, depth: 3 }, pv: ['d2d4', 'd7d5', 'c2c4'] },
+              ],
+            }
+          : {}),
       });
       engine.dispose();
     },

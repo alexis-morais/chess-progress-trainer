@@ -18,6 +18,7 @@ import { TrainingBoard } from './TrainingBoard';
 import { EvaluationBar } from './EvaluationBar';
 import { CompletionDialog } from './CompletionDialog';
 import { TrainingAssistance } from './TrainingAssistance';
+import { ExerciseFeedback, FocusTitle, mistakeMessage } from './ExerciseFeedback';
 
 export function Trainer({
   lesson,
@@ -47,7 +48,12 @@ export function Trainer({
           ? 'Analyse en cours…'
           : 'Analyse locale active';
   return (
-    <main id="main" className="trainer page-width">
+    <main id="main" className="trainer page-width mobile-focus">
+      <FocusTitle
+        title={lesson.opening.name}
+        subtitle={`${lesson.variation.name} · ${modeName(lesson.mode)} · ${sideName(lesson.player)}`}
+        onBack={onVariants}
+      />
       <div className="breadcrumb">
         <button onClick={onVariants}>
           <ArrowLeft size={15} />
@@ -71,6 +77,7 @@ export function Trainer({
         onHint={() => dispatch({ type: 'hint' })}
         onReveal={() => dispatch({ type: 'solution' })}
       />
+      <ExerciseFeedback state={state} kind="opening" />
       <div className="training-layout">
         <section className="board-section" aria-label="Zone de jeu">
           <div className="player-label top-player">
@@ -175,7 +182,7 @@ export function Trainer({
             </div>
             <p>
               {state.feedback === 'incorrect'
-                ? "Ce n'est pas le coup de cette variante. Essaie encore."
+                ? mistakeMessage(state, 'opening')
                 : state.feedback === 'correct'
                   ? state.explanation
                   : lesson.opening.side === 'w'

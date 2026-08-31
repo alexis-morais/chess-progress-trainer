@@ -115,46 +115,11 @@
   height: 43px;
   color: var(--muted);
 }
-.difficulty-choices {
-  display: grid;
-  gap: 10px;
-}
-.difficulty-choices label {
-  display: flex;
-  align-items: center;
-  gap: 13px;
-  padding: 17px;
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  cursor: pointer;
-  background: var(--surface-soft);
-}
-.difficulty-choices strong {
-  display: block;
-  font-size: 14px;
-  font-weight: 550;
-}
-.difficulty-choices small {
-  display: block;
-  color: var(--muted);
-  font-size: 11px;
-  line-height: 1.6;
-  margin-top: 4px;
-}
-.level-bars {
-  margin-left: auto;
-  color: var(--accent);
-  font-size: 11px;
-  font-variant-numeric: tabular-nums;
-  letter-spacing: 1px;
-}
 .color-choices label:hover,
-.difficulty-choices label:hover {
+.color-choices label.selected {
   border-color: var(--accent);
 }
-.color-choices label.selected,
-.difficulty-choices label.selected {
-  border-color: var(--accent);
+.color-choices label.selected {
   background: var(--accent-soft);
 }
 .computer-page label:focus-within {
@@ -861,12 +826,6 @@
     top: 8px;
     left: 7px;
   }
-  .difficulty-choices label {
-    padding: 15px 12px;
-  }
-  .level-bars {
-    display: none;
-  }
   .saved-game {
     flex-direction: column;
     align-items: flex-start;
@@ -952,5 +911,101 @@
   }
   .review-loading h2 {
     font-size: 25px;
+  }
+}
+
+/* One canonical force selector for all 25 levels. */
+.difficulty-selector {
+  min-width: 0;
+}
+.difficulty-current {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-height: 46px;
+}
+.difficulty-current > strong {
+  font-size: 22px;
+  letter-spacing: -0.6px;
+}
+.difficulty-current > span {
+  text-align: right;
+  font-size: 12px;
+  color: var(--muted);
+}
+.difficulty-current b {
+  display: block;
+  margin-top: 3px;
+  font-size: 14px;
+  color: var(--accent);
+  font-weight: 550;
+}
+.difficulty-selector input[type='range'] {
+  width: 100%;
+  margin: 4px 0 0;
+  min-height: 44px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+.range-endpoints {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: var(--muted);
+}
+.difficulty-shortcuts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 16px;
+}
+.difficulty-shortcuts button {
+  font-size: 11px;
+  line-height: 1.25;
+  padding: 8px 10px;
+  min-height: 36px;
+  color: var(--text);
+  background: var(--surface-soft);
+  border: 1px solid var(--card-border);
+  border-radius: 9px;
+}
+.difficulty-shortcuts button:hover,
+.difficulty-shortcuts button[aria-pressed='true'] {
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.computer-page .strength-notice {
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.5;
+  margin: 12px 0 0;
+}
+@media (max-width: 600px) {
+  .mobile-setup .difficulty-current {
+    min-height: 40px;
+  }
+  .mobile-setup .difficulty-current > strong {
+    font-size: 20px;
+  }
+  .mobile-setup .difficulty-shortcuts {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: 36px;
+    grid-auto-columns: max-content;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    padding: 3px 2px 6px;
+    margin-top: 8px;
+    gap: 6px;
+    scrollbar-width: thin;
+  }
+  .mobile-setup .difficulty-shortcuts button {
+    font-size: 11px;
+    white-space: nowrap;
+  }
+  .mobile-setup .strength-notice {
+    margin-top: 8px;
   }
 }

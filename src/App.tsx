@@ -9,6 +9,7 @@ import { useTheme } from './ui/theme';
 import { useNavigation, type AppView } from './ui/navigation';
 import { compileTactic, tacticsFor, type Tactic } from './tactics/model';
 import { TacticTrainer } from './tactics/TacticTrainer';
+import './ui/mobile.css';
 
 const ComputerMode = lazy(() => import('./computer/ComputerMode'));
 
@@ -147,7 +148,10 @@ export default function App() {
         <ActiveTactic
           key={`${activeTactic.id}-${session}`}
           puzzle={activeTactic}
-          onRestart={() => setSession((value) => value + 1)}
+          onRestart={() => {
+            setSession((value) => value + 1);
+            window.scrollTo(0, 0);
+          }}
           onBack={() => {
             setReturnOpening(activeTactic.openingId);
             setActiveTactic(null);
@@ -167,7 +171,10 @@ export default function App() {
         <ActiveTrainer
           key={`${active.variation.id}-${active.mode}-${session}`}
           selection={active}
-          onRestart={() => setSession((value) => value + 1)}
+          onRestart={() => {
+            setSession((value) => value + 1);
+            window.scrollTo(0, 0);
+          }}
           onVariants={variants}
           onHome={goHome}
         />

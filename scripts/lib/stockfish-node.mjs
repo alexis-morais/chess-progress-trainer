@@ -3,7 +3,7 @@ import { createRequire } from 'node:module';
 import { fileURLToPath } from 'node:url';
 
 // Offline authoring tool only. The application continues to use its browser Web Workers.
-export async function createValidationEngine() {
+export async function createUciEngine(listener) {
   const script = new URL('../../public/engine/stockfish-18-lite-single.js', import.meta.url);
   const filename = fileURLToPath(script);
   const module = { exports: {} };
@@ -17,13 +17,18 @@ export async function createValidationEngine() {
     '__dirname',
     readFileSync(script, 'utf8'),
   )(module, module.exports, require, filename, fileURLToPath(new URL('.', script)));
-  let receive = () => {};
   const engine = await module.exports()({
     locateFile: () => fileURLToPath(new URL('stockfish-18-lite-single.wasm', script)),
-    listener: (line) => receive(line),
+    listener,
   });
   const command = (line) =>
     engine.ccall('command', null, ['string'], [line], { async: line.startsWith('go ') });
+  return { command };
+}
+
+export async function createValidationEngine() {
+  let receive = () => {};
+  const { command } = await createUciEngine((line) => receive(line));
   const waitFor = (expected, send) =>
     new Promise((resolve, reject) => {
       const timeout = setTimeout(() => reject(new Error(`Stockfish : délai ${expected}`)), 15_000);

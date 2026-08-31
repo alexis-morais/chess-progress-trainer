@@ -14,6 +14,12 @@ Dans les **Tactiques**, les coups et réponses sont également scriptés : aucun
 
 Mise à jour structurelle du 31 août 2026 : aide facultative **Indice | Solution** au-dessus du plateau, formats révélés dans la variante sélectionnée, et deux tactiques par ouverture. Les cartes d’accueil entièrement cliquables, les ajustements pour petits écrans, la direction artistique et les deux thèmes sont conservés.
 
+## Mobile et mode Focus
+
+Sur téléphone, un en-tête compact conserve les trois accès et le thème. Les cartes **OUVERTURES / ENTRAÎNEMENT LIBRE** sont côte à côte et visibles dès l’accueil. Une séance démarre directement sur son plateau, avec titre compact, tour/progression et **Indice | Solution**. Les détails, statistiques et boutons secondaires restent plus bas. Le plateau conserve 304/359/374/414 px aux largeurs 320/375/390/430. Les safe areas et la hauteur visible `svh` sont prises en compte.
+
+Les feedbacks proches du plateau distinguent **déplacement illégal**, **coup légal hors ligne** et **coup légal qui ne résout pas la tactique**. Après trois erreurs sur la même décision, une invitation discrète attire une fois l’attention sur Indice. Aucune aide n’est ouverte automatiquement et aucun compteur d’aide n’est augmenté. Le bon coup réinitialise cette invitation.
+
 ## Navigation et apparence
 
 - **Accueil** : choisir entre apprendre les ouvertures et jouer contre l’ordinateur.
@@ -83,7 +89,7 @@ Voir le [catalogue des 20 tactiques, leurs sources et la méthode de validation]
 
 ## Jouer contre l’ordinateur
 
-Depuis le bloc séparé de l’accueil, cliquer sur **Configurer une partie**, choisir Blancs, Noirs ou Aléatoire, puis l’un des trois niveaux. Le camp choisi est toujours en bas ; Stockfish commence si tu joues les Noirs. Tous les coups légaux sont autorisés, y compris le roque, la prise en passant et les quatre promotions.
+Depuis **ENTRAÎNEMENT LIBRE**, choisir Blancs, Noirs ou Aléatoire, puis une force de **1 à 25**. Le camp choisi est toujours en bas ; Stockfish commence si tu joues les Noirs. Tous les coups légaux sont autorisés, y compris le roque, la prise en passant et les quatre promotions.
 
 La partie se termine par mat, pat, répétition, règle des 50 coups, matériel insuffisant ou abandon confirmé. Les nulles par répétition et 50 coups sont déclarées automatiquement dans ce prototype, sans procédure de réclamation. Il n’y a pas de chronomètre. L’historique affiche les coups en notation française.
 
@@ -93,14 +99,9 @@ La dernière partie **terminée**, puis son bilan, sont sauvegardés dans `local
 
 ### Niveaux et temps de calcul
 
-| Usage                 | Skill Level | Profondeur maximale | Temps de recherche maximal par position |
-| --------------------- | ----------: | ------------------: | --------------------------------------: |
-| Débutant              |           0 |                   3 |                                  100 ms |
-| Intermédiaire         |           7 |                   8 |                                  350 ms |
-| Expert                |          20 |                  18 |                                1 200 ms |
-| Bilan après la partie |          20 |                  14 |                                  350 ms |
+La force est affichée comme **Niveau X · catégorie · ≈ Elo**, avec la mention « Force estimée — peut différer d’un classement humain réel ». Les huit raccourcis placent le curseur sur 3, 8, 14, 18, 20, 22, 24 ou 25. Le dernier choix est mémorisé ; une valeur invalide revient au niveau 6. Les anciens bilans restent lisibles grâce à une migration des trois noms historiques.
 
-Stockfish s’arrête dès qu’une des limites est atteinte ; le temps réel dépend du navigateur et de l’appareil. Une courte pause visuelle de 250 ms précède les réponses en partie. Le niveau Débutant utilise **Skill Level**, qui permet au moteur de choisir volontairement des coups sous-optimaux. Intermédiaire dispose de plus de calcul ; Expert supprime cette faiblesse volontaire. Aucun Elo n’est annoncé ni garanti : Débutant peut encore être difficile pour un novice. Le comportement de limitation est documenté dans la [FAQ officielle Stockfish](https://official-stockfish.github.io/docs/stockfish-wiki/Stockfish-FAQ.html) et confirmé dans les sources de la version embarquée.
+Les niveaux 1–11 choisissent parmi plusieurs coups réellement évalués, avec des erreurs progressivement plus rares et des habitudes de développement simples. Les niveaux 12–24 utilisent la limitation native de Stockfish ; 25 utilise sa force maximale raisonnable (1,8 seconde au plus). Un délai visuel de 250 ms précède la réflexion. Le **bilan reste fort**, indépendamment du niveau joué : Skill 20, profondeur 14 ou 350 ms. Voir [DIFFICULTY.md](DIFFICULTY.md) pour les 25 profils, leurs limites et la calibration réelle.
 
 ### Méthode du bilan
 
@@ -179,6 +180,7 @@ Ouvrir l’adresse indiquée, habituellement **http://127.0.0.1:5173/chess-progr
 pnpm test           # Tous les tests
 pnpm build          # TypeScript, intégrité Stockfish, sources GPL et build Vite
 pnpm preview        # Tester le dossier dist, habituellement sur le port 4173
+pnpm validate:difficulty # Calibration réelle des 25 niveaux (plus long)
 pnpm validate:tactics # Recontrôler les 20 solutions avec le moteur local (plus lent)
 pnpm run licenses   # Régénérer les crédits après une mise à jour des dépendances
 ```
@@ -187,9 +189,9 @@ Ne pas ouvrir `dist/index.html` en double-cliquant : les Workers/WASM doivent ê
 
 ### Tests et runners GitHub Actions
 
-Les **715 tests existants sont conservés**, avec **55 nouveaux tests**, soit **770 tests**. Les nouveaux contrôles couvrent les gestes souris/tactiles, les destinations légales, les règles spéciales, les animations, les trois modes et la robustesse du stockage et des messages du moteur.
+Les **770 tests précédents sont conservés et adaptés**, avec 227 cas supplémentaires, soit **997 tests** dans 22 fichiers. Les contrôles supplémentaires couvrent les 25 profils, le curseur, la persistance/migration, les messages MultiPV, la séparation du bilan fort, le feedback Focus et les 90 matchs de calibration. Aucun test n’est supprimé ou désactivé.
 
-Dans `vite.config.ts`, le délai maximum par test est de **20 secondes en CI**, contre **5 secondes en local**. GitHub définit automatiquement `CI=true` : le workflow existant bénéficie donc du délai adapté aux runners partagés. Aucun test n’est désactivé et les échecs réels restent bloquants. Pour reproduire cette configuration localement : `CI=true pnpm test`. Ce réglage ne modifie pas les délais de l’application ni les recherches Stockfish.
+Dans `vite.config.ts`, le délai maximum par test est de **20 secondes en CI**, contre **5 secondes en local**. GitHub définit automatiquement `CI=true` : le workflow existant bénéficie donc du délai adapté aux runners partagés. Aucun test n’est désactivé et les échecs réels restent bloquants. Pour reproduire cette configuration localement : `CI=true pnpm test`. Ce réglage ne modifie pas les délais de l’application ni les recherches Stockfish. La concurrence est limitée à deux processus pour éviter que les rendus du plateau ne se disputent le CPU. `pnpm test` utilise directement cette limite, sans augmenter les 5 secondes locales.
 
 ## Modifier les variantes
 
@@ -240,7 +242,7 @@ Documentation officielle : [déploiement avec GitHub Actions](https://docs.githu
 
 ## Tests et compatibilité
 
-Les **770 tests** incluent les **715 tests antérieurs**, **48 tests d’interaction et de règles du plateau** et **7 tests supplémentaires de robustesse/sécurité**. Les 120 lignes et leurs préfixes, les 16 variantes historiques, les règles d’échecs, les trois difficultés, le bilan, le graphique, le stockage, les thèmes et le clavier restent couverts. Les tests UI utilisent le vrai composant react-chessboard ; le processus Worker y est simulé. Le vrai moteur est aussi essayé dans le navigateur de production et par la validation tactique séparée.
+Les **997 tests** préservent les 120 lignes et leurs préfixes, les 16 variantes historiques, les 20 tactiques, les règles d’échecs, le bilan, le graphique, le stockage, les thèmes et le clavier. Ils couvrent maintenant 25 niveaux et la calibration enregistrée. Les tests UI utilisent les vrais composants de plateau avec Worker simulé ; le vrai moteur est aussi exécuté dans le navigateur de production et dans les bancs de calibration/tactiques séparés.
 
 La compilation cible Chrome 107+, Firefox 104+ et Safari 16+. Le moteur amont vise les navigateurs modernes avec WebAssembly (notamment iOS 16+). La version de production est à vérifier sur HTTP(S), à l’URL avec son sous-répertoire. Si un appareil refuse le WASM, l’exercice reste accessible.
 

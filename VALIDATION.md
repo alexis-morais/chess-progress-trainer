@@ -1,5 +1,38 @@
 # Contrôle de l’évolution locale — 31 août 2026
 
+## Mise à jour mobile Focus et difficulté 1–25
+
+- **997 / 997 tests dans 22 fichiers** : les 770 cas précédents sont conservés/adaptés et 227 cas supplémentaires couvrent les profils, la migration, le protocole MultiPV, le feedback et les matchs enregistrés.
+- **Local et CI réussis**. Timeout conservé : 5 secondes en local, **20 secondes en CI**. Deux fichiers de tests au maximum tournent simultanément pour éviter la contention CPU entre les rendus jsdom ; aucun test retiré, aucune assertion désactivée. Le premier essai sans cette limite avait dépassé les 5 secondes sur plusieurs tests UI.
+- **Build de production réussi** : TypeScript, intégrité Stockfish, sources GPL, Vite, CSP et préfixe `/chess-progress-trainer/`.
+- **Audit des dépendances : 0 vulnérabilité connue** ; aucune dépendance ajoutée. Détecteur de secrets sans résultat positif sur les sources et l’historique local accessible.
+- **Calibration réelle terminée** : 90 matchs finaux, 16 positions, 24 320 choix et 5 632 tirages d’ouverture. 73,3 % des points aux niveaux supérieurs ; 88 matchs arbitrés, 2 fins réglementaires. Résultats, inversions, ajustements et limites dans [DIFFICULTY.md](DIFFICULTY.md).
+- **Aucun commit, push ou déploiement.**
+
+### Contrôles navigateur de cette mise à jour
+
+Prévisualisation de production dans Chromium, thèmes clair/sombre, largeurs **320, 375, 390, 430, 820 et 1440 px**. Aucun débordement horizontal des composants principaux contrôlés. L’accueil mobile garde ses deux cartes côte à côte, entièrement visibles au premier écran (bas des cartes à 559,5 px pour un viewport de 320 × 568). Les deux flèches sont contenues dans leurs liens et déclenchent la bonne navigation.
+
+| Largeur | Plateau mobile conservé | Position initiale du plateau Focus ouverture/tactique |            Partie libre |
+| ------: | ----------------------: | ----------------------------------------------------: | ----------------------: |
+|     320 |                  304 px |                               haut 201 px, bas 505 px | haut 174 px, bas 478 px |
+|     375 |                  359 px |                                           haut 201 px |             haut 174 px |
+|     390 |                  374 px |                                           haut 201 px |             haut 174 px |
+|     430 |                  414 px |                                           haut 201 px |             haut 174 px |
+
+Mesures initiales sans aide dépliée. L’indice/solution et un message peuvent prendre davantage de hauteur lorsqu’ils sont ouverts. Les détails restent après le plateau ; ils ne sont pas supprimés. Sur tablette/desktop, les plateaux et panneaux latéraux gardent leurs dimensions antérieures : ouverture 702/832 px, tactique 740/870 px et partie libre 740/830 px aux largeurs 820/1440.
+
+- **Ouvertures** : Italienne essentielle avec Blancs et Française/Tarrasch étendue avec Noirs ; premier coup scripté, trois tentatives erronées, distinction illégal/légal hors ligne, invitation sans révélation, Indice gratuit, Solution/flèche comptée une seule fois, coup correct et réponse scriptée. Évaluation Stockfish active.
+- **Tactiques** : position italienne avec Blancs et française avec Noirs ; plateau immédiat, aide, message spécifique et orientation. Les 20 exercices et leurs solutions restent intégralement testés.
+- **Partie libre** : vrai premier coup Stockfish aux niveaux **1, 3, 6, 8, 12, 16, 20, 23, 24, 25**, avec Noirs en bas et retour du trait au joueur. Parties de contrôle terminées par abandon confirmé aux niveaux 8 et 25.
+- **Bilan** : analyse locale complète après la partie, commentaire du coup e5, classification, courbe, précédent/suivant et flèche de meilleur coup. La recherche du bilan reste indépendante de l’affaiblissement du bot.
+- **Stockage** : ancien bilan restauré avant les parties d’essai ; dernier niveau conservé après rechargement, dont 25 puis 8. Les cas corrompus et anciens noms sont aussi couverts automatiquement.
+- **Interaction** : clic-clic et drag conservés, clavier et règles spéciales couverts par les tests existants. Aucune erreur importante de console provenant de l’application dans les parcours contrôlés.
+
+Les mesures sont des simulations de dimensions dans Chromium, pas des essais sur des téléphones physiques. `svh` et les safe areas sont pris en compte ; Safari iOS, Chrome Android et leurs barres système doivent encore être essayés sur appareils réels. Les cibles Safari 16/Firefox du build sont conservées. Le benchmark ne certifie ni un Elo humain ni un ordre parfait entre tous les niveaux voisins.
+
+Les sections suivantes documentent les versions antérieures.
+
 ## Mise à jour interaction et sécurité
 
 - **770 / 770 tests**, dans 19 fichiers : les 715 tests existants sont conservés ; ajout de 32 tests d’interaction, 12 tests de règles/géométrie, 4 tests d’animation et 7 tests de robustesse/sécurité.

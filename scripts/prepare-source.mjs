@@ -16,6 +16,8 @@ const files = [
   'index.html',
   'README.md',
   'TACTICS.md',
+  'DIFFICULTY.md',
+  'calibration',
   'VALIDATION.md',
   'SECURITY.md',
   'LICENSE',

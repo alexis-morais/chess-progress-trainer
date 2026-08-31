@@ -3,6 +3,7 @@ import { parseEvaluation } from '../engine/StockfishEngine';
 import { otherSide, playUci } from './game';
 import type {
   EngineScore,
+  Candidate,
   EngineStatus,
   PositionAnalysis,
   SearchEngine,
@@ -59,6 +60,10 @@ export class ComputerEngine implements SearchEngine {
   private phase: 'boot' | 'idle' | 'sync' | 'search' | 'dead' = 'boot';
   private uciReceived = false;
   private hasSkill = false;
+  private hasElo = false;
+  private hasLimit = false;
+  private multiPVMax = 1;
+  private candidates = new Map<number, Map<number, Candidate>>();
   private score: EngineScore | null = null;
   private pv: string[] = [];
   private timer: ReturnType<typeof setTimeout> | undefined;
@@ -91,9 +96,43 @@ export class ComputerEngine implements SearchEngine {
   ): Promise<PositionAnalysis> {
     if (this.phase === 'dead') return Promise.reject(new Error('Stockfish est indisponible.'));
     if (signal?.aborted) return Promise.reject(abortError());
+    if (
+      ![
+        settings.skill,
+        settings.depth,
+        settings.movetime,
+        settings.multiPV ?? 1,
+        settings.nodes ?? 1,
+      ].every(Number.isInteger) ||
+      settings.skill < 0 ||
+      settings.skill > 20 ||
+      settings.depth < 1 ||
+      settings.depth > 64 ||
+      settings.movetime < 1 ||
+      settings.movetime > 10000 ||
+      (settings.multiPV ?? 1) < 1 ||
+      (settings.multiPV ?? 1) > 64 ||
+      (settings.nodes ?? 1) < 1 ||
+      (settings.nodes ?? 1) > 2000000 ||
+      (settings.elo !== undefined &&
+        (!Number.isInteger(settings.elo) || settings.elo < 1320 || settings.elo > 3190))
+    )
+      return Promise.reject(new Error('Paramètres Stockfish invalides.'));
+    try {
+      new Chess(input.fen);
+      if (input.startFen) new Chess(input.startFen);
+      if (input.history.some((token) => !/^[a-h][1-8][a-h][1-8][qrbn]?$/.test(token)))
+        throw new Error();
+    } catch {
+      return Promise.reject(new Error('Position Stockfish invalide.'));
+    }
     return new Promise((resolve, reject) => {
       const job: Job = {
-        input: { fen: input.fen, history: [...input.history] },
+        input: {
+          fen: input.fen,
+          history: [...input.history],
+          ...(input.startFen ? { startFen: new Chess(input.startFen).fen() } : {}),
+        },
         settings: { ...settings },
         resolve,
         reject,
@@ -129,20 +168,34 @@ export class ComputerEngine implements SearchEngine {
     if (this.phase !== 'idle' || this.active || !this.queue.length) return;
     this.active = this.queue.shift()!;
     const { settings } = this.active;
+    if (
+      (settings.elo !== undefined && (!this.hasElo || !this.hasLimit)) ||
+      (settings.multiPV ?? 1) > this.multiPVMax
+    ) {
+      this.active.reject(new Error('Options de difficulté Stockfish indisponibles.'));
+      this.finish();
+      return;
+    }
     this.phase = 'sync';
     this.score = null;
     this.pv = [];
+    this.candidates.clear();
     this.status('thinking');
     this.watchdog(8000);
-    this.send('setoption name UCI_LimitStrength value false');
+    this.send(`setoption name UCI_LimitStrength value ${settings.elo !== undefined}`);
+    if (settings.elo !== undefined) this.send(`setoption name UCI_Elo value ${settings.elo}`);
     this.send(`setoption name Skill Level value ${settings.skill}`);
-    this.send('setoption name MultiPV value 1');
+    this.send(`setoption name MultiPV value ${settings.multiPV ?? 1}`);
     // The ready barrier drains old output before attributing scores to this position.
     this.send('isready');
   }
   private receive(line: string) {
     if (this.phase === 'dead') return;
     if (line.startsWith('option name Skill Level ')) this.hasSkill = true;
+    if (/^option name UCI_LimitStrength type check/.test(line)) this.hasLimit = true;
+    if (/^option name UCI_Elo type spin .*min 1320 max 3190$/.test(line)) this.hasElo = true;
+    const multiOption = line.match(/^option name MultiPV type spin .*max (\d+)$/);
+    if (multiOption) this.multiPVMax = Math.min(64, Number(multiOption[1]));
     if (line === 'uciok' && this.phase === 'boot' && !this.uciReceived) {
       this.uciReceived = true;
       if (!this.hasSkill) {
@@ -167,9 +220,11 @@ export class ComputerEngine implements SearchEngine {
         const { input, settings } = this.active;
         this.watchdog(settings.movetime + 8000);
         this.send(
-          `position startpos${input.history.length ? ` moves ${input.history.join(' ')}` : ''}`,
+          `position ${input.startFen ? `fen ${input.startFen}` : 'startpos'}${input.history.length ? ` moves ${input.history.join(' ')}` : ''}`,
         );
-        this.send(`go depth ${settings.depth} movetime ${settings.movetime}`);
+        this.send(
+          `go depth ${settings.depth} movetime ${settings.movetime}${settings.nodes ? ` nodes ${settings.nodes}` : ''}`,
+        );
       }
     } else if (this.phase === 'search' && this.active) {
       if (line.startsWith('bestmove ')) {
@@ -179,10 +234,16 @@ export class ComputerEngine implements SearchEngine {
             const game = new Chess(this.active.input.fen);
             playUci(game, bestMove);
             if (!this.score) throw new Error('Évaluation absente.');
+            const batches = [...this.candidates.values()];
+            const wanted = Math.min(this.active.settings.multiPV ?? 1, game.moves().length);
+            const batch = batches.filter((items) => items.size >= wanted).at(-1) ?? batches.at(-1);
             this.active.resolve({
               score: this.score,
               bestMove,
               pv: this.pv[0] === bestMove ? this.pv : [bestMove],
+              ...((this.active.settings.multiPV ?? 1) > 1
+                ? { candidates: [...(batch?.values() ?? [])] }
+                : {}),
             });
           } catch {
             this.active.reject(new Error('Réponse de Stockfish invalide. Réessaie.'));
@@ -190,13 +251,26 @@ export class ComputerEngine implements SearchEngine {
         }
         this.finish();
       } else if (!this.active.cancelled) {
-        const score = scoreFromInfo(line, this.active.input.fen);
+        const index = Number(line.match(/\bmultipv (\d+)\b/)?.[1] ?? 1);
+        const score =
+          index >= 1 && index <= (this.active.settings.multiPV ?? 1)
+            ? scoreFromInfo(line.replace(/\bmultipv \d+\b/, 'multipv 1'), this.active.input.fen)
+            : null;
         if (score) {
-          this.score = score;
-          this.pv = legalPv(
+          const pv = legalPv(
             this.active.input.fen,
             line.match(/\bpv (.+)$/)?.[1].split(/\s+/) ?? [],
           );
+          if (index === 1) {
+            this.score = score;
+            this.pv = pv;
+          }
+          if (pv.length) {
+            if (!this.candidates.has(score.depth)) this.candidates.set(score.depth, new Map());
+            this.candidates.get(score.depth)!.set(index, { move: pv[0], score, pv });
+            if (this.candidates.size > 2)
+              this.candidates.delete(this.candidates.keys().next().value!);
+          }
         }
       }
     }

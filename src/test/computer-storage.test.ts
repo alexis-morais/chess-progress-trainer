@@ -25,7 +25,7 @@ describe('Dernière partie : stockage local validé', () => {
     const storage = memory(),
       game = matedGame();
     saveLastGame(game, null, storage);
-    expect(saveLastGame(createGame('w', 'beginner'), null, storage)).toBe(false);
+    expect(saveLastGame(createGame('w', 3), null, storage)).toBe(false);
     expect(loadLastGame(storage)?.game).toEqual(game);
   });
   it('continue sans stockage si le navigateur le bloque', () => {

@@ -116,6 +116,7 @@ export function HomePage({
             Construis un répertoire solide. Découvre les bons coups, leurs idées et les occasions
             tactiques.
           </p>
+          <p className="mobile-path-caption">Apprendre & comprendre</p>
           <div className="pathway-facts">
             <span>
               <strong>{openings.length}</strong> ouvertures
@@ -155,7 +156,7 @@ export function HomePage({
           </p>
           <div className="pathway-facts">
             <span>
-              <strong>3</strong> niveaux
+              <strong>25</strong> niveaux
             </span>
             <span>
               <Target size={17} /> Analyse coup par coup

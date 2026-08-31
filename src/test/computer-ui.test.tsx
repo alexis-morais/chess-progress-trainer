@@ -30,7 +30,9 @@ class ProtocolWorker {
     queueMicrotask(() => {
       if (this.terminate.mock.calls.length) return;
       if (command === 'uci')
-        this.emit('option name Skill Level type spin default 20 min 0 max 20\nuciok');
+        this.emit(
+          'option name Skill Level type spin default 20 min 0 max 20\noption name MultiPV type spin default 1 min 1 max 256\noption name UCI_LimitStrength type check default false\noption name UCI_Elo type spin default 1320 min 1320 max 3190\nuciok',
+        );
       else if (command === 'isready') this.emit('readyok');
       else if (command.startsWith('position startpos')) {
         this.game = new Chess();
@@ -120,7 +122,9 @@ describe('Partie libre : parcours avec le véritable échiquier', () => {
     async (level) => {
       render(<ComputerMode onHome={vi.fn()} />);
       fireEvent.click(screen.getByRole('radio', { name: 'Noirs' }));
-      fireEvent.click(screen.getByRole('radio', { name: new RegExp(`^${level.name}`) }));
+      fireEvent.change(screen.getByRole('slider', { name: 'Niveau de l’ordinateur' }), {
+        target: { value: level.id },
+      });
       await start();
       await screen.findByRole('button', { name: 'e4, pion blanc' });
       expect(document.querySelector('.computer-board')).toHaveAttribute(

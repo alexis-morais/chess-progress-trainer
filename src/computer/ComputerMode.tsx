@@ -7,20 +7,15 @@ import { GameSession } from './GameSession';
 import { ReviewScreen } from './ReviewScreen';
 import { createGame, replayGame, resultReason, resultTitle } from './game';
 import { loadLastGame, saveLastGame } from './storage';
-import {
-  difficulties,
-  difficultyInfo,
-  type ColorChoice,
-  type Difficulty,
-  type GameRecord,
-  type ReviewReport,
-} from './types';
+import { type ColorChoice, type Difficulty, type GameRecord, type ReviewReport } from './types';
 import './computer.css';
+import { DifficultySelector } from './DifficultySelector';
+import { difficultyLabel, loadLevel, saveLevel } from './difficulty';
 
 export default function ComputerMode({ onHome }: { onHome: () => void }) {
   const [view, setView] = useState<'setup' | 'game' | 'finished' | 'review'>('setup');
   const [color, setColor] = useState<ColorChoice>('w');
-  const [difficulty, setDifficulty] = useState<Difficulty>('beginner');
+  const [difficulty, setDifficulty] = useState<Difficulty>(loadLevel);
   const [record, setRecord] = useState<GameRecord | null>(null);
   const [review, setReview] = useState<ReviewReport | null>(null);
   const [saved, setSaved] = useState(loadLastGame);
@@ -43,7 +38,10 @@ export default function ComputerMode({ onHome }: { onHome: () => void }) {
     [record],
   );
   return (
-    <main id="main" className={`computer-page page-width ${view !== 'setup' ? 'playing-page' : ''}`}>
+    <main
+      id="main"
+      className={`computer-page page-width ${view !== 'setup' ? 'playing-page' : 'mobile-setup'} ${view === 'game' ? 'mobile-focus' : ''}`}
+    >
       <div className="breadcrumb">
         <button onClick={onHome}>
           <ArrowLeft size={15} />
@@ -105,26 +103,13 @@ export default function ComputerMode({ onHome }: { onHome: () => void }) {
                   </label>
                 ))}
               </fieldset>
-              <fieldset className="difficulty-choices">
-                <legend>Choisis ton adversaire</legend>
-                {difficulties.map((item) => (
-                  <label className={difficulty === item.id ? 'selected' : ''} key={item.id}>
-                    <input
-                      type="radio"
-                      name="game-difficulty"
-                      checked={difficulty === item.id}
-                      onChange={() => setDifficulty(item.id)}
-                    />
-                    <span>
-                      <strong>{item.name}</strong>
-                      <small>{item.description}</small>
-                    </span>
-                    <span className="level-bars" aria-hidden="true">
-                      {String(difficulties.indexOf(item) + 1).padStart(2, '0')}
-                    </span>
-                  </label>
-                ))}
-              </fieldset>
+              <DifficultySelector
+                level={difficulty}
+                onChange={(level) => {
+                  setDifficulty(level);
+                  saveLevel(level);
+                }}
+              />
               <button
                 className="button primary"
                 onClick={() => {
@@ -137,8 +122,7 @@ export default function ComputerMode({ onHome }: { onHome: () => void }) {
                 Commencer la partie <ArrowRight size={18} />
               </button>
               <p className="computer-note">
-                Les niveaux ne correspondent pas à un Elo garanti. Même au niveau Débutant,
-                Stockfish peut trouver de bons coups.
+                Après la partie, explore tes coups avec un bilan analysé par Stockfish.
               </p>
             </section>
             <aside className="setup-aside">
@@ -185,7 +169,7 @@ export default function ComputerMode({ onHome }: { onHome: () => void }) {
                 <h3>Ta dernière partie</h3>
                 <p>
                   {resultTitle(saved.game)} · {sideName(saved.game.player)} ·{' '}
-                  {difficultyInfo(saved.game.difficulty).name} ·{' '}
+                  {difficultyLabel(saved.game.difficulty)} ·{' '}
                   {new Date(saved.game.completedAt!).toLocaleDateString('fr-FR')}
                 </p>
               </div>
@@ -267,7 +251,7 @@ function FinishedGame({
         <h1>{resultTitle(game)}</h1>
         <p className="result-reason">{resultReason(game.result!)}</p>
         <p>
-          {sideName(game.player)} · {difficultyInfo(game.difficulty).name}
+          {sideName(game.player)} · {difficultyLabel(game.difficulty)}
         </p>
         <p>{game.moves.length} demi-coups joués</p>
         <button className="button primary" onClick={onAnalyze}>

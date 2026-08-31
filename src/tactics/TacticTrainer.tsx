@@ -7,6 +7,7 @@ import { frenchSan, sideName } from '../data/openings';
 import { isExpectedMove, type TrainerState } from '../trainer/model';
 import { useTrainer } from '../trainer/useTrainer';
 import type { CompiledTactic } from './model';
+import { ExerciseFeedback, FocusTitle, mistakeMessage } from '../components/ExerciseFeedback';
 
 type Props = {
   lesson: CompiledTactic;
@@ -19,7 +20,12 @@ export function TacticTrainer({ lesson, onRestart, onBack, onNext }: Props) {
   const { state, dispatch, playerTurn, complete, fen } = useTrainer(lesson);
   const puzzle = lesson.puzzle;
   return (
-    <main id="main" className="trainer tactic-trainer page-width">
+    <main id="main" className="trainer tactic-trainer page-width mobile-focus">
+      <FocusTitle
+        title={puzzle.title}
+        subtitle={`Aux ${sideName(lesson.player)} de jouer · ${puzzle.difficulty}`}
+        onBack={onBack}
+      />
       <div className="breadcrumb">
         <button onClick={onBack}>
           <ArrowLeft size={15} />
@@ -43,6 +49,7 @@ export function TacticTrainer({ lesson, onRestart, onBack, onNext }: Props) {
         onHint={() => dispatch({ type: 'hint' })}
         onReveal={() => dispatch({ type: 'solution' })}
       />
+      <ExerciseFeedback state={state} kind="tactic" />
       <div className="training-layout">
         <section className="board-section" aria-label="Échiquier de la tactique">
           <div className="tactic-board-caption">
@@ -102,7 +109,7 @@ export function TacticTrainer({ lesson, onRestart, onBack, onNext }: Props) {
             </strong>
             <p>
               {state.feedback === 'incorrect'
-                ? 'Ce n’est pas le coup attendu dans cette combinaison. Essaie encore.'
+                ? mistakeMessage(state, 'tactic')
                 : state.feedback === 'correct'
                   ? complete
                     ? 'La combinaison est terminée.'

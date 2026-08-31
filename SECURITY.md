@@ -1,5 +1,15 @@
 # Audit local de sécurité — 31 août 2026
 
+## Complément mobile et difficulté 1–25
+
+Nouvel audit des dépendances : **aucune vulnérabilité connue** (11 dépendances d’exécution, 208 de développement, 219 au total). Le détecteur de secrets ne relève aucun résultat positif dans les sources et les 7 commits locaux accessibles, soit 215 blobs texte historiques. Aucun commit n’a été créé par cette mise à jour.
+
+Les profils numériques sont bornés à 1–25. Le dernier niveau tolère un stockage absent, inaccessible ou corrompu. Les anciennes difficultés sont migrées vers 3/8/25, avec revalidation de la partie et de son bilan. Les options UCI sont contrôlées selon les bornes réellement annoncées ; FEN, historique et PV sont validés, les lignes trop longues ignorées, les recherches restent séquentielles et annulables. Le bilan réinitialise les options pour ne jamais hériter de l’affaiblissement du jeu.
+
+CSP, no-referrer, permissions GitHub Actions, licences et timeout CI de 20 secondes restent en place. Aucune nouvelle dépendance, API, ressource distante, clé ou collecte de données. Deux processus de test au maximum limitent seulement la contention CPU ; les mêmes tests restent bloquants.
+
+Le rapport ci-dessous décrit les protections héritées ; la migration des anciennes difficultés constitue l’ajout de cette version.
+
 Application React/Vite statique, sans compte, serveur applicatif, paiement, clé API ou collecte de données. Cet audit porte sur les sources, la configuration, les fichiers publics, le build et les six commits accessibles dans l’historique Git local. Ce n’est pas une certification ni un test d’intrusion exhaustif.
 
 ## Constats et corrections

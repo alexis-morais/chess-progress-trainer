@@ -24,6 +24,8 @@ export type TrainerState = {
   ply: number;
   completed: number;
   errors: number;
+  moveErrors: number;
+  mistake: 'illegal' | 'off-line' | null;
   hints: number;
   hintVisible: boolean;
   solutionVisible: boolean;
@@ -94,6 +96,8 @@ export const initialState = (): TrainerState => ({
   ply: 0,
   completed: 0,
   errors: 0,
+  moveErrors: 0,
+  mistake: null,
   hints: 0,
   hintVisible: false,
   solutionVisible: false,
@@ -137,6 +141,8 @@ export function reduceTrainer(
     return {
       ...state,
       ply: state.ply + 1,
+      moveErrors: 0,
+      mistake: null,
       hintVisible: false,
       solutionVisible: false,
       boardFeedback: null,
@@ -149,9 +155,21 @@ export function reduceTrainer(
       ? state
       : { ...state, hints: state.hints + 1, solutionVisible: true };
   if (!isExpectedMove(lesson, state, action.from, action.to, action.promotion)) {
+    let mistake: TrainerState['mistake'] = 'off-line';
+    try {
+      new Chess(lesson.positions[state.ply]).move({
+        from: action.from,
+        to: action.to,
+        promotion: action.promotion,
+      });
+    } catch {
+      mistake = 'illegal';
+    }
     return {
       ...state,
       errors: state.errors + 1,
+      moveErrors: state.moveErrors + 1,
+      mistake,
       feedback: 'incorrect',
       attemptId: state.attemptId + 1,
       boardFeedback: { id: state.attemptId + 1, kind: 'incorrect', square: action.to },
@@ -161,6 +179,8 @@ export function reduceTrainer(
     ...state,
     ply: state.ply + 1,
     completed: state.completed + 1,
+    moveErrors: 0,
+    mistake: null,
     hintVisible: false,
     solutionVisible: false,
     feedback: 'correct',

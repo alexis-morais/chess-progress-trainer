@@ -6,6 +6,8 @@ import { ComputerBoard, ChoiceDialog, type BoardMark } from './ComputerBoard';
 import { attemptMove, otherSide, replayGame, resign } from './game';
 import { difficultyInfo, type EngineStatus, type GameRecord } from './types';
 import { MoveHistory } from './MoveHistory';
+import { searchForLevel } from './chooseMove';
+import { difficultyLabel } from './difficulty';
 
 export function GameSession({
   initial,
@@ -46,16 +48,17 @@ export function GameSession({
     const controller = new AbortController();
     const expectedPly = record.moves.length;
     const timer = window.setTimeout(() => {
-      engine.current
-        ?.search(
-          { fen: replay.game.fen(), history: record.moves },
-          difficulty.settings,
-          controller.signal,
-        )
+      if (!engine.current) return;
+      searchForLevel(
+        engine.current,
+        { fen: replay.game.fen(), history: record.moves },
+        record.difficulty,
+        controller.signal,
+      )
         .then((reply) => {
           if (controller.signal.aborted) return;
           const before = current.current;
-          const next = attemptMove(before, 'computer', reply.bestMove ?? '', expectedPly);
+          const next = attemptMove(before, 'computer', reply ?? '', expectedPly);
           if (next === before) {
             setError('La réponse du moteur n’est pas valide. Relance Stockfish.');
             return;
@@ -97,7 +100,9 @@ export function GameSession({
           </div>
           <div>
             <strong>Ordinateur · {difficulty.name}</strong>
-            <span>{sideName(otherSide(record.player))}</span>
+            <span>
+              {sideName(otherSide(record.player))} · {difficulty.category} · ≈ {difficulty.elo} Elo
+            </span>
           </div>
         </div>
         <ComputerBoard
@@ -147,7 +152,7 @@ export function GameSession({
             Vous jouez : <strong>{sideName(record.player)}</strong>
           </span>
           <span>
-            Niveau : <strong>{difficulty.name}</strong>
+            Force : <strong>{difficultyLabel(record.difficulty)}</strong>
           </span>
         </div>
         <div className="game-live-status" aria-live="polite">

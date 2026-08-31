@@ -3,7 +3,7 @@ import { attemptMove, createGame, replayGame, terminalScore, uci } from '../../c
 import type { PositionAnalysis } from '../../computer/types';
 
 export function matedGame(player: 'w' | 'b' = 'w') {
-  let game = createGame(player, 'intermediate');
+  let game = createGame(player, 8);
   ['f2f3', 'e7e5', 'g2g4', 'd8h4'].forEach((move, index) => {
     game = attemptMove(game, (index % 2 ? 'b' : 'w') === player ? 'player' : 'computer', move);
   });

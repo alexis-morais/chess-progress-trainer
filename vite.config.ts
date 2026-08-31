@@ -12,6 +12,8 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: ['./src/test/setup.ts'],
     restoreMocks: true,
+    // Bound concurrent jsdom/board renders to avoid CPU contention on laptops and CI.
+    maxWorkers: 2,
     // The real chessboard UI can exceed 5 s on shared GitHub runners. Keep local failures fast.
     testTimeout: process.env.CI ? 20_000 : 5_000,
   },

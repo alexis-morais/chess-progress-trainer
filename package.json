@@ -16,7 +16,8 @@
     "test:watch": "vitest",
     "check": "pnpm test && pnpm build",
     "licenses": "node scripts/collect-licenses.mjs",
-    "validate:tactics": "node scripts/validate-tactics.mjs"
+    "validate:tactics": "node scripts/validate-tactics.mjs",
+    "validate:difficulty": "node scripts/validate-difficulty.mjs"
   },
   "dependencies": {
     "chess.js": "1.4.0",

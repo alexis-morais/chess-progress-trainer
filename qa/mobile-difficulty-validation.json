@@ -1,0 +1,1600 @@
+{
+  "date": "2026-08-31",
+  "browser": "Chromium intégré, dimensions simulées",
+  "home": [
+    {
+      "cards": [
+        {
+          "arrowHit": true,
+          "arrowInside": true,
+          "bottom": 559.5,
+          "label": null,
+          "width": 143
+        },
+        {
+          "arrowHit": true,
+          "arrowInside": true,
+          "bottom": 559.5,
+          "label": null,
+          "width": 143
+        }
+      ],
+      "height": 568,
+      "overflow": false,
+      "theme": "dark",
+      "width": 320
+    },
+    {
+      "cards": [
+        {
+          "arrowHit": true,
+          "arrowInside": true,
+          "bottom": 715.5,
+          "label": null,
+          "width": 170.5
+        },
+        {
+          "arrowHit": true,
+          "arrowInside": true,
+          "bottom": 715.5,
+          "label": null,
+          "width": 170.5
+        }
+      ],
+      "height": 812,
+      "overflow": false,
+      "theme": "dark",
+      "width": 375
+    },
+    {
+      "cards": [
+        {
+          "arrowHit": true,
+          "arrowInside": true,
+          "bottom": 715.5,
+          "label": null,
+          "width": 178
+        },
+        {
+          "arrowHit": true,
+          "arrowInside": true,
+          "bottom": 715.5,
+          "label": null,
+          "width": 178
+        }
+      ],
+      "height": 844,
+      "overflow": false,
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "cards": [
+        {
+          "arrowHit": true,
+          "arrowInside": true,
+          "bottom": 715.5,
+          "label": null,
+          "width": 198
+        },
+        {
+          "arrowHit": true,
+          "arrowInside": true,
+          "bottom": 715.5,
+          "label": null,
+          "width": 198
+        }
+      ],
+      "height": 932,
+      "overflow": false,
+      "theme": "dark",
+      "width": 430
+    },
+    {
+      "cards": [
+        {
+          "arrowHit": true,
+          "arrowInside": true,
+          "bottom": 910.8984375,
+          "label": null,
+          "width": 370
+        },
+        {
+          "arrowHit": true,
+          "arrowInside": true,
+          "bottom": 910.8984375,
+          "label": null,
+          "width": 370
+        }
+      ],
+      "height": 1180,
+      "overflow": false,
+      "theme": "dark",
+      "width": 820
+    },
+    {
+      "cards": [
+        {
+          "arrowHit": true,
+          "arrowInside": true,
+          "bottom": 937.6953125,
+          "label": null,
+          "width": 660
+        },
+        {
+          "arrowHit": true,
+          "arrowInside": true,
+          "bottom": 937.6953125,
+          "label": null,
+          "width": 660
+        }
+      ],
+      "height": 1000,
+      "overflow": false,
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "cards": [
+        {
+          "arrowHit": true,
+          "arrowInside": true,
+          "bottom": 559.5,
+          "label": null,
+          "width": 143
+        },
+        {
+          "arrowHit": true,
+          "arrowInside": true,
+          "bottom": 559.5,
+          "label": null,
+          "width": 143
+        }
+      ],
+      "height": 568,
+      "overflow": false,
+      "theme": "light",
+      "width": 320
+    },
+    {
+      "cards": [
+        {
+          "arrowHit": true,
+          "arrowInside": true,
+          "bottom": 715.5,
+          "label": null,
+          "width": 170.5
+        },
+        {
+          "arrowHit": true,
+          "arrowInside": true,
+          "bottom": 715.5,
+          "label": null,
+          "width": 170.5
+        }
+      ],
+      "height": 812,
+      "overflow": false,
+      "theme": "light",
+      "width": 375
+    },
+    {
+      "cards": [
+        {
+          "arrowHit": true,
+          "arrowInside": true,
+          "bottom": 715.5,
+          "label": null,
+          "width": 178
+        },
+        {
+          "arrowHit": true,
+          "arrowInside": true,
+          "bottom": 715.5,
+          "label": null,
+          "width": 178
+        }
+      ],
+      "height": 844,
+      "overflow": false,
+      "theme": "light",
+      "width": 390
+    },
+    {
+      "cards": [
+        {
+          "arrowHit": true,
+          "arrowInside": true,
+          "bottom": 715.5,
+          "label": null,
+          "width": 198
+        },
+        {
+          "arrowHit": true,
+          "arrowInside": true,
+          "bottom": 715.5,
+          "label": null,
+          "width": 198
+        }
+      ],
+      "height": 932,
+      "overflow": false,
+      "theme": "light",
+      "width": 430
+    },
+    {
+      "cards": [
+        {
+          "arrowHit": true,
+          "arrowInside": true,
+          "bottom": 910.8984375,
+          "label": null,
+          "width": 370
+        },
+        {
+          "arrowHit": true,
+          "arrowInside": true,
+          "bottom": 910.8984375,
+          "label": null,
+          "width": 370
+        }
+      ],
+      "height": 1180,
+      "overflow": false,
+      "theme": "light",
+      "width": 820
+    },
+    {
+      "cards": [
+        {
+          "arrowHit": true,
+          "arrowInside": true,
+          "bottom": 937.6953125,
+          "label": null,
+          "width": 660
+        },
+        {
+          "arrowHit": true,
+          "arrowInside": true,
+          "bottom": 937.6953125,
+          "label": null,
+          "width": 660
+        }
+      ],
+      "height": 1000,
+      "overflow": false,
+      "theme": "light",
+      "width": 1440
+    }
+  ],
+  "measurements": [
+    {
+      "scene": "configuration-sombre-verifie",
+      "board": null,
+      "cards": [],
+      "feedback": null,
+      "height": 568,
+      "help": null,
+      "issues": [],
+      "overflow": false,
+      "scroll": 0,
+      "start": {
+        "bottom": 524,
+        "width": 254,
+        "x": 33,
+        "y": 476
+      },
+      "theme": "dark",
+      "width": 320
+    },
+    {
+      "scene": "configuration-sombre-verifie",
+      "board": null,
+      "cards": [],
+      "feedback": null,
+      "height": 812,
+      "help": null,
+      "issues": [],
+      "overflow": false,
+      "scroll": 0,
+      "start": {
+        "bottom": 509,
+        "width": 309,
+        "x": 33,
+        "y": 461
+      },
+      "theme": "dark",
+      "width": 375
+    },
+    {
+      "scene": "configuration-sombre-verifie",
+      "board": null,
+      "cards": [],
+      "feedback": null,
+      "height": 844,
+      "help": null,
+      "issues": [],
+      "overflow": false,
+      "scroll": 0,
+      "start": {
+        "bottom": 509,
+        "width": 324,
+        "x": 33,
+        "y": 461
+      },
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "scene": "configuration-sombre-verifie",
+      "board": null,
+      "cards": [],
+      "feedback": null,
+      "height": 932,
+      "help": null,
+      "issues": [],
+      "overflow": false,
+      "scroll": 0,
+      "start": {
+        "bottom": 509,
+        "width": 364,
+        "x": 33,
+        "y": 461
+      },
+      "theme": "dark",
+      "width": 430
+    },
+    {
+      "scene": "configuration-sombre-verifie",
+      "board": null,
+      "cards": [],
+      "feedback": null,
+      "height": 1180,
+      "help": null,
+      "issues": [],
+      "overflow": false,
+      "scroll": 0,
+      "start": {
+        "bottom": 955,
+        "width": 686,
+        "x": 67,
+        "y": 907
+      },
+      "theme": "dark",
+      "width": 820
+    },
+    {
+      "scene": "configuration-sombre-verifie",
+      "board": null,
+      "cards": [],
+      "feedback": null,
+      "height": 1000,
+      "help": null,
+      "issues": [],
+      "overflow": false,
+      "scroll": 0,
+      "start": {
+        "bottom": 1055,
+        "width": 611,
+        "x": 81,
+        "y": 1007
+      },
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "scene": "partie-libre-claire",
+      "board": {
+        "bottom": 478,
+        "width": 304,
+        "x": 8,
+        "y": 174
+      },
+      "cards": [],
+      "feedback": null,
+      "height": 568,
+      "help": null,
+      "issues": [],
+      "overflow": false,
+      "scroll": 0,
+      "start": null,
+      "theme": "light",
+      "width": 320
+    },
+    {
+      "scene": "partie-libre-claire",
+      "board": {
+        "bottom": 533,
+        "width": 359,
+        "x": 8,
+        "y": 174
+      },
+      "cards": [],
+      "feedback": null,
+      "height": 812,
+      "help": null,
+      "issues": [],
+      "overflow": false,
+      "scroll": 0,
+      "start": null,
+      "theme": "light",
+      "width": 375
+    },
+    {
+      "scene": "partie-libre-claire",
+      "board": {
+        "bottom": 548,
+        "width": 374,
+        "x": 8,
+        "y": 174
+      },
+      "cards": [],
+      "feedback": null,
+      "height": 844,
+      "help": null,
+      "issues": [],
+      "overflow": false,
+      "scroll": 0,
+      "start": null,
+      "theme": "light",
+      "width": 390
+    },
+    {
+      "scene": "partie-libre-claire",
+      "board": {
+        "bottom": 588,
+        "width": 414,
+        "x": 8,
+        "y": 174
+      },
+      "cards": [],
+      "feedback": null,
+      "height": 932,
+      "help": null,
+      "issues": [],
+      "overflow": false,
+      "scroll": 0,
+      "start": null,
+      "theme": "light",
+      "width": 430
+    },
+    {
+      "scene": "partie-libre-claire",
+      "board": {
+        "bottom": 1042,
+        "width": 740,
+        "x": 40,
+        "y": 302
+      },
+      "cards": [],
+      "feedback": null,
+      "height": 1180,
+      "help": null,
+      "issues": [],
+      "overflow": false,
+      "scroll": 0,
+      "start": null,
+      "theme": "light",
+      "width": 820
+    },
+    {
+      "scene": "partie-libre-claire",
+      "board": {
+        "bottom": 1132,
+        "width": 830,
+        "x": 119,
+        "y": 302
+      },
+      "cards": [],
+      "feedback": null,
+      "height": 1000,
+      "help": null,
+      "issues": [],
+      "overflow": false,
+      "scroll": 0,
+      "start": null,
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "scene": "ouverture-blancs-essentielle-clair",
+      "board": {
+        "bottom": 505,
+        "width": 304,
+        "x": 8,
+        "y": 201
+      },
+      "cards": [],
+      "feedback": {
+        "bottom": 201,
+        "width": 304,
+        "x": 8,
+        "y": 179
+      },
+      "height": 568,
+      "help": {
+        "bottom": 179,
+        "width": 174,
+        "x": 12,
+        "y": 135
+      },
+      "issues": [],
+      "overflow": false,
+      "scroll": 0,
+      "start": null,
+      "theme": "light",
+      "width": 320
+    },
+    {
+      "scene": "ouverture-blancs-essentielle-clair",
+      "board": {
+        "bottom": 560,
+        "width": 359,
+        "x": 8,
+        "y": 201
+      },
+      "cards": [],
+      "feedback": {
+        "bottom": 201,
+        "width": 359,
+        "x": 8,
+        "y": 179
+      },
+      "height": 812,
+      "help": {
+        "bottom": 179,
+        "width": 174,
+        "x": 12,
+        "y": 135
+      },
+      "issues": [],
+      "overflow": false,
+      "scroll": 0,
+      "start": null,
+      "theme": "light",
+      "width": 375
+    },
+    {
+      "scene": "ouverture-blancs-essentielle-clair",
+      "board": {
+        "bottom": 575,
+        "width": 374,
+        "x": 8,
+        "y": 201
+      },
+      "cards": [],
+      "feedback": {
+        "bottom": 201,
+        "width": 374,
+        "x": 8,
+        "y": 179
+      },
+      "height": 844,
+      "help": {
+        "bottom": 179,
+        "width": 174,
+        "x": 12,
+        "y": 135
+      },
+      "issues": [],
+      "overflow": false,
+      "scroll": 0,
+      "start": null,
+      "theme": "light",
+      "width": 390
+    },
+    {
+      "scene": "ouverture-blancs-essentielle-clair",
+      "board": {
+        "bottom": 615,
+        "width": 414,
+        "x": 8,
+        "y": 201
+      },
+      "cards": [],
+      "feedback": {
+        "bottom": 201,
+        "width": 414,
+        "x": 8,
+        "y": 179
+      },
+      "height": 932,
+      "help": {
+        "bottom": 179,
+        "width": 174,
+        "x": 12,
+        "y": 135
+      },
+      "issues": [],
+      "overflow": false,
+      "scroll": 0,
+      "start": null,
+      "theme": "light",
+      "width": 430
+    },
+    {
+      "scene": "ouverture-blancs-essentielle-clair",
+      "board": {
+        "bottom": 1108,
+        "width": 702,
+        "x": 78,
+        "y": 406
+      },
+      "cards": [],
+      "feedback": {
+        "bottom": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "height": 1180,
+      "help": {
+        "bottom": 317,
+        "width": 300,
+        "x": 59,
+        "y": 269
+      },
+      "issues": [],
+      "overflow": false,
+      "scroll": 0,
+      "start": null,
+      "theme": "light",
+      "width": 820
+    },
+    {
+      "scene": "ouverture-blancs-essentielle-clair",
+      "board": {
+        "bottom": 1238,
+        "width": 832,
+        "x": 137,
+        "y": 406
+      },
+      "cards": [],
+      "feedback": {
+        "bottom": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "height": 1000,
+      "help": {
+        "bottom": 317,
+        "width": 300,
+        "x": 67,
+        "y": 269
+      },
+      "issues": [],
+      "overflow": false,
+      "scroll": 0,
+      "start": null,
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "scene": "ouverture-noirs-etendue-sombre",
+      "board": {
+        "bottom": 505,
+        "width": 304,
+        "x": 8,
+        "y": 201
+      },
+      "cards": [],
+      "feedback": {
+        "bottom": 201,
+        "width": 304,
+        "x": 8,
+        "y": 179
+      },
+      "height": 568,
+      "help": {
+        "bottom": 179,
+        "width": 174,
+        "x": 12,
+        "y": 135
+      },
+      "issues": [],
+      "overflow": false,
+      "scroll": 0,
+      "start": null,
+      "theme": "dark",
+      "width": 320
+    },
+    {
+      "scene": "ouverture-noirs-etendue-sombre",
+      "board": {
+        "bottom": 560,
+        "width": 359,
+        "x": 8,
+        "y": 201
+      },
+      "cards": [],
+      "feedback": {
+        "bottom": 201,
+        "width": 359,
+        "x": 8,
+        "y": 179
+      },
+      "height": 812,
+      "help": {
+        "bottom": 179,
+        "width": 174,
+        "x": 12,
+        "y": 135
+      },
+      "issues": [],
+      "overflow": false,
+      "scroll": 0,
+      "start": null,
+      "theme": "dark",
+      "width": 375
+    },
+    {
+      "scene": "ouverture-noirs-etendue-sombre",
+      "board": {
+        "bottom": 575,
+        "width": 374,
+        "x": 8,
+        "y": 201
+      },
+      "cards": [],
+      "feedback": {
+        "bottom": 201,
+        "width": 374,
+        "x": 8,
+        "y": 179
+      },
+      "height": 844,
+      "help": {
+        "bottom": 179,
+        "width": 174,
+        "x": 12,
+        "y": 135
+      },
+      "issues": [],
+      "overflow": false,
+      "scroll": 0,
+      "start": null,
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "scene": "ouverture-noirs-etendue-sombre",
+      "board": {
+        "bottom": 615,
+        "width": 414,
+        "x": 8,
+        "y": 201
+      },
+      "cards": [],
+      "feedback": {
+        "bottom": 201,
+        "width": 414,
+        "x": 8,
+        "y": 179
+      },
+      "height": 932,
+      "help": {
+        "bottom": 179,
+        "width": 174,
+        "x": 12,
+        "y": 135
+      },
+      "issues": [],
+      "overflow": false,
+      "scroll": 0,
+      "start": null,
+      "theme": "dark",
+      "width": 430
+    },
+    {
+      "scene": "ouverture-noirs-etendue-sombre",
+      "board": {
+        "bottom": 1108,
+        "width": 702,
+        "x": 78,
+        "y": 406
+      },
+      "cards": [],
+      "feedback": {
+        "bottom": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "height": 1180,
+      "help": {
+        "bottom": 317,
+        "width": 300,
+        "x": 59,
+        "y": 269
+      },
+      "issues": [],
+      "overflow": false,
+      "scroll": 0,
+      "start": null,
+      "theme": "dark",
+      "width": 820
+    },
+    {
+      "scene": "ouverture-noirs-etendue-sombre",
+      "board": {
+        "bottom": 1238,
+        "width": 832,
+        "x": 137,
+        "y": 406
+      },
+      "cards": [],
+      "feedback": {
+        "bottom": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "height": 1000,
+      "help": {
+        "bottom": 317,
+        "width": 300,
+        "x": 67,
+        "y": 269
+      },
+      "issues": [],
+      "overflow": false,
+      "scroll": 0,
+      "start": null,
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "scene": "tactique-noirs-sombre",
+      "board": {
+        "bottom": 505,
+        "width": 304,
+        "x": 8,
+        "y": 201
+      },
+      "cards": [],
+      "feedback": {
+        "bottom": 201,
+        "width": 304,
+        "x": 8,
+        "y": 179
+      },
+      "height": 568,
+      "help": {
+        "bottom": 179,
+        "width": 174,
+        "x": 12,
+        "y": 135
+      },
+      "issues": [],
+      "overflow": false,
+      "scroll": 0,
+      "start": null,
+      "theme": "dark",
+      "width": 320
+    },
+    {
+      "scene": "tactique-noirs-sombre",
+      "board": {
+        "bottom": 560,
+        "width": 359,
+        "x": 8,
+        "y": 201
+      },
+      "cards": [],
+      "feedback": {
+        "bottom": 201,
+        "width": 359,
+        "x": 8,
+        "y": 179
+      },
+      "height": 812,
+      "help": {
+        "bottom": 179,
+        "width": 174,
+        "x": 12,
+        "y": 135
+      },
+      "issues": [],
+      "overflow": false,
+      "scroll": 0,
+      "start": null,
+      "theme": "dark",
+      "width": 375
+    },
+    {
+      "scene": "tactique-noirs-sombre",
+      "board": {
+        "bottom": 575,
+        "width": 374,
+        "x": 8,
+        "y": 201
+      },
+      "cards": [],
+      "feedback": {
+        "bottom": 201,
+        "width": 374,
+        "x": 8,
+        "y": 179
+      },
+      "height": 844,
+      "help": {
+        "bottom": 179,
+        "width": 174,
+        "x": 12,
+        "y": 135
+      },
+      "issues": [],
+      "overflow": false,
+      "scroll": 0,
+      "start": null,
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "scene": "tactique-noirs-sombre",
+      "board": {
+        "bottom": 615,
+        "width": 414,
+        "x": 8,
+        "y": 201
+      },
+      "cards": [],
+      "feedback": {
+        "bottom": 201,
+        "width": 414,
+        "x": 8,
+        "y": 179
+      },
+      "height": 932,
+      "help": {
+        "bottom": 179,
+        "width": 174,
+        "x": 12,
+        "y": 135
+      },
+      "issues": [],
+      "overflow": false,
+      "scroll": 0,
+      "start": null,
+      "theme": "dark",
+      "width": 430
+    },
+    {
+      "scene": "tactique-noirs-sombre",
+      "board": {
+        "bottom": 1126,
+        "width": 740,
+        "x": 40,
+        "y": 386
+      },
+      "cards": [],
+      "feedback": {
+        "bottom": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "height": 1180,
+      "help": {
+        "bottom": 317,
+        "width": 300,
+        "x": 59,
+        "y": 269
+      },
+      "issues": [],
+      "overflow": false,
+      "scroll": 0,
+      "start": null,
+      "theme": "dark",
+      "width": 820
+    },
+    {
+      "scene": "tactique-noirs-sombre",
+      "board": {
+        "bottom": 1256,
+        "width": 870,
+        "x": 99,
+        "y": 386
+      },
+      "cards": [],
+      "feedback": {
+        "bottom": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "height": 1000,
+      "help": {
+        "bottom": 317,
+        "width": 300,
+        "x": 67,
+        "y": 269
+      },
+      "issues": [],
+      "overflow": false,
+      "scroll": 0,
+      "start": null,
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "scene": "bilan-clair-final",
+      "board": {
+        "bottom": -135,
+        "width": 304,
+        "x": 8,
+        "y": -439
+      },
+      "cards": [],
+      "feedback": null,
+      "height": 568,
+      "help": null,
+      "issues": [],
+      "overflow": false,
+      "scroll": 1571,
+      "start": null,
+      "theme": "light",
+      "width": 320
+    },
+    {
+      "scene": "bilan-clair-final",
+      "board": {
+        "bottom": -95,
+        "width": 359,
+        "x": 8,
+        "y": -454
+      },
+      "cards": [],
+      "feedback": null,
+      "height": 812,
+      "help": null,
+      "issues": [],
+      "overflow": false,
+      "scroll": 1571,
+      "start": null,
+      "theme": "light",
+      "width": 375
+    },
+    {
+      "scene": "bilan-clair-final",
+      "board": {
+        "bottom": -95,
+        "width": 374,
+        "x": 8,
+        "y": -469
+      },
+      "cards": [],
+      "feedback": null,
+      "height": 844,
+      "help": null,
+      "issues": [],
+      "overflow": false,
+      "scroll": 1571,
+      "start": null,
+      "theme": "light",
+      "width": 390
+    },
+    {
+      "scene": "bilan-clair-final",
+      "board": {
+        "bottom": -55,
+        "width": 414,
+        "x": 8,
+        "y": -469
+      },
+      "cards": [],
+      "feedback": null,
+      "height": 932,
+      "help": null,
+      "issues": [],
+      "overflow": false,
+      "scroll": 1571,
+      "start": null,
+      "theme": "light",
+      "width": 430
+    },
+    {
+      "scene": "bilan-clair-final",
+      "board": {
+        "bottom": 61,
+        "width": 740,
+        "x": 40,
+        "y": -679
+      },
+      "cards": [],
+      "feedback": null,
+      "height": 1180,
+      "help": null,
+      "issues": [],
+      "overflow": false,
+      "scroll": 1560.5,
+      "start": null,
+      "theme": "light",
+      "width": 820
+    },
+    {
+      "scene": "bilan-clair-final",
+      "board": {
+        "bottom": 700,
+        "width": 830,
+        "x": 119,
+        "y": -130
+      },
+      "cards": [],
+      "feedback": null,
+      "height": 1000,
+      "help": null,
+      "issues": [],
+      "overflow": false,
+      "scroll": 990,
+      "start": null,
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "scene": "bilan-sombre-final",
+      "board": {
+        "bottom": 1436,
+        "width": 304,
+        "x": 8,
+        "y": 1132
+      },
+      "cards": [],
+      "feedback": null,
+      "height": 568,
+      "help": null,
+      "issues": [],
+      "overflow": false,
+      "scroll": 0,
+      "start": null,
+      "theme": "dark",
+      "width": 320
+    },
+    {
+      "scene": "bilan-sombre-final",
+      "board": {
+        "bottom": 1476,
+        "width": 359,
+        "x": 8,
+        "y": 1117
+      },
+      "cards": [],
+      "feedback": null,
+      "height": 812,
+      "help": null,
+      "issues": [],
+      "overflow": false,
+      "scroll": 0,
+      "start": null,
+      "theme": "dark",
+      "width": 375
+    },
+    {
+      "scene": "bilan-sombre-final",
+      "board": {
+        "bottom": 1476,
+        "width": 374,
+        "x": 8,
+        "y": 1102
+      },
+      "cards": [],
+      "feedback": null,
+      "height": 844,
+      "help": null,
+      "issues": [],
+      "overflow": false,
+      "scroll": 0,
+      "start": null,
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "scene": "bilan-sombre-final",
+      "board": {
+        "bottom": 1516,
+        "width": 414,
+        "x": 8,
+        "y": 1102
+      },
+      "cards": [],
+      "feedback": null,
+      "height": 932,
+      "help": null,
+      "issues": [],
+      "overflow": false,
+      "scroll": 0,
+      "start": null,
+      "theme": "dark",
+      "width": 430
+    },
+    {
+      "scene": "bilan-sombre-final",
+      "board": {
+        "bottom": 1622,
+        "width": 740,
+        "x": 40,
+        "y": 882
+      },
+      "cards": [],
+      "feedback": null,
+      "height": 1180,
+      "help": null,
+      "issues": [],
+      "overflow": false,
+      "scroll": 0,
+      "start": null,
+      "theme": "dark",
+      "width": 820
+    },
+    {
+      "scene": "bilan-sombre-final",
+      "board": {
+        "bottom": 1690,
+        "width": 830,
+        "x": 119,
+        "y": 860
+      },
+      "cards": [],
+      "feedback": null,
+      "height": 1000,
+      "help": null,
+      "issues": [],
+      "overflow": false,
+      "scroll": 0,
+      "start": null,
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "scene": "configuration-claire-finale",
+      "board": null,
+      "cards": [],
+      "feedback": null,
+      "height": 568,
+      "help": null,
+      "issues": [],
+      "overflow": false,
+      "scroll": 0,
+      "start": {
+        "bottom": 524,
+        "width": 254,
+        "x": 33,
+        "y": 476
+      },
+      "theme": "light",
+      "width": 320
+    },
+    {
+      "scene": "configuration-claire-finale",
+      "board": null,
+      "cards": [],
+      "feedback": null,
+      "height": 812,
+      "help": null,
+      "issues": [],
+      "overflow": false,
+      "scroll": 0,
+      "start": {
+        "bottom": 509,
+        "width": 309,
+        "x": 33,
+        "y": 461
+      },
+      "theme": "light",
+      "width": 375
+    },
+    {
+      "scene": "configuration-claire-finale",
+      "board": null,
+      "cards": [],
+      "feedback": null,
+      "height": 844,
+      "help": null,
+      "issues": [],
+      "overflow": false,
+      "scroll": 0,
+      "start": {
+        "bottom": 509,
+        "width": 324,
+        "x": 33,
+        "y": 461
+      },
+      "theme": "light",
+      "width": 390
+    },
+    {
+      "scene": "configuration-claire-finale",
+      "board": null,
+      "cards": [],
+      "feedback": null,
+      "height": 932,
+      "help": null,
+      "issues": [],
+      "overflow": false,
+      "scroll": 0,
+      "start": {
+        "bottom": 509,
+        "width": 364,
+        "x": 33,
+        "y": 461
+      },
+      "theme": "light",
+      "width": 430
+    },
+    {
+      "scene": "configuration-claire-finale",
+      "board": null,
+      "cards": [],
+      "feedback": null,
+      "height": 1180,
+      "help": null,
+      "issues": [],
+      "overflow": false,
+      "scroll": 0,
+      "start": {
+        "bottom": 955,
+        "width": 686,
+        "x": 67,
+        "y": 907
+      },
+      "theme": "light",
+      "width": 820
+    },
+    {
+      "scene": "configuration-claire-finale",
+      "board": null,
+      "cards": [],
+      "feedback": null,
+      "height": 1000,
+      "help": null,
+      "issues": [],
+      "overflow": false,
+      "scroll": 0,
+      "start": {
+        "bottom": 1055,
+        "width": 611,
+        "x": 81,
+        "y": 1007
+      },
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "scene": "tactique-noirs-clair-final",
+      "board": {
+        "bottom": 506,
+        "width": 304,
+        "x": 8,
+        "y": 202
+      },
+      "cards": [],
+      "feedback": {
+        "bottom": 202,
+        "width": 304,
+        "x": 8,
+        "y": 180
+      },
+      "height": 568,
+      "help": {
+        "bottom": 180,
+        "width": 174,
+        "x": 12,
+        "y": 136
+      },
+      "issues": [],
+      "overflow": false,
+      "scroll": 0,
+      "start": null,
+      "theme": "light",
+      "width": 320
+    },
+    {
+      "scene": "tactique-noirs-clair-final",
+      "board": {
+        "bottom": 561,
+        "width": 359,
+        "x": 8,
+        "y": 202
+      },
+      "cards": [],
+      "feedback": {
+        "bottom": 202,
+        "width": 359,
+        "x": 8,
+        "y": 180
+      },
+      "height": 812,
+      "help": {
+        "bottom": 180,
+        "width": 174,
+        "x": 12,
+        "y": 136
+      },
+      "issues": [],
+      "overflow": false,
+      "scroll": 0,
+      "start": null,
+      "theme": "light",
+      "width": 375
+    },
+    {
+      "scene": "tactique-noirs-clair-final",
+      "board": {
+        "bottom": 576,
+        "width": 374,
+        "x": 8,
+        "y": 202
+      },
+      "cards": [],
+      "feedback": {
+        "bottom": 202,
+        "width": 374,
+        "x": 8,
+        "y": 180
+      },
+      "height": 844,
+      "help": {
+        "bottom": 180,
+        "width": 174,
+        "x": 12,
+        "y": 136
+      },
+      "issues": [],
+      "overflow": false,
+      "scroll": 0,
+      "start": null,
+      "theme": "light",
+      "width": 390
+    },
+    {
+      "scene": "tactique-noirs-clair-final",
+      "board": {
+        "bottom": 616,
+        "width": 414,
+        "x": 8,
+        "y": 202
+      },
+      "cards": [],
+      "feedback": {
+        "bottom": 202,
+        "width": 414,
+        "x": 8,
+        "y": 180
+      },
+      "height": 932,
+      "help": {
+        "bottom": 180,
+        "width": 174,
+        "x": 12,
+        "y": 136
+      },
+      "issues": [],
+      "overflow": false,
+      "scroll": 0,
+      "start": null,
+      "theme": "light",
+      "width": 430
+    },
+    {
+      "scene": "tactique-noirs-clair-final",
+      "board": {
+        "bottom": 1127,
+        "width": 740,
+        "x": 40,
+        "y": 387
+      },
+      "cards": [],
+      "feedback": {
+        "bottom": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "height": 1180,
+      "help": {
+        "bottom": 318,
+        "width": 300,
+        "x": 59,
+        "y": 270
+      },
+      "issues": [],
+      "overflow": false,
+      "scroll": 0,
+      "start": null,
+      "theme": "light",
+      "width": 820
+    },
+    {
+      "scene": "tactique-noirs-clair-final",
+      "board": {
+        "bottom": 1256,
+        "width": 870,
+        "x": 99,
+        "y": 386
+      },
+      "cards": [],
+      "feedback": {
+        "bottom": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "height": 1000,
+      "help": {
+        "bottom": 317,
+        "width": 300,
+        "x": 67,
+        "y": 269
+      },
+      "issues": [],
+      "overflow": false,
+      "scroll": 0,
+      "start": null,
+      "theme": "light",
+      "width": 1440
+    }
+  ],
+  "realEngineLevels": [
+    {
+      "level": 8,
+      "turn": "À toi de jouer",
+      "history": "1.g3"
+    },
+    {
+      "level": 1,
+      "turn": "À toi de jouer",
+      "history": "1.Cc3"
+    },
+    {
+      "level": 3,
+      "turn": "À toi de jouer",
+      "history": "1.b4"
+    },
+    {
+      "level": 6,
+      "turn": "À toi de jouer",
+      "history": "1.e3"
+    },
+    {
+      "level": 12,
+      "turn": "À toi de jouer",
+      "history": "1.Cf3"
+    },
+    {
+      "level": 16,
+      "turn": "À toi de jouer",
+      "history": "1.Cf3"
+    },
+    {
+      "level": 20,
+      "turn": "À toi de jouer",
+      "history": "1.e4"
+    },
+    {
+      "level": 23,
+      "turn": "À toi de jouer",
+      "history": "1.e4"
+    },
+    {
+      "level": 24,
+      "turn": "À toi de jouer",
+      "history": "1.e4"
+    },
+    {
+      "level": 25,
+      "turn": "À toi de jouer",
+      "history": "1.e4"
+    }
+  ],
+  "persistence": {
+    "afterReload": "Niveau 25, Maximum, force estimée 3200 Elo",
+    "afterSecondReload": "Niveau 8, Intermédiaire, force estimée 1200 Elo"
+  },
+  "consoleErrors": [],
+  "limits": [
+    "Pas de téléphone physique ni de moteur Safari/Firefox exécuté.",
+    "Le bilan a été mesuré à différentes positions de défilement ; les coordonnées y sont relatives au viewport.",
+    "Les tests de niveaux navigateur vérifient le premier coup réel et le retour du trait ; la force est étudiée séparément dans calibration/difficulty-results.json."
+  ]
+}

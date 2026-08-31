@@ -1,3 +1,4 @@
+import { difficultyLabel } from './difficulty';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import {
   ArrowLeft,
@@ -14,13 +15,7 @@ import { EvaluationChart } from './EvaluationChart';
 import { MoveHistory } from './MoveHistory';
 import { moveNumber, replayGame, resultReason, resultTitle } from './game';
 import { analyzeGame, navigatePly, scoreLabel } from './review';
-import {
-  categories,
-  categoryInfo,
-  difficultyInfo,
-  type GameRecord,
-  type ReviewReport,
-} from './types';
+import { categories, categoryInfo, type GameRecord, type ReviewReport } from './types';
 
 export function ReviewScreen({
   game,
@@ -121,7 +116,7 @@ export function ReviewScreen({
             {resultTitle(game)} <span>· {resultReason(game.result!)}</span>
           </h1>
           <p>
-            {sideName(game.player)} · {difficultyInfo(game.difficulty).name} ·{' '}
+            {sideName(game.player)} · {difficultyLabel(game.difficulty)} ·{' '}
             {Math.ceil(game.moves.length / 2)} coups ({game.moves.length} demi-coups), dont{' '}
             {report.moves.length} joués par toi.
           </p>

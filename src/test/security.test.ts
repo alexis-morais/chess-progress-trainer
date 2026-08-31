@@ -102,6 +102,7 @@ describe('Messages du moteur bornés et validés', () => {
     worker.emit('x'.repeat(65537));
     expect(worker.postMessage).toHaveBeenLastCalledWith('uci');
     worker.emit('option name Skill Level type spin default 20 min 0 max 20');
+    worker.emit('option name MultiPV type spin default 1 min 1 max 256');
     worker.emit('uciok');
     worker.emit('readyok');
     worker.emit('readyok');

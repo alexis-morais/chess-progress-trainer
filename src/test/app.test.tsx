@@ -150,9 +150,9 @@ describe('Parcours complet de l’interface avec le véritable échiquier React'
     expect(screen.getByTestId('move-badge')).toBeInTheDocument();
     act(() => vi.advanceTimersByTime(1));
     expect(screen.queryByTestId('move-badge')).toBeNull();
-    expect(
-      screen.getByText("Ce n'est pas le coup de cette variante. Essaie encore."),
-    ).toBeVisible();
+    expect(screen.getByTestId('compact-feedback')).toHaveTextContent(
+      'Coup légal, mais il sort de la ligne travaillée.',
+    );
     play('e2', 'e4');
     expect(screen.getByTestId('move-badge')).toHaveClass('correct');
     expect(screen.getByTestId('move-badge')).toHaveAttribute('data-square', 'e4');

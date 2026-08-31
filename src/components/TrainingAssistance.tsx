@@ -27,6 +27,11 @@ export function TrainingAssistance({
             aria-controls={`${id}-hint`}
             onClick={onHint}
             title="Une piste de réflexion, gratuite"
+            className={
+              state.moveErrors === 3 && !state.hintVisible && !state.solutionVisible
+                ? 'hint-nudge'
+                : ''
+            }
           >
             <Lightbulb size={17} aria-hidden="true" /> Indice
           </button>
@@ -48,6 +53,11 @@ export function TrainingAssistance({
               : 'Réponse de l’ordinateur…'}
         </span>
       </div>
+      {state.moveErrors >= 3 && !state.hintVisible && !state.solutionVisible && (
+        <p className="help-prompt" role="status">
+          Besoin d’un coup de pouce ?
+        </p>
+      )}
       <div className="instruction-copy" aria-live="polite" aria-atomic="true">
         <div id={`${id}-hint`}>
           {guidance && state.hintVisible && <p data-testid="pedagogical-hint">{guidance.hint}</p>}

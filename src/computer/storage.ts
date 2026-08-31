@@ -2,7 +2,8 @@ import { Chess } from 'chess.js';
 import { legalPv } from './ComputerEngine';
 import { otherSide, playUci, positionResult, replayGame } from './game';
 import { buildReport } from './review';
-import { difficulties, type GameRecord, type PositionAnalysis, type ReviewReport } from './types';
+import { type GameRecord, type PositionAnalysis, type ReviewReport } from './types';
+import { migrateDifficulty } from './difficulty';
 
 export const STORAGE_KEY = 'chess-progress:last-game:v1';
 type SavedGame = { game: GameRecord; review: ReviewReport | null };
@@ -29,13 +30,14 @@ export function loadLastGame(storage?: StorageAccess): SavedGame | null {
     if (!raw || raw.length > 2_000_000) return null;
     const data = JSON.parse(raw);
     const game = data.game as GameRecord;
+    const level = migrateDifficulty(game?.difficulty);
     if (
       data.version !== 1 ||
       !game ||
       typeof game.id !== 'string' ||
       game.id.length > 100 ||
       !['w', 'b'].includes(game.player) ||
-      !difficulties.some((item) => item.id === game.difficulty) ||
+      level === null ||
       typeof game.startedAt !== 'string' ||
       typeof game.completedAt !== 'string' ||
       game.startedAt.length > 40 ||
@@ -121,7 +123,7 @@ export function loadLastGame(storage?: StorageAccess): SavedGame | null {
       game: {
         id: game.id,
         player: game.player,
-        difficulty: game.difficulty,
+        difficulty: level,
         startedAt: game.startedAt,
         completedAt: game.completedAt,
         moves: [...game.moves],
