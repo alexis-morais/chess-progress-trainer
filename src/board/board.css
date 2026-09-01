@@ -73,13 +73,14 @@
 }
 .drag-halo {
   position: absolute;
-  width: 82%;
-  height: 27%;
-  left: 9%;
-  bottom: -9%;
+  width: 146%;
+  aspect-ratio: 1;
+  height: auto;
+  left: -23%;
+  bottom: -38%;
   border-radius: 50%;
-  background: radial-gradient(ellipse, #153e304d 0%, #31564724 48%, #173b2700 74%);
-  box-shadow: 0 0 7px 2px #e4ebd522;
+  background: radial-gradient(circle, #071d1788 0 25%, #12372b66 43%, #234d3b30 61%, #173b2700 76%);
+  box-shadow: 0 0 13px 3px #071d172d;
   opacity: 1;
   transition: opacity 100ms ease;
 }

@@ -1,16 +1,19 @@
 import { useEffect, useState } from 'react';
 
-export type AppView = 'home' | 'openings' | 'computer';
+export type AppView = 'home' | 'openings' | 'computer' | 'progress';
 const paths: Record<AppView, string> = {
   home: '#/',
   openings: '#/ouvertures',
   computer: '#/partie',
+  progress: '#/progression',
 };
 export function readView(): AppView {
   return location.hash === paths.openings
     ? 'openings'
     : location.hash === paths.computer
       ? 'computer'
+      : location.hash === paths.progress
+        ? 'progress'
       : 'home';
 }
 export function useNavigation() {

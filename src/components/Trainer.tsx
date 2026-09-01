@@ -10,6 +10,7 @@ import {
   Sparkles,
   User,
 } from 'lucide-react';
+import { useEffect, useRef } from 'react';
 import { useTrainer } from '../trainer/useTrainer';
 import { isExpectedMove, type CompiledLesson } from '../trainer/model';
 import { useStockfish } from '../engine/useStockfish';
@@ -25,14 +26,38 @@ export function Trainer({
   onRestart,
   onVariants,
   onHome,
+  guided = false,
+  onComplete,
 }: {
   lesson: CompiledLesson;
   onRestart: () => void;
   onVariants: () => void;
   onHome: () => void;
+  guided?: boolean;
+  onComplete?: (result: {
+    openingId: string;
+    variationId: string;
+    mode: CompiledLesson['mode'];
+    errors: number;
+    clues: number;
+    solutions: number;
+  }) => void;
 }) {
   const { state, dispatch, playerTurn, complete, fen } = useTrainer(lesson);
   const analysis = useStockfish(fen);
+  const recorded = useRef(false);
+  useEffect(() => {
+    if (!complete || recorded.current) return;
+    recorded.current = true;
+    onComplete?.({
+      openingId: lesson.opening.id,
+      variationId: lesson.variation.id,
+      mode: lesson.mode,
+      errors: state.errors,
+      clues: state.clues,
+      solutions: state.hints,
+    });
+  }, [complete, lesson, onComplete, state.clues, state.errors, state.hints]);
   const current = Math.min(state.completed + 1, lesson.total);
   const status = complete
     ? 'Variante terminée'
@@ -76,6 +101,7 @@ export function Trainer({
         state={state}
         onHint={() => dispatch({ type: 'hint' })}
         onReveal={() => dispatch({ type: 'solution' })}
+        guided={guided && state.completed < 4}
       />
       <ExerciseFeedback state={state} kind="opening" />
       <div className="training-layout">

@@ -11,8 +11,10 @@ import { type ColorChoice, type Difficulty, type GameRecord, type ReviewReport }
 import './computer.css';
 import { DifficultySelector } from './DifficultySelector';
 import { difficultyLabel, loadLevel, saveLevel } from './difficulty';
+import { useProgress } from '../progress/ProgressContext';
 
 export default function ComputerMode({ onHome }: { onHome: () => void }) {
+  const progress = useProgress();
   const [view, setView] = useState<'setup' | 'game' | 'finished' | 'review'>('setup');
   const [color, setColor] = useState<ColorChoice>('w');
   const [difficulty, setDifficulty] = useState<Difficulty>(loadLevel);
@@ -26,16 +28,18 @@ export default function ComputerMode({ onHome }: { onHome: () => void }) {
     setSaved({ game, review: null });
     setView('finished');
     setStorageWarning(!saveLastGame(game, null));
+    progress.gameComplete(game);
     window.scrollTo(0, 0);
-  }, []);
+  }, [progress]);
   const onReview = useCallback(
     (report: ReviewReport) => {
       if (!record) return;
       setReview(report);
       setSaved({ game: record, review: report });
       setStorageWarning(!saveLastGame(record, report));
+      progress.reviewComplete(record, report);
     },
-    [record],
+    [progress, record],
   );
   return (
     <main
@@ -122,7 +126,8 @@ export default function ComputerMode({ onHome }: { onHome: () => void }) {
                 Commencer la partie <ArrowRight size={18} />
               </button>
               <p className="computer-note">
-                Après la partie, explore tes coups avec un bilan analysé par Stockfish.
+                Ta partie, tes décisions. Ici, Stockfish choisit ses coups. L’analyse de tes
+                décisions sera disponible après la partie.
               </p>
             </section>
             <aside className="setup-aside">

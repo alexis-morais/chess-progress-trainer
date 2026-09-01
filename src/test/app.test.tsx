@@ -31,6 +31,8 @@ function start(
     }),
   );
   fireEvent.click(screen.getByRole('button', { name: 'Commencer l’entraînement' }));
+  expect(screen.getByText('COMPRENDRE CETTE OUVERTURE')).toBeVisible();
+  fireEvent.click(screen.getByRole('button', { name: 'Commencer l’entraînement' }));
 }
 
 describe('Parcours complet de l’interface avec le véritable échiquier React', () => {
@@ -134,6 +136,7 @@ describe('Parcours complet de l’interface avec le véritable échiquier React'
     fireEvent.click(screen.getByRole('button', { name: 'Rejouer la variante' }));
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
     expect(screen.getByTestId('progress')).toHaveTextContent('0 / 7');
+    expect(screen.queryByTestId('guided-intention')).toBeNull();
     fireEvent.click(screen.getByRole('button', { name: 'Retour aux variantes' }));
     expect(screen.getByText('Sélectionne une variante')).toBeVisible();
   });

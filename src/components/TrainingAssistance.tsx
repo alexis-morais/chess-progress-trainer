@@ -8,11 +8,13 @@ export function TrainingAssistance({
   state,
   onHint,
   onReveal,
+  guided = false,
 }: {
   lesson: ScriptedExercise;
   state: TrainerState;
   onHint: () => void;
   onReveal: () => void;
+  guided?: boolean;
 }) {
   const guidance = playerGuidance(lesson, state);
   const complete = isComplete(lesson, state);
@@ -59,6 +61,11 @@ export function TrainingAssistance({
         </p>
       )}
       <div className="instruction-copy" aria-live="polite" aria-atomic="true">
+        {guided && guidance && !state.hintVisible && !state.solutionVisible && (
+          <p className="guided-intention" data-testid="guided-intention">
+            <strong>Ton intention :</strong> {guidance.hint}
+          </p>
+        )}
         <div id={`${id}-hint`}>
           {guidance && state.hintVisible && <p data-testid="pedagogical-hint">{guidance.hint}</p>}
         </div>

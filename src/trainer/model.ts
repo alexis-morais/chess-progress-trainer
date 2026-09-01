@@ -27,6 +27,7 @@ export type TrainerState = {
   moveErrors: number;
   mistake: 'illegal' | 'off-line' | null;
   hints: number;
+  clues: number;
   hintVisible: boolean;
   solutionVisible: boolean;
   feedback: 'initial' | 'correct' | 'incorrect';
@@ -99,6 +100,7 @@ export const initialState = (): TrainerState => ({
   moveErrors: 0,
   mistake: null,
   hints: 0,
+  clues: 0,
   hintVisible: false,
   solutionVisible: false,
   feedback: 'initial',
@@ -149,7 +151,8 @@ export function reduceTrainer(
     };
   }
   if (!isPlayerTurn(lesson, state)) return state;
-  if (action.type === 'hint') return state.hintVisible ? state : { ...state, hintVisible: true };
+  if (action.type === 'hint')
+    return state.hintVisible ? state : { ...state, clues: state.clues + 1, hintVisible: true };
   if (action.type === 'solution')
     return state.solutionVisible
       ? state

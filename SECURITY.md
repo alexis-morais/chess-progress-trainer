@@ -1,10 +1,10 @@
-# Audit local de sécurité — 31 août 2026
+# Audit local de sécurité — 1er septembre 2026
 
-## Finition produit : accueil, tactile et calibration
+## Finition produit : pédagogie, progression et contrôle mobile
 
 L’audit des dépendances a été relancé : **0 vulnérabilité connue** (11 dépendances d’exécution, 208 de développement, 219 au total). Aucune dépendance ajoutée, aucun changement du lockfile. Les nouveaux dessins utilisent les SVG et pièces locaux déjà licenciés. Aucun service, compte, appel distant ou secret n’a été ajouté.
 
-Le contrôle final des secrets n’a trouvé aucun résultat positif : 223 fichiers examinés, huit commits accessibles et 272 blobs historiques. Les essais de calibration restent locaux et sont identifiés séparément des mesures de la politique livrée.
+Le contrôle final des secrets n’a trouvé aucun résultat positif : 238 fichiers examinés, neuf commits accessibles et 337 blobs historiques. Les essais de calibration restent locaux et sont identifiés séparément des mesures de la politique livrée.
 
 La calibration s’exécute uniquement dans les scripts locaux, avec le moteur WASM du projet. Ses FEN et coups passent par chess.js ; les résultats restent des fichiers locaux. Elle n’est pas chargée ou exécutée par la page d’accueil. La sélection de coups modifiée ne s’applique qu’à la Partie libre ; les limites et validations du protocole UCI n’ont pas changé.
 

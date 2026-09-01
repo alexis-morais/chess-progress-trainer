@@ -16,6 +16,7 @@ import { MoveHistory } from './MoveHistory';
 import { moveNumber, replayGame, resultReason, resultTitle } from './game';
 import { analyzeGame, navigatePly, scoreLabel } from './review';
 import { categories, categoryInfo, type GameRecord, type ReviewReport } from './types';
+import { InfoTooltip } from '../components/InfoTooltip';
 
 export function ReviewScreen({
   game,
@@ -129,7 +130,7 @@ export function ReviewScreen({
       <section className="review-summary" aria-label="Résumé de tes coups">
         <div className="accuracy">
           <strong>{report.accuracy === null ? '—' : `${report.accuracy} %`}</strong>
-          <span>Précision estimée</span>
+          <span><InfoTooltip term="Précision estimée" /></span>
           <small>Indice pédagogique local</small>
         </div>
         <div className="category-totals">

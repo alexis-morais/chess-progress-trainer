@@ -149,6 +149,7 @@ describe('Thèmes et navigation sans perte de fonctionnalités', () => {
     fireEvent.click(screen.getByRole('button', { name: /^Giuoco Piano/ }));
     fireEvent.click(screen.getByRole('radio', { name: /^Ligne essentielle/ }));
     fireEvent.click(screen.getByRole('button', { name: 'Commencer l’entraînement' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Commencer l’entraînement' }));
     fireEvent.click(screen.getByRole('button', { name: 'd2, pion blanc' }));
     fireEvent.click(screen.getByRole('button', { name: 'd4, case vide' }));
     fireEvent.click(screen.getByRole('button', { name: 'Solution' }));
@@ -172,5 +173,14 @@ describe('Thèmes et navigation sans perte de fonctionnalités', () => {
         expect(readFileSync(`public/pieces/cburnett/${side}${piece}.svg`, 'utf8')).toContain(
           '<svg',
         );
+  });
+  it('conserve un grand halo tactile circulaire avec la pièce agrandie à 142 %', () => {
+    const css = readFileSync('src/board/board.css', 'utf8');
+    const pointer = readFileSync('src/board/useBoardPointer.ts', 'utf8');
+    expect(css).toMatch(/\.drag-halo\s*\{[^}]*width:\s*146%/s);
+    expect(css).toMatch(/\.drag-halo\s*\{[^}]*aspect-ratio:\s*1/s);
+    expect(css).toMatch(/\.drag-halo\s*\{[^}]*radial-gradient\(circle/s);
+    expect(pointer).toContain('TOUCH_DRAG_SCALE = 1.42');
+    expect(pointer).toContain('touchLift(value.size)');
   });
 });

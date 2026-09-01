@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <mask id="cp-cutout">
+    <rect width="48" height="48" fill="white"/>
+    <path fill="black" fill-rule="evenodd" d="M14 12h20v6H20v12h14v6H14zm10 7h5v5h5v5h-5v-5h-5z"/>
+  </mask>
+  <path fill="#17231f" mask="url(#cp-cutout)" d="M7 8.5A5.5 5.5 0 0 1 12.5 3h23A5.5 5.5 0 0 1 41 8.5v31A5.5 5.5 0 0 1 35.5 45h-23A5.5 5.5 0 0 1 7 39.5z"/>
+</svg>

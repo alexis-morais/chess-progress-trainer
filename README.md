@@ -14,18 +14,21 @@ Dans les **Tactiques**, les coups et réponses sont également scriptés : aucun
 
 Mise à jour structurelle du 31 août 2026 : aide facultative **Indice | Solution** au-dessus du plateau, formats révélés dans la variante sélectionnée, et deux tactiques par ouverture. Les cartes d’accueil entièrement cliquables, les ajustements pour petits écrans, la direction artistique et les deux thèmes sont conservés.
 
+Finition du 1er septembre 2026 : introduction propre à chaque ouverture, première découverte guidée, indices contextualisés, glossaire interactif et page **Progression** locale avec vingt badges. La Partie libre est plus compacte une fois lancée. Le nouveau monogramme géométrique, le grand halo tactile et les quatre accès de navigation sont intégrés aux deux thèmes.
+
 ## Mobile et mode Focus
 
-Sur téléphone, un en-tête compact conserve les trois accès et le thème. Les cartes **OUVERTURES / ENTRAÎNEMENT LIBRE** sont côte à côte et visibles dès l’accueil. Une séance démarre directement sur son plateau, avec titre compact, tour/progression et **Indice | Solution**. Les détails, statistiques et boutons secondaires restent plus bas. Le plateau conserve 304/359/374/414 px aux largeurs 320/375/390/430. Les safe areas et la hauteur visible `svh` sont prises en compte.
+Sur téléphone, un en-tête compact conserve les quatre accès et le thème. Les cartes **OUVERTURES / ENTRAÎNEMENT LIBRE** sont côte à côte et visibles dès l’accueil. Avant le plateau, une courte fiche présente l’ouverture, trois repères et le plan de la variante. Le trainer place ensuite tour/progression et **Indice | Solution** avant le grand plateau. Les détails, statistiques et boutons secondaires restent plus bas. Le plateau conserve 304/359/374/414 px aux largeurs 320/375/390/430. Les safe areas et la hauteur visible `svh` sont prises en compte.
 
-Les feedbacks proches du plateau distinguent **déplacement illégal**, **coup légal hors ligne** et **coup légal qui ne résout pas la tactique**. Après trois erreurs sur la même décision, une invitation discrète attire une fois l’attention sur Indice. Aucune aide n’est ouverte automatiquement et aucun compteur d’aide n’est augmenté. Le bon coup réinitialise cette invitation.
+Les feedbacks proches du plateau distinguent **déplacement illégal**, **coup légal hors ligne** et **coup légal qui ne résout pas la tactique**. Après trois erreurs sur la même décision, une invitation discrète attire une fois l’attention sur Indice. Lors d’une première découverte, une intention générale accompagne automatiquement les quatre premières décisions sans dévoiler de pièce, de case ou de notation et sans augmenter les compteurs. Une répétition redevient moins guidée. Le bon coup réinitialise l’aide du coup courant.
 
 ## Navigation et apparence
 
 - **Accueil** : choisir entre apprendre les ouvertures et jouer contre l’ordinateur.
 - **Ouvertures** : parcourir les deux camps. Chaque ouverture propose **APPRENDRE** (variantes et formats) et **TACTIQUES** (exercices indépendants des variantes).
 - **Partie libre** : choisir son camp et le niveau de Stockfish, jouer puis consulter le bilan.
-- La navigation utilise les fragments `#/`, `#/ouvertures` et `#/partie`. Le retour du navigateur fonctionne et les liens sont actualisables sur GitHub Pages sans serveur de routage.
+- **Progression** : consulter les accomplissements conservés uniquement sur cet appareil.
+- La navigation utilise les fragments `#/`, `#/ouvertures`, `#/partie` et `#/progression`. Le retour du navigateur fonctionne et les liens sont actualisables sur GitHub Pages sans serveur de routage.
 - Le bouton **Clair / Sombre** dans l’en-tête change le thème sans interrompre la séance. Le choix initial suit le système ; un choix manuel est mémorisé localement avec la clé `chess-progress:theme:v1`. Si le stockage est bloqué, le choix reste valable pendant la session. Aucun compte ni synchronisation distante.
 - Les deux thèmes partagent les mêmes espacements, composants et pièces. Les animations respectent la préférence « réduire les animations » du système. Le plateau et les contrôles restent accessibles au clavier.
 
@@ -53,17 +56,17 @@ Les noms et positions caractéristiques ont été recoupés avec le [répertoire
 ## Utiliser le trainer
 
 1. Depuis l’accueil, cliquer sur **Explorer les ouvertures**. Choisir une ouverture dans « Jouer avec les Blancs » ou « Jouer avec les Noirs », puis l’une de ses six variantes.
-2. Choisir **Ligne essentielle** ou **Version étendue** directement dans la carte sélectionnée, puis cliquer sur **Commencer l’entraînement**. Sur petit écran, la carte se remet légèrement en vue si nécessaire.
-3. Observer la position sans assistance imposée. Le composant **Indice | Solution** reste disponible au-dessus du plateau. **Indice** affiche une piste générale, par exemple « Cherche à prendre davantage de contrôle au centre. » Il est facultatif, ne désigne pas le déplacement et ne compte jamais comme une aide utilisée.
+2. Choisir **Ligne essentielle** ou **Version étendue** directement dans la carte sélectionnée, puis cliquer sur **Commencer l’entraînement**. Lire la fiche « Comprendre cette ouverture », puis confirmer le démarrage. Sur petit écran, la carte se remet légèrement en vue si nécessaire.
+3. Observer la position. Pendant la première découverte d’une séance, une intention générale accompagne les quatre premières décisions sans révéler la solution. Le composant **Indice | Solution** reste disponible au-dessus du plateau. **Indice** affiche une piste contextualisée, par exemple « Cherche à prendre davantage de contrôle au centre. » Il ne désigne jamais le déplacement et ne compte pas dans « Aides utilisées ».
 4. Déplacer une pièce avec la souris, ou toucher sa case puis sa destination. Au clavier, utiliser les flèches puis Entrée ou Espace ; Échap annule la sélection.
-5. **Solution** révèle la flèche et le déplacement exact du coup actuel, par exemple « Pion : e2 → e4 ». Cela compte **une seule aide par coup**, même après plusieurs clics. Indice, déplacement et flèche disparaissent après le coup ; le tour suivant commence à nouveau sans assistance visible.
+5. **Solution** révèle la flèche et le déplacement exact du coup actuel, par exemple « Pion : e2 → e4 ». Cela compte **une seule aide par coup**, même après plusieurs clics. Indice, déplacement et flèche disparaissent après le coup ; la décision suivante reçoit sa nouvelle intention si la séance est encore dans sa phase de première découverte.
 6. Seul le coup prévu est accepté. Un autre coup est refusé et compte comme une erreur ; la position ne change pas. La destination tentée devient rouge avec une croix blanche pendant 1 seconde.
 7. Après chaque bon coup, une coche verte apparaît sur la destination pendant 900 ms. Lire l’explication, puis regarder la réponse prédéfinie de l’ordinateur.
 8. À la fin, consulter le bilan avec le mode joué, rejouer dans le même mode ou changer de variante.
 
 Ton camp est toujours en bas. Si tu joues les Noirs, l’ordinateur joue le premier coup blanc après 600 ms. La progression compte uniquement **tes** coups, pas ceux de l’adversaire. Le compteur principal indique les coups complétés ; « Coup 3 / 6 » désigne la prochaine décision attendue. Le dernier mouvement est surligné pour les deux camps.
 
-**Recommencer** et **Rejouer la variante** réinitialisent la position, la progression, les erreurs, les aides, les sélections, les badges, les minuteries et le moteur d’analyse. Le mode choisi est conservé. Les séances d’ouverture ne sont pas enregistrées : une actualisation revient au catalogue de la vue Ouvertures. Quitter cette vue termine la séance en cours.
+**Recommencer** et **Rejouer la variante** réinitialisent la position, la progression de la séance, les erreurs, les aides, les sélections, les feedbacks, les minuteries et le moteur d’analyse. Le mode choisi est conservé. L’état exact d’une séance en cours n’est pas repris après une actualisation, mais ses accomplissements terminés sont enregistrés dans la progression locale.
 
 ## Interagir avec l’échiquier
 
@@ -71,17 +74,35 @@ Dans les ouvertures, les tactiques et la partie libre, **cliquer/toucher une pi�
 
 **Légal ne signifie pas solution de l’exercice.** Tous les coups légaux de la pièce sont indiqués, mais seul le coup pédagogique prévu est accepté dans les ouvertures et tactiques. Indice reste facultatif et gratuit ; Solution révèle toujours sa flèche et compte une aide. En partie libre, tous les coups légaux sont autorisés.
 
-Pendant le drag, les marqueurs restent visibles. À la souris, la pièce suit le curseur. Au toucher, après un seuil de 10 px, elle grandit à **142 %** et s’élève de **44 à 54 px au-dessus du doigt** aux largeurs mobiles testées. Un halo doux, une case source persistante et une case cible mobile accompagnent le geste. La case sous le contact reste la destination, indépendamment de la pièce soulevée. Le snap/retour dure 140 ms ; les coups par clic et automatiques sont animés sur 170 ms. La préférence de réduction des animations est respectée. Les quatre promotions restent proposées dans une fenêtre accessible.
+Pendant le drag, les marqueurs restent visibles. À la souris, la pièce suit le curseur. Au toucher, après un seuil de 10 px, elle grandit à **142 %** et s’élève de **44 à 54 px au-dessus du doigt** aux largeurs mobiles testées. Un grand cercle sombre translucide, une case source persistante et une case cible mobile accompagnent le geste. La case sous le contact reste la destination, indépendamment de la pièce soulevée. Le snap/retour dure 140 ms ; les coups par clic et automatiques sont animés sur 170 ms. La préférence de réduction des animations est respectée. Les quatre promotions restent proposées dans une fenêtre accessible.
 
 Sur téléphone, le plateau utilise la largeur disponible avec 8 px de marge de chaque côté : **374 px sur un écran de 390 px**. La barre d’évaluation du trainer passe sous le plateau. Les grands plateaux et panneaux latéraux desktop sont conservés. Seuls les gestes démarrés sur une pièce jouable réservent le déplacement à un doigt ; le défilement reste disponible sur les cases vides et hors plateau.
 
 Les gestes sont centralisés dans `src/board/` ; les composants du trainer et de partie libre conservent la décision d’accepter un coup. Le [banc visuel local](qa/README.md) permet de reproduire les simulations tactiles et coups spéciaux sans être inclus dans le site publié.
 
+Les termes importants comme **Roque**, **Promotion**, **Prise en passant**, **Clouage**, **Fianchetto**, **Gaffe** et **Précision estimée** utilisent une infobulle commune. Elle s’ouvre au survol ou au focus, peut être épinglée au clic/tap, se ferme avec Échap ou un clic extérieur et se repositionne pour rester dans le viewport.
+
+## Progression locale et badges
+
+La page **Progression** présente vingt accomplissements avec leur avance `X / Y`, leur date de déblocage et une notification non répétée. Les données sont versionnées, validées et conservées dans `localStorage` avec la clé `chess-progress:progress:v1`. Un stockage absent, interdit, ancien ou corrompu revient à une structure sûre. Il n’existe aucun compte, serveur ou transfert entre appareils.
+
+Les quinze badges visibles récompensent une première variante, les dix ouvertures découvertes, une ligne sans Solution, une essentielle sans erreur, les six variantes d’une ouverture, une répétition sans erreur, cinq lignes sans erreur, cinq puis vingt tactiques, une première Partie libre, un premier Game Review et les caps des niveaux 6, 8, 12 et 16.
+
+Les cinq badges secrets gardent leur nom masqué jusqu’au déblocage :
+
+- **Sous-promotion** : le joueur promeut réellement son pion en tour, fou ou cavalier pendant une Partie libre.
+- **Perfectionniste** : une Version étendue est terminée sans erreur, sans Indice demandé et sans Solution.
+- **Retour gagnant** : le joueur gagne, puis le Game Review confirme qu’il a été mené d’au moins trois pions ou sous un mat forcé.
+- **David contre Goliath** : après une première victoire enregistrée, le joueur bat un niveau supérieur d’au moins quatre rangs à son précédent meilleur résultat.
+- **Défier l’impossible** : le joueur bat le Niveau 25 Maximum.
+
+Un badge n’est calculé qu’après l’événement réel correspondant : fin de séance, tactique résolue, partie terminée ou analyse achevée. Plusieurs badges gagnés ensemble sont annoncés l’un après l’autre ; un badge acquis n’est jamais annoncé une seconde fois.
+
 ## Tactiques d’ouverture
 
 Chaque ouverture propose deux exercices, indépendants de ses six variantes. Ils commencent directement depuis une position réelle, avec le camp à jouer en bas : il peut s’agir de l’autre camp que celui travaillé dans le trainer théorique. Les exercices comprennent **1 à 3 décisions de l’élève** ; **19 sur 20 demandent plusieurs coups**. Les réponses adverses sont prédéfinies et l’aide ne révèle que le coup courant.
 
-Un coup inattendu est refusé, avec le même feedback rouge et compteur d’erreurs. Un bon coup reçoit une coche verte avant la réponse automatique. La fiche **Tactique réussie** explique le motif, le gain et le principe à retenir ; elle propose Rejouer, Tactique suivante si disponible, et Retour à l’ouverture. Les séances tactiques ne sont pas sauvegardées.
+Un coup inattendu est refusé, avec le même feedback rouge et compteur d’erreurs. Un bon coup reçoit une coche verte avant la réponse automatique. La fiche **Tactique réussie** explique le motif, le gain et le principe à retenir ; elle propose Rejouer, Tactique suivante si disponible, et Retour à l’ouverture. L’état intermédiaire n’est pas sauvegardé, mais la réussite alimente la progression locale.
 
 Les positions proviennent de parties publiques et de puzzles **Lichess CC0**. Leur provenance complète, leur FEN et leur combinaison sont rejouées avec chess.js ; les solutions sont vérifiées séparément avec le Stockfish local. Ces positions illustrent des occasions possibles, pas des gains garantis dans toute partie. Certaines réponses illustrées ont des alternatives : seule la continuation pédagogique enregistrée est acceptée.
 
@@ -152,7 +173,8 @@ src/trainer/hints.ts        Indices généraux facultatifs et libellés précis 
 src/trainer/useTrainer.ts   Temporisation des réponses automatiques
 src/board/                 Interaction partagée, marqueurs légaux, drag, animations, promotion
 src/engine/                 Intégration UCI, isolation et gestion des erreurs
-src/components/             Accueil, plateau, évaluation et bilan
+src/components/             Accueil, introductions, glossaire, plateau, évaluation et bilan
+src/progress/               Progression locale, migrations, badges et notifications
 src/computer/               Partie libre, moteur dédié, bilan, graphique et sauvegarde
 src/ui/                    Thèmes, navigation et pièces SVG partagées
 src/styles.css             Mise en page, composants et responsive
@@ -189,7 +211,7 @@ Ne pas ouvrir `dist/index.html` en double-cliquant : les Workers/WASM doivent ê
 
 ### Tests et runners GitHub Actions
 
-Les **997 tests précédents sont conservés et adaptés**. Les nouveaux contrôles couvrent les cartes mobiles, le drag tactile, les budgets d’erreur, la protection matérielle, le Maximum sans affaiblissement et les mesures de calibration. Les 90 parties historiques restent rejouées, en plus des 180 parties de validation actuelles. Aucun test n’est supprimé ou désactivé. Le nombre total et les résultats des dernières exécutions sont consignés dans [VALIDATION.md](VALIDATION.md).
+Les tests historiques sont conservés et adaptés. La suite compte désormais **1 293 tests dans 31 fichiers**. Les nouveaux contrôles couvrent notamment les introductions, les 120 séances, la diversité des intentions, les infobulles, les migrations, les badges visibles/secrets, la Partie libre épurée, le logo et les mesures de rendu. Les cartes mobiles, le drag tactile, les 25 niveaux, la protection matérielle et la calibration enregistrée restent couverts. Aucun test n’est supprimé ou désactivé. Les résultats sont consignés dans [VALIDATION.md](VALIDATION.md).
 
 Dans `vite.config.ts`, le délai maximum par test est de **20 secondes en CI**, contre **5 secondes en local**. GitHub définit automatiquement `CI=true` : le workflow existant bénéficie donc du délai adapté aux runners partagés. Aucun test n’est désactivé et les échecs réels restent bloquants. Pour reproduire cette configuration localement : `CI=true pnpm test`. Ce réglage ne modifie pas les délais de l’application ni les recherches Stockfish. La concurrence est limitée à deux processus pour éviter que les rendus du plateau ne se disputent le CPU. `pnpm test` utilise directement cette limite, sans augmenter les 5 secondes locales.
 
@@ -204,7 +226,7 @@ Les données sont regroupées dans **`src/data/`** :
 
 Exemple d’un coup : `{ "san": "Nf3", "explanation": "Le cavalier contrôle le centre et prépare le roque." }`.
 
-Les indices sont préparés localement dans `src/trainer/hints.ts`, à partir du coup légal reconstruit par chess.js : position, centre, développement, capture, échec, roque ou promotion. Ils ne s’affichent que sur demande et suggèrent une direction générale sans nommer le déplacement. Les règles restent prudentes et n’inventent pas une combinaison. Stockfish n’intervient pas dans les indices.
+Les indices sont préparés localement dans `src/trainer/hints.ts`, à partir du coup légal reconstruit par chess.js et de son explication : centre, développement, sécurité, tempo, pression, échange, structure ou activité. Ils apparaissent automatiquement sous forme d’intention pendant la première découverte, puis uniquement sur demande. Ils suggèrent une direction générale sans nommer la pièce, la case ou le déplacement. Les règles restent prudentes et n’inventent pas une combinaison. Stockfish n’intervient pas dans les indices.
 
 Un champ facultatif `hint` permet un indice spécifique, sans modifier l’explication affichée après le coup : `{ "san": "Nf3", "explanation": "Le cavalier contrôle le centre et prépare le roque.", "hint": "Pense à développer une pièce tout en renforçant ton contrôle du centre." }`. Ne pas y indiquer de case, de notation ou de pièce exacte. Dans les lignes historiques utilisant le helper `move`, cet indice peut être fourni comme troisième argument. Sans ce champ, aucune rédaction manuelle n’est nécessaire. Un indice personnalisé vide ou invalide est signalé lors de la compilation de la séance.
 

@@ -1,5 +1,5 @@
 {
-  "date": "2026-08-31",
+  "date": "2026-09-01",
   "browser": "Chromium intégré, dimensions simulées",
   "home": [
     {
@@ -7,14 +7,14 @@
         {
           "arrowHit": true,
           "artVisible": true,
-          "bottom": 559.5,
+          "bottom": 562.75,
           "inside": true,
           "textClipped": false
         },
         {
           "arrowHit": true,
           "artVisible": true,
-          "bottom": 559.5,
+          "bottom": 562.75,
           "inside": true,
           "textClipped": false
         }
@@ -29,14 +29,14 @@
         {
           "arrowHit": true,
           "artVisible": true,
-          "bottom": 559.5,
+          "bottom": 562.75,
           "inside": true,
           "textClipped": false
         },
         {
           "arrowHit": true,
           "artVisible": true,
-          "bottom": 559.5,
+          "bottom": 562.75,
           "inside": true,
           "textClipped": false
         }
@@ -51,14 +51,14 @@
         {
           "arrowHit": true,
           "artVisible": true,
-          "bottom": 615.5,
+          "bottom": 618.75,
           "inside": true,
           "textClipped": false
         },
         {
           "arrowHit": true,
           "artVisible": true,
-          "bottom": 615.5,
+          "bottom": 618.75,
           "inside": true,
           "textClipped": false
         }
@@ -73,14 +73,14 @@
         {
           "arrowHit": true,
           "artVisible": true,
-          "bottom": 615.5,
+          "bottom": 618.75,
           "inside": true,
           "textClipped": false
         },
         {
           "arrowHit": true,
           "artVisible": true,
-          "bottom": 615.5,
+          "bottom": 618.75,
           "inside": true,
           "textClipped": false
         }
@@ -95,14 +95,14 @@
         {
           "arrowHit": true,
           "artVisible": true,
-          "bottom": 615.5,
+          "bottom": 618.75,
           "inside": true,
           "textClipped": false
         },
         {
           "arrowHit": true,
           "artVisible": true,
-          "bottom": 615.5,
+          "bottom": 618.75,
           "inside": true,
           "textClipped": false
         }
@@ -117,14 +117,14 @@
         {
           "arrowHit": true,
           "artVisible": true,
-          "bottom": 615.5,
+          "bottom": 618.75,
           "inside": true,
           "textClipped": false
         },
         {
           "arrowHit": true,
           "artVisible": true,
-          "bottom": 615.5,
+          "bottom": 618.75,
           "inside": true,
           "textClipped": false
         }
@@ -139,14 +139,14 @@
         {
           "arrowHit": true,
           "artVisible": true,
-          "bottom": 615.5,
+          "bottom": 618.75,
           "inside": true,
           "textClipped": false
         },
         {
           "arrowHit": true,
           "artVisible": true,
-          "bottom": 615.5,
+          "bottom": 618.75,
           "inside": true,
           "textClipped": false
         }
@@ -161,14 +161,14 @@
         {
           "arrowHit": true,
           "artVisible": true,
-          "bottom": 615.5,
+          "bottom": 618.75,
           "inside": true,
           "textClipped": false
         },
         {
           "arrowHit": true,
           "artVisible": true,
-          "bottom": 615.5,
+          "bottom": 618.75,
           "inside": true,
           "textClipped": false
         }
@@ -314,7 +314,11 @@
   "touch": {
     "scaleBefore": 1.25,
     "scaleAfter": 1.42,
-    "compared": [1.35, 1.5, 1.42],
+    "compared": [
+      1.35,
+      1.5,
+      1.42
+    ],
     "liftAt390": 48.825,
     "halo": true,
     "source": true,
@@ -330,10 +334,16 @@
       "Promotion cavalier",
       "Refus pédagogique"
     ],
-    "limitation": "PointerEvent synthétiques pour le tactile ; arbitrage du défilement à vérifier sur téléphone physique."
+    "limitation": "PointerEvent synthétiques pour le tactile ; arbitrage du défilement à vérifier sur téléphone physique.",
+    "haloGeometry": "Grand cercle sombre translucide : largeur 146 %, ratio 1:1, dégradé radial"
   },
   "engine": {
-    "levels": [3, 8, 16, 25],
+    "levels": [
+      3,
+      8,
+      16,
+      25
+    ],
     "maximumThemeReactionMs": 284,
     "review": true,
     "restoredLevel": 8,
@@ -345,18 +355,34 @@
       "localWorker": true
     }
   },
-  "limitations": ["Pas de téléphone physique.", "Safari et Firefox ciblés au build, non exécutés."],
+  "limitations": [
+    "Pas de téléphone physique.",
+    "Safari et Firefox ciblés au build, non exécutés."
+  ],
   "files": [
     "src/components/HomePage.tsx",
     "src/components/PathwayArtwork.tsx",
+    "src/components/BrandMark.tsx",
+    "src/components/InfoTooltip.tsx",
+    "src/components/OpeningIntroduction.tsx",
+    "src/components/Trainer.tsx",
+    "src/components/TrainingAssistance.tsx",
+    "src/progress/ProgressPage.tsx",
+    "src/computer/ComputerMode.tsx",
+    "src/computer/GameSession.tsx",
+    "src/computer/ReviewScreen.tsx",
     "src/ui/mobile.css",
     "src/styles.css",
     "src/ui/theme.css",
     "src/board/InteractiveBoard.tsx",
     "src/board/useBoardPointer.ts",
-    "src/board/board.css"
+    "src/board/board.css",
+    "src/data/pedagogy.ts",
+    "src/trainer/hints.ts",
+    "src/progress/badges.ts",
+    "src/progress/model.ts"
   ],
-  "uiHash": "5b565f6d5684bab8ae2e43294694b64e508f87985914e46d1d51d70093466872",
+  "uiHash": "6200a8402ce7fb2d0e3dc8385890e40c0a292f36fba8fb0dfefd9361bf130b4e",
   "production": {
     "base": "/chess-progress-trainer/",
     "csp": true,
@@ -364,7 +390,7 @@
     "consoleErrors": 0
   },
   "finalRun": {
-    "checkedAt": "2026-08-31T21:11:13.637Z",
+    "checkedAt": "2026-09-01T02:14:00Z",
     "policyHash": "6478c6692c0f101c36a9a1637ed938987f6e6d6140ea63ab8d31f42b2343f324",
     "engine": [
       {
@@ -407,24 +433,22 @@
     "maximumThemeReactionMs": 268,
     "maximumPersistence": true,
     "openingEssential": {
-      "before": "TON ENTRAÎNEMENT\nC54\nOuverture italienne\n\nGiuoco Piano\n\nLigne essentielle\nTu joues les Blancs\nProgression\n0 / 7\n\nCoup 1 / 7 · À toi de jouer\n\nÀ toi de trouver\n\nObserve la position et essaie le coup. Si tu hésites, choisis un indice ou la solution.\n\nErreurs\n0\nAides utilisées\n0\nRecommencer\nRetour aux variantes\nLes coups joués\n0",
-      "solution": "Indice\nSolution\nCoup 1 / 7 · À toi de jouer\n\nCherche à prendre davantage de contrôle au centre.\n\nPion : e2 → e4",
-      "wrong": {
-        "badge": "✕",
-        "panel": "TON ENTRAÎNEMENT\nC54\nOuverture italienne\n\nGiuoco Piano\n\nLigne essentielle\nTu joues les Blancs\nProgression\n0 / 7\n\nCoup 1 / 7 · À toi de jouer\n\nEssaie encore\n\nCoup légal, mais il sort de la ligne travaillée.\n\nErreurs\n1\nAides utilisées\n1\nRecommencer\nRetour aux variantes\nLes coups joués\n0",
-        "pawnStillOnE2": "e2, pion blanc"
-      },
-      "after": {
-        "assistance": "Indice\nSolution\nCoup 2 / 7 · À toi de jouer",
-        "overflow": false,
-        "panel": "TON ENTRAÎNEMENT\nC54\nOuverture italienne\n\nGiuoco Piano\n\nLigne essentielle\nTu joues les Blancs\nProgression\n1 / 7\n\nCoup 2 / 7 · À toi de jouer\n\n✓ Bon coup !\n\nTu occupes le centre et libères le passage du fou et de la dame.\n\nErreurs\n1\nAides utilisées\n1\nRecommencer\nRetour aux variantes\nLes coups joués\n2"
-      }
+      "boardWidth": 374,
+      "orientation": "Échiquier, Blancs en bas",
+      "guidedIntent": "Cherche à prendre davantage de contrôle au centre.",
+      "hintRevealsCoordinates": false,
+      "solution": "Pion : e2 → e4",
+      "solutionArrow": 1,
+      "explanationAfterSuccess": "Tu occupes le centre et libères le passage du fou et de la dame.",
+      "overflow": false
     },
     "openingExtendedBlack": {
       "boardWidth": 374,
-      "mode": "Défense française\nVariante d’avance · Version étendue · Noirs\nIndice\nSolution\nCoup 1 / 10 · À toi de jouer\n\nCherche à prendre davantage de contrôle au centre.\n\nPion : e7 → e6\n\n+0.4\n±\n1\n2\n3\n4\n5\n6\n7\nh\n8\ng\nf\ne\nd\nc\nb\na\nToi\nNoirs\nÀ toi de jouer\nStockfish 18 Lite\nAnalyse locale active\n\nGlisse une pièce ou touche sa case, puis sa destination.\nAu clavier : flèches pour naviguer, Entrée",
+      "mode": "Variante d’avance · Version étendue",
       "orientation": "Échiquier, Noirs en bas",
-      "solution": "Pion : e7 → e6Flèche affichée · 1 aide comptée pour ce coup"
+      "guidedIntent": "Cherche à prendre davantage de contrôle au centre.",
+      "hintRevealsCoordinates": false,
+      "overflow": false
     },
     "tacticCompleted": true,
     "touch": [
@@ -607,6 +631,113 @@
     ],
     "consoleErrors": 0,
     "consoleWarnings": 0,
-    "migration": "Contrôlée par les tests automatisés, pas par injection dans le stockage du navigateur."
+    "migration": "Contrôlée par les tests automatisés, pas par injection dans le stockage du navigateur.",
+    "tooltips": {
+      "hover": true,
+      "click": true,
+      "tap": true,
+      "focus": true,
+      "escape": true,
+      "outsideClick": true,
+      "light": true,
+      "dark": true,
+      "desktop": {
+        "left": 426.765625,
+        "right": 706.765625,
+        "width": 280,
+        "viewport": 1440
+      },
+      "mobile320": {
+        "left": 28,
+        "right": 308,
+        "width": 280,
+        "viewport": 320
+      },
+      "overflow": false
+    },
+    "openingPedagogy": {
+      "introductions": 10,
+      "variants": 60,
+      "sessions": 120,
+      "decisions": "plus de 600",
+      "distinctHintPhrases": "plus de 24",
+      "themes": [
+        "centre",
+        "développement",
+        "sécurité",
+        "tempo et pression",
+        "échanges",
+        "structure",
+        "activité"
+      ],
+      "coordinatesInHints": false,
+      "explanationAfterEverySuccess": true
+    },
+    "progression": {
+      "badges": 20,
+      "visible": 15,
+      "secret": 5,
+      "localOnly": true,
+      "migrations": true,
+      "corruptDataFallback": true,
+      "queuedNotifications": true,
+      "noDuplicateUnlock": true,
+      "mobileColumns": 1,
+      "tabletColumns": 2,
+      "desktopColumns": 3,
+      "overflow": false
+    },
+    "freeplayCleanup": {
+      "phraseOnlyInSetup": true,
+      "firstPanelElement": "Les coups joués",
+      "resignImmediatelyAvailable": true,
+      "repeatedMetadataInPanel": false,
+      "mobileInstructionsHidden": true,
+      "avatarCentered": {
+        "white": true,
+        "black": true
+      },
+      "overflow": false
+    },
+    "identity": {
+      "concept": "Monogramme géométrique C et signe de progression, sans pion",
+      "headerSizeMobile": 27,
+      "favicon": "/chess-progress-trainer/favicon.svg",
+      "monochrome": true,
+      "light": true,
+      "dark": true
+    },
+    "reviewResponsive": [
+      {
+        "width": 320,
+        "board": 304,
+        "chart": 304
+      },
+      {
+        "width": 375,
+        "board": 359,
+        "chart": 359
+      },
+      {
+        "width": 390,
+        "board": 374,
+        "chart": 374
+      },
+      {
+        "width": 430,
+        "board": 414,
+        "chart": 414
+      },
+      {
+        "width": 820,
+        "board": 740,
+        "chart": 764
+      },
+      {
+        "width": 1440,
+        "board": 830,
+        "chart": 1344
+      }
+    ]
   }
 }

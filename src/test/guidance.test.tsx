@@ -4,7 +4,7 @@ import { Trainer } from '../components/Trainer';
 import { HomePage } from '../components/HomePage';
 import { lessonModes, openings } from '../data/openings';
 import { compileLesson } from '../trainer/model';
-import { pedagogicalHint } from '../trainer/hints';
+import { contextualHint } from '../trainer/hints';
 import { COMPUTER_DELAY, CORRECT_FEEDBACK_DELAY } from '../trainer/useTrainer';
 
 function play(from: string, to: string) {
@@ -84,8 +84,14 @@ describe('Indice → réflexion → Solution → explication', () => {
         expect(screen.queryByTestId('pedagogical-hint')).not.toBeInTheDocument();
         expect(clue).toHaveAttribute('aria-pressed', 'false');
         fireEvent.click(clue);
+        const nextPly = side === 'w' ? 2 : 3;
         expect(screen.getByTestId('pedagogical-hint').textContent).toBe(
-          pedagogicalHint(lesson.moves[side === 'w' ? 2 : 3]),
+          contextualHint(
+            lesson.moves[nextPly],
+            lesson.steps[nextPly].explanation,
+            nextPly,
+            lesson.steps[nextPly].hint,
+          ),
         );
         expect(screen.getByTestId('hints')).toHaveTextContent('1');
         expect(reveal).toHaveAttribute('aria-pressed', 'false');

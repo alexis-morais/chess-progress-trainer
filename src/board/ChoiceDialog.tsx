@@ -1,4 +1,5 @@
 import { useEffect, useRef, type ReactNode } from 'react';
+import { InfoTooltip } from '../components/InfoTooltip';
 
 export function ChoiceDialog({
   title,
@@ -31,7 +32,11 @@ export function ChoiceDialog({
         onCancel();
       }}
     >
-      <h2>{title}</h2>
+      <h2>
+        {title.toLocaleLowerCase('fr').includes('promotion') ? (
+          <>Choisis la <InfoTooltip term="Promotion">promotion</InfoTooltip> de ton pion</>
+        ) : title}
+      </h2>
       {children}
       <button ref={cancelButton} className="button secondary" onClick={onCancel}>
         Annuler

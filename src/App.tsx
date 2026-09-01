@@ -1,5 +1,5 @@
 import { Component, lazy, Suspense, useEffect, useMemo, useState, type ReactNode } from 'react';
-import { ArrowUpRight, BookOpen, Cpu, House, Moon, Sun } from 'lucide-react';
+import { ArrowUpRight, BookOpen, Cpu, House, Moon, Sun, Trophy } from 'lucide-react';
 import { openings, type LessonMode, type Opening, type Variation } from './data/openings';
 import { compileLesson } from './trainer/model';
 import { OpeningLibrary } from './components/OpeningLibrary';
@@ -10,6 +10,10 @@ import { useNavigation, type AppView } from './ui/navigation';
 import { compileTactic, tacticsFor, type Tactic } from './tactics/model';
 import { TacticTrainer } from './tactics/TacticTrainer';
 import './ui/mobile.css';
+import { OpeningIntroduction } from './components/OpeningIntroduction';
+import { ProgressProvider, useProgress } from './progress/ProgressContext';
+import { BadgeToast, ProgressPage } from './progress/ProgressPage';
+import { BrandMark } from './components/BrandMark';
 
 const ComputerMode = lazy(() => import('./computer/ComputerMode'));
 
@@ -41,7 +45,12 @@ export class ErrorBoundary extends Component<{ children: ReactNode }, { error: E
 }
 
 export default function App() {
+  return <ProgressProvider><AppContent /></ProgressProvider>;
+}
+
+function AppContent() {
   const [active, setActive] = useState<Selection | null>(null);
+  const [pending, setPending] = useState<(Selection & { firstDiscovery: boolean }) | null>(null);
   const [activeTactic, setActiveTactic] = useState<Tactic | null>(null);
   const [returnOpening, setReturnOpening] = useState<string | null>(null);
   const [expanded, setExpanded] = useState<string | null>(null);
@@ -50,18 +59,22 @@ export default function App() {
   const [session, setSession] = useState(0);
   const { view, navigate } = useNavigation();
   const { theme, toggle } = useTheme();
+  const progress = useProgress();
   useEffect(() => {
     setActive(null);
+    setPending(null);
     setActiveTactic(null);
   }, [view]);
   function openView(next: AppView) {
     setActive(null);
+    setPending(null);
     setActiveTactic(null);
     navigate(next);
   }
   function goHome() {
     navigate('home');
     setActive(null);
+    setPending(null);
     setActiveTactic(null);
     setReturnOpening(null);
     setExpanded(null);
@@ -99,7 +112,7 @@ export default function App() {
             onClick={goHome}
             aria-label="Chess Progress, retour à l’accueil"
           >
-            <img src={`${import.meta.env.BASE_URL}favicon.svg`} alt="" width="39" height="39" />
+            <BrandMark className="header-brand-mark" />
             <span>
               Chess Progress<small>LE JEU. LA PROGRESSION.</small>
             </span>
@@ -120,6 +133,13 @@ export default function App() {
               <Cpu size={16} />
               Partie libre
             </button>
+            <button
+              aria-current={view === 'progress' ? 'page' : undefined}
+              onClick={() => openView('progress')}
+            >
+              <Trophy size={16} />
+              Progression
+            </button>
           </nav>
           <button
             className="theme-switch"
@@ -134,6 +154,8 @@ export default function App() {
       </header>
       {view === 'home' ? (
         <HomePage onOpenings={() => openView('openings')} onComputer={() => openView('computer')} />
+      ) : view === 'progress' ? (
+        <ProgressPage onHome={goHome} />
       ) : view === 'computer' ? (
         <Suspense
           fallback={
@@ -166,6 +188,19 @@ export default function App() {
                 }
               : undefined;
           })()}
+          onComplete={(id) => progress.tacticComplete(id)}
+        />
+      ) : pending ? (
+        <OpeningIntroduction
+          {...pending}
+          onBack={() => setPending(null)}
+          onStart={() => {
+            progress.discover(pending.opening.id);
+            setActive(pending);
+            setPending(null);
+            setSession((value) => value + 1);
+            window.scrollTo(0, 0);
+          }}
         />
       ) : active ? (
         <ActiveTrainer
@@ -177,6 +212,11 @@ export default function App() {
           }}
           onVariants={variants}
           onHome={goHome}
+          guided={active.firstDiscovery}
+          onComplete={(result) => {
+            progress.trainingComplete(result);
+            setActive((current) => current ? { ...current, firstDiscovery: false } : current);
+          }}
         />
       ) : (
         <OpeningLibrary
@@ -204,12 +244,17 @@ export default function App() {
             setMode(null);
           }}
           onStart={(opening, variation, mode) => {
-            setActive({ opening, variation, mode });
-            setSession((value) => value + 1);
+            setPending({
+              opening,
+              variation,
+              mode,
+              firstDiscovery: !progress.data.training[`${opening.id}/${variation.id}/${mode}`],
+            });
             window.scrollTo(0, 0);
           }}
         />
       )}
+      <BadgeToast />
       <footer className="site-footer page-width">
         <p>Chess Progress Project 2026 — Prototype pédagogique</p>
         <a href={`${import.meta.env.BASE_URL}licences.html`} target="_blank" rel="noreferrer">
@@ -228,12 +273,13 @@ function ActiveTactic({
   onRestart: () => void;
   onBack: () => void;
   onNext?: () => void;
+  onComplete: (id: string) => void;
 }) {
   const lesson = useMemo(() => compileTactic(puzzle), [puzzle]);
   return <TacticTrainer lesson={lesson} {...actions} />;
 }
 
-type Selection = { opening: Opening; variation: Variation; mode: LessonMode };
+type Selection = { opening: Opening; variation: Variation; mode: LessonMode; firstDiscovery?: boolean };
 function ActiveTrainer({
   selection,
   ...actions
@@ -242,6 +288,15 @@ function ActiveTrainer({
   onRestart: () => void;
   onVariants: () => void;
   onHome: () => void;
+  guided?: boolean;
+  onComplete: (result: {
+    openingId: string;
+    variationId: string;
+    mode: LessonMode;
+    errors: number;
+    clues: number;
+    solutions: number;
+  }) => void;
 }) {
   // Only the selected lesson is replayed. The catalogue does not run 120 analyses.
   const lesson = useMemo(

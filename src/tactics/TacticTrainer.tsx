@@ -8,17 +8,25 @@ import { isExpectedMove, type TrainerState } from '../trainer/model';
 import { useTrainer } from '../trainer/useTrainer';
 import type { CompiledTactic } from './model';
 import { ExerciseFeedback, FocusTitle, mistakeMessage } from '../components/ExerciseFeedback';
+import { GlossaryText } from '../components/InfoTooltip';
 
 type Props = {
   lesson: CompiledTactic;
   onRestart: () => void;
   onBack: () => void;
   onNext?: () => void;
+  onComplete?: (id: string) => void;
 };
 
-export function TacticTrainer({ lesson, onRestart, onBack, onNext }: Props) {
+export function TacticTrainer({ lesson, onRestart, onBack, onNext, onComplete }: Props) {
   const { state, dispatch, playerTurn, complete, fen } = useTrainer(lesson);
   const puzzle = lesson.puzzle;
+  const recorded = useRef(false);
+  useEffect(() => {
+    if (!complete || recorded.current) return;
+    recorded.current = true;
+    onComplete?.(puzzle.id);
+  }, [complete, onComplete, puzzle.id]);
   return (
     <main id="main" className="trainer tactic-trainer page-width mobile-focus">
       <FocusTitle
@@ -83,7 +91,7 @@ export function TacticTrainer({ lesson, onRestart, onBack, onNext }: Props) {
           <div className="lesson-heading">
             <span className="eyebrow">COMPRENDRE L’OCCASION</span>
             <h2>{lesson.opening.name}</h2>
-            <p>{puzzle.motif}</p>
+            <p><GlossaryText>{puzzle.motif}</GlossaryText></p>
             <span className="side-badge">Tu joues les {sideName(lesson.player)}</span>
           </div>
           <div className="progress-section">
@@ -200,7 +208,7 @@ function TacticCompletion({
       <h2 id="tactic-complete-title">Tactique réussie</h2>
       <p className="completion-subtitle">{lesson.opening.name}</p>
       <div className="tactic-explanation">
-        <h3>{puzzle.motif}</h3>
+        <h3><GlossaryText>{puzzle.motif}</GlossaryText></h3>
         <p>{puzzle.explanation}</p>
         <p>
           <Check size={16} />

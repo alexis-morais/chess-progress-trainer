@@ -100,7 +100,13 @@ describe('Partie libre : parcours avec le véritable échiquier', () => {
   });
   it('laisse les Blancs commencer, refuse un coup illégal et applique le choix libre du moteur', async () => {
     const { unmount } = render(<ComputerMode onHome={vi.fn()} />);
+    expect(screen.getByText(/Ta partie, tes décisions/)).toBeVisible();
     await start();
+    expect(screen.queryByText(/Ta partie, tes décisions/)).toBeNull();
+    expect(document.querySelector('.computer-panel')?.firstElementChild).toHaveTextContent(
+      'Les coups joués',
+    );
+    expect(screen.getByRole('button', { name: 'Abandonner' })).toBeVisible();
     expect(document.querySelector('.computer-board')).toHaveAttribute('data-orientation', 'white');
     expect(ProtocolWorker.all[0].postMessage).not.toHaveBeenCalledWith(
       expect.stringMatching(/^go /),
@@ -111,7 +117,7 @@ describe('Partie libre : parcours avec le véritable échiquier', () => {
     expect(screen.getByTestId('computer-move-badge')).toHaveClass('incorrect');
     play('e2', 'e4');
     await screen.findByRole('button', { name: 'c5, pion noir' });
-    expect(screen.getByTestId('computer-turn')).toHaveTextContent('À toi de jouer');
+    expect(screen.getByTestId('computer-turn')).toBeEmptyDOMElement();
     expect(screen.getByRole('button', { name: 'e7, pion noir' })).toBeInTheDocument();
     expect(screen.getByText('c5')).toBeVisible();
     unmount();
