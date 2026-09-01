@@ -382,7 +382,7 @@
     "src/progress/badges.ts",
     "src/progress/model.ts"
   ],
-  "uiHash": "6200a8402ce7fb2d0e3dc8385890e40c0a292f36fba8fb0dfefd9361bf130b4e",
+  "uiHash": "7bd08e946e8e37dc3787554b7f38c2310dc9d7238bdb4b6f905b946304e2309d",
   "production": {
     "base": "/chess-progress-trainer/",
     "csp": true,
@@ -700,9 +700,12 @@
       "overflow": false
     },
     "identity": {
-      "concept": "Monogramme géométrique C et signe de progression, sans pion",
+      "concept": "Dame minimaliste avec coupe ascendante en espace négatif",
       "headerSizeMobile": 27,
-      "favicon": "/chess-progress-trainer/favicon.svg",
+      "favicon": "/chess-progress-trainer/chess-progress-favicon-v3.svg",
+      "faviconPng": "/chess-progress-trainer/chess-progress-favicon-32-v3.png",
+      "appleTouchIcon": "/chess-progress-trainer/chess-progress-touch-v3.png",
+      "safariMask": "/chess-progress-trainer/chess-progress-mask-v3.svg",
       "monochrome": true,
       "light": true,
       "dark": true

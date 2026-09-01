@@ -211,10 +211,9 @@ describe('Partie libre : parcours avec le véritable échiquier', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Coup précédent' }));
     expect(screen.getByTestId('review-position')).toHaveTextContent('1 / 2');
     expect(screen.getByTestId('review-comment')).toHaveTextContent('centre');
-    expect(screen.getByText('Meilleur coup : e4')).toBeVisible();
-    fireEvent.click(screen.getByRole('checkbox', { name: /Voir le meilleur coup/ }));
-    expect(screen.getByRole('button', { name: 'e2, pion blanc' })).toBeInTheDocument();
-    expect(document.querySelector('[id*="arrowhead-0-e2-e4"]')).toBeInTheDocument();
+    expect(screen.getByText('✓ Meilleur coup')).toBeVisible();
+    expect(screen.queryByRole('button', { name: 'Meilleur coup' })).toBeNull();
+    expect(document.querySelector('[id*="arrowhead-0-e2-e4"]')).toBeNull();
     fireEvent.click(screen.getByRole('button', { name: 'Revenir au début' }));
     expect(screen.getByRole('button', { name: 'Coup précédent' })).toBeDisabled();
     fireEvent.click(screen.getByRole('button', { name: 'Coup suivant' }));

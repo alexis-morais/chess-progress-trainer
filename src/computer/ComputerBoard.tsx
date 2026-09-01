@@ -9,7 +9,7 @@ type Props = {
   player: Side;
   enabled?: boolean;
   last?: Pick<Move, 'from' | 'to'>;
-  arrow?: { from: string; to: string };
+  arrow?: { from: string; to: string; color?: string; kind?: string };
   mark?: BoardMark | null;
   onMove?: (from: string, to: string, promotion?: string) => boolean;
 };

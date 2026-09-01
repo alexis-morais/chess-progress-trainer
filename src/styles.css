@@ -161,8 +161,12 @@ button img {
   height: 39px;
   flex: 0 0 auto;
 }
-.brand-mark-frame { fill: var(--accent); }
-.brand-mark-symbol { fill: var(--ink); }
+.brand-mark {
+  display: inline-block;
+  background: var(--accent);
+  -webkit-mask: var(--brand-mark-source) center / contain no-repeat;
+  mask: var(--brand-mark-source) center / contain no-repeat;
+}
 
 /* Pedagogy, glossary and local progression */
 .info-term {

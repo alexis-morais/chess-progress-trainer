@@ -282,3 +282,41 @@ export const navigatePly = (
     : action === 'last'
       ? total
       : Math.max(0, Math.min(total, current + (action === 'previous' ? -1 : 1)));
+
+export type ReviewNavigationAction = 'first' | 'previous' | 'next' | 'last';
+
+export function categoryPlies(moves: ReviewedMove[], category: Category): number[] {
+  return moves.filter((move) => move.category === category).map((move) => move.ply);
+}
+
+export function navigateFilteredPly(
+  current: number,
+  action: ReviewNavigationAction,
+  plies: number[],
+): number | null {
+  if (!plies.length) return null;
+  const currentIndex = Math.max(0, plies.indexOf(current));
+  const nextIndex =
+    action === 'first'
+      ? 0
+      : action === 'last'
+        ? plies.length - 1
+        : Math.max(
+            0,
+            Math.min(plies.length - 1, currentIndex + (action === 'previous' ? -1 : 1)),
+          );
+  return plies[nextIndex];
+}
+
+export function bestMoveArrow(
+  fen: string,
+  token: string | null,
+): { from: string; to: string } | null {
+  if (!token || !/^[a-h][1-8][a-h][1-8][qrbn]?$/.test(token)) return null;
+  try {
+    playUci(new Chess(fen), token);
+    return { from: token.slice(0, 2), to: token.slice(2, 4) };
+  } catch {
+    return null;
+  }
+}

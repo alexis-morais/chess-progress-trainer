@@ -26,7 +26,7 @@ type Props = {
   player: 'w' | 'b';
   enabled?: boolean;
   last?: Pick<Move, 'from' | 'to'>;
-  arrow?: { from: string; to: string };
+  arrow?: { from: string; to: string; color?: string; kind?: string };
   mark?: BoardMark | null;
   badgeTestId: string;
   onMove?: (from: string, to: string, promotion?: string) => boolean;
@@ -167,6 +167,7 @@ export function InteractiveBoard({
         ref={root}
         className={`training-board interactive-board ${className}`}
         data-orientation={orientation}
+        data-arrow-kind={arrow?.kind}
         data-dragging={pointer.visual?.phase === 'dragging' || undefined}
         data-settling={settling || undefined}
         aria-label={label}
@@ -198,7 +199,13 @@ export function InteractiveBoard({
               darkSquareNotationStyle: { color: '#10291e', fontWeight: 600, fontSize: 12 },
               lightSquareNotationStyle: { color: '#344a3c', fontWeight: 600, fontSize: 12 },
               arrows: arrow
-                ? [{ startSquare: arrow.from, endSquare: arrow.to, color: 'rgba(247,183,67,.94)' }]
+                ? [
+                    {
+                      startSquare: arrow.from,
+                      endSquare: arrow.to,
+                      color: arrow.color ?? 'rgba(247,183,67,.94)',
+                    },
+                  ]
                 : [],
               clearArrowsOnClick: false,
               squareRenderer: ({ square }) => {

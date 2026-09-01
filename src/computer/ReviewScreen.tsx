@@ -13,9 +13,23 @@ import { ComputerEngine, isAbort } from './ComputerEngine';
 import { ComputerBoard } from './ComputerBoard';
 import { EvaluationChart } from './EvaluationChart';
 import { MoveHistory } from './MoveHistory';
-import { moveNumber, replayGame, resultReason, resultTitle } from './game';
-import { analyzeGame, navigatePly, scoreLabel } from './review';
-import { categories, categoryInfo, type GameRecord, type ReviewReport } from './types';
+import { moveNumber, replayGame, resultReason, resultTitle, uci } from './game';
+import {
+  analyzeGame,
+  bestMoveArrow,
+  categoryPlies,
+  navigateFilteredPly,
+  navigatePly,
+  scoreLabel,
+  type ReviewNavigationAction,
+} from './review';
+import {
+  categories,
+  categoryInfo,
+  type Category,
+  type GameRecord,
+  type ReviewReport,
+} from './types';
 import { InfoTooltip } from '../components/InfoTooltip';
 
 export function ReviewScreen({
@@ -38,6 +52,7 @@ export function ReviewScreen({
   const [retry, setRetry] = useState(0);
   const [selected, setSelected] = useState(game.moves.length);
   const [showBest, setShowBest] = useState(false);
+  const [activeCategory, setActiveCategory] = useState<Category | null>(null);
   const replay = useMemo(() => replayGame(game), [game]);
   const completed = useRef(onComplete);
   completed.current = onComplete;
@@ -65,10 +80,21 @@ export function ReviewScreen({
       engine.dispose();
     };
   }, [game, cached, retry]);
-  function select(ply: number) {
-    setSelected(ply);
-    setShowBest(false);
-  }
+  useEffect(() => {
+    if (!report) return;
+    const move = replay.moves[selected - 1];
+    const reviewed = report.moves.find((item) => item.ply === selected);
+    const analysis = report.positions[Math.max(0, selected - 1)];
+    setShowBest(
+      Boolean(
+        move &&
+          reviewed?.bestSan &&
+          analysis?.bestMove &&
+          uci(move) !== analysis.bestMove &&
+          bestMoveArrow(move.before, analysis.bestMove),
+      ),
+    );
+  }, [report]);
   if (!report)
     return (
       <section className="review-loading" aria-label="Analyse de la partie">
@@ -101,13 +127,49 @@ export function ReviewScreen({
         </button>
       </section>
     );
+  const review = report;
+  function alternativeAt(ply: number) {
+    const move = replay.moves[ply - 1];
+    const reviewed = review.moves.find((item) => item.ply === ply);
+    const analysis = review.positions[Math.max(0, ply - 1)];
+    return Boolean(
+      move &&
+        reviewed &&
+        reviewed.bestSan &&
+        analysis?.bestMove &&
+        uci(move) !== analysis.bestMove &&
+        bestMoveArrow(move.before, analysis.bestMove),
+    );
+  }
+  function select(ply: number, keepFilter = false) {
+    setSelected(ply);
+    if (!keepFilter) setActiveCategory(null);
+    setShowBest(alternativeAt(ply));
+  }
+  function chooseCategory(category: Category) {
+    const plies = categoryPlies(review.moves, category);
+    if (!plies.length) return;
+    setActiveCategory(category);
+    select(plies[0], true);
+  }
+  const filteredPlies = activeCategory ? categoryPlies(report.moves, activeCategory) : [];
+  const filteredIndex = activeCategory ? filteredPlies.indexOf(selected) : -1;
+  function navigate(action: ReviewNavigationAction) {
+    const target = activeCategory
+      ? navigateFilteredPly(selected, action, filteredPlies)
+      : navigatePly(selected, action, game.moves.length);
+    if (target !== null) select(target, Boolean(activeCategory));
+  }
   const played = replay.moves[selected - 1];
   const detail = report.moves.find((move) => move.ply === selected);
   const before = report.positions[Math.max(0, selected - 1)];
   const after = report.positions[selected];
-  const token = showBest && detail ? before.bestMove : null;
+  const alreadyBest = Boolean(detail && before.bestMove && played && uci(played) === before.bestMove);
+  const alternative =
+    detail && !alreadyBest ? bestMoveArrow(replay.positions[selected - 1], before.bestMove) : null;
+  const visibleAlternative = showBest && alternative ? alternative : null;
   const quality = detail ? categoryInfo[detail.category] : null;
-  const positionPly = showBest && detail ? selected - 1 : selected;
+  const positionPly = visibleAlternative ? selected - 1 : selected;
   return (
     <>
       <div className="review-title">
@@ -133,14 +195,43 @@ export function ReviewScreen({
           <span><InfoTooltip term="Précision estimée" /></span>
           <small>Indice pédagogique local</small>
         </div>
-        <div className="category-totals">
-          {categories.map((category) => (
-            <div key={category} className={category}>
-              <span className={`category-symbol ${category}`}>{categoryInfo[category].symbol}</span>
-              <strong>{report.counts[category]}</strong>
-              <span>{categoryInfo[category].plural}</span>
-            </div>
-          ))}
+        <div className="review-classifications">
+          <div className="review-filter-heading">
+            <strong>Retrouver mes coups</strong>
+            <button
+              type="button"
+              className="review-all-filter"
+              aria-pressed={activeCategory === null}
+              onClick={() => {
+                setActiveCategory(null);
+                setShowBest(false);
+              }}
+            >
+              Tous les coups
+            </button>
+          </div>
+          <div className="category-totals">
+            {categories.map((category) => {
+              const count = report.counts[category];
+              return (
+                <button
+                  type="button"
+                  key={category}
+                  className={category}
+                  disabled={count === 0}
+                  aria-pressed={activeCategory === category}
+                  aria-label={`${categoryInfo[category].plural}, ${count} ${count > 1 ? 'coups' : 'coup'}${count === 0 ? ', aucun coup à afficher' : ''}`}
+                  onClick={() => chooseCategory(category)}
+                >
+                  <span className={`category-symbol ${category}`} aria-hidden="true">
+                    {categoryInfo[category].symbol}
+                  </span>
+                  <strong>{count}</strong>
+                  <span>{categoryInfo[category].plural}</span>
+                </button>
+              );
+            })}
+          </div>
         </div>
       </section>
       <EvaluationChart positions={report.positions} selected={selected} onSelect={select} />
@@ -148,21 +239,29 @@ export function ReviewScreen({
         <section className="computer-board-section" aria-label="Explorateur de la partie">
           <div className="review-board-caption">
             <strong>
-              {showBest && detail
-                ? 'Position avant ton coup'
+              {visibleAlternative
+                ? 'Position avant ta décision'
                 : selected === 0
                   ? 'Position initiale'
                   : 'Position après le coup sélectionné'}
             </strong>
-            <span>{scoreLabel(report.positions[positionPly].score)}</span>
+            <span>
+              {visibleAlternative && detail?.bestSan
+                ? `Meilleur coup · ${detail.bestSan}`
+                : scoreLabel(report.positions[positionPly].score)}
+            </span>
           </div>
           <ComputerBoard
             fen={replay.positions[positionPly]}
             player={game.player}
-            last={showBest ? undefined : played}
-            arrow={token ? { from: token.slice(0, 2), to: token.slice(2, 4) } : undefined}
+            last={visibleAlternative ? undefined : played}
+            arrow={
+              visibleAlternative
+                ? { ...visibleAlternative, color: 'rgba(31, 124, 88, .9)', kind: 'best-move' }
+                : undefined
+            }
             mark={
-              !showBest && played && quality
+              !visibleAlternative && played && quality
                 ? { square: played.to, good: quality.good, symbol: quality.symbol }
                 : null
             }
@@ -171,35 +270,45 @@ export function ReviewScreen({
             <button
               className="button secondary"
               aria-label="Revenir au début"
-              disabled={selected === 0}
-              onClick={() => select(navigatePly(selected, 'first', game.moves.length))}
+              disabled={activeCategory ? filteredIndex <= 0 : selected === 0}
+              onClick={() => navigate('first')}
             >
               <ChevronsLeft size={21} />
             </button>
             <button
               className="button secondary"
               aria-label="Coup précédent"
-              disabled={selected === 0}
-              onClick={() => select(navigatePly(selected, 'previous', game.moves.length))}
+              disabled={activeCategory ? filteredIndex <= 0 : selected === 0}
+              onClick={() => navigate('previous')}
             >
               <ChevronLeft size={21} />
             </button>
-            <span data-testid="review-position">
-              {selected} / {game.moves.length}
+            <span data-testid="review-position" aria-live="polite">
+              {activeCategory
+                ? `${categoryInfo[activeCategory].name} ${filteredIndex + 1} / ${filteredPlies.length}`
+                : `${selected} / ${game.moves.length}`}
             </span>
             <button
               className="button secondary"
               aria-label="Coup suivant"
-              disabled={selected === game.moves.length}
-              onClick={() => select(navigatePly(selected, 'next', game.moves.length))}
+              disabled={
+                activeCategory
+                  ? filteredIndex === filteredPlies.length - 1
+                  : selected === game.moves.length
+              }
+              onClick={() => navigate('next')}
             >
               <ChevronRight size={21} />
             </button>
             <button
               className="button secondary"
               aria-label="Aller à la fin"
-              disabled={selected === game.moves.length}
-              onClick={() => select(navigatePly(selected, 'last', game.moves.length))}
+              disabled={
+                activeCategory
+                  ? filteredIndex === filteredPlies.length - 1
+                  : selected === game.moves.length
+              }
+              onClick={() => navigate('last')}
             >
               <ChevronsRight size={21} />
             </button>
@@ -227,6 +336,44 @@ export function ReviewScreen({
                 {quality.symbol} {quality.name}
               </span>
             )}
+            {detail && (
+              <div className="recommendation">
+                {alreadyBest ? (
+                  <strong className="best-move-confirmation">✓ Meilleur coup</strong>
+                ) : (
+                  <strong>Meilleur coup : {detail.bestSan ?? 'Non disponible'}</strong>
+                )}
+                {alternative && (
+                  <>
+                    <p className="best-move-explanation">
+                      La flèche verte montre le choix recommandé dans la position avant ton coup.
+                    </p>
+                    <div className="best-move-views" aria-label="Vue de la décision">
+                      <button
+                        type="button"
+                        aria-pressed={!showBest}
+                        onClick={() => setShowBest(false)}
+                      >
+                        Mon coup
+                      </button>
+                      <button
+                        type="button"
+                        aria-pressed={showBest}
+                        onClick={() => setShowBest(true)}
+                      >
+                        Meilleur coup
+                      </button>
+                    </div>
+                  </>
+                )}
+                {detail.proposedLine && (
+                  <>
+                    <span>Suite proposée</span>
+                    <p>{detail.proposedLine}</p>
+                  </>
+                )}
+              </div>
+            )}
             <p className="review-comment" data-testid="review-comment">
               {detail?.comment ??
                 (selected
@@ -244,34 +391,13 @@ export function ReviewScreen({
               </div>
             </dl>
             <p className="computer-note">Valeurs toujours du point de vue des Blancs.</p>
-            {detail && (
-              <div className="recommendation">
-                <strong>Meilleur coup : {detail.bestSan ?? 'Non disponible'}</strong>
-                {before.bestMove && (
-                  <label className="best-move-toggle">
-                    <input
-                      type="checkbox"
-                      checked={showBest}
-                      onChange={(event) => setShowBest(event.target.checked)}
-                    />
-                    Voir le meilleur coup sur la position d’origine
-                  </label>
-                )}
-                {detail.proposedLine && (
-                  <>
-                    <span>Suite proposée</span>
-                    <p>{detail.proposedLine}</p>
-                  </>
-                )}
-              </div>
-            )}
           </div>
           <h3>Explorer les coups</h3>
           <MoveHistory
             moves={replay.moves}
             reviews={report.moves}
             selected={selected}
-            onSelect={select}
+            onSelect={(ply) => select(ply)}
           />
         </aside>
       </div>

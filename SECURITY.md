@@ -1,5 +1,13 @@
 # Audit local de sécurité — 1er septembre 2026
 
+## Game Review filtré et identité versionnée
+
+Le contrôle final porte sur **243 fichiers**, dix commits accessibles et 375 blobs historiques : aucune occurrence sensible détectée. `pnpm audit --json` signale **0 vulnérabilité** critique, haute, modérée, faible ou informative parmi 219 dépendances. Aucune dépendance ni ressource distante n’a été ajoutée.
+
+La navigation du bilan travaille uniquement sur le rapport déjà validé en mémoire. Les coups UCI utilisés par la flèche passent par la même validation `chess.js` que le moteur ; une valeur absente, mal formée ou illégale ne produit aucun overlay. Cliquer une classification ou changer de position ne crée aucun Worker et ne déclenche aucune recherche Stockfish.
+
+Le header charge le masque SVG local depuis `import.meta.env.BASE_URL`. Les favicon SVG/PNG, l’Apple Touch Icon et le masque Safari sont des ressources statiques locales aux noms `v3`, compatibles avec `img-src 'self' data:`. Le build conserve la CSP, `no-referrer` et le préfixe GitHub Pages. Les cinq ressources répondent en HTTP 200 dans la prévisualisation de production.
+
 ## Finition produit : pédagogie, progression et contrôle mobile
 
 L’audit des dépendances a été relancé : **0 vulnérabilité connue** (11 dépendances d’exécution, 208 de développement, 219 au total). Aucune dépendance ajoutée, aucun changement du lockfile. Les nouveaux dessins utilisent les SVG et pièces locaux déjà licenciés. Aucun service, compte, appel distant ou secret n’a été ajouté.

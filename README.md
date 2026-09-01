@@ -14,7 +14,7 @@ Dans les **Tactiques**, les coups et réponses sont également scriptés : aucun
 
 Mise à jour structurelle du 31 août 2026 : aide facultative **Indice | Solution** au-dessus du plateau, formats révélés dans la variante sélectionnée, et deux tactiques par ouverture. Les cartes d’accueil entièrement cliquables, les ajustements pour petits écrans, la direction artistique et les deux thèmes sont conservés.
 
-Finition du 1er septembre 2026 : introduction propre à chaque ouverture, première découverte guidée, indices contextualisés, glossaire interactif et page **Progression** locale avec vingt badges. La Partie libre est plus compacte une fois lancée. Le nouveau monogramme géométrique, le grand halo tactile et les quatre accès de navigation sont intégrés aux deux thèmes.
+Finition du 1er septembre 2026 : introduction propre à chaque ouverture, première découverte guidée, indices contextualisés, glossaire interactif et page **Progression** locale avec vingt badges. La Partie libre est plus compacte une fois lancée. Le symbole de dame ascendante, le grand halo tactile et les quatre accès de navigation sont intégrés aux deux thèmes.
 
 ## Mobile et mode Focus
 
@@ -31,6 +31,7 @@ Les feedbacks proches du plateau distinguent **déplacement illégal**, **coup l
 - La navigation utilise les fragments `#/`, `#/ouvertures`, `#/partie` et `#/progression`. Le retour du navigateur fonctionne et les liens sont actualisables sur GitHub Pages sans serveur de routage.
 - Le bouton **Clair / Sombre** dans l’en-tête change le thème sans interrompre la séance. Le choix initial suit le système ; un choix manuel est mémorisé localement avec la clé `chess-progress:theme:v1`. Si le stockage est bloqué, le choix reste valable pendant la session. Aucun compte ni synchronisation distante.
 - Les deux thèmes partagent les mêmes espacements, composants et pièces. Les animations respectent la préférence « réduire les animations » du système. Le plateau et les contrôles restent accessibles au clavier.
+- L’identité utilise une dame minimaliste traversée par une coupe ascendante en espace négatif. Le symbole monochrome sert de source au header ; les favicon SVG/PNG, l’Apple Touch Icon et le masque Safari portent tous le suffixe `v3` afin d’éviter la réutilisation de l’ancienne URL par le cache du navigateur.
 
 ## Ouvertures disponibles
 
@@ -114,7 +115,9 @@ Depuis **ENTRAÎNEMENT LIBRE**, choisir Blancs, Noirs ou Aléatoire, puis une fo
 
 La partie se termine par mat, pat, répétition, règle des 50 coups, matériel insuffisant ou abandon confirmé. Les nulles par répétition et 50 coups sont déclarées automatiquement dans ce prototype, sans procédure de réclamation. Il n’y a pas de chronomètre. L’historique affiche les coups en notation française.
 
-Après la partie, **Analyser ma partie** lance le bilan. Il comprend les six catégories de coups, une précision estimée, la courbe d’évaluation interactive, la navigation dans les positions, un commentaire pour chacun de tes coups, le meilleur coup trouvé et une suite de six demi-coups au maximum. **Voir le meilleur coup** ramène le plateau à la position avant ton coup pour tracer une flèche légale.
+Après la partie, **Analyser ma partie** lance le bilan. Il comprend les six catégories de coups, une précision estimée, la courbe d’évaluation interactive, la navigation dans les positions, un commentaire pour chacun de tes coups, le meilleur coup trouvé et une suite de six demi-coups au maximum. Les compteurs **Meilleurs coups, Excellents, Bons, Imprécisions, Erreurs et Gaffes** sont interactifs : ils ouvrent le premier coup concerné, puis les commandes précédent/suivant restent limitées à cette catégorie avec un repère `X / Y`. **Tous les coups** quitte ce filtre.
+
+Lorsqu’une alternative existe, le plateau revient automatiquement à la position **avant** la décision et une flèche verte indique le meilleur coup déjà calculé, avec son libellé SAN. Les boutons **Mon coup / Meilleur coup** permettent de comparer les deux vues. Si le coup joué était déjà le meilleur, le bilan affiche **✓ Meilleur coup** sans fausse flèche alternative. Ces interactions réutilisent le cache du bilan et ne relancent jamais Stockfish.
 
 La dernière partie **terminée**, puis son bilan, sont sauvegardés dans `localStorage` sur cet appareil uniquement. Après une actualisation, ouvrir **Configurer une partie**, puis **Retrouver la partie** ou **Revoir le bilan**. Rien n’est envoyé à un serveur. Le stockage privé/bloqué peut empêcher cette sauvegarde ; un message prévient alors de garder l’onglet ouvert. Une partie encore en cours n’est pas sauvegardée. Supprimer les données du site efface la sauvegarde.
 
@@ -211,7 +214,7 @@ Ne pas ouvrir `dist/index.html` en double-cliquant : les Workers/WASM doivent ê
 
 ### Tests et runners GitHub Actions
 
-Les tests historiques sont conservés et adaptés. La suite compte désormais **1 293 tests dans 31 fichiers**. Les nouveaux contrôles couvrent notamment les introductions, les 120 séances, la diversité des intentions, les infobulles, les migrations, les badges visibles/secrets, la Partie libre épurée, le logo et les mesures de rendu. Les cartes mobiles, le drag tactile, les 25 niveaux, la protection matérielle et la calibration enregistrée restent couverts. Aucun test n’est supprimé ou désactivé. Les résultats sont consignés dans [VALIDATION.md](VALIDATION.md).
+Les tests historiques sont conservés et adaptés. La suite compte désormais **1 316 tests dans 32 fichiers**. Les nouveaux contrôles couvrent notamment les filtres et la synchronisation du Game Review, la flèche du meilleur coup, les anciennes données, les nouveaux favicon/Apple Touch Icon et la dame ascendante, en plus des introductions, 120 séances, infobulles, badges et mesures de rendu déjà validés. Les cartes mobiles, le drag tactile, les 25 niveaux, la protection matérielle et la calibration enregistrée restent couverts. Aucun test n’est supprimé ou désactivé. Les résultats sont consignés dans [VALIDATION.md](VALIDATION.md).
 
 Dans `vite.config.ts`, le délai maximum par test est de **20 secondes en CI**, contre **5 secondes en local**. GitHub définit automatiquement `CI=true` : le workflow existant bénéficie donc du délai adapté aux runners partagés. Aucun test n’est désactivé et les échecs réels restent bloquants. Pour reproduire cette configuration localement : `CI=true pnpm test`. Ce réglage ne modifie pas les délais de l’application ni les recherches Stockfish. La concurrence est limitée à deux processus pour éviter que les rendus du plateau ne se disputent le CPU. `pnpm test` utilise directement cette limite, sans augmenter les 5 secondes locales.
 
