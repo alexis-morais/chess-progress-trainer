@@ -122,10 +122,16 @@ describe('Partie libre : parcours avec le véritable échiquier', () => {
     fireEvent.click(screen.getByRole('link', { name: 'ENTRAÎNEMENT LIBRE' }));
     fireEvent.click(await screen.findByRole('radio', { name: 'Blancs' }));
     await start();
-    const before = performance.now();
-    await resignGame();
-    expect(performance.now() - before).toBeLessThan(400);
-    expect(await screen.findByRole('heading', { name: 'Défaite' })).toBeVisible();
+    vi.useFakeTimers();
+    try {
+      fireEvent.click(screen.getByRole('button', { name: 'Abandonner' }));
+      fireEvent.click(screen.getByRole('button', { name: 'Confirmer l’abandon' }));
+      // No clock advance: any artificial delay would leave the result screen absent.
+      expect(screen.getByRole('heading', { name: 'Défaite' })).toBeVisible();
+      expect(screen.getByRole('button', { name: 'Analyser ma partie' })).toBeVisible();
+    } finally {
+      vi.useRealTimers();
+    }
   });
   it('ajoute un accès séparé sans démarrer Stockfish sur l’accueil', async () => {
     render(<App />);
