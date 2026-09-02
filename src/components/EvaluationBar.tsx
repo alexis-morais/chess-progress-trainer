@@ -12,9 +12,14 @@ export function evaluationLabel(evaluation: Evaluation | null) {
 export function EvaluationBar({
   analysis,
   orientation,
+  label: labelOverride,
+  description: descriptionOverride,
 }: {
   analysis: AnalysisState;
   orientation: 'white' | 'black';
+  /** The review passes the exact bilan wording; the trainer keeps the live one. */
+  label?: string;
+  description?: string;
 }) {
   const score = analysis.evaluation;
   const whitePercent =
@@ -23,13 +28,14 @@ export function EvaluationBar({
         ? 100
         : 0
       : 50 + 45 * Math.tanh((score?.cp ?? 0) / 400);
-  const label = evaluationLabel(score);
-  const description =
+  const label = labelOverride ?? evaluationLabel(score);
+  const fallbackDescription =
     score?.mate !== undefined
       ? `Mat en ${Math.abs(score.mate)} pour les ${score.mate < 0 ? 'Noirs' : 'Blancs'}`
       : score
         ? `Évaluation ${label} ; une valeur positive favorise les Blancs`
         : 'Analyse en attente';
+  const description = descriptionOverride ?? fallbackDescription;
   return (
     <div className="evaluation" aria-label={description}>
       <span className="eval-value" data-testid="evaluation-value">

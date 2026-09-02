@@ -431,10 +431,10 @@
   justify-content: space-between;
   align-items: center;
   gap: 24px;
-  margin: 28px 0;
+  margin: 18px 0 16px;
 }
 .review-title h1 {
-  font-size: 35px;
+  font-size: 29px;
 }
 .review-title h1 > span {
   font-size: 22px;
@@ -449,8 +449,8 @@
 .review-summary {
   display: flex;
   align-items: center;
-  gap: 40px;
-  padding: 28px 32px;
+  gap: 32px;
+  padding: 18px 24px;
   border: 1px solid var(--border);
   border-radius: 22px;
   background: var(--panel);
@@ -463,8 +463,8 @@
   gap: 4px;
 }
 .accuracy > strong {
-  font-size: 42px;
-  line-height: 1.2;
+  font-size: 34px;
+  line-height: 1.15;
   font-weight: 550;
   letter-spacing: -2px;
   color: var(--accent);
@@ -485,7 +485,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
 }
 .review-filter-heading > strong {
   font-size: 12px;
@@ -509,7 +509,7 @@
 .category-totals {
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 15px;
+  gap: 10px;
   flex: 1;
 }
 .category-totals > button {
@@ -520,8 +520,8 @@
   gap: 8px;
   font-size: 23px;
   min-width: 0;
-  min-height: 68px;
-  padding: 9px 5px;
+  min-height: 58px;
+  padding: 7px 5px;
   border: 1px solid transparent;
   border-radius: 13px;
   background: transparent;
@@ -551,17 +551,36 @@
   color: var(--muted);
   overflow-wrap: anywhere;
 }
-.category-symbol {
-  color: var(--success);
-  font-weight: 600;
-  font-size: 14px;
+.category-totals .summary-medallion {
+  width: 30px;
 }
-.category-symbol.inaccuracy,
-.category-symbol.mistake {
-  color: var(--gold);
+.computer-history .history-medallion {
+  width: 20px;
+  margin-left: auto;
 }
-.category-symbol.blunder {
-  color: var(--danger);
+.category-totals > button.best[aria-pressed='true'] {
+  border-color: var(--class-best);
+  background: var(--class-best-soft);
+}
+.category-totals > button.excellent[aria-pressed='true'] {
+  border-color: var(--class-excellent);
+  background: var(--class-excellent-soft);
+}
+.category-totals > button.good[aria-pressed='true'] {
+  border-color: var(--class-good);
+  background: var(--class-good-soft);
+}
+.category-totals > button.inaccuracy[aria-pressed='true'] {
+  border-color: var(--class-inaccuracy);
+  background: var(--class-inaccuracy-soft);
+}
+.category-totals > button.mistake[aria-pressed='true'] {
+  border-color: var(--class-mistake);
+  background: var(--class-mistake-soft);
+}
+.category-totals > button.blunder[aria-pressed='true'] {
+  border-color: var(--class-blunder);
+  background: var(--class-blunder-soft);
 }
 .evaluation-chart {
   border: 1px solid var(--border);
@@ -610,9 +629,180 @@
   color: var(--muted);
   margin: 6px 0;
 }
-.review-layout .computer-board-section {
+/* Analysis workspace: evaluation bar fused to a large board, and a single structured panel
+   beside it — the same three-zone logic as a dedicated analysis screen, in the Chess
+   Progress voice. The named areas are re-ordered for phones without duplicating a component. */
+.review-workspace {
+  /* The board is sized from the height the compacted chrome really leaves free, so the
+     eight ranks are visible without scrolling on a 900 px tall screen. */
+  --review-board: min(830px, max(320px, calc(100dvh - 336px)));
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 380px);
+  grid-template-areas:
+    'board panel'
+    'board nav';
+  grid-template-rows: 1fr auto;
+  align-items: start;
+  gap: 10px 22px;
+}
+/* Tight on purpose: the bar reads as part of the board, not a separate column. The board
+   itself carries the height-derived size cap; the bar's own width sits outside that budget,
+   so it never eats into the square the board is allowed. */
+.review-board-group {
+  grid-area: board;
+  display: flex;
+  gap: 12px;
+  align-items: stretch;
+  justify-self: center;
   width: 100%;
-  max-width: min(830px, max(480px, calc(100dvh - 150px)));
+  max-width: calc(var(--review-board) + 46px);
+}
+.review-workspace .computer-board-section {
+  width: 100%;
+  min-width: 0;
+  max-width: var(--review-board);
+  flex: 1;
+}
+.review-eval {
+  display: flex;
+  flex-shrink: 0;
+  /* Lines up with the board itself, not the caption sitting above it. */
+  padding-top: 26px;
+}
+.review-eval .evaluation {
+  flex: 1;
+}
+.review-eval-toggle {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 6px;
+  padding: 0;
+  background: transparent;
+  text-align: left;
+}
+.review-eval-hint {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--accent);
+}
+/* One continuous surface instead of four stacked cards: each block is separated by a
+   hairline rather than its own border, radius and shadow. Less framing, same information. */
+.review-panel {
+  grid-area: panel;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  /* The panel matches the board height exactly; only its own content scrolls. */
+  height: var(--review-board);
+}
+.review-panel > section {
+  min-width: 0;
+  padding: 16px 18px;
+  border-top: 1px solid var(--border);
+}
+.review-panel > section:first-child {
+  border-top: 0;
+}
+.review-insight {
+  flex: 0 0 auto;
+}
+.review-detail-block {
+  flex: 0 0 auto;
+}
+.review-history-block {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 84px;
+  overflow: hidden;
+}
+.review-history-block .computer-history {
+  flex: 1;
+  max-height: none;
+  border: 0;
+  border-radius: 10px;
+  padding: 6px;
+}
+.review-thread {
+  flex: 0 0 auto;
+}
+.proposed-line > span {
+  display: block;
+  font-size: 10px;
+  color: var(--muted);
+  margin: 10px 0 6px;
+}
+.proposed-line > p {
+  background: var(--surface-soft);
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 12px;
+  line-height: 1.7;
+}
+.review-insight h2 {
+  margin: 5px 0 2px;
+  font-size: 20px;
+  letter-spacing: -0.6px;
+}
+.review-detail-block .review-comment {
+  min-height: 0;
+  margin-bottom: 4px;
+  line-height: 1.65;
+}
+.review-detail-block .review-evaluations {
+  gap: 10px;
+  padding: 11px 0 0;
+  border-bottom: 0;
+}
+.review-detail-block .review-evaluations dd {
+  font-size: 16px;
+}
+.review-detail-block .computer-note {
+  margin-top: 8px;
+  font-size: 10px;
+}
+.review-insight .recommendation {
+  margin: 10px 0 0;
+  padding: 11px 12px;
+}
+.review-insight .recommendation > p {
+  padding: 9px;
+}
+.review-thread .evaluation-chart {
+  padding: 13px 14px 6px;
+  border-radius: 0;
+  border: 0;
+  margin: 0;
+  background: transparent;
+}
+.review-thread .evaluation-chart svg {
+  height: 128px;
+  margin-top: 8px;
+}
+.review-thread .chart-heading h3 {
+  font-size: 13px;
+}
+.review-history-block h3 {
+  margin: 0 0 10px;
+  font-size: 13px;
+}
+.review-workspace .review-controls {
+  grid-area: nav;
+  align-self: start;
+  margin-top: 0;
+}
+.review-controls .button > span {
+  font-size: 12px;
 }
 .review-board-caption {
   display: flex;
@@ -647,25 +837,52 @@
   padding: 11px;
   min-width: 48px;
 }
+/* Premier / Dernier are edge shortcuts, visually quieter than the primary step controls,
+   but never smaller: the tap target stays identical for the four of them. */
+.review-controls .nav-edge {
+  color: var(--muted);
+  background: transparent;
+  border-color: transparent;
+}
+.review-controls .nav-edge:hover:not(:disabled) {
+  color: var(--text);
+  background: var(--surface-soft);
+}
 .review-category {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   font-size: 12px;
+  font-weight: 600;
   border-radius: 8px;
-  background: var(--success-soft);
-  color: var(--success);
   padding: 7px 11px;
   margin: 4px 0 12px;
+  background: var(--class-good-soft);
+  color: var(--class-good);
 }
-.review-category.inaccuracy,
+.review-category .detail-medallion {
+  width: 25px;
+  margin: -3px 0;
+}
+.review-category.best {
+  background: var(--class-best-soft);
+  color: var(--class-best);
+}
+.review-category.excellent {
+  background: var(--class-excellent-soft);
+  color: var(--class-excellent);
+}
+.review-category.inaccuracy {
+  background: var(--class-inaccuracy-soft);
+  color: var(--class-inaccuracy);
+}
 .review-category.mistake {
-  background: var(--gold-soft);
-  color: var(--gold);
+  background: var(--class-mistake-soft);
+  color: var(--class-mistake);
 }
 .review-category.blunder {
-  background: var(--danger-soft);
-  color: var(--danger);
+  background: var(--class-blunder-soft);
+  color: var(--class-blunder);
 }
 .review-comment {
   font-size: 13px;
@@ -714,31 +931,6 @@
   font-size: 11px;
   line-height: 1.6;
 }
-.best-move-views {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 6px;
-  padding: 4px;
-  border: 1px solid var(--border);
-  border-radius: 11px;
-  background: var(--panel);
-}
-.best-move-views button {
-  min-height: 40px;
-  padding: 8px;
-  border-radius: 8px;
-  background: transparent;
-  color: var(--muted);
-  font-size: 11px;
-}
-.best-move-views button:hover,
-.best-move-views button[aria-pressed='true'] {
-  background: var(--accent-soft);
-  color: var(--accent);
-}
-.best-move-views button[aria-pressed='true'] {
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 45%, transparent);
-}
 .recommendation > span {
   display: block;
   font-size: 10px;
@@ -770,6 +962,114 @@
   line-height: 1.8;
   margin: 10px 0;
   max-width: 900px;
+}
+/* One single header row on wide screens: result, accuracy and the six counters share
+   the same band instead of stacking two cards above the board. */
+@media (min-width: 1101px) {
+  /* The board is the point of this screen: everything around it stays as thin as it can,
+     one compact band instead of two stacked cards, so the board claims the tall middle. */
+  .computer-page.playing-page {
+    padding-top: 6px;
+  }
+  .computer-page.playing-page > .breadcrumb {
+    margin: 6px 0 0;
+    min-height: 28px;
+  }
+  .computer-page.playing-page > .breadcrumb button {
+    min-height: 30px;
+  }
+  .review-header {
+    display: grid;
+    grid-template-columns: minmax(230px, 300px) minmax(0, 1fr);
+    align-items: center;
+    gap: 20px;
+    margin: 4px 0 8px;
+  }
+  .review-header .review-title {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    margin: 0;
+  }
+  .review-header .review-title .eyebrow {
+    font-size: 8px;
+  }
+  .review-header .review-title h1 {
+    font-size: 19px;
+    line-height: 1.12;
+  }
+  .review-header .review-title h1 > span {
+    display: inline;
+    font-size: 12.5px;
+  }
+  .review-header .review-title p {
+    font-size: 10px;
+    line-height: 1.35;
+  }
+  .review-header .review-title .text-button {
+    min-height: 24px;
+    padding: 0;
+    font-size: 11px;
+  }
+  .review-header .review-summary {
+    margin: 0;
+    padding: 8px 14px;
+    gap: 16px;
+    border-radius: 14px;
+  }
+  .review-header .accuracy {
+    min-width: 92px;
+    gap: 1px;
+  }
+  .review-header .accuracy > strong {
+    font-size: 22px;
+    letter-spacing: -0.8px;
+  }
+  .review-header .accuracy small {
+    display: none;
+  }
+  .review-header .review-filter-heading {
+    margin-bottom: 4px;
+  }
+  .review-header .category-totals {
+    gap: 7px;
+  }
+  .review-header .category-totals > button {
+    min-height: 36px;
+    font-size: 15px;
+    gap: 3px;
+    padding: 4px;
+  }
+  .review-header .category-totals .summary-medallion {
+    width: 28px;
+  }
+  .review-header .category-totals > button > span:last-child {
+    font-size: 9px;
+  }
+  .review-header .review-all-filter {
+    min-height: 28px;
+    padding: 4px 9px;
+  }
+  /* Slightly wider than its trainer counterpart and stretched to the board's own height,
+     so it reads as one analysis instrument together with the board next to it. */
+  .review-eval .evaluation {
+    width: 34px;
+  }
+  .review-eval .eval-value {
+    font-size: 12px;
+  }
+  .review-thread .evaluation-chart svg {
+    height: 112px;
+  }
+  .review-thread .evaluation-chart input {
+    height: 22px;
+  }
+  .review-workspace .review-board-caption {
+    margin-bottom: 8px;
+  }
+  .review-method {
+    margin-top: 18px;
+  }
 }
 @media (min-width: 1600px) {
   .computer-layout {
@@ -812,8 +1112,230 @@
     max-width: 740px;
     margin-inline: auto;
   }
+  /* Phones and tablets: everything needed to understand a move comes before the board,
+     and the game thread stays folded behind the evaluation bar. */
+  .review-workspace {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      'eval'
+      'thread'
+      'insight'
+      'board'
+      'nav'
+      'history'
+      'detail';
+    max-width: 740px;
+    margin-inline: auto;
+    gap: 12px;
+  }
+  /* The desktop wrappers dissolve so each block keeps its own place in the phone order. */
+  .review-panel {
+    display: contents;
+  }
+  .review-board-group {
+    display: contents;
+  }
+  /* Dissolving .review-board-group leaves .review-eval and the board as direct grid items
+     again: they need their own named areas back, only here. */
+  .review-eval {
+    grid-area: eval;
+  }
+  .review-workspace .computer-board-section {
+    grid-area: board;
+    justify-self: center;
+  }
+  .review-insight {
+    grid-area: insight;
+  }
+  .review-detail-block {
+    grid-area: detail;
+    padding: 14px 16px;
+  }
+  .review-history-block {
+    grid-area: history;
+    max-height: none;
+  }
+  .review-history-block .computer-history {
+    flex: none;
+  }
+  .review-thread {
+    grid-area: thread;
+  }
+  .review-eval {
+    height: auto;
+    padding-top: 0;
+  }
+  .review-eval .evaluation {
+    flex-direction: row;
+    width: 100%;
+    height: 24px;
+    padding-inline: 6px;
+    gap: 9px;
+  }
+  .review-eval .eval-value {
+    width: 40px;
+    height: auto;
+    font-size: 11px;
+  }
+  .review-eval .eval-track {
+    height: 10px;
+    width: auto;
+  }
+  .review-eval .eval-white {
+    width: var(--white-share);
+    height: 100%;
+    left: 0;
+    transition: width 0.5s;
+  }
+  .review-eval .eval-track.flipped .eval-white {
+    left: auto;
+    right: 0;
+  }
+  .review-eval .eval-midline {
+    left: 50%;
+    top: 0;
+    height: 100%;
+    width: 0;
+    border-top: 0;
+    border-left: 1px dashed #8b9986;
+  }
+  .review-eval .eval-side {
+    height: auto;
+  }
+  .review-eval-toggle {
+    min-height: 44px;
+    justify-content: center;
+    padding: 3px 2px;
+    gap: 3px;
+  }
+  /* Short screens: the board is also bounded by the height actually left free, so its eight
+     ranks stay visible instead of overflowing. Taller phones keep their current size. */
+  .review-workspace .computer-board-section {
+    max-width: min(100%, calc(100dvh - 252px));
+  }
+  .review-workspace {
+    gap: 10px;
+  }
+  .review-workspace .review-board-caption {
+    margin-bottom: 6px;
+    font-size: 11px;
+  }
+  /* Very short screens: recover height from the secondary wording so that the full board
+     and the Précédent / Suivant controls stay on the first screen. */
+  @media (max-height: 640px) {
+    .review-workspace .review-board-caption {
+      display: none;
+    }
+    .review-insight .recommendation > .best-move-explanation {
+      display: none;
+    }
+    .review-workspace {
+      gap: 8px;
+    }
+    .review-workspace .review-controls .button {
+      min-height: 44px;
+      padding: 9px;
+    }
+  }
+  .review-thread[data-open='false'] {
+    display: none;
+  }
+  .review-insight {
+    padding: 16px 18px;
+  }
+  .review-insight h2 {
+    font-size: 21px;
+  }
+  .review-insight .review-comment {
+    min-height: 0;
+    margin-bottom: 14px;
+  }
+  .review-history-block {
+    padding: 12px 14px;
+  }
+  /* Compact horizontal strip: the selected move stays identifiable without a tall list. */
+  .review-history-block .computer-history {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+    max-height: none;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-inline: contain;
+    padding: 4px;
+    scrollbar-width: thin;
+  }
+  .review-history-block .history-row {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    flex: 0 0 auto;
+    min-height: 40px;
+  }
+  .review-history-block .history-row > button {
+    min-height: 40px;
+    padding: 8px 10px;
+    white-space: nowrap;
+  }
+  .review-history-block h3 {
+    margin-bottom: 8px;
+    font-size: 13px;
+  }
+  /* The essentials of a decision fit above the board. */
+  .review-insight {
+    padding: 12px 14px;
+  }
+  .review-insight h2 {
+    font-size: 18px;
+    margin: 0;
+    display: inline;
+  }
+  /* One compact headline line on phones: the eyebrow and the move share it. */
+  .review-insight > .eyebrow {
+    display: inline;
+    margin-right: 8px;
+  }
+  .review-insight .review-category {
+    margin: 3px 0 6px;
+    padding: 4px 9px;
+  }
+  .review-insight .review-category .detail-medallion {
+    width: 22px;
+  }
+  .review-insight .recommendation {
+    margin: 6px 0 0;
+    padding: 9px 10px;
+  }
+  .review-insight .recommendation > .best-move-explanation {
+    margin: 5px 0 0;
+    font-size: 10.5px;
+    line-height: 1.5;
+  }
+  .review-detail-block .review-comment {
+    margin-bottom: 6px;
+    font-size: 12.5px;
+    line-height: 1.6;
+  }
+  .review-detail-block .review-evaluations {
+    padding: 10px 0 0;
+    gap: 8px;
+  }
+  .review-detail-block .review-evaluations dt {
+    margin-bottom: 3px;
+  }
+  .review-detail-block .review-evaluations dd {
+    font-size: 15px;
+  }
+  .review-title {
+    margin: 10px 0 12px;
+  }
+  .review-summary {
+    padding: 14px 16px;
+    gap: 16px;
+  }
   .computer-board-section,
-  .review-layout .computer-board-section {
+  .review-workspace .computer-board-section {
     max-width: 740px;
   }
   .computer-panel {
@@ -976,19 +1498,21 @@
     font-size: 9px;
   }
   .review-controls {
-    gap: 7px;
+    gap: 5px;
   }
   .review-controls .button {
     min-width: 44px;
     padding: 10px;
   }
+  /* Four controls plus the counter on one line: icons carry the meaning, the accessible
+     name stays on the button (aria-label) for anyone not reading it visually. */
+  .review-controls .button span {
+    display: none;
+  }
   .review-controls > span {
     min-width: 0;
     line-height: 1.35;
     overflow-wrap: anywhere;
-  }
-  .best-move-views button {
-    min-height: 44px;
   }
   .review-board-caption {
     font-size: 10px;

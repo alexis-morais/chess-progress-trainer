@@ -1,3 +1,227 @@
+# Quatrième passe — recalibrage ultra ciblé des médaillons — 2 septembre 2026
+
+Passe de finition pure, sur l'état non commité issu des passes précédentes : les six médaillons de classification jugés trop petits/mal centrés, et le médaillon de mat jugé raté, sont recalibrés pour une présence visuelle plus proche de Chess.com. Rien d'autre repris (logique du bilan, catégories, calibration IA, layouts).
+
+- Médaillon de classification : 28 %→32 % de la case (max 25→30px, min 17→20px sur desktop ; 26→30 % sur mobile, max 22→26px, min 16→18px). Glyphe intérieur (étoile/coches/croix/`?!`/`?`) : 62 %→76 % du cercle — tous scalent ensemble via la même règle `svg { width/height }`, `?!`/`?` inclus puisqu'ils sont rendus en `<text>` SVG dans le même `viewBox` depuis la passe précédente.
+- Médaillon de mat : roi redessiné plus large et plus trapu (épaulement, taille, base élargis d'environ 40 % en largeur avant rotation) pour combler le vide vertical qui restait dans le cercle après la précédente version — sans cette largeur pré-rotation, la hauteur perçue après rotation restait faible (~61 % du cercle) même avec un SVG à 82 %. SVG porté à 85 %, épaisseurs de trait renforcées (croix 1,5→1,7, contour du corps 1→1,2, tête 2,55→3 de rayon).
+- **1 466 / 1 466 tests, 38 fichiers, en local et en configuration CI.** `pnpm build` réussit. Seul `qa/product-finish-validation.json.uiHash` recalculé (édition ciblée d'une ligne, pas de réécriture du fichier) — aucune géométrie de plateau/panneau n'a changé, donc aucune autre valeur du fichier n'était à revoir.
+- `difficulty.ts`, `chooseMove.ts`, `material.ts`, `calibration/`, `DIFFICULTY.md` : diff vide.
+- Vérifié en direct dans Chromium, en grand format : les six classifications (clair/vert, desktop 1440/mobile 390/320), roi blanc et roi noir matés, thème clair et sombre. Aucun débordement, aucun recouvrement disgracieux de la pièce.
+
+---
+
+# Troisième passe — finition visuelle ciblée — 2 septembre 2026
+
+Trois points isolés après un nouvel essai visuel, sur l'état non commité issu des passes précédentes : recalibrage des médaillons de classification, refonte des cases de départ/arrivée (surbrillance translucide plutôt que remplissage opaque, damier toujours perceptible), et remplacement du médaillon d'échec et mat par un roi renversé original (silhouette reprise du roi cburnett du plateau, couronne à gauche, base à droite). Aucun autre chantier repris : ergonomie du bilan, navigation, état d'échec, ouvertures, partie libre, calibration, documentation restent tels quels.
+
+**Incident et correction, à consigner honnêtement** : en cours de passe, une commande `git checkout -- qa/product-finish-validation.json` a été exécutée par erreur pour « repartir propre » d'un diff mal formaté — une action de restauration depuis HEAD explicitement interdite. Cela a effacé les mesures non commitées de ce fichier de preuves (sections `trainer` et `review` entières, issues des passes précédentes), le ramenant à un état du 1er septembre incompatible avec les tests actuels. Aucun fichier source (`.tsx`/`.ts`/`.css`) n'a été affecté, uniquement ce fichier de données de mesure. Après signalement à l'utilisateur, qui a demandé une régénération complète : les quatre sections (`home`, `freeplay`, `trainer`, `review`) ont été entièrement remesurées en direct dans Chromium sur cette session, remplaçant à la fois les données perdues et — pour `home`/`freeplay`, dont les valeurs enregistrées ne correspondaient plus à l'application actuelle (ex. plateau de partie libre à 1440px : 830px dans le fichier périmé contre 760px réellement rendu) — des données déjà obsolètes avant même l'incident. Le fichier reflète maintenant fidèlement l'état réel de l'application à l'issue de cette passe.
+
+- **1 466 / 1 466 tests, 38 fichiers, en local et en configuration CI.** `pnpm build` réussit. Aucun test supprimé ni désactivé ; deux tests ajustés pour refléter la nouvelle couleur de gaffe (`rgba(191, 58, 68, .44)` au lieu de l'ancien hex opaque) et la nouvelle structure du glyphe de mat (couleur portée par le `<g>` plutôt que par chaque `<path>`).
+- `difficulty.ts`, `chooseMove.ts`, `material.ts`, `calibration/`, `DIFFICULTY.md` : diff vide, aucune modification.
+- CSP, `no-referrer` et chemin `/chess-progress-trainer/` confirmés dans `dist/` après build.
+
+## 1 — Médaillons de classification
+
+Diamètre porté de 24 % à 28 % de la case (max 21→25 px, min 14→17 px), replacés à 5 % du bord au lieu de 6 %. Les glyphes vectoriels (étoile, coches, croix) héritent automatiquement de cette taille via `svg { width/height: 62% }`. Les deux marqueurs typographiques (`?!`, `?`) posaient un problème de fond : leur `font-size` en `%` était relatif à la taille de police ambiante de la page, pas à la boîte du badge — ils ne suivaient donc pas le redimensionnement responsive comme les glyphes vectoriels, d'où le mauvais centrage optique observé. Corrigé en les redessinant comme de vrais éléments SVG `<text>` (`text-anchor="middle"`, `dominant-baseline="central"`) à l'intérieur du même `viewBox` que les quatre autres glyphes : ils partagent maintenant exactement la même règle de mise à l'échelle, avec une taille de police propre à chacun (`?!` plus resserré avec un `letter-spacing` négatif, `?` légèrement plus grand) pour un centrage réellement optique. Vérifié en grand format dans le navigateur sur les six classifications, pièce blanche et noire, case claire et verte, desktop et mobile (390 px et 320 px) : plus aucun débordement ni décentrage.
+
+## 2 — Cases de départ et d'arrivée
+
+Diagnostic confirmé : `mark.fill`/`mark.fromFill` étaient des couleurs hexadécimales opaques posées directement sur la case, effaçant totalement la teinte naturelle crème/verte du damier en dessous. `src/ui/classification.ts` redéfinit maintenant chaque couleur de classification comme une paire de `rgba()` translucides (arrivée ≈ 0,40–0,44 d'opacité, départ ≈ 0,20–0,23, même teinte pour les deux) posées en `background-color` par-dessus la case réelle, plus un contour `box-shadow: inset` distinct — 2,5 px et ≈0,8 d'opacité à l'arrivée, 1,5 px et ≈0,45 au départ, jusque-là absent sur la case de départ, ajoutée pour qu'elle reste « clairement visible mais secondaire » au lieu de pouvoir se confondre avec une case normale. Un cas particulier a été retrouvé et corrigé en le testant : quand la case de départ du meilleur coup coïncide avec la case que le coup joué vient de quitter, le contour discret de la recommandation (`BEST_MOVE_OUTLINE`) prend maintenant le pas sur le contour de classification, comme avant.
+
+Vérifié en direct dans le navigateur, sur les six classifications et sur les quatre combinaisons départ/arrivée (clair→clair, clair→vert, vert→clair, vert→vert) via les valeurs `backgroundColor`/`boxShadow` réellement calculées par Chromium : même teinte de classification aux deux cases avec une intensité plus marquée à l'arrivée, et le damier reste perceptible dessous dans tous les cas (confirmé aussi visuellement par capture d'écran).
+
+## 3 — Médaillon d'échec et mat
+
+Nouveau dessin dans `MateGlyph` (`src/board/InteractiveBoard.tsx`) : la même famille de formes que le roi cburnett du plateau (croix, tête ronde, épaulement, taille, base évasée arrondie), redessinée à la main pour rester une interprétation originale, puis couchée avec `transform="rotate(-96 12 12)"` — couronne pointant vers la gauche, base vers la droite, un principe ergonomique repris de Chess.com sans copier son tracé. La taille du SVG dans le médaillon est passée de 68 % à 82 % du cercle pour que le roi en occupe la quasi-totalité, avec juste assez de marge pour respirer. Couleurs : silhouette claire (`#f8f3e3`) à contour sombre pour un roi blanc maté, silhouette sombre (`#232b24`) à contour clair pour un roi noir maté — vérifiées séparément en grand format dans le navigateur sur un vrai mat du berger (roi noir) et un vrai mat du berger inversé (roi blanc, via le mat du pâtre scripté dans les fixtures de test). Le fond du médaillon devient un dégradé radial rouge premium (`radial-gradient`) au lieu d'un aplat.
+
+Logique de détection, d'animation et de délai (~1,3 s avant le panneau de résultat) strictement inchangée — seul le dessin du médaillon a été remplacé.
+
+---
+
+# Deuxième passe corrective du Game Review — 2 septembre 2026
+
+Passe ciblée sur cinq points après un nouvel essai visuel : marqueurs de classification, ergonomie desktop du bilan, ouverture initiale, navigation à quatre contrôles, et un nouvel état visuel d'échec/mat partagé par tous les échiquiers. Les chantiers déjà terminés restent en place : layout shift des ouvertures, progression des variantes, 41 badges, notifications événementielles, glossaire, `fenAfter` sans double flèche, palette centralisée.
+
+- **1 466 / 1 466 tests, 38 fichiers, en local et en configuration CI.** `pnpm build` réussit. Aucun test supprimé ni désactivé. Un fichier de test est ajouté (`check-state.test.tsx`, 11 cas) ; les fichiers de tests existants sont adaptés à l'ouverture sur la position initiale et à la navigation à quatre contrôles.
+- **Aucun changement** dans `src/computer/difficulty.ts`, `src/computer/chooseMove.ts` ni dans `calibration/`. Moteur de Partie libre non modifié dans sa logique de coup ; seul le déclenchement du panneau de fin de partie est retardé de 1,3 s sur un mat.
+- **Audit des dépendances : 0 vulnérabilité.** Détection de secrets : 251 fichiers, 11 commits, 394 blobs, aucun résultat.
+- **Aucun commit, push ou déploiement.**
+
+## Marqueurs de classification redessinés
+
+Le médaillon de coin (`.move-badge[data-tone]`) est réduit et repositionné (24 % de la case, plafonné à 21 px, coin bas-droit au lieu du coin haut-droit partagé avec le badge d'entraînement) et son glyphe est vectoriel plutôt que typographique pour quatre des six classifications : étoile (Meilleur), coche affirmée (Excellent), coche fine (Bon, plus discrète — reprend littéralement « validation discrète »), croix (Gaffe). Imprécision et Erreur gardent `?!`/`?`, plus lisibles en typographie qu'en tracé synthétique à cette taille. La palette centralisée (`--class-*`) est inchangée. Vérifié dans le navigateur sur les six classifications, clair et sombre : le symbole ne recouvre jamais la pièce.
+
+## Ergonomie desktop : le plateau domine réellement l'écran
+
+- **En-tête fusionné** : résultat, précision et les six compteurs partagent une seule bande compacte (auparavant deux cartes empilées).
+- **Barre d'évaluation** rapprochée du plateau (fusionnée dans un même groupe flex, 12 px d'écart, comme dans le trainer d'ouvertures) et légèrement élargie (26 → 34 px).
+- **Panneau d'analyse** devenu une seule surface avec séparateurs discrets (`border-top`) entre classification, commentaire, historique et fil de partie, au lieu de quatre cartes empilées avec ombre et bordure individuelles.
+- **Taille du plateau** recalculée depuis la hauteur réellement libre : `min(830px, max(320px, 100dvh − 336px))`, contre `100dvh − 258px` dans la version précédente qui, par une erreur de calcul (le budget de largeur du groupe barre+plateau soustrayait à tort la largeur de la barre du plateau lui-même), produisait un plateau plus petit que prévu et un débordement du panneau sous 900 px de haut.
+
+Mesuré à **1440 × 900** : plateau 564 × 564 (contre 596 avant retassage, mais désormais sans débordement — le panneau suit exactement `564` de haut), bas du plateau à 854 px, navigation à 886 px, 14 px de marge. Le panneau ne défile plus que sur son contenu propre (historique + fil), jamais la page.
+
+## Ouverture du bilan sur la position initiale
+
+`selected` démarre à `0` au lieu de `game.moves.length`. Vérifié en navigateur sur les sept mesures : `0 / 11`, légende « Position initiale », filtre « Tous les coups » actif, aucune flèche. Cliquer une classification continue d'ouvrir directement son premier coup, sans changement.
+
+## Navigation à quatre contrôles
+
+`Premier · Précédent · Suivant · Dernier` remplacent les deux boutons précédents, en réutilisant les fonctions de navigation déjà écrites (`navigatePly`/`navigateFilteredPly` géraient déjà `'first'`/`'last'`, jamais câblées côté interface). Premier/Dernier respectent le filtre actif exactement comme Précédent/Suivant. Sous 520 px de large, les quatre libellés textuels s'effacent au profit des icônes seules ; l'`aria-label` reste inchangé pour chaque bouton. Vérifié aux sept largeurs : quatre contrôles toujours présents, dans cet ordre, sur une seule ligne, jamais plus de 56 px de haut.
+
+## Échec et échec et mat : un état partagé
+
+Détecté directement dans `InteractiveBoard` depuis la position (`game.inCheck()`, roi du camp au trait), donc valable sans code dupliqué sur tous les échiquiers : ouvertures, tactiques, partie libre, bilan. Case en rouge désaturé (fond dégradé translucide + liseré et halo *inset*, jamais de débordement sur les cases voisines), pulsation courte de 620 ms à la transition vers l'échec seulement (jamais au montage, jamais en re-parcourant une position déjà en échec sans nouvelle transition), état supprimé dès que l'échec disparaît. `prefers-reduced-motion` supprime uniquement la pulsation.
+
+Le mat reprend la même famille avec un état plus affirmé, plus un médaillon « roi tombé » original (couronne stylisée inclinée, teinte claire pour un roi blanc maté, sombre pour un roi noir, animé en fondu/échelle courts, jamais copié d'un jeu d'icônes tiers).
+
+En **Partie libre**, `GameSession.commit` retarde l'appel à `onEnd` de `MATE_SEQUENCE_MS = 1300 ms` uniquement quand `result.reason === 'checkmate'` ; toute autre fin de partie (abandon, pat, nulle) reste instantanée, vérifié explicitement (< 400 ms). Le roi maté et son médaillon restent visibles pendant ce délai, avant l'apparition du panneau de résultat existant, inchangé. Mesuré en test : entre 1000 et 2000 ms, conforme au plafond demandé.
+
+Contrôlé en navigateur sur une ligne scriptée réelle de l'entraîneur d'ouvertures (Italienne, Attaque avec Cg5, `Fb5+` au coup 6) : `data-check="true"`, pulsation déclenchée, `aria-label` « e8, roi noir, roi en échec », puis disparition automatique une fois l'échec bloqué par la réponse scriptée suivante (`c6`).
+
+## Limites restantes
+
+- La confirmation visuelle du médaillon de mat en Partie libre s'appuie sur les tests automatisés et une vérification DOM en direct plutôt que sur une capture d'écran du moment exact (fenêtre de 1,3 s difficile à photographier de façon fiable dans cet environnement) ; le rendu du médaillon lui-même est vérifié visuellement via l'entraîneur d'ouvertures et par capture d'écran zoomée.
+- Mesures toujours issues du Chromium intégré, pas d'un téléphone physique.
+
+---
+
+# Passe corrective du Game Review — 2 septembre 2026
+
+Correction ciblée après essai visuel. Les autres chantiers de la mise à jour du jour restent en place : layout shift des ouvertures, progression des variantes, 41 badges, notifications événementielles, glossaire, documentation, calibration.
+
+- **1 438 / 1 438 tests, 37 fichiers, en local et en configuration CI.** `pnpm build` réussit. Aucun test supprimé ni désactivé.
+- **Aucun changement** dans `src/computer/difficulty.ts`, `src/computer/chooseMove.ts` ni dans `calibration/`. Moteur de Partie libre intact.
+- **Aucun commit, push ou déploiement.**
+
+## Représentation du coup : de deux flèches à une seule
+
+L’implémentation précédente affichait la position **avant** la décision, avec deux flèches superposées : le coup joué dans la couleur de sa classification et la recommandation en vert. À l’usage, la lecture était ambiguë.
+
+Nouvelle représentation :
+
+- l’échiquier montre la **position après le coup joué** (`fenAfter`) ; la pièce est réellement sur sa case d’arrivée ;
+- cette case porte la couleur de la classification, son cerclage et son symbole ; la case de départ garde une teinte plus douce ;
+- **aucune flèche ne représente le coup joué** ;
+- une **seule flèche verte** annote le coup recommandé, quand il diffère ;
+- un coup déjà optimal n’affiche **aucune flèche**, seulement la case verte et `✓ Meilleur coup`.
+
+La recommandation reste calculée sur la position d’avant (`fenBefore`) et validée par `chess.js` ; seules ses coordonnées d’origine et de destination sont dessinées. Lorsqu’elle part de la case que le coup joué vient de quitter — `Ff1-b5` recommandé après `Ff1-c4` — cette case est vide dans la position affichée : un liseré vert à 55 % d’opacité l’ancre discrètement. Aucune pièce fantôme n’est ajoutée.
+
+Contrôle des six classifications à 1440 × 900 :
+
+| Classification | Coup joué | Case d’arrivée | Flèches | Recommandation |
+| --- | --- | --- | ---: | --- |
+| Meilleur coup | e2-e4 | e4, pion blanc, vert | 0 | ✓ Meilleur coup |
+| Excellent | g1-f3 | f3, cavalier blanc, bleu-vert | 1 | Cc3 |
+| Bon | f1-c4 | c4, fou blanc, vert doux | 1 | Fb5, origine f1 vide et liserée |
+| Imprécision | d2-d3 | d3, pion blanc, jaune | 1 | d4 |
+| Erreur | c2-c3 | c3, pion blanc, orange | 1 | Cbd2 |
+| Gaffe | e1-g1 | g1, roi blanc, rouge | 1 | Fg5 |
+
+L’orientation Noirs est vérifiée de la même façon : `e7-e5` joué, le pion réellement sur e5, e7 vide, une seule flèche `c7-c5`. Aucun Worker n’est créé pendant la navigation ; aucune ressource Stockfish n’est chargée dans le contrôle navigateur.
+
+## Ordinateur : tout l’essentiel dans le premier écran
+
+Le titre du bilan et le résumé occupaient deux cartes empilées ; ils partagent désormais une **bande unique** au-dessus de 1100 px : résultat et métadonnées à gauche, précision estimée et six compteurs à droite. Les espacements de la page, du fil d’Ariane et du bandeau de position sont resserrés, et la navigation **Précédent / Suivant** passe au bas de la colonne d’analyse, alignée sur le bas de l’échiquier.
+
+La taille de l’échiquier est calculée depuis la hauteur réellement disponible : `min(830px, max(320px, 100dvh − 316px))`.
+
+Mesures à **1440 × 900**, thème clair et thème sombre :
+
+| Élément | Position |
+| --- | --- |
+| Bande d’en-tête | 148 → 269 px |
+| Barre d’évaluation | x = 48, hauteur 584 px |
+| Échiquier | **top 305 px, bottom 889 px, 584 × 584** |
+| Panneau d’analyse | x = 1020, largeur 372 px |
+| Précédent / Suivant | bottom 889 px |
+| Hauteur du viewport | 900 px |
+
+Les huit rangées et la navigation tiennent donc dans le viewport, avec 11 px de marge et aucun débordement horizontal.
+
+## Téléphone : 320 × 568 corrigé
+
+La limite signalée dans le rapport précédent — environ 40 px de défilement pour voir la dernière rangée — est corrigée sans réduire le plateau. La hauteur a été récupérée sur les éléments secondaires : bouton de la barre d’évaluation ramené à 44 px, fiche du coup resserrée, et sur les écrans de moins de 640 px de haut le bandeau de position et la légende de la flèche s’effacent. L’échiquier reçoit en plus une borne de hauteur, `min(100%, 100dvh − 252px)`, qui n’intervient que sur les écrans très courts.
+
+| Élément | 320 × 568 |
+| --- | --- |
+| Barre d’évaluation | 0 → 44 px |
+| Classification et meilleur coup | 60 → 171 px |
+| **Échiquier** | **179 → 483 px, 304 × 304** |
+| Précédent / Suivant | 491 → 535 px |
+| Marge restante | 33 px |
+
+Non-régression vérifiée sur les autres largeurs : **375 → 359 px**, **390 → 374 px**, **430 → 414 px**, **820 → 740 px**, plateaux et compositions identiques à la validation précédente, navigation visible partout, aucun débordement horizontal.
+
+## Limites restantes
+
+- Sur ordinateur, la colonne d’analyse défile encore d’environ 380 px en interne pour atteindre la fin du fil de la partie : la classification, le meilleur coup, le commentaire et les évaluations restent visibles sans défilement, l’historique et la courbe demandent ce défilement interne.
+- Les mesures restent des simulations de dimensions dans le Chromium intégré, pas des essais sur téléphones physiques.
+
+---
+
+# Validation de la mise à jour du 2 septembre 2026
+
+- **1 425 / 1 425 tests, 37 fichiers, en local et en configuration CI.** Les 1 316 tests précédents sont conservés ou adaptés à une UX demandée ; aucun n’est supprimé ni désactivé. Cinq fichiers sont ajoutés : stabilité du plateau, expérience du Game Review, progression des ouvertures, badges événementiels et audit du vocabulaire.
+- **Trois assertions existantes ont été adaptées, sans en retirer l’intention** : la bascule *Mon coup / Meilleur coup* n’existe plus (le contrôle « aucun Worker pendant la navigation » est conservé et étendu au clic d’historique et au curseur) ; le bouton « Revenir au début » n’existe plus (le contrôle du bord de navigation passe par « Coup précédent ») ; l’explication d’un coup est désormais découpée par les infobulles du glossaire (elle est vérifiée sur le panneau complet).
+- **Environnement** : Node.js **24.20.0** (archive officielle vérifiée par SHA-256, installée hors système), pnpm **11.19.0** via corepack. `pnpm test`, `CI=true pnpm test` et `pnpm build` réussissent réellement.
+- **Build de production réussi** : TypeScript, intégrité Stockfish, sources GPL, Vite, durcissement CSP et base `/chess-progress-trainer/`.
+- **Audit des dépendances : 0 vulnérabilité connue** (0 critique, 0 haute, 0 modérée, 0 faible, 0 informative) sur 219 dépendances. Aucune dépendance ajoutée, aucun changement du lockfile. Détection de secrets sans résultat : **250 fichiers, 11 commits accessibles, 394 blobs historiques**.
+- **Calibration des 25 niveaux inchangée** : aucun diff dans `src/computer/difficulty.ts` ni `src/computer/chooseMove.ts`, aucun fichier de `calibration/` modifié. Le Niveau 25 reste Stockfish non affaibli. Le moteur de Partie libre n’est pas modifié.
+- **Aucun commit, push ou déploiement.**
+
+## Plateau des ouvertures : zéro déplacement vertical
+
+Cause identifiée : deux boîtes à hauteur variable étaient placées **au-dessus** du plateau. L’aide (`.instruction-copy`) passait de 0 à trois paragraphes selon l’état — intention de première découverte, invitation après trois erreurs, indice, coup exact — et le feedback compact mobile passait de 22 px à deux lignes. Le libellé de tour (`.assistance-turn`) pouvait aussi passer d’une à deux lignes selon le texte. Chaque changement pédagogique déplaçait donc l’échiquier.
+
+Correction : une **zone unique à hauteur réservée**. Un seul message principal est rendu à la fois, selon une priorité fixe (coup exact → indice → coup refusé → intention → confirmation → message d’attente), tous les variants partageant exactement le même modèle de boîte. Le coup exact peut porter une seconde ligne discrète lorsqu’un indice a été demandé avant lui. La réservation vaut deux lignes (trois sous 360 px), le bandeau Indice / Solution a une hauteur minimale fixe et le libellé de tour est borné à deux lignes.
+
+Mesures réelles dans le Chromium intégré, sur la séquence complète intention → coup refusé → indice → solution → bon coup → réponse de l’ordinateur :
+
+| Largeur | Camp / format | Haut du plateau | Bas du plateau | Variation |
+| ------: | ------------- | --------------: | -------------: | --------: |
+|     320 | Blancs / essentielle | 258,25 px | 562,25 px | **0 px** |
+|     390 | Blancs / essentielle | 241,25 px | 615,25 px | **0 px** |
+|    1440 | Noirs / étendue      | 488 px    | 1230 px   | **0 px** |
+
+Les six états successifs sont enregistrés à chaque largeur (`intention`, `incorrect`, `hint`, `solution`, `correct`, `intention`). Les largeurs de plateau sont inchangées : 304, 374 et 742 px. À 320 × 568, le plateau reste entièrement visible au premier écran. Les mesures sont conservées dans [qa/product-finish-validation.json](qa/product-finish-validation.json) et vérifiées par `src/test/browser-layout.test.ts`.
+
+## Game Review : une seule vue
+
+La bascule **Mon coup / Meilleur coup** est supprimée du code, du CSS et de l’interface. Pour l’un des coups de l’élève, l’échiquier affiche la **position avant la décision** et superpose, en même temps, la flèche du coup joué dans la couleur de sa classification et la flèche verte du coup recommandé. Les deux flèches sont légales dans cette position : la recommandation reste exacte même lorsqu’elle part de la case que le coup joué vient de quitter (`Ff1-b5` recommandé après `Ff1-c4` joué, cas contrôlé). Un coup déjà optimal n’ajoute aucune flèche alternative.
+
+Contrôle des six classifications dans le navigateur, sur une partie comportant exactement une occurrence de chacune :
+
+| Classification | Case d’arrivée | Flèches | Recommandation |
+| -------------- | -------------- | ------: | -------------- |
+| Meilleur coup  | e4 verte       | 1 | ✓ Meilleur coup |
+| Excellent      | f3 bleu-vert   | 2 | Cc3 |
+| Bon            | c4 vert doux   | 2 | Fb5 |
+| Imprécision    | d3 jaune       | 2 | d4 |
+| Erreur         | c3 orange      | 2 | Cbd2 |
+| Gaffe          | g1 rouge       | 2 | Fg5 |
+
+Compositions mesurées : sur **1440 × 900**, barre d’évaluation verticale à x = 48 sur 750 px de haut, échiquier de 750 px à x = 172, panneau d’analyse de 372 px à x = 1020 (classification et meilleur coup, puis commentaire et évaluations, puis historique, puis fil de la partie), navigation sous l’échiquier. Sur **390 × 844**, barre horizontale en haut, fiche du coup de 187 px, échiquier de 374 px, Précédent / Suivant à 705 px : tout ce qui sert à comprendre la décision tient dans le premier écran, sans défilement. Sur **820 × 1180**, même composition compacte avec un échiquier de 740 px. Aucun débordement horizontal, en clair comme en sombre.
+
+Un appui sur la barre d’évaluation ouvre puis referme le **fil de la partie** sans perdre le coup sélectionné. Le curseur et un appui sur la courbe sélectionnent bien une décision, qui met à jour l’échiquier, les flèches, la classification, le commentaire et les évaluations. **Aucun Worker n’est créé pendant ces interactions** ; le contrôle automatisé couvre le filtre par classification, l’historique, le curseur et l’ouverture du fil.
+
+Contrastes vérifiés en thème clair : jetons de classification de **4,61 à 5,84 : 1** (Imprécision 4,61 ; Bon 5,34 ; Erreur 5,33 ; Excellent 5,41 ; Meilleur coup 5,36 ; Gaffe 5,84). Le symbole blanc des pastilles de classification est posé sur la couleur d’anneau correspondante, de **4,91 à 5,79 : 1**. La couleur ne porte jamais seule l’information : symbole, nom et ligne « Meilleur coup : … » restent écrits.
+
+## Progression, badges et vocabulaire
+
+- **41 badges** au lieu de 20, dont 10 « Découverte · ouverture », 10 « Maîtrise · ouverture » et un « Grand Théoricien » calculé depuis le catalogue. Les cinq badges secrets et leur ordre sont inchangés. Aucun badge existant n’est retiré ; `Explorateur` et `Théoricien` sont reformulés pour ne pas dupliquer une condition.
+- **Progression affichée** : `X / 6 variantes terminées` par ouverture, `6 / 6 ✓` lorsqu’elle est complète, coche discrète par variante et par format, total du répertoire calculé depuis le catalogue (60 aujourd’hui, jamais écrit en dur). Terminer les deux formats d’une même variante ne la compte qu’une fois.
+- **Déblocage immédiat** : la sous-promotion est enregistrée au coup joué et non plus à la fin de la partie ; un bilan rouvert depuis la sauvegarde locale déclenche ses badges, tout en n’étant compté qu’une fois grâce à la liste `reviewedGames`. Les notifications s’enchaînent seules.
+- **Vocabulaire** : 63 termes candidats confrontés aux chaînes réellement affichées, **51 définitions** retenues (contre 10), 41 ajoutées, 8 exclusions assumées et justifiées dans `src/test/vocabulary.test.ts` (six noms de pièces, deux motifs déjà expliqués par la fiche de leur tactique). Le test échoue si un terme visible perd sa définition ou si une définition ne correspond plus à aucun texte affiché.
+
+## Limites explicites de cette mise à jour
+
+- Les mesures sont des simulations de dimensions dans le Chromium intégré, pas des essais sur téléphones physiques. Safari iOS et Chrome Android restent à essayer.
+- Le défilement vers la décision est volontairement instantané : le défilement animé est ignoré dans plusieurs environnements automatisés, il n’était donc pas vérifiable.
+- Les Elo restent des estimations pédagogiques, sans certification humaine.
+
+---
+
 # Validation finale de la finition produit — 1er septembre 2026
 
 - **1 316 / 1 316 tests, 32 fichiers, en local et en configuration CI.** Les 1 293 tests précédents sont conservés/adaptés. Les nouveaux cas couvrent les filtres des six classifications, leur navigation, les états zéro, les deux orientations, la position de recommandation, neuf familles de meilleur coup, les anciennes données et les nouveaux assets d’identité. Aucun test désactivé.

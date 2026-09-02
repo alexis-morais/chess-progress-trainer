@@ -8,12 +8,18 @@ import { difficultyInfo, type EngineStatus, type GameRecord } from './types';
 import { MoveHistory } from './MoveHistory';
 import { searchForLevel } from './chooseMove';
 
+// The mating move stays on screen — king marked, badge in place — before the result panel
+// takes over. Comfortably under the 2 s ceiling; short enough that nobody feels like waiting.
+export const MATE_SEQUENCE_MS = 1300;
+
 export function GameSession({
   initial,
   onEnd,
+  onPlayerMove,
 }: {
   initial: GameRecord;
   onEnd: (game: GameRecord) => void;
+  onPlayerMove?: (game: GameRecord) => void;
 }) {
   const [record, setRecord] = useState(initial);
   const current = useRef(record);
@@ -26,6 +32,8 @@ export function GameSession({
   const replay = useMemo(() => replayGame(record), [record]);
   const playerTurn = replay.game.turn() === record.player;
   const difficulty = difficultyInfo(record.difficulty);
+  const mateTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+  useEffect(() => () => clearTimeout(mateTimer.current), []);
   useEffect(() => {
     setError('');
     const instance = new ComputerEngine(setStatus);
@@ -40,7 +48,12 @@ export function GameSession({
     current.current = next;
     setRecord(next);
     setIllegal(null);
-    if (next.result) onEnd(next);
+    if (!next.result) return;
+    // The board keeps showing the mated king — and its badge — for a short beat before the
+    // existing result panel takes over. Every other ending stays instant, as before.
+    if (next.result.reason === 'checkmate')
+      mateTimer.current = setTimeout(() => onEnd(next), MATE_SEQUENCE_MS);
+    else onEnd(next);
   }
   useEffect(() => {
     if (playerTurn || record.result) return;
@@ -119,6 +132,7 @@ export function GameSession({
               return false;
             }
             commit(next);
+            onPlayerMove?.(next);
             return true;
           }}
         />

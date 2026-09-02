@@ -19,7 +19,8 @@ import { TrainingBoard } from './TrainingBoard';
 import { EvaluationBar } from './EvaluationBar';
 import { CompletionDialog } from './CompletionDialog';
 import { TrainingAssistance } from './TrainingAssistance';
-import { ExerciseFeedback, FocusTitle, mistakeMessage } from './ExerciseFeedback';
+import { FocusTitle, mistakeMessage } from './ExerciseFeedback';
+import { GlossaryText } from './InfoTooltip';
 
 export function Trainer({
   lesson,
@@ -102,8 +103,8 @@ export function Trainer({
         onHint={() => dispatch({ type: 'hint' })}
         onReveal={() => dispatch({ type: 'solution' })}
         guided={guided && state.completed < 4}
+        kind="opening"
       />
-      <ExerciseFeedback state={state} kind="opening" />
       <div className="training-layout">
         <section className="board-section" aria-label="Zone de jeu">
           <div className="player-label top-player">
@@ -210,7 +211,7 @@ export function Trainer({
               {state.feedback === 'incorrect'
                 ? mistakeMessage(state, 'opening')
                 : state.feedback === 'correct'
-                  ? state.explanation
+                  ? <GlossaryText>{state.explanation}</GlossaryText>
                   : lesson.opening.side === 'w'
                     ? 'Observe la position et essaie le coup. Si tu hésites, choisis un indice ou la solution.'
                     : 'Les Blancs commencent. Prends ensuite le temps de trouver ta réponse ; l’assistance reste facultative.'}

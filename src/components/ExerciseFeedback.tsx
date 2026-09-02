@@ -8,33 +8,6 @@ export function mistakeMessage(state: TrainerState, kind: 'opening' | 'tactic') 
       ? 'Coup légal, mais il sort de la ligne travaillée.'
       : 'Ce coup est possible, mais il ne résout pas la tactique.';
 }
-export function ExerciseFeedback({
-  state,
-  kind,
-}: {
-  state: TrainerState;
-  kind: 'opening' | 'tactic';
-}) {
-  return (
-    <div
-      className={`compact-feedback ${state.feedback}`}
-      role="status"
-      data-testid="compact-feedback"
-    >
-      {state.feedback === 'incorrect' ? (
-        <>
-          <strong aria-hidden="true">✕</strong>
-          <span>{mistakeMessage(state, kind)}</span>
-        </>
-      ) : state.feedback === 'correct' ? (
-        <>
-          <strong>✓ Bon coup.</strong>
-          <span>{state.explanation.match(/^[^.!?]+[.!?]?/)?.[0] ?? state.explanation}</span>
-        </>
-      ) : null}
-    </div>
-  );
-}
 export function FocusTitle({
   title,
   subtitle,

@@ -11,13 +11,45 @@ import { createPortal } from 'react-dom';
 import { Chess, type Move, type Square } from 'chess.js';
 import { Chessboard } from 'react-chessboard';
 import { boardColors, pieceUrl } from '../ui/pieces';
+import { ClassificationMedallion } from '../ui/ClassificationMedallion';
+import type { Category } from '../computer/types';
 import { animatedMoves, legalDestinations, type Orientation } from './geometry';
 import { useBoardPointer, SNAP_MS } from './useBoardPointer';
 import { ChoiceDialog } from './ChoiceDialog';
+import { CHECK_VISUAL, MATE_BADGE_RING, MATE_VISUAL } from '../ui/classification';
+import '../ui/classification-medallion.css';
 import './board.css';
 
 const names = { p: 'pion', n: 'cavalier', b: 'fou', r: 'tour', q: 'dame', k: 'roi' };
-export type BoardMark = { square: string; good: boolean; symbol: string; id?: number };
+
+// Reuse the exact board asset: its crown and robe remain instantly recognisable when the
+// piece is laid down. CSS turns the normal upright sprite counter-clockwise, placing the
+// crown to the left and the base to the right without approximating Colin Burnett's drawing.
+function MateGlyph({ side }: { side: 'w' | 'b' }) {
+  return (
+    <img
+      className="mate-piece"
+      src={pieceUrl(`${side}K`)}
+      alt=""
+      draggable={false}
+      data-mated-side={side}
+    />
+  );
+}
+export type BoardMark = {
+  square: string;
+  good: boolean;
+  symbol: string;
+  id?: number;
+  /** Review only: classification colours for the played move, from ui/classification.ts. */
+  fill?: string;
+  ring?: string;
+  from?: string;
+  fromFill?: string;
+  fromRing?: string;
+  tone?: Category;
+};
+export type BoardArrow = { from: string; to: string; color?: string; kind?: string };
 type Props = {
   id: string;
   label: string;
@@ -26,7 +58,11 @@ type Props = {
   player: 'w' | 'b';
   enabled?: boolean;
   last?: Pick<Move, 'from' | 'to'>;
-  arrow?: { from: string; to: string; color?: string; kind?: string };
+  arrow?: BoardArrow;
+  /** Several arrows on the same position; the first one keeps index 0. */
+  arrows?: BoardArrow[];
+  /** Discreet outline of a departure square that the displayed position has already emptied. */
+  originHint?: { square: string; color: string };
   mark?: BoardMark | null;
   badgeTestId: string;
   onMove?: (from: string, to: string, promotion?: string) => boolean;
@@ -41,13 +77,42 @@ export function InteractiveBoard({
   enabled = false,
   last,
   arrow,
+  arrows,
+  originHint,
   mark,
   badgeTestId,
   onMove,
 }: Props) {
+  const drawn = arrows ?? (arrow ? [arrow] : []);
   const root = useRef<HTMLDivElement>(null);
   const game = useMemo(() => new Chess(fen), [fen]);
   const orientation: Orientation = player === 'w' ? 'white' : 'black';
+  // Check/checkmate are read straight from the position: one shared implementation for
+  // every board (openings, tactics, free play, review) instead of a per-screen affair.
+  const checkedKingSquare = useMemo(() => {
+    if (!game.inCheck()) return null;
+    const turn = game.turn();
+    for (const row of game.board())
+      for (const piece of row) if (piece?.type === 'k' && piece.color === turn) return piece.square;
+    return null;
+  }, [game]);
+  const isCheckmate = checkedKingSquare !== null && game.isCheckmate();
+  const mountedForCheck = useRef(false);
+  const [checkPulseSquare, setCheckPulseSquare] = useState<string | null>(null);
+  useEffect(() => {
+    if (!mountedForCheck.current) {
+      mountedForCheck.current = true;
+      return;
+    }
+    if (!checkedKingSquare) return;
+    if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return;
+    setCheckPulseSquare(checkedKingSquare);
+    const timer = window.setTimeout(
+      () => setCheckPulseSquare((current) => (current === checkedKingSquare ? null : current)),
+      650,
+    );
+    return () => window.clearTimeout(timer);
+  }, [checkedKingSquare]);
   const [selection, setSelection] = useState<{ square: Square; fen: string } | null>(null);
   const [promotion, setPromotion] = useState<{
     from: Square;
@@ -167,7 +232,8 @@ export function InteractiveBoard({
         ref={root}
         className={`training-board interactive-board ${className}`}
         data-orientation={orientation}
-        data-arrow-kind={arrow?.kind}
+        data-arrow-kind={drawn[0]?.kind}
+        data-arrow-count={drawn.length || undefined}
         data-dragging={pointer.visual?.phase === 'dragging' || undefined}
         data-settling={settling || undefined}
         aria-label={label}
@@ -198,15 +264,11 @@ export function InteractiveBoard({
               lightSquareStyle: { backgroundColor: boardColors.light },
               darkSquareNotationStyle: { color: '#10291e', fontWeight: 600, fontSize: 12 },
               lightSquareNotationStyle: { color: '#344a3c', fontWeight: 600, fontSize: 12 },
-              arrows: arrow
-                ? [
-                    {
-                      startSquare: arrow.from,
-                      endSquare: arrow.to,
-                      color: arrow.color ?? 'rgba(247,183,67,.94)',
-                    },
-                  ]
-                : [],
+              arrows: drawn.map((entry) => ({
+                startSquare: entry.from,
+                endSquare: entry.to,
+                color: entry.color ?? 'rgba(247,183,67,.94)',
+              })),
               clearArrowsOnClick: false,
               squareRenderer: ({ square }) => {
                 const sq = square as Square;
@@ -214,9 +276,26 @@ export function InteractiveBoard({
                 const style: CSSProperties = {};
                 if (last?.from === sq) style.backgroundColor = '#bfcc77';
                 if (last?.to === sq) style.backgroundColor = '#cdd989';
+                if (mark?.from === sq && mark.fromFill) {
+                  style.backgroundColor = mark.fromFill;
+                  if (mark.fromRing) style.boxShadow = `inset 0 0 0 1.5px ${mark.fromRing}`;
+                }
+                // The recommendation's own origin outline is the more specific fact when it
+                // coincides with the played move's departure square, so it wins the ring.
+                if (originHint?.square === sq)
+                  style.boxShadow = `inset 0 0 0 2px ${originHint.color}`;
                 if (mark?.square === sq) {
-                  style.backgroundColor = mark.good ? '#a8d8a4' : '#e5a4a0';
-                  style.boxShadow = `inset 0 0 0 3px ${mark.good ? '#39804d' : '#b33b44'}`;
+                  style.backgroundColor = mark.fill ?? (mark.good ? '#a8d8a4' : '#e5a4a0');
+                  style.boxShadow = `inset 0 0 0 2.5px ${mark.ring ?? (mark.good ? '#39804d' : '#b33b44')}`;
+                }
+                const squareIsMated = isCheckmate && checkedKingSquare === sq;
+                const squareIsChecked = !squareIsMated && checkedKingSquare === sq;
+                if (squareIsChecked) {
+                  style.backgroundImage = CHECK_VISUAL.fill;
+                  style.boxShadow = CHECK_VISUAL.ring;
+                } else if (squareIsMated) {
+                  style.backgroundImage = MATE_VISUAL.fill;
+                  style.boxShadow = MATE_VISUAL.ring;
                 }
                 if (selected === sq) {
                   style.backgroundColor = '#afc3a4';
@@ -230,11 +309,21 @@ export function InteractiveBoard({
                 const pieceName = piece
                   ? `${names[piece.type]} ${piece.color === 'w' ? 'blanc' : 'noir'}${['q', 'r'].includes(piece.type) ? (piece.color === 'w' ? 'he' : 'e') : ''}`
                   : 'case vide';
+                const checkSuffix = squareIsMated
+                  ? ', échec et mat'
+                  : squareIsChecked
+                    ? ', roi en échec'
+                    : '';
                 return (
                   <div
                     className="accessible-square"
                     style={style}
                     data-key-square={sq}
+                    data-check={squareIsChecked || undefined}
+                    data-check-pulse={
+                      (squareIsChecked && checkPulseSquare === sq) || undefined
+                    }
+                    data-mate={squareIsMated || undefined}
                     data-drag-source={
                       (pointer.visual?.phase === 'dragging' && pointer.visual.source === sq) ||
                       undefined
@@ -245,7 +334,7 @@ export function InteractiveBoard({
                     tabIndex={interactive ? 0 : -1}
                     aria-disabled={!interactive}
                     aria-pressed={selected === sq}
-                    aria-label={`${sq}, ${pieceName}`}
+                    aria-label={`${sq}, ${pieceName}${checkSuffix}`}
                     aria-description={
                       destination === 'capture'
                         ? 'Capture légale'
@@ -287,9 +376,27 @@ export function InteractiveBoard({
                         className={`move-badge ${mark.good ? 'correct' : 'incorrect'}`}
                         data-testid={badgeTestId}
                         data-square={sq}
+                        data-tone={mark.tone}
                         aria-hidden="true"
                       >
-                        {mark.symbol}
+                        {mark.tone ? (
+                          <ClassificationMedallion
+                            category={mark.tone}
+                            className="board-classification-medallion"
+                          />
+                        ) : (
+                          mark.symbol
+                        )}
+                      </span>
+                    )}
+                    {squareIsMated && piece && (
+                      <span
+                        className="mate-badge"
+                        data-testid="mate-badge"
+                        style={{ background: MATE_BADGE_RING }}
+                        aria-hidden="true"
+                      >
+                        <MateGlyph side={piece.color} />
                       </span>
                     )}
                   </div>

@@ -1,314 +1,302 @@
 {
-  "date": "2026-09-01",
+  "date": "2026-09-02",
   "browser": "Chromium intégré, dimensions simulées",
   "home": [
     {
-      "cards": [
-        {
-          "arrowHit": true,
-          "artVisible": true,
-          "bottom": 562.75,
-          "inside": true,
-          "textClipped": false
-        },
-        {
-          "arrowHit": true,
-          "artVisible": true,
-          "bottom": 562.75,
-          "inside": true,
-          "textClipped": false
-        }
-      ],
-      "height": 568,
-      "overflow": false,
+      "width": 1440,
+      "height": 900,
       "theme": "light",
-      "width": 320
-    },
-    {
-      "cards": [
-        {
-          "arrowHit": true,
-          "artVisible": true,
-          "bottom": 562.75,
-          "inside": true,
-          "textClipped": false
-        },
-        {
-          "arrowHit": true,
-          "artVisible": true,
-          "bottom": 562.75,
-          "inside": true,
-          "textClipped": false
-        }
-      ],
-      "height": 568,
       "overflow": false,
-      "theme": "dark",
-      "width": 320
-    },
-    {
       "cards": [
         {
-          "arrowHit": true,
-          "artVisible": true,
-          "bottom": 618.75,
           "inside": true,
-          "textClipped": false
-        },
-        {
           "arrowHit": true,
-          "artVisible": true,
-          "bottom": 618.75,
-          "inside": true,
-          "textClipped": false
-        }
-      ],
-      "height": 812,
-      "overflow": false,
-      "theme": "light",
-      "width": 375
-    },
-    {
-      "cards": [
-        {
-          "arrowHit": true,
-          "artVisible": true,
-          "bottom": 618.75,
-          "inside": true,
-          "textClipped": false
-        },
-        {
-          "arrowHit": true,
-          "artVisible": true,
-          "bottom": 618.75,
-          "inside": true,
-          "textClipped": false
-        }
-      ],
-      "height": 812,
-      "overflow": false,
-      "theme": "dark",
-      "width": 375
-    },
-    {
-      "cards": [
-        {
-          "arrowHit": true,
-          "artVisible": true,
-          "bottom": 618.75,
-          "inside": true,
-          "textClipped": false
-        },
-        {
-          "arrowHit": true,
-          "artVisible": true,
-          "bottom": 618.75,
-          "inside": true,
-          "textClipped": false
-        }
-      ],
-      "height": 844,
-      "overflow": false,
-      "theme": "light",
-      "width": 390
-    },
-    {
-      "cards": [
-        {
-          "arrowHit": true,
-          "artVisible": true,
-          "bottom": 618.75,
-          "inside": true,
-          "textClipped": false
-        },
-        {
-          "arrowHit": true,
-          "artVisible": true,
-          "bottom": 618.75,
-          "inside": true,
-          "textClipped": false
-        }
-      ],
-      "height": 844,
-      "overflow": false,
-      "theme": "dark",
-      "width": 390
-    },
-    {
-      "cards": [
-        {
-          "arrowHit": true,
-          "artVisible": true,
-          "bottom": 618.75,
-          "inside": true,
-          "textClipped": false
-        },
-        {
-          "arrowHit": true,
-          "artVisible": true,
-          "bottom": 618.75,
-          "inside": true,
-          "textClipped": false
-        }
-      ],
-      "height": 932,
-      "overflow": false,
-      "theme": "light",
-      "width": 430
-    },
-    {
-      "cards": [
-        {
-          "arrowHit": true,
-          "artVisible": true,
-          "bottom": 618.75,
-          "inside": true,
-          "textClipped": false
-        },
-        {
-          "arrowHit": true,
-          "artVisible": true,
-          "bottom": 618.75,
-          "inside": true,
-          "textClipped": false
-        }
-      ],
-      "height": 932,
-      "overflow": false,
-      "theme": "dark",
-      "width": 430
-    },
-    {
-      "cards": [
-        {
-          "arrowHit": true,
+          "textClipped": false,
           "artVisible": false,
-          "bottom": 910.8984375,
-          "inside": true,
-          "textClipped": false
+          "bottom": 937.7
         },
         {
-          "arrowHit": true,
-          "artVisible": false,
-          "bottom": 910.8984375,
           "inside": true,
-          "textClipped": false
+          "arrowHit": true,
+          "textClipped": false,
+          "artVisible": false,
+          "bottom": 937.7
         }
-      ],
+      ]
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "theme": "dark",
+      "overflow": false,
+      "cards": [
+        {
+          "inside": true,
+          "arrowHit": true,
+          "textClipped": false,
+          "artVisible": false,
+          "bottom": 937.7
+        },
+        {
+          "inside": true,
+          "arrowHit": true,
+          "textClipped": false,
+          "artVisible": false,
+          "bottom": 937.7
+        }
+      ]
+    },
+    {
+      "width": 820,
       "height": 1180,
+      "theme": "dark",
       "overflow": false,
-      "theme": "light",
-      "width": 820
-    },
-    {
       "cards": [
         {
-          "arrowHit": true,
-          "artVisible": false,
-          "bottom": 910.8984375,
           "inside": true,
-          "textClipped": false
+          "arrowHit": true,
+          "textClipped": false,
+          "artVisible": false,
+          "bottom": 910.9
         },
         {
-          "arrowHit": true,
-          "artVisible": false,
-          "bottom": 910.8984375,
           "inside": true,
-          "textClipped": false
+          "arrowHit": true,
+          "textClipped": false,
+          "artVisible": false,
+          "bottom": 910.9
         }
-      ],
+      ]
+    },
+    {
+      "width": 820,
       "height": 1180,
-      "overflow": false,
-      "theme": "dark",
-      "width": 820
-    },
-    {
-      "cards": [
-        {
-          "arrowHit": true,
-          "artVisible": false,
-          "bottom": 937.6953125,
-          "inside": true,
-          "textClipped": false
-        },
-        {
-          "arrowHit": true,
-          "artVisible": false,
-          "bottom": 937.6953125,
-          "inside": true,
-          "textClipped": false
-        }
-      ],
-      "height": 1000,
-      "overflow": false,
       "theme": "light",
-      "width": 1440
-    },
-    {
+      "overflow": false,
       "cards": [
         {
-          "arrowHit": true,
-          "artVisible": false,
-          "bottom": 937.6953125,
           "inside": true,
-          "textClipped": false
+          "arrowHit": true,
+          "textClipped": false,
+          "artVisible": false,
+          "bottom": 910.9
         },
         {
-          "arrowHit": true,
-          "artVisible": false,
-          "bottom": 937.6953125,
           "inside": true,
-          "textClipped": false
+          "arrowHit": true,
+          "textClipped": false,
+          "artVisible": false,
+          "bottom": 910.9
         }
-      ],
-      "height": 1000,
+      ]
+    },
+    {
+      "width": 430,
+      "height": 932,
+      "theme": "light",
       "overflow": false,
+      "cards": [
+        {
+          "inside": true,
+          "arrowHit": true,
+          "textClipped": false,
+          "artVisible": true,
+          "bottom": 618.75
+        },
+        {
+          "inside": true,
+          "arrowHit": true,
+          "textClipped": false,
+          "artVisible": true,
+          "bottom": 618.75
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "height": 932,
       "theme": "dark",
-      "width": 1440
+      "overflow": false,
+      "cards": [
+        {
+          "inside": true,
+          "arrowHit": true,
+          "textClipped": false,
+          "artVisible": true,
+          "bottom": 618.75
+        },
+        {
+          "inside": true,
+          "arrowHit": true,
+          "textClipped": false,
+          "artVisible": true,
+          "bottom": 618.75
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "theme": "dark",
+      "overflow": false,
+      "cards": [
+        {
+          "inside": true,
+          "arrowHit": true,
+          "textClipped": false,
+          "artVisible": true,
+          "bottom": 618.75
+        },
+        {
+          "inside": true,
+          "arrowHit": true,
+          "textClipped": false,
+          "artVisible": true,
+          "bottom": 618.75
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "theme": "light",
+      "overflow": false,
+      "cards": [
+        {
+          "inside": true,
+          "arrowHit": true,
+          "textClipped": false,
+          "artVisible": true,
+          "bottom": 618.75
+        },
+        {
+          "inside": true,
+          "arrowHit": true,
+          "textClipped": false,
+          "artVisible": true,
+          "bottom": 618.75
+        }
+      ]
+    },
+    {
+      "width": 375,
+      "height": 667,
+      "theme": "light",
+      "overflow": false,
+      "cards": [
+        {
+          "inside": true,
+          "arrowHit": true,
+          "textClipped": false,
+          "artVisible": true,
+          "bottom": 618.75
+        },
+        {
+          "inside": true,
+          "arrowHit": true,
+          "textClipped": false,
+          "artVisible": true,
+          "bottom": 618.75
+        }
+      ]
+    },
+    {
+      "width": 375,
+      "height": 667,
+      "theme": "dark",
+      "overflow": false,
+      "cards": [
+        {
+          "inside": true,
+          "arrowHit": true,
+          "textClipped": false,
+          "artVisible": true,
+          "bottom": 618.75
+        },
+        {
+          "inside": true,
+          "arrowHit": true,
+          "textClipped": false,
+          "artVisible": true,
+          "bottom": 618.75
+        }
+      ]
+    },
+    {
+      "width": 320,
+      "height": 568,
+      "theme": "dark",
+      "overflow": false,
+      "cards": [
+        {
+          "inside": true,
+          "arrowHit": true,
+          "textClipped": false,
+          "artVisible": true,
+          "bottom": 554.75
+        },
+        {
+          "inside": true,
+          "arrowHit": true,
+          "textClipped": false,
+          "artVisible": true,
+          "bottom": 554.75
+        }
+      ]
+    },
+    {
+      "width": 320,
+      "height": 568,
+      "theme": "light",
+      "overflow": false,
+      "cards": [
+        {
+          "inside": true,
+          "arrowHit": true,
+          "textClipped": false,
+          "artVisible": true,
+          "bottom": 554.75
+        },
+        {
+          "inside": true,
+          "arrowHit": true,
+          "textClipped": false,
+          "artVisible": true,
+          "bottom": 554.75
+        }
+      ]
     }
   ],
   "freeplay": [
     {
-      "boardWidth": 304,
-      "height": 568,
-      "overflow": false,
-      "panelWidth": 288,
-      "width": 320
+      "width": 1440,
+      "boardWidth": 760,
+      "overflow": false
     },
     {
-      "boardWidth": 359,
-      "height": 812,
-      "overflow": false,
-      "panelWidth": 343,
-      "width": 375
-    },
-    {
-      "boardWidth": 374,
-      "height": 844,
-      "overflow": false,
-      "panelWidth": 358,
-      "width": 390
-    },
-    {
-      "boardWidth": 414,
-      "height": 932,
-      "overflow": false,
-      "panelWidth": 398,
-      "width": 430
-    },
-    {
+      "width": 820,
       "boardWidth": 740,
-      "height": 1180,
-      "overflow": false,
-      "panelWidth": 740,
-      "width": 820
+      "overflow": false
     },
     {
-      "boardWidth": 830,
-      "height": 1000,
-      "overflow": false,
-      "panelWidth": 340,
-      "width": 1440
+      "width": 430,
+      "boardWidth": 414,
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "boardWidth": 374,
+      "overflow": false
+    },
+    {
+      "width": 375,
+      "boardWidth": 359,
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "boardWidth": 304,
+      "overflow": false
     }
   ],
   "touch": {
@@ -380,9 +368,22 @@
     "src/data/pedagogy.ts",
     "src/trainer/hints.ts",
     "src/progress/badges.ts",
-    "src/progress/model.ts"
+    "src/progress/model.ts",
+    "src/components/ExerciseFeedback.tsx",
+    "src/components/VariationCard.tsx",
+    "src/components/OpeningLibrary.tsx",
+    "src/computer/computer.css",
+    "src/computer/MoveHistory.tsx",
+    "src/computer/EvaluationChart.tsx",
+    "src/components/EvaluationBar.tsx",
+    "src/ui/classification.ts",
+    "src/ui/ClassificationMedallion.tsx",
+    "src/ui/classification-medallion.css",
+    "src/ui/useMediaQuery.ts",
+    "src/data/glossary.ts",
+    "src/progress/ProgressContext.tsx"
   ],
-  "uiHash": "7bd08e946e8e37dc3787554b7f38c2310dc9d7238bdb4b6f905b946304e2309d",
+  "uiHash": "a097f1d2ec9def425d144faad2a738509e8fd352a7ac0ea5c8e5b81407a5d12e",
   "production": {
     "base": "/chess-progress-trainer/",
     "csp": true,
@@ -390,7 +391,7 @@
     "consoleErrors": 0
   },
   "finalRun": {
-    "checkedAt": "2026-09-01T02:14:00Z",
+    "checkedAt": "2026-09-02T20:30:00Z",
     "policyHash": "6478c6692c0f101c36a9a1637ed938987f6e6d6140ea63ab8d31f42b2343f324",
     "engine": [
       {
@@ -741,6 +742,577 @@
         "board": 830,
         "chart": 1344
       }
-    ]
-  }
+    ],
+    "review": true,
+    "trainer": true
+  },
+  "trainer": [
+    {
+      "width": 1440,
+      "height": 900,
+      "side": "w",
+      "mode": "essential",
+      "boardWidth": 742,
+      "top": 488,
+      "bottom": 1230,
+      "deltaY": 0,
+      "messages": [
+        "intention",
+        "incorrect",
+        "hint",
+        "solution",
+        "correct",
+        "intention"
+      ]
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "side": "b",
+      "mode": "essential",
+      "boardWidth": 374,
+      "top": 241.25,
+      "bottom": 615.25,
+      "deltaY": 0,
+      "messages": [
+        "intention",
+        "incorrect",
+        "hint",
+        "solution",
+        "correct",
+        "intention"
+      ]
+    },
+    {
+      "width": 320,
+      "height": 568,
+      "side": "b",
+      "mode": "essential",
+      "boardWidth": 304,
+      "top": 258.25,
+      "bottom": 562.25,
+      "deltaY": 0,
+      "messages": [
+        "intention",
+        "incorrect",
+        "hint",
+        "solution",
+        "correct",
+        "intention"
+      ]
+    }
+  ],
+  "review": [
+    {
+      "width": 1440,
+      "height": 900,
+      "theme": "light",
+      "compact": false,
+      "initialPosition": "0 / 11",
+      "initialCaption": "Position initiale",
+      "navButtons": [
+        "Premier coup",
+        "Coup précédent",
+        "Coup suivant",
+        "Dernier coup"
+      ],
+      "evalBar": {
+        "x": 214,
+        "y": 264.27,
+        "w": 34,
+        "h": 590,
+        "bottom": 854.27
+      },
+      "board": {
+        "x": 260,
+        "y": 290.27,
+        "w": 564,
+        "h": 564,
+        "bottom": 854.27
+      },
+      "insight": {
+        "x": 1013,
+        "y": 265.27,
+        "w": 378,
+        "h": 256.19,
+        "bottom": 521.46
+      },
+      "history": {
+        "x": 1013,
+        "y": 753.75,
+        "w": 378,
+        "h": 84,
+        "bottom": 837.75
+      },
+      "nav": {
+        "x": 1012,
+        "y": 838.27,
+        "w": 380,
+        "h": 48,
+        "bottom": 886.27
+      },
+      "detail": {
+        "x": 1013,
+        "y": 521.46,
+        "w": 378,
+        "h": 232.29,
+        "bottom": 753.75
+      },
+      "panel": {
+        "x": 1012,
+        "y": 264.27,
+        "w": 380,
+        "h": 564,
+        "bottom": 828.27
+      },
+      "boardVisible": true,
+      "navVisible": true,
+      "threadVisible": true,
+      "arrows": 1,
+      "arrowKind": "best-move",
+      "playedLabel": "g1, roi blanc",
+      "playedColor": "rgba(191, 58, 68, 0.44)",
+      "originLabel": "e1, case vide",
+      "switchRemoved": true,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "theme": "dark",
+      "compact": false,
+      "initialPosition": "0 / 11",
+      "initialCaption": "Position initiale",
+      "navButtons": [
+        "Premier coup",
+        "Coup précédent",
+        "Coup suivant",
+        "Dernier coup"
+      ],
+      "evalBar": {
+        "x": 214,
+        "y": 264.27,
+        "w": 34,
+        "h": 590,
+        "bottom": 854.27
+      },
+      "board": {
+        "x": 260,
+        "y": 290.27,
+        "w": 564,
+        "h": 564,
+        "bottom": 854.27
+      },
+      "insight": {
+        "x": 1013,
+        "y": 265.27,
+        "w": 378,
+        "h": 256.19,
+        "bottom": 521.46
+      },
+      "history": {
+        "x": 1013,
+        "y": 753.75,
+        "w": 378,
+        "h": 84,
+        "bottom": 837.75
+      },
+      "nav": {
+        "x": 1012,
+        "y": 838.27,
+        "w": 380,
+        "h": 48,
+        "bottom": 886.27
+      },
+      "detail": {
+        "x": 1013,
+        "y": 521.46,
+        "w": 378,
+        "h": 232.29,
+        "bottom": 753.75
+      },
+      "panel": {
+        "x": 1012,
+        "y": 264.27,
+        "w": 380,
+        "h": 564,
+        "bottom": 828.27
+      },
+      "boardVisible": true,
+      "navVisible": true,
+      "threadVisible": true,
+      "arrows": 1,
+      "arrowKind": "best-move",
+      "playedLabel": "g1, roi blanc",
+      "playedColor": "rgba(191, 58, 68, 0.44)",
+      "originLabel": "e1, case vide",
+      "switchRemoved": true,
+      "overflow": false
+    },
+    {
+      "width": 820,
+      "height": 1180,
+      "theme": "dark",
+      "compact": true,
+      "initialPosition": "0 / 11",
+      "initialCaption": "Position initiale",
+      "navButtons": [
+        "Premier coup",
+        "Coup précédent",
+        "Coup suivant",
+        "Dernier coup"
+      ],
+      "evalBar": {
+        "x": 40,
+        "y": -0.05,
+        "w": 740,
+        "h": 44,
+        "bottom": 43.95
+      },
+      "board": {
+        "x": 40,
+        "y": 250.2,
+        "w": 740,
+        "h": 740,
+        "bottom": 990.2
+      },
+      "insight": {
+        "x": 40,
+        "y": 63.95,
+        "w": 740,
+        "h": 153.75,
+        "bottom": 217.7
+      },
+      "history": {
+        "x": 40,
+        "y": 1063.2,
+        "w": 740,
+        "h": 108.5,
+        "bottom": 1171.7
+      },
+      "nav": {
+        "x": 40,
+        "y": 1000.2,
+        "w": 740,
+        "h": 48,
+        "bottom": 1048.2
+      },
+      "detail": {
+        "x": 40,
+        "y": 1181.7,
+        "w": 740,
+        "h": 203.9,
+        "bottom": 1385.6
+      },
+      "panel": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "bottom": 0
+      },
+      "boardVisible": true,
+      "navVisible": true,
+      "threadVisible": false,
+      "arrows": 1,
+      "arrowKind": "best-move",
+      "playedLabel": "g1, roi blanc",
+      "playedColor": "rgba(191, 58, 68, 0.44)",
+      "originLabel": "e1, case vide",
+      "switchRemoved": true,
+      "overflow": false
+    },
+    {
+      "width": 430,
+      "height": 932,
+      "theme": "dark",
+      "compact": true,
+      "initialPosition": "0 / 11",
+      "initialCaption": "Position initiale",
+      "navButtons": [
+        "Premier coup",
+        "Coup précédent",
+        "Coup suivant",
+        "Dernier coup"
+      ],
+      "evalBar": {
+        "x": 8,
+        "y": 0.24,
+        "w": 414,
+        "h": 44,
+        "bottom": 44.24
+      },
+      "board": {
+        "x": 8,
+        "y": 252.49,
+        "w": 414,
+        "h": 414,
+        "bottom": 666.49
+      },
+      "insight": {
+        "x": 8,
+        "y": 64.24,
+        "w": 414,
+        "h": 155.75,
+        "bottom": 219.99
+      },
+      "history": {
+        "x": 8,
+        "y": 739.49,
+        "w": 414,
+        "h": 108.5,
+        "bottom": 847.99
+      },
+      "nav": {
+        "x": 8,
+        "y": 676.49,
+        "w": 414,
+        "h": 48,
+        "bottom": 724.49
+      },
+      "detail": {
+        "x": 8,
+        "y": 857.99,
+        "w": 414,
+        "h": 223.9,
+        "bottom": 1081.89
+      },
+      "panel": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "bottom": 0
+      },
+      "boardVisible": true,
+      "navVisible": true,
+      "threadVisible": false,
+      "arrows": 1,
+      "arrowKind": "best-move",
+      "playedLabel": "g1, roi blanc",
+      "playedColor": "rgba(191, 58, 68, 0.44)",
+      "originLabel": "e1, case vide",
+      "switchRemoved": true,
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "theme": "dark",
+      "compact": true,
+      "initialPosition": "0 / 11",
+      "initialCaption": "Position initiale",
+      "navButtons": [
+        "Premier coup",
+        "Coup précédent",
+        "Coup suivant",
+        "Dernier coup"
+      ],
+      "evalBar": {
+        "x": 8,
+        "y": 0.24,
+        "w": 374,
+        "h": 44,
+        "bottom": 44.24
+      },
+      "board": {
+        "x": 8,
+        "y": 268.24,
+        "w": 374,
+        "h": 374,
+        "bottom": 642.24
+      },
+      "insight": {
+        "x": 8,
+        "y": 64.24,
+        "w": 374,
+        "h": 171.5,
+        "bottom": 235.74
+      },
+      "history": {
+        "x": 8,
+        "y": 715.24,
+        "w": 374,
+        "h": 108.5,
+        "bottom": 823.74
+      },
+      "nav": {
+        "x": 8,
+        "y": 652.24,
+        "w": 374,
+        "h": 48,
+        "bottom": 700.24
+      },
+      "detail": {
+        "x": 8,
+        "y": 833.74,
+        "w": 374,
+        "h": 223.9,
+        "bottom": 1057.64
+      },
+      "panel": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "bottom": 0
+      },
+      "boardVisible": true,
+      "navVisible": true,
+      "threadVisible": false,
+      "arrows": 1,
+      "arrowKind": "best-move",
+      "playedLabel": "g1, roi blanc",
+      "playedColor": "rgba(191, 58, 68, 0.44)",
+      "originLabel": "e1, case vide",
+      "switchRemoved": true,
+      "overflow": false
+    },
+    {
+      "width": 375,
+      "height": 667,
+      "theme": "dark",
+      "compact": true,
+      "initialPosition": "0 / 11",
+      "initialCaption": "Position initiale",
+      "navButtons": [
+        "Premier coup",
+        "Coup précédent",
+        "Coup suivant",
+        "Dernier coup"
+      ],
+      "evalBar": {
+        "x": 8,
+        "y": 0.24,
+        "w": 359,
+        "h": 44,
+        "bottom": 44.24
+      },
+      "board": {
+        "x": 8,
+        "y": 268.24,
+        "w": 359,
+        "h": 359,
+        "bottom": 627.24
+      },
+      "insight": {
+        "x": 8,
+        "y": 64.24,
+        "w": 359,
+        "h": 171.5,
+        "bottom": 235.74
+      },
+      "history": {
+        "x": 8,
+        "y": 700.24,
+        "w": 359,
+        "h": 108.5,
+        "bottom": 808.74
+      },
+      "nav": {
+        "x": 8,
+        "y": 637.24,
+        "w": 359,
+        "h": 48,
+        "bottom": 685.24
+      },
+      "detail": {
+        "x": 8,
+        "y": 818.74,
+        "w": 359,
+        "h": 223.9,
+        "bottom": 1042.64
+      },
+      "panel": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "bottom": 0
+      },
+      "boardVisible": true,
+      "navVisible": true,
+      "threadVisible": false,
+      "arrows": 1,
+      "arrowKind": "best-move",
+      "playedLabel": "g1, roi blanc",
+      "playedColor": "rgba(191, 58, 68, 0.44)",
+      "originLabel": "e1, case vide",
+      "switchRemoved": true,
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "height": 568,
+      "theme": "dark",
+      "compact": true,
+      "initialPosition": "0 / 11",
+      "initialCaption": "Position initiale",
+      "navButtons": [
+        "Premier coup",
+        "Coup précédent",
+        "Coup suivant",
+        "Dernier coup"
+      ],
+      "evalBar": {
+        "x": 8,
+        "y": 0.24,
+        "w": 304,
+        "h": 44,
+        "bottom": 44.24
+      },
+      "board": {
+        "x": 8,
+        "y": 185.24,
+        "w": 304,
+        "h": 304,
+        "bottom": 489.24
+      },
+      "insight": {
+        "x": 8,
+        "y": 60.24,
+        "w": 304,
+        "h": 117,
+        "bottom": 177.24
+      },
+      "history": {
+        "x": 8,
+        "y": 554.24,
+        "w": 304,
+        "h": 108.5,
+        "bottom": 662.74
+      },
+      "nav": {
+        "x": 8,
+        "y": 497.24,
+        "w": 304,
+        "h": 44,
+        "bottom": 541.24
+      },
+      "detail": {
+        "x": 8,
+        "y": 670.74,
+        "w": 304,
+        "h": 223.9,
+        "bottom": 894.64
+      },
+      "panel": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "bottom": 0
+      },
+      "boardVisible": true,
+      "navVisible": true,
+      "threadVisible": false,
+      "arrows": 1,
+      "arrowKind": "best-move",
+      "playedLabel": "g1, roi blanc",
+      "playedColor": "rgba(191, 58, 68, 0.44)",
+      "originLabel": "e1, case vide",
+      "switchRemoved": true,
+      "overflow": false
+    }
+  ]
 }

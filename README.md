@@ -16,11 +16,19 @@ Mise à jour structurelle du 31 août 2026 : aide facultative **Indice | Solutio
 
 Finition du 1er septembre 2026 : introduction propre à chaque ouverture, première découverte guidée, indices contextualisés, glossaire interactif et page **Progression** locale avec vingt badges. La Partie libre est plus compacte une fois lancée. Le symbole de dame ascendante, le grand halo tactile et les quatre accès de navigation sont intégrés aux deux thèmes.
 
+Mise à jour du 2 septembre 2026 : **zone pédagogique à hauteur réservée** au-dessus du plateau des ouvertures, qui supprime tout déplacement vertical de l’échiquier pendant une séance ; **progression des variantes** visible dans le catalogue et dans Progression ; **quarante et un badges** dont vingt liés aux dix ouvertures ; **glossaire élargi à 51 termes** ; **Game Review refondu** en une seule vue, sans bascule Mon coup / Meilleur coup, avec une palette de classification centralisée.
+
 ## Mobile et mode Focus
 
 Sur téléphone, un en-tête compact conserve les quatre accès et le thème. Les cartes **OUVERTURES / ENTRAÎNEMENT LIBRE** sont côte à côte et visibles dès l’accueil. Avant le plateau, une courte fiche présente l’ouverture, trois repères et le plan de la variante. Le trainer place ensuite tour/progression et **Indice | Solution** avant le grand plateau. Les détails, statistiques et boutons secondaires restent plus bas. Le plateau conserve 304/359/374/414 px aux largeurs 320/375/390/430. Les safe areas et la hauteur visible `svh` sont prises en compte.
 
-Les feedbacks proches du plateau distinguent **déplacement illégal**, **coup légal hors ligne** et **coup légal qui ne résout pas la tactique**. Après trois erreurs sur la même décision, une invitation discrète attire une fois l’attention sur Indice. Lors d’une première découverte, une intention générale accompagne automatiquement les quatre premières décisions sans dévoiler de pièce, de case ou de notation et sans augmenter les compteurs. Une répétition redevient moins guidée. Le bon coup réinitialise l’aide du coup courant.
+### Une zone pédagogique stable, le plateau ne bouge plus
+
+Au-dessus du plateau, une **zone unique à hauteur réservée** accueille tous les messages : intention de première découverte, indice, coup exact révélé, déplacement illégal, coup légal hors ligne, coup légal qui ne résout pas la tactique, confirmation « ✓ Bon coup » avec son explication, et invitation discrète après trois erreurs sur la même décision. Un seul message principal est affiché à la fois, selon un ordre de priorité fixe ; le coup exact peut être accompagné de l’indice demandé avant lui, sur une seconde ligne plus discrète.
+
+Cette zone réserve **deux lignes** (trois en dessous de 360 px de large), et le bandeau Indice / Solution garde une hauteur fixe. Conséquence mesurée dans le navigateur : le bord supérieur du plateau reste exactement au même endroit pendant toute la séance, à travers intention → coup refusé → indice → solution → bon coup → réponse de l’ordinateur → intention suivante. Variation observée : **0 px** à 320, 390 et 1440 px de large.
+
+Les feedbacks distinguent toujours **déplacement illégal**, **coup légal hors ligne** et **coup légal qui ne résout pas la tactique**. Lors d’une première découverte, une intention générale accompagne automatiquement les quatre premières décisions sans dévoiler de pièce, de case ou de notation et sans augmenter les compteurs. Une répétition redevient moins guidée. Le bon coup réinitialise l’aide du coup courant.
 
 ## Navigation et apparence
 
@@ -52,6 +60,8 @@ Les feedbacks proches du plateau distinguent **déplacement illégal**, **coup l
 
 Les 16 variantes d’origine sont conservées avec leurs noms, coups et explications. Les 60 lignes étendues reprennent exactement leur ligne essentielle puis ajoutent uniquement la continuation.
 
+Chaque carte d’ouverture affiche sa progression, par exemple **« 3 / 6 variantes terminées »**, et **« 6 / 6 ✓ »** lorsqu’elle est complète. Une variante terminée porte une petite coche à côté de son nom, et chaque format terminé (essentielle, étendue) porte la sienne dans le sélecteur. Le répertoire annonce aussi son avancement global, calculé à partir du catalogue et non d’un nombre écrit en dur. **Terminer la ligne essentielle ou la version étendue compte la variante une seule fois** dans ces compteurs.
+
 Les noms et positions caractéristiques ont été recoupés avec le [répertoire d’ouvertures Lichess (CC0)](https://github.com/lichess-org/chess-openings). Les 60 références sont conservées dans `src/test/fixtures/opening-references.json`, y compris les transpositions. Les continuations illustrent des plans cohérents ; elles ne sont pas des suites forcées de meilleurs coups ni un répertoire exhaustif. Certaines lignes viennoises transposent dans d’autres ouvertures ouvertes ; les lignes du Londres sont des réponses et structures typiques.
 
 ## Utiliser le trainer
@@ -81,17 +91,31 @@ Sur téléphone, le plateau utilise la largeur disponible avec 8 px de marge de 
 
 Les gestes sont centralisés dans `src/board/` ; les composants du trainer et de partie libre conservent la décision d’accepter un coup. Le [banc visuel local](qa/README.md) permet de reproduire les simulations tactiles et coups spéciaux sans être inclus dans le site publié.
 
-Les termes importants comme **Roque**, **Promotion**, **Prise en passant**, **Clouage**, **Fianchetto**, **Gaffe** et **Précision estimée** utilisent une infobulle commune. Elle s’ouvre au survol ou au focus, peut être épinglée au clic/tap, se ferme avec Échap ou un clic extérieur et se repositionne pour rester dans le viewport.
+**Échec et mat** sont détectés directement depuis la position affichée et partagés par tous les échiquiers interactifs — ouvertures, tactiques, partie libre, bilan. La case du roi attaqué prend une teinte rouge désaturée, avec une courte pulsation au moment où l’échec apparaît ; l’état disparaît dès que l’échec est levé. `prefers-reduced-motion` supprime la pulsation, jamais la couleur. Un roi maté reçoit en plus un petit médaillon original, teinté selon sa couleur, et l’état visuel se renforce légèrement. En partie libre uniquement, le coup de mat reste visible sur l’échiquier une brève seconde et demie avant l’apparition du bilan de fin de partie déjà existant.
+
+Le glossaire compte **51 termes** définis une seule fois dans `src/data/glossary.ts` : règles et fins de partie (roque, petit et grand roque, promotion, sous-promotion, prise en passant, échec, échec et mat, pat, nulle, répétition, règle des 50 coups, matériel insuffisant, abandon), motifs tactiques (fourchette, clouage, enfilade, attaque à la découverte, sacrifice, menace, contre-attaque, capture), notions stratégiques (gambit, tempo, initiative, développement, coordination, centre, aile roi, aile dame, colonne, colonne ouverte, rangée, diagonale, structure de pions, pion isolé, pions doublés, pion passé, fianchetto), phases de jeu (ouverture, variante, milieu de jeu, finale) et repères du bilan (demi-coup, matériel, évaluation, gaffe, précision estimée, Elo, ECO). Les formes fléchies courantes ouvrent la même définition.
+
+Ces termes sont reconnus automatiquement dans les textes affichés — introductions d’ouverture, explications après chaque coup, fiches de tactique, commentaires du bilan et descriptions de badges. **Seule la première occurrence d’un terme est décorée dans un même bloc**, pour éviter un mur d’icônes. Les limites de mots sont respectées : « pat » n’est jamais détecté dans « compatible ». L’infobulle s’ouvre au survol ou au focus, peut être épinglée au clic/tap, se ferme avec Échap ou un clic extérieur et se repositionne pour rester dans le viewport.
 
 ## Progression locale et badges
 
-La page **Progression** présente vingt accomplissements avec leur avance `X / Y`, leur date de déblocage et une notification non répétée. Les données sont versionnées, validées et conservées dans `localStorage` avec la clé `chess-progress:progress:v1`. Un stockage absent, interdit, ancien ou corrompu revient à une structure sûre. Il n’existe aucun compte, serveur ou transfert entre appareils.
+La page **Progression** présente **quarante et un accomplissements** avec leur avance `X / Y`, leur date de déblocage et une notification non répétée. Les données sont versionnées, validées et conservées dans `localStorage` avec la clé `chess-progress:progress:v1`. Un stockage absent, interdit, ancien ou corrompu revient à une structure sûre. Il n’existe aucun compte, serveur ou transfert entre appareils.
 
-Les quinze badges visibles récompensent une première variante, les dix ouvertures découvertes, une ligne sans Solution, une essentielle sans erreur, les six variantes d’une ouverture, une répétition sans erreur, cinq lignes sans erreur, cinq puis vingt tactiques, une première Partie libre, un premier Game Review et les caps des niveaux 6, 8, 12 et 16.
+Les accomplissements sont regroupés en cinq sections : **Général**, **Ouvertures**, **Tactiques**, **Partie libre** et **Badges secrets**. La section Ouvertures commence par le panneau **Ton répertoire** : une ligne par ouverture, avec ses variantes terminées, sa barre d’avancement et ses deux jalons. Les vingt badges par ouverture y tiennent en dix lignes au lieu de vingt cartes supplémentaires.
+
+- **Découverte · &lt;ouverture&gt;** : terminer une première variante de cette ouverture. Dix badges.
+- **Maîtrise · &lt;ouverture&gt;** : terminer ses six variantes. Dix badges.
+- **Explorateur** : terminer au moins une variante dans chacune des dix ouvertures.
+- **Première maîtrise** : terminer toutes les variantes d’une première ouverture.
+- **Grand Théoricien** : terminer toutes les variantes de toutes les ouvertures. La condition est calculée à partir du catalogue.
+
+Les autres badges visibles récompensent une première variante, une ligne sans Solution, une essentielle sans erreur, une répétition sans erreur, cinq lignes sans erreur, cinq puis vingt tactiques, une première Partie libre, un premier Game Review et les caps des niveaux 6, 8, 12 et 16.
+
+**Déblocage immédiat.** Un badge est calculé au moment exact de l’événement : fin réelle d’une variante, tactique résolue, fin réglementaire d’une partie, sous-promotion effectivement jouée, et analyse disposant de ses données — y compris un bilan rouvert depuis la sauvegarde locale. La progression est persistée, puis la notification est mise en file. Plusieurs badges gagnés ensemble sont tous conservés et annoncés l’un après l’autre, sans doublon et sans exiger de clic : chaque notification laisse la place à la suivante au bout de quelques secondes. Il n’est jamais nécessaire d’ouvrir Progression, de changer de page ni de recharger.
 
 Les cinq badges secrets gardent leur nom masqué jusqu’au déblocage :
 
-- **Sous-promotion** : le joueur promeut réellement son pion en tour, fou ou cavalier pendant une Partie libre.
+- **Sous-promotion** : le joueur promeut réellement son pion en tour, fou ou cavalier pendant une Partie libre. Le badge tombe au moment du coup, sans attendre la fin de la partie.
 - **Perfectionniste** : une Version étendue est terminée sans erreur, sans Indice demandé et sans Solution.
 - **Retour gagnant** : le joueur gagne, puis le Game Review confirme qu’il a été mené d’au moins trois pions ou sous un mat forcé.
 - **David contre Goliath** : après une première victoire enregistrée, le joueur bat un niveau supérieur d’au moins quatre rangs à son précédent meilleur résultat.
@@ -115,9 +139,33 @@ Depuis **ENTRAÎNEMENT LIBRE**, choisir Blancs, Noirs ou Aléatoire, puis une fo
 
 La partie se termine par mat, pat, répétition, règle des 50 coups, matériel insuffisant ou abandon confirmé. Les nulles par répétition et 50 coups sont déclarées automatiquement dans ce prototype, sans procédure de réclamation. Il n’y a pas de chronomètre. L’historique affiche les coups en notation française.
 
-Après la partie, **Analyser ma partie** lance le bilan. Il comprend les six catégories de coups, une précision estimée, la courbe d’évaluation interactive, la navigation dans les positions, un commentaire pour chacun de tes coups, le meilleur coup trouvé et une suite de six demi-coups au maximum. Les compteurs **Meilleurs coups, Excellents, Bons, Imprécisions, Erreurs et Gaffes** sont interactifs : ils ouvrent le premier coup concerné, puis les commandes précédent/suivant restent limitées à cette catégorie avec un repère `X / Y`. **Tous les coups** quitte ce filtre.
+Après la partie, **Analyser ma partie** lance le bilan. Il comprend les six catégories de coups, une précision estimée, la courbe d’évaluation interactive, la navigation dans les positions, un commentaire pour chacun de tes coups, le meilleur coup trouvé et une suite de six demi-coups au maximum. Les compteurs **Meilleurs coups, Excellents, Bons, Imprécisions, Erreurs et Gaffes** sont interactifs : ils ouvrent le premier coup concerné, puis les commandes précédent/suivant restent limitées à cette catégorie avec un repère `X / Y`. **Tous les coups** quitte ce filtre. Sur téléphone, choisir une classification amène directement la décision à l’écran.
 
-Lorsqu’une alternative existe, le plateau revient automatiquement à la position **avant** la décision et une flèche verte indique le meilleur coup déjà calculé, avec son libellé SAN. Les boutons **Mon coup / Meilleur coup** permettent de comparer les deux vues. Si le coup joué était déjà le meilleur, le bilan affiche **✓ Meilleur coup** sans fausse flèche alternative. Ces interactions réutilisent le cache du bilan et ne relancent jamais Stockfish.
+### Une seule vue par décision
+
+Il n’y a **plus de bascule Mon coup / Meilleur coup**, ni sur ordinateur ni sur téléphone. Pour l’un de tes coups, l’échiquier montre la **position après ton coup** :
+
+- ta pièce est réellement sur sa case d’arrivée, qui porte la **couleur de la classification**, son cerclage et son symbole ; la case de départ garde une teinte plus douce ;
+- **ton coup n’est jamais dessiné en flèche** ;
+- si ton coup n’était pas le meilleur, une **seule flèche verte** annote le coup recommandé, avec son libellé SAN dans le bandeau et dans le panneau.
+
+La lecture est donc immédiate : **pièce déplacée et case colorée = ce que tu as joué ; flèche verte = ce qu’il fallait jouer.**
+
+La recommandation est une alternative à la décision précédente : son origine et sa destination viennent de la position d’avant, vérifiées par `chess.js`. Lorsqu’elle part de la case que ton coup vient de quitter — par exemple `Ff1-b5` recommandé alors que tu as joué `Ff1-c4` — cette case est désormais vide : un **liseré vert très discret** la marque pour ancrer la flèche. Aucune pièce fantôme, et jamais une seconde flèche.
+
+Si ton coup était déjà le meilleur, la case devient verte, le panneau affiche **✓ Meilleur coup** et **aucune flèche** n’est ajoutée.
+
+Le code couleur est défini une seule fois, dans `src/ui/classification.ts` pour l’échiquier et dans les jetons `--class-*` de `src/ui/theme.css` pour l’interface : vert pour Meilleur coup, bleu-vert pour Excellent, vert doux pour Bon, jaune pour Imprécision, orange pour Erreur, rouge pour Gaffe. **La couleur ne porte jamais seule l’information** : le symbole, le nom de la classification et la ligne « Meilleur coup : … » restent écrits. Sur l’échiquier, le symbole de chaque classification est un petit repère vectoriel propre à Chess Progress — étoile, coche affirmée ou discrète, croix — sauf Imprécision et Erreur, qui gardent `?!`/`?` en typographie ; les six partagent le même médaillon compact, en coin de case, sans jamais couvrir la pièce.
+
+### Composition du bilan
+
+Le bilan s’ouvre toujours sur la **position initiale**, filtre « Tous les coups » : aucune catégorie n’est présélectionnée. La navigation propose quatre contrôles sur une seule ligne — **Premier, Précédent, Suivant, Dernier** — bornés au coup courant si une classification est active, sinon à toute la partie ; le repère `X / Y` reste synchronisé.
+
+Sur **ordinateur** : barre d’évaluation verticale contre l’échiquier, échiquier au centre, aussi grand que la hauteur de l’écran le permet, panneau d’analyse à droite. Le panneau, une seule surface avec des séparateurs discrets plutôt que plusieurs cartes, empile la classification et le meilleur coup, le commentaire et les évaluations, l’historique cliquable, puis le fil de la partie ; la navigation ferme la colonne, alignée sur le bas de l’échiquier. Le titre du bilan, la précision estimée et les six compteurs partagent une seule bande compacte : à **1440 × 900, les huit rangées de l’échiquier et la navigation tiennent dans le premier écran**, sans défilement. La taille de l’échiquier est calculée depuis la hauteur réellement disponible.
+
+Sur **téléphone** : barre d’évaluation horizontale en haut, fiche compacte du coup (classification et meilleur coup), grand échiquier, navigation à quatre icônes, bande d’historique horizontale, puis le commentaire détaillé et les évaluations. La barre d’évaluation devient un bouton : un appui ouvre le **fil de la partie**, un second le referme, sans perdre le coup sélectionné et sans quitter la page. Les plateaux restent à 359, 374 et 414 px aux largeurs 375, 390 et 430. Sur les écrans très courts, l’échiquier est aussi borné par la hauteur libre et les mentions secondaires s’effacent : à **320 × 568, les huit rangées et la navigation sont visibles sans défilement**, avec un plateau toujours à 304 px.
+
+Cliquer un coup dans l’historique, un point de la courbe ou le curseur du fil met immédiatement à jour l’échiquier, les flèches, la classification, le commentaire et les évaluations. Toutes ces interactions réutilisent le bilan déjà calculé et **ne relancent jamais Stockfish** : aucun Worker n’est créé pendant la navigation.
 
 La dernière partie **terminée**, puis son bilan, sont sauvegardés dans `localStorage` sur cet appareil uniquement. Après une actualisation, ouvrir **Configurer une partie**, puis **Retrouver la partie** ou **Revoir le bilan**. Rien n’est envoyé à un serveur. Le stockage privé/bloqué peut empêcher cette sauvegarde ; un message prévient alors de garder l’onglet ouvert. Une partie encore en cours n’est pas sauvegardée. Supprimer les données du site efface la sauvegarde.
 
@@ -176,10 +224,10 @@ src/trainer/hints.ts        Indices généraux facultatifs et libellés précis 
 src/trainer/useTrainer.ts   Temporisation des réponses automatiques
 src/board/                 Interaction partagée, marqueurs légaux, drag, animations, promotion
 src/engine/                 Intégration UCI, isolation et gestion des erreurs
-src/components/             Accueil, introductions, glossaire, plateau, évaluation et bilan
+src/components/             Accueil, introductions, glossaire, zone pédagogique, plateau et évaluation
 src/progress/               Progression locale, migrations, badges et notifications
 src/computer/               Partie libre, moteur dédié, bilan, graphique et sauvegarde
-src/ui/                    Thèmes, navigation et pièces SVG partagées
+src/ui/                    Thèmes, navigation, pièces SVG et palette de classification
 src/styles.css             Mise en page, composants et responsive
 src/test/                  Tests des 120 lignes, des préfixes, du trainer, de l’UI et du moteur
 public/engine/             Moteur, sources correspondantes et réseau NNUE
@@ -192,7 +240,7 @@ scripts/validate-tactics.mjs Validation Stockfish séparée, hors ligne
 
 ## Lancer localement
 
-Prérequis : **Node.js 24 LTS**, **pnpm 11.19.0**, et l’utilitaire `tar` (fourni avec macOS, Linux et les versions modernes de Windows). Si pnpm n’est pas installé : `npm install -g pnpm@11.19.0`.
+Prérequis : **Node.js 24 LTS** (24.20.0 lors de la dernière validation, minimum `>=22.12.0` déclaré dans `package.json`), **pnpm 11.19.0** (fourni par corepack, valeur `packageManager` du dépôt), et l’utilitaire `tar` (fourni avec macOS, Linux et les versions modernes de Windows). Si pnpm n’est pas installé : `npm install -g pnpm@11.19.0`.
 
 ```sh
 pnpm install --frozen-lockfile
@@ -214,7 +262,7 @@ Ne pas ouvrir `dist/index.html` en double-cliquant : les Workers/WASM doivent ê
 
 ### Tests et runners GitHub Actions
 
-Les tests historiques sont conservés et adaptés. La suite compte désormais **1 316 tests dans 32 fichiers**. Les nouveaux contrôles couvrent notamment les filtres et la synchronisation du Game Review, la flèche du meilleur coup, les anciennes données, les nouveaux favicon/Apple Touch Icon et la dame ascendante, en plus des introductions, 120 séances, infobulles, badges et mesures de rendu déjà validés. Les cartes mobiles, le drag tactile, les 25 niveaux, la protection matérielle et la calibration enregistrée restent couverts. Aucun test n’est supprimé ou désactivé. Les résultats sont consignés dans [VALIDATION.md](VALIDATION.md).
+Les tests historiques sont conservés et adaptés. La suite compte désormais **1 466 tests dans 38 fichiers**. Les nouveaux contrôles couvrent notamment les filtres et la synchronisation du Game Review, la flèche du meilleur coup, les anciennes données, les nouveaux favicon/Apple Touch Icon et la dame ascendante, l’état visuel d’échec et de mat sur tous les échiquiers, la navigation à quatre contrôles et l’ouverture du bilan sur la position initiale, en plus des introductions, 120 séances, infobulles, badges et mesures de rendu déjà validés. Les cartes mobiles, le drag tactile, les 25 niveaux, la protection matérielle et la calibration enregistrée restent couverts. Aucun test n’est supprimé ou désactivé. Les résultats sont consignés dans [VALIDATION.md](VALIDATION.md).
 
 Dans `vite.config.ts`, le délai maximum par test est de **20 secondes en CI**, contre **5 secondes en local**. GitHub définit automatiquement `CI=true` : le workflow existant bénéficie donc du délai adapté aux runners partagés. Aucun test n’est désactivé et les échecs réels restent bloquants. Pour reproduire cette configuration localement : `CI=true pnpm test`. Ce réglage ne modifie pas les délais de l’application ni les recherches Stockfish. La concurrence est limitée à deux processus pour éviter que les rendus du plateau ne se disputent le CPU. `pnpm test` utilise directement cette limite, sans augmenter les 5 secondes locales.
 
@@ -239,7 +287,7 @@ Après toute modification, lancer `pnpm test` puis `pnpm build`. Une variante il
 
 ## Déployer gratuitement sur GitHub Pages
 
-**Cette évolution est livrée pour essai local uniquement. Aucun envoi ni déploiement GitHub n’a été effectué.** Les instructions suivantes serviront lorsque tu décideras de publier.
+Le code est publié sur **[github.com/alexis-morais/chess-progress-trainer](https://github.com/alexis-morais/chess-progress-trainer)**. Chaque envoi sur `main` déclenche le workflow, qui teste, construit puis publie le site. Les évolutions décrites ici sont préparées et validées en local ; leur mise en ligne dépend uniquement du moment où elles sont envoyées.
 
 Le dépôt doit s’appeler **chess-progress-trainer**. Pour un hébergement gratuit avec un compte GitHub Free, le dépôt doit être **public**. Le site ne demande aucun compte à ses visiteurs.
 
@@ -257,7 +305,7 @@ Lorsque les fichiers de ce projet sont présents dans la branche **main** sur Gi
 6. Choisir **Tester et déployer Chess Progress**, puis **Run workflow → Run workflow** pour lancer la première publication. Les prochains envois sur `main` déclenchent automatiquement le déploiement.
 7. Attendre la coche verte. L’adresse est affichée dans **Settings → Pages**, ainsi que dans le résultat du workflow.
 
-Adresse prévue pour le dépôt configuré : **https://mralexis901.github.io/chess-progress-trainer/**. Cette adresse ne fonctionne qu’après la première publication réussie.
+Adresse du site pour ce dépôt : **https://alexis-morais.github.io/chess-progress-trainer/**. Elle ne répond qu’après une première publication réussie du workflow.
 
 Le workflow installe les dépendances depuis le fichier verrouillé, exécute les tests, vérifie les fichiers Stockfish, crée les archives source, construit le site, puis publie **uniquement `dist/`**. Une erreur de test ou de build bloque la publication. Il utilise les actions officielles `configure-pages`, `upload-pages-artifact` et `deploy-pages`. Aucun secret ou jeton personnel à saisir. Les pull requests lancent les tests et le build sans publier.
 

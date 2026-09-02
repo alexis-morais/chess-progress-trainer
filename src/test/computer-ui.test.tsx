@@ -79,13 +79,53 @@ describe('Partie libre : parcours avec le véritable échiquier', () => {
     delete prefix.completedAt;
     const onEnd = vi.fn();
     render(<GameSession initial={prefix} onEnd={onEnd} />);
-    await waitFor(() => expect(onEnd).toHaveBeenCalledOnce());
+    // The mated king stays on screen for a short beat (MATE_SEQUENCE_MS) before onEnd fires.
+    await screen.findByTestId('mate-badge');
+    expect(screen.getByRole('button', { name: /échec et mat/ })).toHaveAttribute(
+      'data-mate',
+      'true',
+    );
+    expect(onEnd).not.toHaveBeenCalled();
+    await waitFor(() => expect(onEnd).toHaveBeenCalledOnce(), { timeout: 3000 });
     expect(onEnd.mock.calls[0][0].result).toEqual({ winner: 'b', reason: 'checkmate' });
     expect(onEnd.mock.calls[0][0].moves.at(-1)).toBe('d8h4');
     expect(screen.getByRole('button', { name: 'h2, pion blanc' })).toHaveAttribute(
       'aria-disabled',
       'true',
     );
+  });
+  it('respecte le délai maximum de 2 s entre le mat joué par le joueur et la fin de partie', async () => {
+    const prefix = matedGame('b');
+    prefix.moves = prefix.moves.slice(0, 3);
+    prefix.result = null;
+    delete prefix.completedAt;
+    const onEnd = vi.fn();
+    render(<GameSession initial={prefix} onEnd={onEnd} />);
+    await waitFor(() =>
+      expect(screen.getByRole('button', { name: 'd8, dame noire' })).not.toHaveAttribute(
+        'aria-disabled',
+        'true',
+      ),
+    );
+    const before = performance.now();
+    play('d8', 'h4');
+    await screen.findByTestId('mate-badge');
+    expect(onEnd).not.toHaveBeenCalled();
+    await waitFor(() => expect(onEnd).toHaveBeenCalledOnce(), { timeout: 3000 });
+    const elapsed = performance.now() - before;
+    // Comfortably inside the 2 s ceiling, and not an instant cut either.
+    expect(elapsed).toBeGreaterThanOrEqual(1000);
+    expect(elapsed).toBeLessThanOrEqual(2000);
+  });
+  it('ne retarde jamais une fin de partie qui n’est pas un mat', async () => {
+    render(<App />);
+    fireEvent.click(screen.getByRole('link', { name: 'ENTRAÎNEMENT LIBRE' }));
+    fireEvent.click(await screen.findByRole('radio', { name: 'Blancs' }));
+    await start();
+    const before = performance.now();
+    await resignGame();
+    expect(performance.now() - before).toBeLessThan(400);
+    expect(await screen.findByRole('heading', { name: 'Défaite' })).toBeVisible();
   });
   it('ajoute un accès séparé sans démarrer Stockfish sur l’accueil', async () => {
     render(<App />);
@@ -207,16 +247,29 @@ describe('Partie libre : parcours avec le véritable échiquier', () => {
     await screen.findByRole('region', { name: 'Résumé de tes coups' });
     expect(ProtocolWorker.all).toHaveLength(2);
     expect(ProtocolWorker.all.every((worker) => worker.terminate.mock.calls.length > 0)).toBe(true);
-    expect(screen.getByTestId('review-position')).toHaveTextContent('2 / 2');
-    fireEvent.click(screen.getByRole('button', { name: 'Coup précédent' }));
+    // The bilan opens on the starting position, filter "Tous les coups", not on any move.
+    expect(screen.getByTestId('review-position')).toHaveTextContent('0 / 2');
+    expect(screen.getByRole('button', { name: 'Premier coup' })).toBeDisabled();
+    expect(screen.getByRole('button', { name: 'Coup précédent' })).toBeDisabled();
+    fireEvent.click(screen.getByRole('button', { name: 'Coup suivant' }));
     expect(screen.getByTestId('review-position')).toHaveTextContent('1 / 2');
     expect(screen.getByTestId('review-comment')).toHaveTextContent('centre');
     expect(screen.getByText('✓ Meilleur coup')).toBeVisible();
     expect(screen.queryByRole('button', { name: 'Meilleur coup' })).toBeNull();
+    // The played move was already the best: no arrow at all, the pawn simply stands on e4.
+    expect(document.querySelector('.computer-board')).not.toHaveAttribute('data-arrow-kind');
+    expect(document.querySelector('.computer-board')).not.toHaveAttribute('data-arrow-count');
     expect(document.querySelector('[id*="arrowhead-0-e2-e4"]')).toBeNull();
-    fireEvent.click(screen.getByRole('button', { name: 'Revenir au début' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Premier coup' }));
+    expect(screen.getByTestId('review-position')).toHaveTextContent('0 / 2');
     expect(screen.getByRole('button', { name: 'Coup précédent' })).toBeDisabled();
     fireEvent.click(screen.getByRole('button', { name: 'Coup suivant' }));
+    expect(screen.getByTestId('review-position')).toHaveTextContent('1 / 2');
+    fireEvent.click(screen.getByRole('button', { name: 'Dernier coup' }));
+    expect(screen.getByTestId('review-position')).toHaveTextContent('2 / 2');
+    expect(screen.getByRole('button', { name: 'Dernier coup' })).toBeDisabled();
+    expect(screen.getByRole('button', { name: 'Coup suivant' })).toBeDisabled();
+    fireEvent.click(screen.getByRole('button', { name: 'Coup précédent' }));
     expect(screen.getByTestId('review-position')).toHaveTextContent('1 / 2');
     fireEvent.change(screen.getByRole('slider', { name: 'Position sur la courbe' }), {
       target: { value: '2' },

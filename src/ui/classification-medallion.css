@@ -1,0 +1,100 @@
+.classification-medallion {
+  --medallion-fill: #558469;
+  --medallion-deep: #315a43;
+  --medallion-ink: #fffdf5;
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 30px;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--medallion-deep) 78%, #fff 22%);
+  border-radius: 50%;
+  color: var(--medallion-ink);
+  background:
+    radial-gradient(circle at 32% 24%, #ffffff38 0 13%, transparent 34%),
+    linear-gradient(145deg, color-mix(in srgb, var(--medallion-fill) 88%, #fff 12%), var(--medallion-deep));
+  box-shadow:
+    0 2px 5px #10221735,
+    inset 0 1px 0 #ffffff70,
+    inset 0 -1px 0 #07160f38;
+  vertical-align: middle;
+}
+
+.classification-medallion svg {
+  display: block;
+  width: 82%;
+  height: 82%;
+  overflow: visible;
+  filter: drop-shadow(0 0.6px 0 #1022172e);
+}
+
+.classification-medallion.best {
+  --medallion-fill: #3b9469;
+  --medallion-deep: #1f6949;
+  --medallion-ink: #fff3bd;
+}
+.classification-medallion.excellent {
+  --medallion-fill: #3c8ca1;
+  --medallion-deep: #236376;
+}
+.classification-medallion.good {
+  --medallion-fill: #6a9778;
+  --medallion-deep: #416b50;
+  --medallion-ink: #fafff7;
+}
+.classification-medallion.inaccuracy {
+  --medallion-fill: #e0b34c;
+  --medallion-deep: #a97718;
+  --medallion-ink: #34280f;
+}
+.classification-medallion.mistake {
+  --medallion-fill: #d48642;
+  --medallion-deep: #9b4f1e;
+}
+.classification-medallion.blunder {
+  --medallion-fill: #cc5660;
+  --medallion-deep: #98313c;
+}
+
+.classification-glyph {
+  fill: currentColor;
+}
+.classification-check,
+.classification-cross,
+.classification-spark {
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.classification-check {
+  stroke-width: 3.15;
+}
+.classification-check.strong {
+  stroke-width: 4.15;
+}
+.classification-cross {
+  stroke-width: 3.9;
+}
+.classification-spark {
+  stroke-width: 2.15;
+}
+.classification-punctuation {
+  fill: currentColor;
+  font-family: ui-rounded, "SF Pro Rounded", "SF Pro Display", system-ui, sans-serif;
+  font-size: 23px;
+  font-weight: 850;
+  letter-spacing: -0.7px;
+}
+.classification-punctuation.inaccuracy {
+  font-size: 18px;
+  letter-spacing: -1.35px;
+  transform: translateX(-0.25px);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .classification-medallion {
+    transition: transform 150ms ease, box-shadow 150ms ease;
+  }
+}

@@ -1,4 +1,4 @@
-import { act, fireEvent, render, screen, within } from '@testing-library/react';
+import { act, fireEvent, render, screen } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { Trainer } from '../components/Trainer';
 import { HomePage } from '../components/HomePage';
@@ -72,11 +72,9 @@ describe('Indice → réflexion → Solution → explication', () => {
         ).toBeInTheDocument();
         play(first.from, first.to);
         expect(screen.getByText('✓ Bon coup !')).toBeVisible();
-        expect(
-          within(screen.getByRole('complementary', { name: 'Ta séance' })).getByText(
-            lesson.steps[side === 'w' ? 0 : 1].explanation,
-          ),
-        ).toBeVisible();
+        expect(screen.getByRole('complementary', { name: 'Ta séance' })).toHaveTextContent(
+          lesson.steps[side === 'w' ? 0 : 1].explanation,
+        );
         expect(screen.queryByTestId('pedagogical-hint')).not.toBeInTheDocument();
         expect(screen.queryByTestId('exact-move')).not.toBeInTheDocument();
         expect(reveal).toBeDisabled();

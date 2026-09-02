@@ -8,7 +8,7 @@ import {
   type ReactNode,
 } from 'react';
 import { Info } from 'lucide-react';
-import { glossary, type GlossaryTerm } from '../data/glossary';
+import { glossary, glossaryAliases, type GlossaryTerm } from '../data/glossary';
 
 export function InfoTooltip({ term, children }: { term: GlossaryTerm; children?: ReactNode }) {
   const [open, setOpen] = useState(false);
@@ -90,20 +90,42 @@ export function InfoTooltip({ term, children }: { term: GlossaryTerm; children?:
   );
 }
 
-const terms = (Object.keys(glossary) as GlossaryTerm[]).sort((a, b) => b.length - a.length);
+const escape = (value: string) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+// Longest wordings first so « colonne ouverte » wins over « colonne ».
+const lookup = new Map<string, GlossaryTerm>();
+for (const term of Object.keys(glossary) as GlossaryTerm[]) {
+  lookup.set(term.toLocaleLowerCase('fr'), term);
+  for (const alias of glossaryAliases[term] ?? []) lookup.set(alias.toLocaleLowerCase('fr'), term);
+}
+const wordings = [...lookup.keys()].sort((a, b) => b.length - a.length);
+// Word boundaries keep « pat » out of « compatible » and « roque » out of « roquer ».
+const pattern = new RegExp(
+  `(?<![\\p{L}\\p{N}\u2019'-])(${wordings.map(escape).join('|')})(?![\\p{L}\\p{N}\u2019'-])`,
+  'giu',
+);
 
+/**
+ * Wraps known chess words with their definition. Only the first occurrence of a term
+ * inside one block is decorated, so a paragraph never turns into a wall of icons.
+ */
 export function GlossaryText({ children }: { children: string }) {
-  const pattern = new RegExp(`(${terms.join('|')})`, 'gi');
+  const seen = new Set<GlossaryTerm>();
   return (
     <>
       {children.split(pattern).map((part, index) => {
-        const term = terms.find((entry) => entry.toLocaleLowerCase('fr') === part.toLocaleLowerCase('fr'));
-        return term ? (
-          <InfoTooltip key={`${part}-${index}`} term={term}>{part}</InfoTooltip>
-        ) : (
-          <Fragment key={`${part}-${index}`}>{part}</Fragment>
+        const term = lookup.get(part.toLocaleLowerCase('fr'));
+        if (!term || seen.has(term))
+          return <Fragment key={`${part}-${index}`}>{part}</Fragment>;
+        seen.add(term);
+        return (
+          <InfoTooltip key={`${part}-${index}`} term={term}>
+            {part}
+          </InfoTooltip>
         );
       })}
     </>
   );
 }
+
+/** Terms actually covered by the glossary, used by the vocabulary test. */
+export const glossaryWordings = wordings;

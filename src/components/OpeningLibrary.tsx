@@ -1,4 +1,4 @@
-import { ArrowLeft, ChevronDown, Flag, Lightbulb, MousePointer2 } from 'lucide-react';
+import { ArrowLeft, Check, ChevronDown, Flag, Lightbulb, MousePointer2 } from 'lucide-react';
 import { OpeningPreview } from './OpeningPreview';
 import { VariationCard } from './VariationCard';
 import { TacticCards } from './TacticCards';
@@ -7,6 +7,8 @@ import { Chess } from 'chess.js';
 import { useEffect, useMemo } from 'react';
 import type { Opening, Variation, LessonMode } from '../data/openings';
 import { sideName } from '../data/openings';
+import { useProgress } from '../progress/ProgressContext';
+import { catalogueCompletion, openingCompletion } from '../progress/model';
 
 type Props = {
   focusOpening?: string | null;
@@ -35,6 +37,8 @@ export function OpeningLibrary({
   onTactic,
   focusOpening,
 }: Props) {
+  const { data } = useProgress();
+  const catalogue = catalogueCompletion(data);
   useEffect(() => {
     if (!focusOpening) return;
     const frame = requestAnimationFrame(() => {
@@ -87,6 +91,10 @@ export function OpeningLibrary({
           </span>
           <i />
           <span>2 niveaux pour chacune</span>
+          <i />
+          <span data-testid="catalogue-progress">
+            {catalogue.done} / {catalogue.total} terminées
+          </span>
         </div>
       </section>
       <section aria-labelledby="library-title">
@@ -148,7 +156,7 @@ export function OpeningLibrary({
                               <span className={`side-dot ${opening.side === 'b' ? 'black' : ''}`} />
                               Vous jouez : {sideName(opening.side)}
                             </span>
-                            <span>{opening.variations.length} variantes</span>
+                            <OpeningProgressBadge opening={opening} data={data} />
                           </div>
                         </div>
                         <ChevronDown className="expand-icon" size={19} />
@@ -224,5 +232,33 @@ export function OpeningLibrary({
         publicité, aucune donnée personnelle collectée.
       </div>
     </main>
+  );
+}
+
+// Essential or Extended finished counts the variation once, so the two formats never
+// inflate this counter.
+function OpeningProgressBadge({
+  opening,
+  data,
+}: {
+  opening: Opening;
+  data: ReturnType<typeof useProgress>['data'];
+}) {
+  const { done, total } = openingCompletion(data, opening.id);
+  const complete = done === total;
+  return (
+    <span
+      className={`opening-progress ${complete ? 'complete' : ''}`}
+      data-testid={`opening-progress-${opening.id}`}
+      aria-label={`${done} sur ${total} variantes terminées${complete ? ', ouverture complète' : ''}`}
+    >
+      {complete ? (
+        <>
+          {done} / {total} <Check size={13} aria-hidden="true" />
+        </>
+      ) : (
+        `${done} / ${total} variantes terminées`
+      )}
+    </span>
   );
 }

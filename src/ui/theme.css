@@ -23,6 +23,20 @@
   --header: #f6f7f2eb;
   --shadow: 0 12px 36px #213c3010;
   --shadow-lift: 0 20px 50px #213c301b;
+  /* Classification tokens: one semantic scale reused by the history, the panel,
+     the summary counters and the chart. Board squares use ui/classification.ts. */
+  --class-best: #1f6b4a;
+  --class-best-soft: #dcefe2;
+  --class-excellent: #206578;
+  --class-excellent-soft: #dbecf1;
+  --class-good: #356b50;
+  --class-good-soft: #e6f0e7;
+  --class-inaccuracy: #856512;
+  --class-inaccuracy-soft: #f6ecd0;
+  --class-mistake: #8f4d14;
+  --class-mistake-soft: #f8e6d6;
+  --class-blunder: #a13340;
+  --class-blunder-soft: #fae9e7;
 }
 :root[data-theme='dark'] {
   color-scheme: dark;
@@ -49,4 +63,16 @@
   --header: #14201eeb;
   --shadow: 0 12px 40px #00000020;
   --shadow-lift: 0 22px 55px #00000030;
+  --class-best: #a9d9b4;
+  --class-best-soft: #2b4437;
+  --class-excellent: #a5d3de;
+  --class-excellent-soft: #23414a;
+  --class-good: #bfdcc6;
+  --class-good-soft: #2c4136;
+  --class-inaccuracy: #e6cf93;
+  --class-inaccuracy-soft: #3f3a26;
+  --class-mistake: #f0bd91;
+  --class-mistake-soft: #4a3527;
+  --class-blunder: #ffb7bc;
+  --class-blunder-soft: #422d31;
 }

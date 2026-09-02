@@ -28,6 +28,8 @@ export type ProgressData = {
   tactics: string[];
   games: number;
   reviews: number;
+  // Game ids whose review was completed, so reopening a saved bilan never counts twice.
+  reviewedGames: string[];
   wonLevels: Difficulty[];
   underpromotion: boolean;
   comeback: boolean;
@@ -41,6 +43,7 @@ export const emptyProgress = (): ProgressData => ({
   tactics: [],
   games: 0,
   reviews: 0,
+  reviewedGames: [],
   wonLevels: [],
   underpromotion: false,
   comeback: false,
@@ -88,6 +91,7 @@ export function parseProgress(value: unknown): ProgressData {
   clean.tactics = stringList(input.tactics, 20).filter((id) => tacticIds.has(id));
   clean.games = Number.isInteger(input.games) ? Math.min(100_000, Math.max(0, Number(input.games))) : 0;
   clean.reviews = Number.isInteger(input.reviews) ? Math.min(clean.games, Math.max(0, Number(input.reviews))) : 0;
+  clean.reviewedGames = stringList(input.reviewedGames, 200);
   clean.wonLevels = Array.isArray(input.wonLevels)
     ? [...new Set(input.wonLevels.filter((item): item is Difficulty => Number.isInteger(item) && item >= 1 && item <= 25))]
     : [];
@@ -141,6 +145,44 @@ export function saveProgress(data: ProgressData, storage: Pick<Storage, 'setItem
 
 export const trainingKey = (result: Pick<TrainingResult, 'openingId' | 'variationId' | 'mode'>) =>
   `${result.openingId}/${result.variationId}/${result.mode}`;
+
+// Catalogue-driven counters: nothing is hard coded, adding a variation updates every total.
+export const catalogueTotal = openings.reduce(
+  (total, opening) => total + opening.variations.length,
+  0,
+);
+export const modeCompleted = (
+  data: ProgressData,
+  openingId: string,
+  variationId: string,
+  mode: LessonMode,
+) => Boolean(data.training[`${openingId}/${variationId}/${mode}`]);
+// One variation counts once, whichever of its two formats was finished.
+export const variationCompleted = (data: ProgressData, openingId: string, variationId: string) =>
+  modeCompleted(data, openingId, variationId, 'essential') ||
+  modeCompleted(data, openingId, variationId, 'extended');
+export function openingCompletion(data: ProgressData, openingId: string) {
+  const opening = openings.find((entry) => entry.id === openingId);
+  if (!opening) return { done: 0, total: 0 };
+  return {
+    done: opening.variations.filter((variation) =>
+      variationCompleted(data, openingId, variation.id),
+    ).length,
+    total: opening.variations.length,
+  };
+}
+export const openingMastered = (data: ProgressData, openingId: string) => {
+  const { done, total } = openingCompletion(data, openingId);
+  return total > 0 && done === total;
+};
+export const openingStarted = (data: ProgressData, openingId: string) =>
+  openingCompletion(data, openingId).done > 0;
+export function catalogueCompletion(data: ProgressData) {
+  return {
+    done: openings.reduce((total, opening) => total + openingCompletion(data, opening.id).done, 0),
+    total: catalogueTotal,
+  };
+}
 
 export function playerUnderpromoted(game: GameRecord) {
   const parity = game.player === 'w' ? 0 : 1;

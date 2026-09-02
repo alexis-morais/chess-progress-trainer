@@ -31,6 +31,10 @@ export default function ComputerMode({ onHome }: { onHome: () => void }) {
     progress.gameComplete(game);
     window.scrollTo(0, 0);
   }, [progress]);
+  const onPlayerMove = useCallback(
+    (game: GameRecord) => progress.moveComplete(game),
+    [progress],
+  );
   const onReview = useCallback(
     (report: ReviewReport) => {
       if (!record) return;
@@ -200,7 +204,12 @@ export default function ComputerMode({ onHome }: { onHome: () => void }) {
             <span className="eyebrow">PARTIE CONTRE STOCKFISH</span>
             <h1>Chaque décision compte.</h1>
           </div>
-          <GameSession key={record.id} initial={record} onEnd={onEnd} />
+          <GameSession
+            key={record.id}
+            initial={record}
+            onEnd={onEnd}
+            onPlayerMove={onPlayerMove}
+          />
         </>
       )}
       {view === 'finished' && record && (

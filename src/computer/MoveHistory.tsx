@@ -3,6 +3,7 @@ import { useEffect, useRef } from 'react';
 import { frenchSan } from '../data/openings';
 import { moveNumber } from './game';
 import { categoryInfo, type ReviewedMove } from './types';
+import { ClassificationMedallion } from '../ui/ClassificationMedallion';
 
 export function MoveHistory({
   moves,
@@ -19,6 +20,17 @@ export function MoveHistory({
   useEffect(() => {
     if (!onSelect && history.current) history.current.scrollTop = history.current.scrollHeight;
   }, [moves.length, onSelect]);
+  // The strip brings the selected move into view by scrolling itself only: using
+  // scrollIntoView here would also drag the whole page towards the history.
+  useEffect(() => {
+    const container = history.current;
+    const target = container?.querySelector<HTMLElement>('button.selected');
+    if (!onSelect || !container || !target) return;
+    const left = target.offsetLeft - container.clientWidth / 2 + target.offsetWidth / 2;
+    const top = target.offsetTop - container.clientHeight / 2 + target.offsetHeight / 2;
+    if (container.scrollWidth > container.clientWidth) container.scrollLeft = Math.max(0, left);
+    if (container.scrollHeight > container.clientHeight) container.scrollTop = Math.max(0, top);
+  }, [onSelect, selected]);
   return (
     <div ref={history} className="computer-history" aria-label="Historique des coups">
       {!moves.length && <p>Aucun coup pour le moment.</p>}
@@ -32,12 +44,10 @@ export function MoveHistory({
               <>
                 <span>{frenchSan(move.san)}</span>
                 {review && (
-                  <span
-                    className={`category-symbol ${review.category}`}
-                    aria-label={categoryInfo[review.category].name}
-                  >
-                    {categoryInfo[review.category].symbol}
-                  </span>
+                  <ClassificationMedallion
+                    category={review.category}
+                    className="history-medallion"
+                  />
                 )}
               </>
             );

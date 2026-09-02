@@ -7,7 +7,7 @@ import { frenchSan, sideName } from '../data/openings';
 import { isExpectedMove, type TrainerState } from '../trainer/model';
 import { useTrainer } from '../trainer/useTrainer';
 import type { CompiledTactic } from './model';
-import { ExerciseFeedback, FocusTitle, mistakeMessage } from '../components/ExerciseFeedback';
+import { FocusTitle, mistakeMessage } from '../components/ExerciseFeedback';
 import { GlossaryText } from '../components/InfoTooltip';
 
 type Props = {
@@ -56,8 +56,8 @@ export function TacticTrainer({ lesson, onRestart, onBack, onNext, onComplete }:
         state={state}
         onHint={() => dispatch({ type: 'hint' })}
         onReveal={() => dispatch({ type: 'solution' })}
+        kind="tactic"
       />
-      <ExerciseFeedback state={state} kind="tactic" />
       <div className="training-layout">
         <section className="board-section" aria-label="Échiquier de la tactique">
           <div className="tactic-board-caption">

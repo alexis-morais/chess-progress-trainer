@@ -205,10 +205,11 @@ button img {
 }
 .info-popover strong { display: block; margin-bottom: 3px; color: var(--text); }
 .guided-intention {
-  padding: 10px 12px;
-  border-left: 3px solid var(--accent);
-  border-radius: 0 10px 10px 0;
-  background: var(--accent-soft);
+  border-left-color: var(--accent);
+}
+.guided-intention strong {
+  color: var(--accent);
+  font-weight: 600;
 }
 .lesson-introduction { padding-block: 34px 70px; }
 .intro-lesson-card {
@@ -256,12 +257,126 @@ button img {
 .badge-card.locked { background: color-mix(in srgb, var(--panel), var(--bg) 34%); }
 .badge-medallion { display: grid; place-items: center; width: 46px; height: 46px; margin-bottom: 20px; border-radius: 50%; color: var(--muted); background: var(--surface-soft); }
 .badge-card.unlocked .badge-medallion { color: var(--gold); background: var(--gold-soft); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--gold), transparent 70%); }
-.badge-card h2 { margin: 7px 0; font-size: 20px; }
+.badge-card h3 { margin: 7px 0; font-size: 20px; }
 .badge-card p { min-height: 48px; margin: 0 0 16px; color: var(--muted); line-height: 1.5; }
 .badge-card small { color: var(--accent); }
 .badge-progress { display: flex; align-items: center; gap: 10px; }
 .badge-progress progress { flex: 1; accent-color: var(--accent); }
 .badge-progress span { font-size: 11px; color: var(--muted); }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+.badge-group { margin-bottom: 38px; }
+.badge-group-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 0 0 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+.badge-group-heading h2 { margin: 0; font-size: 19px; letter-spacing: -0.4px; }
+.badge-group-heading span {
+  font-size: 12px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+/* Twenty per-opening milestones without twenty cards. */
+.repertoire-progress {
+  margin-bottom: 20px;
+  padding: 20px 22px;
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  background: var(--panel);
+}
+.repertoire-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+.repertoire-heading h3 { margin: 3px 0 0; font-size: 17px; }
+.repertoire-heading > strong {
+  font-size: 13px;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+.repertoire-list { list-style: none; margin: 0; padding: 0; }
+.repertoire-list li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 6px 14px;
+  padding: 10px 0;
+  border-top: 1px solid var(--border);
+}
+.repertoire-name { font-size: 13px; overflow-wrap: anywhere; }
+.repertoire-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.repertoire-list li.mastered .repertoire-count { color: var(--accent); font-weight: 600; }
+.repertoire-check { color: var(--accent); }
+.repertoire-medals { display: flex; gap: 6px; }
+.repertoire-medal {
+  padding: 4px 9px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 10px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.repertoire-medal.earned {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
+}
+.repertoire-list progress {
+  grid-column: 1 / -1;
+  width: 100%;
+  height: 4px;
+  accent-color: var(--accent);
+}
+/* Discreet completion marks in the catalogue. */
+.opening-progress {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-variant-numeric: tabular-nums;
+}
+.opening-progress.complete { color: var(--accent); font-weight: 600; }
+.variation-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  margin-left: 7px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent);
+  vertical-align: middle;
+}
+.variant-option.variation-done .radio-indicator { border-color: var(--accent); }
+@media (max-width: 700px) {
+  .repertoire-list li { grid-template-columns: minmax(0, 1fr) auto; }
+  .repertoire-medals { grid-column: 1 / -1; }
+}
 .local-progress-note { display: flex; align-items: center; gap: 8px; margin: 30px 0 0; color: var(--muted); font-size: 12px; }
 .badge-toast { position: fixed; z-index: 1500; right: max(18px, env(safe-area-inset-right)); bottom: max(18px, env(safe-area-inset-bottom)); display: flex; align-items: center; gap: 12px; width: min(340px, calc(100vw - 28px)); padding: 14px; border: 1px solid var(--border); border-radius: 16px; background: var(--panel); box-shadow: var(--shadow-lift); animation: badge-arrival 240ms ease-out; }
 .badge-toast > svg { color: var(--gold); }
@@ -1276,6 +1391,67 @@ main {
     transform: scale(1);
   }
 }
+/* Game Review uses the exact same medallion as the summary and history. The wrapper only
+   anchors it to the destination square; it adds no second circle or competing shadow. */
+.move-badge[data-tone] {
+  top: auto;
+  bottom: 3%;
+  right: 3%;
+  width: clamp(20px, 45%, 35px);
+  height: auto;
+  aspect-ratio: 1;
+  color: inherit;
+  background: transparent;
+  box-shadow: none;
+  animation: badge-appear 0.15s ease-out;
+}
+.move-badge[data-tone] .board-classification-medallion {
+  width: 100%;
+}
+/* The board's own king, toppled on its side — crown left, base right — in the same red
+   family as the check state. Deliberately not a copy of any third-party "mate" icon. */
+.mate-badge {
+  position: absolute;
+  z-index: 6;
+  bottom: 4%;
+  right: 4%;
+  width: clamp(16px, 32%, 26px);
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  box-shadow:
+    0 1.5px 4px #35101445,
+    inset 0 1px 0 #ffffff59,
+    0 0 0 1px #fff8ecdc;
+  overflow: hidden;
+  pointer-events: none;
+  animation: mate-badge-in 0.32s cubic-bezier(0.2, 0.7, 0.3, 1) both;
+}
+.mate-badge .mate-piece {
+  width: 106%;
+  height: 106%;
+  display: block;
+  max-width: none;
+  transform: rotate(-90deg);
+  filter: drop-shadow(0 1px 0 #45101752);
+}
+@keyframes mate-badge-in {
+  from {
+    opacity: 0;
+    transform: scale(0.6) rotate(-10deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mate-badge {
+    animation: none;
+  }
+}
 .evaluation {
   width: 26px;
   flex-shrink: 0;
@@ -1539,18 +1715,86 @@ progress::-moz-progress-bar {
 .assistance-turn {
   color: var(--muted);
   font-size: 11px;
+  line-height: 15px;
+  /* Two reserved lines: the wording changes, the heading height never does. */
+  height: 30px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-align: right;
 }
-.instruction-copy {
+.assistance-heading {
+  min-height: 48px;
+}
+/* Reserved pedagogical slot. Its height never depends on which message is displayed,
+   so the board underneath keeps exactly the same vertical position for a whole session.
+   Every variant shares the same box metrics; only the colours change. */
+.coach-slot {
+  --coach-line: 22px;
+  --coach-lines: 2;
+  display: grid;
+  align-content: center;
+  gap: 4px;
   min-width: 0;
+  height: calc(var(--coach-lines) * var(--coach-line) + 20px);
+  margin-top: 11px;
+  overflow: hidden;
 }
-.instruction-copy p {
-  margin-top: 13px;
+/* Exact move plus the hint asked before it: two short lines inside the same reservation. */
+.coach-slot.paired .hint-description,
+.coach-slot.paired .coach-secondary {
+  -webkit-line-clamp: 1;
+}
+.coach-slot.paired .hint-description small {
+  display: none;
+}
+.coach-secondary {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--muted);
+  border-left-color: var(--border);
+}
+.coach-line {
+  margin: 0;
+  padding: 1px 0 1px 13px;
+  border-left: 3px solid var(--border);
   font-size: 14px;
-  line-height: 1.6;
+  line-height: var(--coach-line);
   overflow-wrap: anywhere;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--coach-lines);
   animation: view-appear 0.18s ease-out;
 }
+.coach-idle {
+  color: var(--muted);
+}
+.coach-mistake {
+  border-left-color: var(--danger);
+  color: var(--danger);
+}
+.coach-mistake strong {
+  margin-right: 3px;
+}
+.coach-correct {
+  border-left-color: var(--success);
+}
+.coach-correct strong {
+  color: var(--success);
+  font-weight: 600;
+}
+.help-prompt {
+  color: var(--accent);
+  font-weight: 550;
+}
+.coach-hint {
+  border-left-color: var(--accent);
+}
 .hint-description {
+  display: block;
+  border-left-color: var(--accent);
   font-weight: 600;
   color: var(--accent);
 }
@@ -1559,7 +1803,7 @@ progress::-moz-progress-bar {
   font-size: 10px;
   font-weight: 400;
   color: var(--muted);
-  margin-top: 3px;
+  margin-top: 1px;
 }
 .session-stats {
   display: flex;
@@ -2249,6 +2493,13 @@ progress::-moz-progress-bar {
     width: 37%;
     height: 37%;
     font-size: clamp(11px, 3.5vw, 17px);
+  }
+  /* Keep the board annotation readable on 320 px without covering the piece's centre. */
+  .move-badge[data-tone] {
+    width: clamp(20px, 45%, 31px);
+  }
+  .mate-badge {
+    width: clamp(15px, 33%, 23px);
   }
   .training-note {
     font-size: 10px;

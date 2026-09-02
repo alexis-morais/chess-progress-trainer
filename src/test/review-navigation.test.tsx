@@ -156,12 +156,26 @@ describe('Bilan : filtres de classifications synchronisés', () => {
   it('réutilise le bilan calculé sans créer de Worker pendant la navigation', () => {
     const worker = vi.fn();
     vi.stubGlobal('Worker', worker);
-    renderReview();
+    const { report } = renderReview();
     fireEvent.click(screen.getByRole('button', { name: 'Erreurs, 1 coup' }));
-    fireEvent.click(screen.getByRole('button', { name: 'Mon coup' }));
-    fireEvent.click(screen.getByRole('button', { name: 'Meilleur coup' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Coup suivant' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Coup précédent' }));
     fireEvent.click(screen.getByRole('button', { name: 'Tous les coups' }));
+    const ply = report.moves.at(-1)!.ply;
+    fireEvent.click(screen.getByRole('button', { name: new RegExp(`^Afficher ${Math.ceil(ply / 2)}\\.`) }));
+    fireEvent.change(screen.getByRole('slider', { name: 'Position sur la courbe' }), {
+      target: { value: '4' },
+    });
     expect(worker).not.toHaveBeenCalled();
+  });
+
+  it('n’offre plus de bascule Mon coup / Meilleur coup, ni sur desktop ni sur mobile', () => {
+    renderReview();
+    for (const label of ['Mon coup', 'Meilleur coup', 'Afficher', 'Réessayer']) {
+      expect(screen.queryByRole('button', { name: label })).toBeNull();
+    }
+    expect(document.querySelector('.best-move-views')).toBeNull();
+    expect(screen.queryByRole('group', { name: 'Vue de la décision' })).toBeNull();
   });
 
   it('synchronise la recommandation avec une orientation Noirs', () => {

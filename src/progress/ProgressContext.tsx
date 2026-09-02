@@ -19,6 +19,7 @@ type ProgressApi = {
   trainingComplete: (result: TrainingResult) => void;
   tacticComplete: (id: string) => void;
   gameComplete: (game: GameRecord) => void;
+  moveComplete: (game: GameRecord) => void;
   reviewComplete: (game: GameRecord, review: ReviewReport) => void;
   dismiss: () => void;
 };
@@ -29,6 +30,7 @@ const standalone: ProgressApi = {
   trainingComplete: () => undefined,
   tacticComplete: () => undefined,
   gameComplete: () => undefined,
+  moveComplete: () => undefined,
   reviewComplete: () => undefined,
   dismiss: () => undefined,
 };
@@ -55,12 +57,13 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
       setNotices((queue) => [...queue, ...newBadges.map((badge) => badge.name)]);
     saveProgress(next);
   }, []);
+  const dismiss = useCallback(() => setNotices((current) => current.slice(1)), []);
   const api = useMemo<ProgressApi>(() => ({
     data,
     notice: notices[0] ?? null,
-    dismiss: () => setNotices((current) => current.slice(1)),
+    dismiss,
     discover(openingId) {
-      const first = !data.discoveries.includes(openingId);
+      const first = !dataRef.current.discoveries.includes(openingId);
       update((draft) => {
         if (!draft.discoveries.includes(openingId)) draft.discoveries.push(openingId);
       });
@@ -98,13 +101,28 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         }
       });
     },
-    reviewComplete(game, review) {
+    // A real under-promotion is a finished event by itself: the badge lands on the move.
+    moveComplete(game) {
+      if (dataRef.current.underpromotion || !playerUnderpromoted(game)) return;
       update((draft) => {
-        draft.reviews += 1;
+        draft.underpromotion = true;
+      });
+    },
+    reviewComplete(game, review) {
+      if (
+        dataRef.current.reviewedGames.includes(game.id) &&
+        (dataRef.current.comeback || !wasComebackWin(game, review))
+      )
+        return;
+      update((draft) => {
+        if (!draft.reviewedGames.includes(game.id)) {
+          draft.reviewedGames.push(game.id);
+          draft.reviews += 1;
+        }
         if (wasComebackWin(game, review)) draft.comeback = true;
       });
     },
-  }), [data, notices, update]);
+  }), [data, dismiss, notices, update]);
   return <Context.Provider value={api}>{children}</Context.Provider>;
 }
 

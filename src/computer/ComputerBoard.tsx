@@ -1,15 +1,17 @@
 import type { Move } from 'chess.js';
 import type { Side } from '../data/openings';
-import { InteractiveBoard, type BoardMark } from '../board/InteractiveBoard';
+import { InteractiveBoard, type BoardArrow, type BoardMark } from '../board/InteractiveBoard';
 export { ChoiceDialog } from '../board/ChoiceDialog';
-export type { BoardMark };
+export type { BoardArrow, BoardMark };
 
 type Props = {
   fen: string;
   player: Side;
   enabled?: boolean;
   last?: Pick<Move, 'from' | 'to'>;
-  arrow?: { from: string; to: string; color?: string; kind?: string };
+  arrow?: BoardArrow;
+  arrows?: BoardArrow[];
+  originHint?: { square: string; color: string };
   mark?: BoardMark | null;
   onMove?: (from: string, to: string, promotion?: string) => boolean;
 };

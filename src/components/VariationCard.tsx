@@ -8,6 +8,9 @@ import {
   type Variation,
   type LessonMode,
 } from '../data/openings';
+import { useProgress } from '../progress/ProgressContext';
+import { GlossaryText } from './InfoTooltip';
+import { modeCompleted, variationCompleted } from '../progress/model';
 
 export function VariationCard({
   opening,
@@ -26,6 +29,8 @@ export function VariationCard({
   onMode: (mode: LessonMode) => void;
   onStart: (mode: LessonMode) => void;
 }) {
+  const { data } = useProgress();
+  const done = variationCompleted(data, opening.id, variation.id);
   const card = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (!selected) return;
@@ -46,14 +51,26 @@ export function VariationCard({
   return (
     <div ref={card} className={`variant-card ${selected ? 'selected-variation' : ''}`}>
       <button
-        className={`variant-option ${selected ? 'selected' : ''}`}
+        className={`variant-option ${selected ? 'selected' : ''} ${done ? 'variation-done' : ''}`}
         aria-pressed={selected}
         aria-expanded={selected}
         aria-controls={`mode-${variation.id}`}
         onClick={onSelect}
       >
         <span>
-          <strong>{variation.name}</strong>
+          <strong>
+            {variation.name}
+            {done && (
+              <span
+                className="variation-check"
+                data-testid={`variation-done-${variation.id}`}
+                title="Variante terminée"
+              >
+                <Check size={11} aria-hidden="true" />
+                <span className="visually-hidden">Variante terminée</span>
+              </span>
+            )}
+          </strong>
           <small>
             {learnerMoveCount(opening.side, variation.moves.length)} coups essentiels ·{' '}
             {variation.eco}
@@ -78,7 +95,15 @@ export function VariationCard({
                   onChange={() => onMode(option.id)}
                 />
                 <span>
-                  <strong>{option.name}</strong>
+                  <strong>
+                    {option.name}
+                    {modeCompleted(data, opening.id, variation.id, option.id) && (
+                      <span className="variation-check" title="Format terminé">
+                        <Check size={11} aria-hidden="true" />
+                        <span className="visually-hidden">Format terminé</span>
+                      </span>
+                    )}
+                  </strong>
                   <small>{option.description}</small>
                   <em>
                     {learnerMoveCount(
@@ -101,7 +126,9 @@ export function VariationCard({
           </button>
           <details className="variant-about">
             <summary>À propos de cette ligne</summary>
-            <p>{variation.description}</p>
+            <p>
+              <GlossaryText>{variation.description}</GlossaryText>
+            </p>
             <div className="line-preview" aria-label="Début de la variante">
               {variation.moves.slice(0, 6).map((move, i) => (
                 <span key={i}>

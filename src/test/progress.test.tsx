@@ -93,6 +93,10 @@ describe('Progression locale et badges', () => {
     expect(screen.getByRole('heading', { name: 'Premier pas' }).closest('article')).toHaveClass('unlocked');
     expect(screen.getByRole('heading', { name: 'Premier pas' }).closest('article')).toHaveTextContent('Débloqué le');
     fireEvent.click(screen.getByRole('button', { name: 'Fermer la notification' }));
+    expect(screen.getByText('Badge débloqué').parentElement).toHaveTextContent(
+      'Découverte · Ouverture italienne',
+    );
+    fireEvent.click(screen.getByRole('button', { name: 'Fermer la notification' }));
     fireEvent.click(screen.getByRole('button', { name: 'Duel' }));
     expect(screen.getByText('Badge débloqué').parentElement).toHaveTextContent('Premier duel');
   });
@@ -106,12 +110,15 @@ describe('Progression locale et badges', () => {
   it('notifie chaque badge simultané une fois, y compris Perfectionniste', () => {
     render(<ProgressProvider><Harness /></ProgressProvider>);
     fireEvent.click(screen.getByRole('button', { name: 'Parfait' }));
-    expect(screen.getByRole('status')).toHaveTextContent('Premier pas');
-    fireEvent.click(screen.getByRole('button', { name: 'Fermer la notification' }));
-    expect(screen.getByRole('status')).toHaveTextContent('Sans filet');
-    fireEvent.click(screen.getByRole('button', { name: 'Fermer la notification' }));
-    expect(screen.getByRole('status')).toHaveTextContent('Perfectionniste');
-    fireEvent.click(screen.getByRole('button', { name: 'Fermer la notification' }));
+    for (const expected of [
+      'Premier pas',
+      'Sans filet',
+      'Découverte · Ouverture italienne',
+      'Perfectionniste',
+    ]) {
+      expect(screen.getByRole('status')).toHaveTextContent(expected);
+      fireEvent.click(screen.getByRole('button', { name: 'Fermer la notification' }));
+    }
     expect(screen.queryByText('Badge débloqué')).toBeNull();
   });
 
@@ -125,6 +132,8 @@ describe('Progression locale et badges', () => {
     render(<ProgressProvider><Harness /></ProgressProvider>);
     fireEvent.click(screen.getByRole('button', { name: 'Terminer' }));
     fireEvent.click(screen.getByRole('button', { name: 'Fermer la notification' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Fermer la notification' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Terminer' }));
     fireEvent.click(screen.getByRole('button', { name: 'Découvrir' }));
     fireEvent.click(screen.getByRole('button', { name: 'Découvrir' }));
     expect(screen.queryByText('Badge débloqué')).toBeNull();
@@ -182,6 +191,6 @@ describe('Progression locale et badges', () => {
     expect(badges.filter((badge) => badge.id.startsWith('cap-')).map((badge) => badge.name)).toEqual([
       'Cap des 1000', 'Cap des 1200', 'Cap des 1600', 'Cap des 2000',
     ]);
-    expect(badges).toHaveLength(20);
+    expect(badges).toHaveLength(41);
   });
 });

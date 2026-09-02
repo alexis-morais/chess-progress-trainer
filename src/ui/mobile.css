@@ -1,17 +1,11 @@
 .mobile-path-caption,
 .mobile-path-art,
 .mobile-path-meta,
-.focus-title,
-.compact-feedback {
+.focus-title {
   display: none;
 }
 body {
   padding-inline: env(safe-area-inset-left, 0px) env(safe-area-inset-right, 0px);
-}
-.help-prompt {
-  margin: 8px 0 0;
-  font-size: 12px;
-  color: var(--accent);
 }
 .hint-nudge {
   animation: hint-invitation 700ms ease-out 1;
@@ -322,6 +316,7 @@ body {
     flex-direction: row;
     align-items: center;
     gap: 8px;
+    min-height: 42px;
   }
   .mobile-focus .assistance-segments {
     width: 174px;
@@ -337,31 +332,31 @@ body {
     font-size: 10px;
     line-height: 1.45;
   }
-  .mobile-focus .instruction-copy p {
-    margin: 8px 0 0;
-    font-size: 12px;
-    line-height: 1.45;
+  /* One single reserved zone above the board: intention, hint, exact move, mistake or
+     confirmation all share the same two lines, so nothing ever pushes the board. */
+  .mobile-focus .coach-slot {
+    --coach-line: 17px;
+    --coach-lines: 2;
+    height: calc(2 * 17px + 12px);
+    margin-top: 6px;
   }
-  .mobile-focus .instruction-copy small {
+  .mobile-focus .coach-line {
+    padding: 1px 0 1px 9px;
+    font-size: 12px;
+  }
+  .mobile-focus .hint-description small {
     display: none;
   }
-  .mobile-focus .compact-feedback {
-    display: flex;
-    gap: 5px;
-    align-items: baseline;
-    flex-wrap: wrap;
-    min-height: 22px;
-    padding: 4px 6px;
-    margin: 0;
-    font-size: 12px;
-    line-height: 1.4;
-    color: var(--text);
+  .mobile-focus .coach-slot.paired .coach-secondary {
+    -webkit-line-clamp: 2;
+    font-size: 11px;
   }
-  .compact-feedback.incorrect {
-    color: var(--danger);
-  }
-  .compact-feedback.correct strong {
-    color: var(--accent);
+  /* The narrowest phones wrap one line further; the reservation follows, still constant. */
+  @media (max-width: 360px) {
+    .mobile-focus .coach-slot {
+      --coach-lines: 3;
+      height: calc(3 * 17px + 12px);
+    }
   }
   .mobile-focus .top-player,
   .mobile-focus .tactic-board-caption {
@@ -490,8 +485,9 @@ body {
     padding-block: 12px;
   }
   .home-page .pathways {
+    /* Header, hero and the card border must all fit above the fold, with a small margin. */
     min-height: calc(
-      100svh - 170px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)
+      100svh - 178px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)
     );
   }
   .home-page .pathway-card {

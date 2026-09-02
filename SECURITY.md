@@ -1,3 +1,21 @@
+# Audit local de sécurité — 2 septembre 2026
+
+## Zone pédagogique, progression, glossaire et refonte du bilan
+
+`pnpm audit --json` signale **0 vulnérabilité** critique, haute, modérée, faible ou informative parmi 219 dépendances. **Aucune dépendance ajoutée**, aucun changement du lockfile, aucune ressource distante. Le détecteur de secrets ne trouve rien : **250 fichiers, 11 commits accessibles, 394 blobs historiques**.
+
+La refonte du Game Review ne change ni le protocole UCI, ni les bornes de recherche, ni la calibration. Elle travaille uniquement sur le rapport déjà validé en mémoire : positions, meilleur coup, SAN, évaluations et classifications. Les coups UCI utilisés par les deux flèches passent toujours par `bestMoveArrow`, qui rejette une valeur absente, mal formée ou illégale, et par la validation `chess.js`. **Le coup joué n’est jamais reconstruit depuis le stockage** : il provient du rejeu de la partie déjà validée. Changer de coup, de classification, ouvrir le fil de la partie ou déplacer le curseur ne crée aucun Worker et ne déclenche aucune recherche ; un test automatisé le vérifie sur l’ensemble de ces interactions.
+
+La progression ajoute un champ `reviewedGames` à la structure locale versionnée. Il est validé comme les autres listes de chaînes — éléments non textuels rejetés, longueur unitaire bornée, doublons supprimés, 200 entrées au maximum — et une sauvegarde antérieure sans ce champ repart d’une liste vide. Les identifiants de badge restent contraints à `^[a-z0-9-]{2,40}$` ; les vingt identifiants par ouverture respectent ce format. Aucun compte, aucun serveur, aucun transfert entre appareils.
+
+Le glossaire construit son expression rationnelle à partir des seules clés déclarées dans `src/data/glossary.ts` et de leurs alias, chaque libellé étant échappé avant assemblage. Les textes décorés proviennent des données du produit, jamais du stockage : aucun contenu restauré n’est interprété comme du balisage. Les infobulles restent du texte.
+
+Le build conserve la vérification d’intégrité des ressources Stockfish, la distribution des sources GPL, la politique CSP `default-src 'none'` avec `script-src 'self' 'wasm-unsafe-eval'` et `worker-src 'self'`, l’en-tête `no-referrer` et le préfixe `/chess-progress-trainer/`. Le lien « Code source de l’application » de la page des licences pointe désormais vers le dépôt réel, `github.com/alexis-morais/chess-progress-trainer` : c’est une correction de conformité GPL, l’ancienne adresse ne répondait pas.
+
+Aucun commit, push ou déploiement n’a été effectué pendant cet audit.
+
+---
+
 # Audit local de sécurité — 1er septembre 2026
 
 ## Game Review filtré et identité versionnée
