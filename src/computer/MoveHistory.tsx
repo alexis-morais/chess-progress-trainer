@@ -55,6 +55,7 @@ export function MoveHistory({
               <button
                 className={selected === ply ? 'selected' : ''}
                 key={ply}
+                data-ply={ply}
                 aria-current={selected === ply ? 'step' : undefined}
                 aria-label={`Afficher ${moveNumber(ply)} ${frenchSan(move.san)}${review ? ` — ${categoryInfo[review.category].name}` : ''}`}
                 onClick={() => onSelect(ply)}

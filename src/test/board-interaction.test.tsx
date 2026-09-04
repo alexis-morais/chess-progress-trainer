@@ -128,6 +128,20 @@ beforeEach(() => {
 });
 
 describe('Sélection commune et clavier', () => {
+  it('découple le camp manipulé de l’orientation sans perdre clavier ni tactile', () => {
+    const observe = vi.fn(() => true);
+    render(<ComputerBoard fen={initial} player="b" interactionSide="w" enabled onMove={observe} />);
+    expect(document.querySelector('.computer-board')).toHaveAttribute('data-orientation', 'black');
+    fireEvent.keyDown(square('e2'), { key: 'Enter' });
+    expect(marks()).toEqual(['e3', 'e4']);
+    fireEvent.keyDown(square('e4'), { key: 'Enter' });
+    expect(observe).toHaveBeenCalledWith('e2', 'e4');
+    const touch = pointer('touch', true);
+    touch.down('e2');
+    touch.move('e3');
+    touch.up('e3');
+    expect(observe).toHaveBeenLastCalledWith('e2', 'e3');
+  });
   it('clic, changement de pièce, désélection et Escape nettoient les marqueurs', () => {
     render(<FreeBoard />);
     fireEvent.click(square('e2'));

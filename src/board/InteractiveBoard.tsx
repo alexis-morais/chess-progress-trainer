@@ -16,6 +16,8 @@ import type { Category } from '../computer/types';
 import { animatedMoves, legalDestinations, type Orientation } from './geometry';
 import { useBoardPointer, SNAP_MS } from './useBoardPointer';
 import { ChoiceDialog } from './ChoiceDialog';
+import { RecommendationLabels } from './RecommendationLabels';
+import { RecommendationArrows } from './RecommendationArrows';
 import { CHECK_VISUAL, MATE_BADGE_RING, MATE_VISUAL } from '../ui/classification';
 import '../ui/classification-medallion.css';
 import './board.css';
@@ -49,13 +51,25 @@ export type BoardMark = {
   fromRing?: string;
   tone?: Category;
 };
-export type BoardArrow = { from: string; to: string; color?: string; kind?: string };
+export type BoardArrow = {
+  from: string;
+  to: string;
+  color?: string;
+  kind?: string;
+  /** Optional, non-interactive teaching label rendered above the board. */
+  badge?: string;
+  moveLabel?: string;
+  evaluation?: string;
+  rank?: number;
+};
 type Props = {
   id: string;
   label: string;
   className?: string;
   fen: string;
   player: 'w' | 'b';
+  /** Side the user may move. Defaults to `player`; orientation always follows `player`. */
+  interactionSide?: 'w' | 'b';
   enabled?: boolean;
   last?: Pick<Move, 'from' | 'to'>;
   arrow?: BoardArrow;
@@ -74,6 +88,7 @@ export function InteractiveBoard({
   className = '',
   fen,
   player,
+  interactionSide = player,
   enabled = false,
   last,
   arrow,
@@ -84,9 +99,19 @@ export function InteractiveBoard({
   onMove,
 }: Props) {
   const drawn = arrows ?? (arrow ? [arrow] : []);
+  const labelledArrows = drawn.filter(
+    (entry) => entry.badge || entry.evaluation || entry.moveLabel,
+  );
+  const standardArrows = drawn.filter(
+    (entry) => !entry.badge && !entry.evaluation && !entry.moveLabel,
+  );
   const root = useRef<HTMLDivElement>(null);
   const game = useMemo(() => new Chess(fen), [fen]);
   const orientation: Orientation = player === 'w' ? 'white' : 'black';
+  const occupiedSquares = useMemo(
+    () => game.board().flatMap((row) => row.flatMap((piece) => (piece ? [piece.square] : []))),
+    [game],
+  );
   // Check/checkmate are read straight from the position: one shared implementation for
   // every board (openings, tactics, free play, review) instead of a per-screen affair.
   const checkedKingSquare = useMemo(() => {
@@ -121,7 +146,7 @@ export function InteractiveBoard({
     choices: string[];
   } | null>(null);
   const pending = promotion?.fen === fen && enabled ? promotion : null;
-  const active = enabled && game.turn() === player && !pending;
+  const active = enabled && game.turn() === interactionSide && !pending;
   const selected = active && selection?.fen === fen ? selection.square : null;
   const destinations = useMemo(
     () => (selected ? legalDestinations(game, selected) : new Map<Square, 'move' | 'capture'>()),
@@ -132,7 +157,7 @@ export function InteractiveBoard({
   }
   function submit(from: Square, to: Square) {
     select(null);
-    if (!active || from === to || game.get(from)?.color !== player) return false;
+    if (!active || from === to || game.get(from)?.color !== interactionSide) return false;
     const choices = game
       .moves({ square: from, verbose: true })
       .filter((move) => move.to === to && move.promotion)
@@ -148,7 +173,7 @@ export function InteractiveBoard({
     root,
     game,
     fen,
-    player,
+    player: interactionSide,
     orientation,
     enabled: active,
     selected,
@@ -160,7 +185,7 @@ export function InteractiveBoard({
   function click(square: Square) {
     if (!interactive) return;
     if (square === selected) select(null);
-    else if (game.get(square)?.color === player) select(square);
+    else if (game.get(square)?.color === interactionSide) select(square);
     else if (selected) submit(selected, square);
     else select(null);
   }
@@ -224,7 +249,7 @@ export function InteractiveBoard({
   useEffect(() => {
     if (!active) setSelection(null);
     if (promotion && promotion.fen !== fen) setPromotion(null);
-  }, [active, fen]);
+  }, [active, fen, promotion]);
 
   return (
     <>
@@ -264,7 +289,7 @@ export function InteractiveBoard({
               lightSquareStyle: { backgroundColor: boardColors.light },
               darkSquareNotationStyle: { color: '#10291e', fontWeight: 600, fontSize: 12 },
               lightSquareNotationStyle: { color: '#344a3c', fontWeight: 600, fontSize: 12 },
-              arrows: drawn.map((entry) => ({
+              arrows: standardArrows.map((entry) => ({
                 startSquare: entry.from,
                 endSquare: entry.to,
                 color: entry.color ?? 'rgba(247,183,67,.94)',
@@ -320,16 +345,14 @@ export function InteractiveBoard({
                     style={style}
                     data-key-square={sq}
                     data-check={squareIsChecked || undefined}
-                    data-check-pulse={
-                      (squareIsChecked && checkPulseSquare === sq) || undefined
-                    }
+                    data-check-pulse={(squareIsChecked && checkPulseSquare === sq) || undefined}
                     data-mate={squareIsMated || undefined}
                     data-drag-source={
                       (pointer.visual?.phase === 'dragging' && pointer.visual.source === sq) ||
                       undefined
                     }
                     data-drag-target={pointer.over === sq || undefined}
-                    data-draggable={(interactive && piece?.color === player) || undefined}
+                    data-draggable={(interactive && piece?.color === interactionSide) || undefined}
                     role="button"
                     tabIndex={interactive ? 0 : -1}
                     aria-disabled={!interactive}
@@ -404,6 +427,16 @@ export function InteractiveBoard({
               },
             }}
           />
+          {labelledArrows.length > 0 && (
+            <RecommendationArrows arrows={labelledArrows} boardOrientation={orientation} />
+          )}
+          {labelledArrows.length > 0 && (
+            <RecommendationLabels
+              arrows={labelledArrows}
+              orientation={orientation}
+              occupiedSquares={occupiedSquares}
+            />
+          )}
         </div>
       </div>
       {pointer.visual &&

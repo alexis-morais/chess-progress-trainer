@@ -1,4 +1,14 @@
-import { ArrowLeft, Check, ChevronDown, Flag, Lightbulb, MousePointer2 } from 'lucide-react';
+import {
+  ArrowLeft,
+  ArrowRight,
+  BookOpen,
+  Check,
+  ChevronDown,
+  Compass,
+  Flag,
+  Lightbulb,
+  MousePointer2,
+} from 'lucide-react';
 import { OpeningPreview } from './OpeningPreview';
 import { VariationCard } from './VariationCard';
 import { TacticCards } from './TacticCards';
@@ -13,6 +23,7 @@ import { catalogueCompletion, openingCompletion } from '../progress/model';
 type Props = {
   focusOpening?: string | null;
   onHome: () => void;
+  onLab?: () => void;
   openings: Opening[];
   expanded: string | null;
   selected: string | null;
@@ -26,6 +37,7 @@ type Props = {
 
 export function OpeningLibrary({
   onHome,
+  onLab = () => {},
   openings,
   expanded,
   selected,
@@ -39,6 +51,11 @@ export function OpeningLibrary({
 }: Props) {
   const { data } = useProgress();
   const catalogue = catalogueCompletion(data);
+  const showCatalogue = () => {
+    const title = document.getElementById('library-title');
+    title?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    title?.focus({ preventScroll: true });
+  };
   useEffect(() => {
     if (!focusOpening) return;
     const frame = requestAnimationFrame(() => {
@@ -97,11 +114,58 @@ export function OpeningLibrary({
           </span>
         </div>
       </section>
+      <section className="opening-pathways" aria-labelledby="opening-pathways-title">
+        <div className="opening-pathways-heading">
+          <span className="eyebrow">DEUX FAÇONS D’APPRENDRE</span>
+          <h2 id="opening-pathways-title">Construis tes bases. Puis explore tes idées.</h2>
+        </div>
+        <div className="opening-pathways-grid">
+          <article className="opening-pathway-card guided">
+            <div className="opening-pathway-top">
+              <span>01</span>
+              <BookOpen size={24} aria-hidden="true" />
+            </div>
+            <span className="eyebrow">ENTRAÎNEMENT GUIDÉ</span>
+            <h3>Apprends les lignes essentielles.</h3>
+            <p>Travaille les ouvertures sélectionnées par Chess Progress, coup après coup.</p>
+            <ul aria-label="Contenu de l’entraînement guidé">
+              <li>10 ouvertures</li>
+              <li>60 variantes</li>
+              <li>Essential + Extended</li>
+            </ul>
+            <button className="button secondary" onClick={showCatalogue}>
+              Voir le répertoire <ArrowRight size={17} />
+            </button>
+          </article>
+          <article className="opening-pathway-card laboratory">
+            <div className="opening-pathway-top">
+              <span>02</span>
+              <Compass size={24} aria-hidden="true" />
+            </div>
+            <span className="eyebrow">LABORATOIRE D’OUVERTURES</span>
+            <h3>Ouverture libre</h3>
+            <p>
+              Explore les ouvertures sans ligne imposée et découvre les meilleurs coups pour ton
+              camp.
+            </p>
+            <ul aria-label="Possibilités de l’Ouverture libre">
+              <li>Contrôle des deux camps</li>
+              <li>3 recommandations Stockfish</li>
+              <li>Exploration sans variante imposée</li>
+            </ul>
+            <button className="button primary" onClick={onLab}>
+              Explorer librement <ArrowRight size={17} />
+            </button>
+          </article>
+        </div>
+      </section>
       <section aria-labelledby="library-title">
         <div className="section-heading">
           <div>
-            <span className="step-number">01</span>
-            <h2 id="library-title">Choisis ton ouverture</h2>
+            <span className="step-number">03</span>
+            <h2 id="library-title" tabIndex={-1}>
+              Choisis ton ouverture
+            </h2>
           </div>
           <span className="muted">Les bons débuts font la différence.</span>
         </div>

@@ -7,6 +7,8 @@ export type { BoardArrow, BoardMark };
 type Props = {
   fen: string;
   player: Side;
+  label?: string;
+  interactionSide?: Side;
   enabled?: boolean;
   last?: Pick<Move, 'from' | 'to'>;
   arrow?: BoardArrow;
@@ -15,13 +17,15 @@ type Props = {
   mark?: BoardMark | null;
   onMove?: (from: string, to: string, promotion?: string) => boolean;
 };
-export function ComputerBoard(props: Props) {
+export function ComputerBoard({ label, ...props }: Props) {
   return (
     <InteractiveBoard
       {...props}
       id="computer-board"
       className="computer-board"
-      label={`Échiquier de partie libre, ${props.player === 'w' ? 'Blancs' : 'Noirs'} en bas`}
+      label={
+        label ?? `Échiquier de partie libre, ${props.player === 'w' ? 'Blancs' : 'Noirs'} en bas`
+      }
       badgeTestId="computer-move-badge"
     />
   );

@@ -14,8 +14,10 @@ import { OpeningIntroduction } from './components/OpeningIntroduction';
 import { ProgressProvider, useProgress } from './progress/ProgressContext';
 import { BadgeToast, ProgressPage } from './progress/ProgressPage';
 import { BrandMark } from './components/BrandMark';
+import './opening-lab/opening-lab.css';
 
 const ComputerMode = lazy(() => import('./computer/ComputerMode'));
+const OpeningLab = lazy(() => import('./opening-lab/OpeningLab'));
 
 export class ErrorBoundary extends Component<{ children: ReactNode }, { error: Error | null }> {
   state: { error: Error | null } = { error: null };
@@ -45,7 +47,11 @@ export class ErrorBoundary extends Component<{ children: ReactNode }, { error: E
 }
 
 export default function App() {
-  return <ProgressProvider><AppContent /></ProgressProvider>;
+  return (
+    <ProgressProvider>
+      <AppContent />
+    </ProgressProvider>
+  );
 }
 
 function AppContent() {
@@ -122,7 +128,10 @@ function AppContent() {
               <House size={16} />
               Accueil
             </button>
-            <button aria-current={view === 'openings' ? 'page' : undefined} onClick={variants}>
+            <button
+              aria-current={view === 'openings' || view === 'opening-lab' ? 'page' : undefined}
+              onClick={variants}
+            >
               <BookOpen size={16} />
               Ouvertures
             </button>
@@ -165,6 +174,16 @@ function AppContent() {
           }
         >
           <ComputerMode onHome={goHome} />
+        </Suspense>
+      ) : view === 'opening-lab' ? (
+        <Suspense
+          fallback={
+            <main id="main" className="page-width">
+              <p role="status">Chargement de l’Ouverture libre…</p>
+            </main>
+          }
+        >
+          <OpeningLab onOpenings={variants} />
         </Suspense>
       ) : activeTactic ? (
         <ActiveTactic
@@ -215,12 +234,13 @@ function AppContent() {
           guided={active.firstDiscovery}
           onComplete={(result) => {
             progress.trainingComplete(result);
-            setActive((current) => current ? { ...current, firstDiscovery: false } : current);
+            setActive((current) => (current ? { ...current, firstDiscovery: false } : current));
           }}
         />
       ) : (
         <OpeningLibrary
           onHome={goHome}
+          onLab={() => openView('opening-lab')}
           openings={openings}
           expanded={expanded}
           selected={selected}
@@ -279,7 +299,12 @@ function ActiveTactic({
   return <TacticTrainer lesson={lesson} {...actions} />;
 }
 
-type Selection = { opening: Opening; variation: Variation; mode: LessonMode; firstDiscovery?: boolean };
+type Selection = {
+  opening: Opening;
+  variation: Variation;
+  mode: LessonMode;
+  firstDiscovery?: boolean;
+};
 function ActiveTrainer({
   selection,
   ...actions

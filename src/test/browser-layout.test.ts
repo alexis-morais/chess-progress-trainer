@@ -20,6 +20,49 @@ type LayoutReport = {
     }[];
   }[];
   freeplay: { width: number; boardWidth: number; overflow: boolean }[];
+  openingPathways: {
+    width: number;
+    height: number;
+    theme: string;
+    cards: { left: number; right: number; width: number }[];
+    columns: string;
+    overflow: boolean;
+    nav: string[];
+  }[];
+  openingLab: {
+    width: number;
+    height: number;
+    theme: string;
+    side: 'w' | 'b';
+    boardWidth: number;
+    boardHeight: number;
+    boardBottom: number;
+    panelBottom: number;
+    panelWidth: number;
+    gridGap: number;
+    overflow: boolean;
+    arrows: number;
+    arrowRoutes: { rank: number; offset: number; width: number; opacity: number }[];
+    labelsInsideBoard: boolean;
+    labelsNonOverlapping: boolean;
+    pointerEventsNone: boolean;
+    viewpointVisible: boolean;
+    historyDoesNotCoverControls: boolean;
+  }[];
+  openingLabHistory: {
+    plies: number;
+    clientHeight: number;
+    scrollHeight: number;
+    scrollTop: number;
+    controlsClear: boolean;
+    overflow: boolean;
+  };
+  openingLabScotch: {
+    labelsNonOverlapping: boolean;
+    labelsInsideBoard: boolean;
+    arrowRoutes: { rank: number; offset: number; width: number; opacity: number }[];
+  };
+  openingRecognition: string[];
   // Vertical position of the openings board through a whole pedagogical sequence.
   trainer: {
     width: number;
@@ -90,6 +133,100 @@ describe('Mesures de rendu dans Chromium, pas des dimensions simulées par jsdom
     expect(row.overflow).toBe(false);
     if (row.width <= 430) expect(row.boardWidth).toBe(row.width - 16);
     else expect(row.boardWidth).toBeGreaterThan(700);
+  });
+
+  it.each(report.openingLab)(
+    '$width px / $theme : laboratoire lisible, interactif et sans débordement',
+    (row) => {
+      expect(row.overflow).toBe(false);
+      expect(row.boardHeight).toBeCloseTo(row.boardWidth, 0);
+      expect(row.arrows).toBe(3);
+      expect(row.arrowRoutes.map(({ rank }) => rank)).toEqual([1, 2, 3]);
+      expect(row.arrowRoutes[0].offset).toBe(0);
+      expect(row.arrowRoutes[0].width).toBeGreaterThan(row.arrowRoutes[1].width);
+      expect(row.arrowRoutes[1].width).toBeGreaterThan(row.arrowRoutes[2].width);
+      expect(row.arrowRoutes[0].opacity).toBeGreaterThan(row.arrowRoutes[1].opacity);
+      expect(row.arrowRoutes[1].opacity).toBeGreaterThan(row.arrowRoutes[2].opacity);
+      expect(row.labelsInsideBoard).toBe(true);
+      expect(row.labelsNonOverlapping).toBe(true);
+      expect(row.pointerEventsNone).toBe(true);
+      expect(row.viewpointVisible).toBe(true);
+      expect(row.historyDoesNotCoverControls).toBe(true);
+      if (row.width <= 430) {
+        expect(row.boardWidth).toBe(row.width - 16);
+        expect(row.boardBottom).toBeLessThanOrEqual(row.height);
+      }
+      if (row.width === 1280 && row.height === 720) {
+        expect(row.boardBottom).toBeLessThanOrEqual(row.height + 1);
+        expect(row.panelBottom).toBeLessThanOrEqual(row.height + 1);
+      }
+      if (row.width === 1440) {
+        expect(row.boardWidth).toBeGreaterThanOrEqual(680);
+        expect(row.boardWidth).toBeLessThanOrEqual(710);
+        expect(row.panelWidth).toBe(340);
+        expect(row.gridGap).toBe(24);
+      }
+    },
+  );
+
+  it('couvre le laboratoire en clair et sombre, du téléphone au desktop', () => {
+    expect(new Set(report.openingLab.map((row) => row.theme))).toEqual(new Set(['light', 'dark']));
+    expect(new Set(report.openingLab.map((row) => row.width))).toEqual(
+      new Set([320, 390, 820, 1280, 1440]),
+    );
+    expect(new Set(report.openingLab.map((row) => row.side))).toEqual(new Set(['w', 'b']));
+  });
+
+  it('sépare réellement les trajectoires concurrentes sur la position initiale', () => {
+    for (const row of report.openingLab) {
+      const alternatives = row.arrowRoutes.slice(1);
+      expect(alternatives.some(({ offset }) => offset !== 0)).toBe(true);
+    }
+  });
+
+  it('conserve les flèches et cartouches distincts dans la position écossaise contrôlée', () => {
+    expect(report.openingLabScotch.labelsNonOverlapping).toBe(true);
+    expect(report.openingLabScotch.labelsInsideBoard).toBe(true);
+    expect(report.openingLabScotch.arrowRoutes).toHaveLength(3);
+    expect(report.openingLabScotch.arrowRoutes[0].offset).toBe(0);
+    expect(report.openingLabScotch.arrowRoutes.slice(1).some(({ offset }) => offset !== 0)).toBe(
+      true,
+    );
+  });
+
+  it.each(report.openingPathways)(
+    '$width px / $theme : les deux parcours restent dans la page et la navigation ne change pas',
+    (row) => {
+      expect(row.overflow).toBe(false);
+      expect(row.cards).toHaveLength(2);
+      expect(row.nav).toEqual(['Accueil', 'Ouvertures', 'Partie libre', 'Progression']);
+      for (const card of row.cards) {
+        expect(card.left).toBeGreaterThanOrEqual(0);
+        expect(card.right).toBeLessThanOrEqual(row.width);
+      }
+      if (row.width <= 390) expect(row.columns.split(' ')).toHaveLength(1);
+      if (row.width >= 820) expect(row.columns.split(' ')).toHaveLength(2);
+    },
+  );
+
+  it('garde trente demi-coups dans un historique interne sans recouvrir les commandes', () => {
+    expect(report.openingLabHistory.plies).toBe(30);
+    expect(report.openingLabHistory.scrollHeight).toBeGreaterThan(
+      report.openingLabHistory.clientHeight,
+    );
+    expect(report.openingLabHistory.scrollTop).toBeGreaterThan(0);
+    expect(report.openingLabHistory.controlsClear).toBe(true);
+    expect(report.openingLabHistory.overflow).toBe(false);
+  });
+
+  it('recalcule ouverture, variante, sortie puis nouvelle branche depuis la position affichée', () => {
+    expect(report.openingRecognition).toEqual([
+      'Ouverture écossaise',
+      'Ouverture écossaiseVariante classique',
+      'Ouverture écossaiseHors répertoire',
+      'Ouverture écossaiseVariante classique',
+      'Ouverture écossaiseVariante Schmidt',
+    ]);
   });
 
   it.each(report.trainer)(
@@ -201,7 +338,12 @@ describe('Mesures de rendu dans Chromium, pas des dimensions simulées par jsdom
   it.each(report.review)(
     '$width × $height : quatre contrôles de navigation, dans cet ordre, sur une ligne',
     (row) => {
-      expect(row.navButtons).toEqual(['Premier coup', 'Coup précédent', 'Coup suivant', 'Dernier coup']);
+      expect(row.navButtons).toEqual([
+        'Premier coup',
+        'Coup précédent',
+        'Coup suivant',
+        'Dernier coup',
+      ]);
       expect(row.nav.h).toBeLessThanOrEqual(56);
     },
   );

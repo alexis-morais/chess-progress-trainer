@@ -14,12 +14,15 @@ export function EvaluationBar({
   orientation,
   label: labelOverride,
   description: descriptionOverride,
+  perspective = 'white',
 }: {
   analysis: AnalysisState;
   orientation: 'white' | 'black';
   /** The review passes the exact bilan wording; the trainer keeps the live one. */
   label?: string;
   description?: string;
+  /** Controls only the explanatory tooltip; bar geometry remains based on White's share. */
+  perspective?: 'white' | 'black';
 }) {
   const score = analysis.evaluation;
   const whitePercent =
@@ -48,7 +51,10 @@ export function EvaluationBar({
         <div className="eval-white" />
         <span className="eval-midline" />
       </div>
-      <span className="eval-side" title="Évaluation du point de vue des Blancs">
+      <span
+        className="eval-side"
+        title={`Évaluation du point de vue des ${perspective === 'white' ? 'Blancs' : 'Noirs'}`}
+      >
         ±
       </span>
     </div>

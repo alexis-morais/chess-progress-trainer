@@ -8,7 +8,7 @@ Dans le **mode Ouvertures**, le principe reste inchangé :
 
 > Les coups de l’adversaire sont prédéfinis par les variantes pédagogiques. Stockfish est utilisé uniquement pour l’évaluation des positions.
 
-Dans les **Tactiques**, les coups et réponses sont également scriptés : aucun moteur ne démarre pendant l’exercice. Stockfish sert à vérifier les solutions lors de la préparation des données. Dans le **mode Partie libre**, Stockfish choisit réellement ses coups. Ces trois usages sont séparés dans le code.
+Dans les **Tactiques**, les coups et réponses sont également scriptés : aucun moteur ne démarre pendant l’exercice. Stockfish sert à vérifier les solutions lors de la préparation des données. Dans le laboratoire **Ouverture libre**, l’utilisateur contrôle les deux camps et Stockfish recommande jusqu’à trois coups uniquement au tour du camp étudié. Dans le **mode Partie libre**, Stockfish choisit réellement ses coups. Ces usages sont séparés dans le code.
 
 Évolution du 30 août 2026 : accueil à deux entrées, vues dédiées, thèmes clair et sombre, échiquiers agrandis et pièces vectorielles classiques. Le catalogue, les deux formats, la partie libre, les bilans et les règles pédagogiques sont conservés.
 
@@ -33,7 +33,7 @@ Les feedbacks distinguent toujours **déplacement illégal**, **coup légal hors
 ## Navigation et apparence
 
 - **Accueil** : choisir entre apprendre les ouvertures et jouer contre l’ordinateur.
-- **Ouvertures** : parcourir les deux camps. Chaque ouverture propose **APPRENDRE** (variantes et formats) et **TACTIQUES** (exercices indépendants des variantes).
+- **Ouvertures** : parcourir les deux camps. Chaque ouverture propose **APPRENDRE** (variantes et formats) et **TACTIQUES** (exercices indépendants des variantes). L’accès **Ouverture libre** ouvre le laboratoire sans imposer de variante.
 - **Partie libre** : choisir son camp et le niveau de Stockfish, jouer puis consulter le bilan.
 - **Progression** : consulter les accomplissements conservés uniquement sur cet appareil.
 - La navigation utilise les fragments `#/`, `#/ouvertures`, `#/partie` et `#/progression`. Le retour du navigateur fonctionne et les liens sont actualisables sur GitHub Pages sans serveur de routage.
@@ -78,6 +78,14 @@ Les noms et positions caractéristiques ont été recoupés avec le [répertoire
 Ton camp est toujours en bas. Si tu joues les Noirs, l’ordinateur joue le premier coup blanc après 600 ms. La progression compte uniquement **tes** coups, pas ceux de l’adversaire. Le compteur principal indique les coups complétés ; « Coup 3 / 6 » désigne la prochaine décision attendue. Le dernier mouvement est surligné pour les deux camps.
 
 **Recommencer** et **Rejouer la variante** réinitialisent la position, la progression de la séance, les erreurs, les aides, les sélections, les feedbacks, les minuteries et le moteur d’analyse. Le mode choisi est conservé. L’état exact d’une séance en cours n’est pas repris après une actualisation, mais ses accomplissements terminés sont enregistrés dans la progression locale.
+
+## Explorer en Ouverture libre
+
+Depuis la page **Ouvertures**, choisir **Explorer librement**, puis le camp à étudier. Ce camp reste orienté en bas pendant toute la session, mais l’utilisateur déplace alternativement les pièces blanches et noires selon le trait. Tout coup légal est accepté, même s’il quitte complètement le catalogue Chess Progress.
+
+Au tour du camp étudié, le Stockfish local analyse la position en `MultiPV 3` avec un budget court (profondeur 13, 320 ms) et affiche jusqu’à trois propositions : **MEILLEUR**, **EXCELLENT** et **BON**. Chaque flèche indique le coup en notation française et l’évaluation approximative de la position résultante, avec un signe toujours exprimé du point de vue du camp étudié. Au tour adverse, toutes les propositions disparaissent ; une analyse plus légère met seulement à jour la barre d’évaluation.
+
+Les anciennes réponses du Worker sont annulées et ignorées après un coup, un retour dans l’historique, un changement de branche ou un reset. **Coup précédent**, **Coup suivant** et l’historique restaurent la position exacte ; jouer depuis une ancienne position tronque la continuation future. Ce laboratoire n’écrit rien dans la progression, ne débloque aucun badge et n’enregistre pas la session dans `localStorage`.
 
 ## Interagir avec l’échiquier
 
@@ -226,6 +234,7 @@ src/board/                 Interaction partagée, marqueurs légaux, drag, anima
 src/engine/                 Intégration UCI, isolation et gestion des erreurs
 src/components/             Accueil, introductions, glossaire, zone pédagogique, plateau et évaluation
 src/progress/               Progression locale, migrations, badges et notifications
+src/opening-lab/            Laboratoire d’ouverture, chronologie et analyse MultiPV locale
 src/computer/               Partie libre, moteur dédié, bilan, graphique et sauvegarde
 src/ui/                    Thèmes, navigation, pièces SVG et palette de classification
 src/styles.css             Mise en page, composants et responsive
